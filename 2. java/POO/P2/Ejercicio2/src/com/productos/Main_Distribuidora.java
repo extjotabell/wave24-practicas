@@ -8,7 +8,6 @@ public class Main_Distribuidora {
     public static void main(String[] args) {
 
         Producto productosPerecederos[] = new Producto[5];
-
         productosPerecederos[0] = new Perecedero("Carne 1K", 30000, 1);
         productosPerecederos[1] = new Perecedero("Yogurt", 7500, 2);
         productosPerecederos[2] = new Perecedero("Queso", 8000, 3);
@@ -16,7 +15,6 @@ public class Main_Distribuidora {
         productosPerecederos[4] = new Perecedero("Huevos", 15000, 20);
 
         Producto productosNoPerecederos[] = new Producto[5];
-
         productosNoPerecederos[0] = new NoPerecedero("Atun", 5400, "Enlatados");
         productosNoPerecederos[1] = new NoPerecedero("Sal", 6000, "Condimento");
         productosNoPerecederos[2] = new NoPerecedero("Cereal", 8000, "Cereales");
