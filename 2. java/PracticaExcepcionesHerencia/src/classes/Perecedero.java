@@ -23,8 +23,8 @@ public class Perecedero extends Producto{
     public String toString() {
         return "Perecedero{" +
                 "diasPorCaducar=" + diasPorCaducar +
-                ", nombre='" + nombre + '\'' +
-                ", precio=" + precio +
+                ", nombre='" + super.getNombre() + '\'' +
+                ", precio=" + super.getPrecio() +
                 '}';
     }
 
@@ -34,7 +34,7 @@ public class Perecedero extends Producto{
     @Override
     public double calcular(int cantidadDeProductos){
         double resultado;
-        resultado = (precio * cantidadDeProductos);
+        resultado = (super.getPrecio() * cantidadDeProductos);
         try {
             if (diasPorCaducar == 1) {
                 resultado = resultado / 4;

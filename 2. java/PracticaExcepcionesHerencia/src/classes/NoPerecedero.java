@@ -11,8 +11,8 @@ public class NoPerecedero extends Producto{
     @Override
     public String toString() {
         return "NoPerecedero{" +
-                "nombre='" + nombre + '\'' +
-                ", precio=" + precio +
+                "nombre='" + super.getNombre() + '\'' +
+                ", precio=" + super.getPrecio() +
                 '}';
     }
 

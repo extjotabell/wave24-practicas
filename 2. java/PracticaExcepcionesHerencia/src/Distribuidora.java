@@ -28,7 +28,7 @@ public class Distribuidora {
         Producto producto9 = new NoPerecedero("ProductoEjemplo9", 900);
         Producto producto10 = new NoPerecedero("ProductoEjemplo10", 1000);
 
-        ArrayList<Producto> productos = new ArrayList<Producto>();
+        ArrayList<Producto> productos = new ArrayList<>();
         productos.add(producto1);
         productos.add(producto2);
         productos.add(producto3);
@@ -41,7 +41,7 @@ public class Distribuidora {
         productos.add(producto9);
         productos.add(producto10);
 
-        //imprimir el precio total al vender 5 productos de cada tipo.
+        //Imprimir el precio total al vender 5 productos de cada tipo.
         //Para los Perecederos
         int precioTotal = 0;
         for(int i=0; i<5; i++){

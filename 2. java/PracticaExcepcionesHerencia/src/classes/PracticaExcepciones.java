@@ -4,7 +4,7 @@ public class PracticaExcepciones {
     int a=0;
     int b=300;
 
-    public double Ejercicio1(){
+    public double ejercicio1(){
         double resultado = 0;
         try {
              resultado = b / a;
@@ -18,14 +18,13 @@ public class PracticaExcepciones {
         return resultado;
     }
 
-    public double Ejercicio2(){
+    public double ejercicio2(){
         double resultado = 0;
         try {
             resultado = b / a;
-            throw new IllegalArgumentException("No se puede dividir por cero");
         }
-        catch (IllegalArgumentException e){
-            System.out.println(e.getMessage());
+        catch (ArithmeticException e){
+            throw new IllegalArgumentException("No se puede dividir por cero");
         }
         finally {
             System.out.println("Programa finalizado");
