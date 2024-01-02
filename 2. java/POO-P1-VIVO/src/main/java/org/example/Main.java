@@ -11,6 +11,5 @@ public class Main {
 
         Person PersonAllConstructor = new Person("Imanol", 20, "45084386", 80.2, 1.78);
 
-
     }
 }

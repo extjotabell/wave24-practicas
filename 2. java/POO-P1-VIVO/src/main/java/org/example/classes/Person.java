@@ -22,4 +22,32 @@ public class Person {
         this.weight = weight;
         this.height = height;
     }
+
+    public Integer caculateIMC() {
+        double result = weight / (Math.pow(height, 2));
+        if (result < 20) {
+            return -1;
+        }
+        else if (result >= 20 && result <= 25) {
+            return 0;
+        }
+        else {
+            return 1;
+        }
+    }
+
+    public Boolean isHolder(){
+        return age >= 18;
+    }
+
+    @Override
+    public String toString() {
+        return "Persona{" +
+                "nombre='" + name + '\'' +
+                ", edad=" + age +
+                ", dni='" + dni + '\'' +
+                ", peso=" + weight +
+                ", altura=" + height +
+                '}';
+    }
 }
