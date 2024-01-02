@@ -15,8 +15,7 @@ public class Distribuidora {
         productos[7] = new NoPerecedero("Galletas", 1.5, "Snack");
         productos[8] = new Perecedero("Huevos", 3.0, 2);
         productos[9] = new NoPerecedero("Cereal", 4.0, "Desayuno");
-
-        // Calcular el precio total al vender 5 productos de cada tipo
+        
         double precioTotal = 0;
 
         for (Producto producto : productos) {
