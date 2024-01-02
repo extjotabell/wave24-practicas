@@ -1,7 +1,7 @@
 package classes;
 
 public class Perecedero extends Producto{
-    int diasPorCaducar;
+    private int diasPorCaducar;
 
     //CONSTRUCTOR
     public Perecedero(String nombre, double precio, int diasPorCaducar) {

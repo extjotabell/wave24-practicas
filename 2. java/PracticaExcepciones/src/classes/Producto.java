@@ -1,8 +1,8 @@
 package classes;
 
 public class Producto {
-    String nombre;
-    double precio;
+    private String nombre;
+    private double precio;
 
     //GETTERS Y SETTERS
     public String getNombre() {
