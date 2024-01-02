@@ -3,6 +3,7 @@ package classes;
 public class ExceptionHandler {
     private int a = 0;
     private int b = 300;
+    private String errorMsg = "It has been an error";
 
     public String divide() {
         try {
@@ -10,8 +11,11 @@ public class ExceptionHandler {
 
             return "Result: " + res;
         } catch (ArithmeticException e) {
-            return "It has been an error";
+            throw new IllegalArgumentException(errorMsg);
         }
     }
 
+    public void setErrorMsg(String errorMsg) {
+        this.errorMsg = errorMsg;
+    }
 }
