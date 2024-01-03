@@ -1,6 +1,6 @@
 package clases;
 
-public class Report extends Document{
+public class Report extends Document {
     String text;
     int pageCount;
     String author;
@@ -12,6 +12,7 @@ public class Report extends Document{
         this.author = author;
         this.reviewer = reviewer;
     }
+
     @Override
     public void showContent() {
         System.out.println("Report");
@@ -20,4 +21,37 @@ public class Report extends Document{
         System.out.println("Number of pages: " + pageCount);
         System.out.println("Text: " + text);
     }
+
+    public String getText() {
+        return text;
+    }
+
+    public void setText(String text) {
+        this.text = text;
+    }
+
+    public int getPageCount() {
+        return pageCount;
+    }
+
+    public void setPageCount(int pageCount) {
+        this.pageCount = pageCount;
+    }
+
+    public String getAuthor() {
+        return author;
+    }
+
+    public void setAuthor(String author) {
+        this.author = author;
+    }
+
+    public String getReviewer() {
+        return reviewer;
+    }
+
+    public void setReviewer(String reviewer) {
+        this.reviewer = reviewer;
+    }
 }
+
