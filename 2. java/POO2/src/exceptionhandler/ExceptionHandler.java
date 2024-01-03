@@ -1,4 +1,4 @@
-package classes;
+package exceptionhandler;
 
 public class ExceptionHandler {
     private int a = 0;
