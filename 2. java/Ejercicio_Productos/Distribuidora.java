@@ -1,16 +1,16 @@
 package Ejercicio_Productos;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class Distribuidora {
-    // donde van a crear un array de productos, imprimir el precio total al vender 5 productos de cada tipo.
-    // Crear los elementos del array con los datos que quieras.
-
-    public List<Producto> productos = new ArrayList<>();
-
-    public List<Producto> getProductos() {
-        return productos;
+    Producto[] products;
+    Producto product1 = new Perecedero(4,"Coca Cola", 5.5);
+    Producto product2 = new NoPerecedero("Vino", 4.5,"bebida fria");
+    public void printProducts(){
+        double total = 0;
+        this.products = new Producto[]{product1, product2};
+        for (int i = 0; i < this.products.length; i++) {
+            total += this.products[i].calculate(5);
+        }
+        System.out.println("El total de precios de la distribuidora es: " + total);
     }
 
 }
