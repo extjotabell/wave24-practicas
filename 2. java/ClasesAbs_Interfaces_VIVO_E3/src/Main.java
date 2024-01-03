@@ -1,3 +1,4 @@
+import classes.Animal;
 import classes.Gato;
 import classes.Perro;
 import classes.Vaca;
@@ -15,5 +16,10 @@ public class Main {
         Vaca vaca = new Vaca();
         System.out.println("Vaca");
         vaca.emitirSonido();
+
+        Animal.comerAnimal(perro);
+        Animal.comerAnimal(gato);
+        Animal.comerAnimal(vaca);
+
     }
 }
