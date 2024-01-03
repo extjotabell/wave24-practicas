@@ -15,6 +15,7 @@ public class Distribuidora {
         NoPerecedero noPerecedero = new NoPerecedero("Atun en lata",7000,"pescado");
 
         productos.add(perecedero);
+
         productos.add(noPerecedero);
 
         for(Producto producto: this.productos){
