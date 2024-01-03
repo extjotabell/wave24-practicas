@@ -1,2 +1,5 @@
-package interfaces;public interface Herbivore {
+package interfaces;
+
+public interface Herbivore {
+    void eatGrass();
 }
