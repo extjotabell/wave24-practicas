@@ -4,7 +4,6 @@ public class Person {
     private int age;
     private String dni;
     private double weight;
-
     private double height;
     public Person() {
     }
@@ -36,35 +35,4 @@ public class Person {
     public String toString() {
         return "Person [name=" + name + ", age=" + age + ", dni=" + dni + ", weight=" + weight + ", height=" + height + "]";
     }
-    public String getName() {
-        return name;
-    }
-    public void setName(String name) {
-        this.name = name;
-    }
-    public int getAge() {
-        return age;
-    }
-    public void setAge(int age) {
-        this.age = age;
-    }
-    public String getDni() {
-        return dni;
-    }
-    public void setDni(String dni) {
-        this.dni = dni;
-    }
-    public double getWeight() {
-        return weight;
-    }
-    public void setWeight(double weight) {
-        this.weight = weight;
-    }
-    public double getHeight() {
-        return height;
-    }
-    public void setHeight(double height) {
-        this.height = height;
-    }
-
 }
