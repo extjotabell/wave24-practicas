@@ -26,25 +26,48 @@ public class Main {
         listaVehiculos.sort(Comparator.comparing(Vehiculo::getCosto));
 
         System.out.println("Lista de vehículos ordenados por precio de menor a mayor:");
-        for (Vehiculo vehiculo : listaVehiculos) {
-            System.out.println(vehiculo.getModelo() + " - " + vehiculo.getMarca() + " - $" + vehiculo.getCosto());
-        }
-
-
-        System.out.println("---------------------------------------");
-        System.out.println("---------------------------------------");
-        System.out.println("---------------------------------------");
+        imprimirListaVehiculos(listaVehiculos);
 
         listaVehiculos.sort(Comparator
                 .comparing(Vehiculo::getMarca)
                 .thenComparingDouble(Vehiculo::getCosto));
 
         System.out.println("Lista de vehículos ordenados por marca y precio:");
-        for (Vehiculo vehiculo : listaVehiculos) {
-            System.out.println(vehiculo.getModelo() + " - " + vehiculo.getMarca() + " - $" + vehiculo.getCosto());
-        }
+        imprimirListaVehiculos(listaVehiculos);
+
+        List<Vehiculo> preciosMenor1000 = listaVehiculos
+                .stream()
+                .filter(vehiculo -> vehiculo.getCosto() < 1000)
+                .toList();
+
+        System.out.println("Lista de vehículos con precio no mayor a 1000:");
+        imprimirListaVehiculos(preciosMenor1000);
+
+        List<Vehiculo> preciosMayorIgual1000 = listaVehiculos
+                .stream()
+                .filter(vehiculo -> vehiculo.getCosto() >= 1000)
+                .toList();
+
+        System.out.println("Lista de vehículos con precios mayores o iguales a 1000:");
+        imprimirListaVehiculos(preciosMayorIgual1000);
+
+        double promedioTotalPrecios = listaVehiculos
+                .stream()
+                .mapToDouble(Vehiculo::getCosto)
+                .average()
+                .orElse(0.0);
+
+        System.out.println("Promedio total de precios de toda la lista de vehículos: $" + promedioTotalPrecios);
+
+    }
 
 
-
+    private static void imprimirListaVehiculos(List<Vehiculo> lista) {
+        lista.forEach(vehiculo ->
+                System.out.println(vehiculo.getModelo() + " - " + vehiculo.getMarca() + " - $" + vehiculo.getCosto())
+        );
+        System.out.println("---------------------------------------");
+        System.out.println("---------------------------------------");
+        System.out.println("---------------------------------------");
     }
 }
