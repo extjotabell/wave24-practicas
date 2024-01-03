@@ -8,7 +8,6 @@ public class RetiroEfectivo implements Transaccion {
         System.out.println("Realizándose retiro de efectivo");
         return true;
     }
-
     @Override
     public Boolean transaccionNoOk() {
         System.out.println("Error en el retiro de efectivo");

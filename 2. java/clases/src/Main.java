@@ -2,16 +2,9 @@ public class Main {
     public static void main(String[] args) {
 
         Person person1 = new Person();
-
-
         Person person2 = new Person("Diego Pachón", 11, "453453");
-
-
         Person person3 = new Person("Natalia Sanabria", 30, "45645645", 65.0, 1.75);
-
         //Person person4 = new Person("Fernando Alavarez",22);
-
-
         System.out.println(person1);
         System.out.println(person2);
         System.out.println(person3);
@@ -29,7 +22,6 @@ public class Main {
         } else {
             System.out.println("Nivel de peso: Sobrepeso");
         }
-
         System.out.println("Es mayor de edad: " + isLegalAge);
     }
 }

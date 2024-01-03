@@ -8,7 +8,6 @@ public class Transferencia implements Transaccion {
         System.out.println("Realizándose transferencia");
         return true;
     }
-
     @Override
     public Boolean transaccionNoOk() {
         System.out.println("Error en la transferencia");
