@@ -1,4 +1,4 @@
-package Ejercicio2;
+package ejercicio2;
 
 public interface Imprimible {
     void imprimir();

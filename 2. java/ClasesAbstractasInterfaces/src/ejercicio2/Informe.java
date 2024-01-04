@@ -1,4 +1,4 @@
-package Ejercicio2;
+package ejercicio2;
 
 public class Informe implements Imprimible {
     private String autor;
