@@ -45,4 +45,14 @@ public class Item {
     public void setCostoUnitario(double costoUnitario) {
         this.costoUnitario = costoUnitario;
     }
+
+    @Override
+    public String toString() {
+        return "Producto{" +
+                "\ncodigo ='" + codigo + '\'' +
+                ", \nnombre del producto = '" + nombreItem + '\'' +
+                ", \ncantidad comprada = " + cantComprada +
+                ", \ncosto unitario = " + costoUnitario +
+                '}';
+    }
 }

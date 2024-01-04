@@ -38,10 +38,9 @@ public class Cliente {
 
     @Override
     public String toString() {
-        return "Cliente{" +
-                "\ndni='" + dni + '\'' +
-                ", \nnombreCliente='" + nombreCliente + '\'' +
-                ", \napellidoCliente='" + apellidoCliente + '\'' +
+        return "\nDNI = '" + dni + '\'' +
+                ", \nNombre = '" + nombreCliente + '\'' +
+                ", \nApellido = '" + apellidoCliente + '\'' +
                 '}' + "\n----------------------------";
     }
 }

@@ -9,7 +9,7 @@ public class Factura {
     List<Item> listItems = new ArrayList<>();
     double totalCompra;
 
-    public Factura(Cliente cliente, List<Item> listItems, double totalCompra) {
+    public Factura(Cliente cliente, List<Item> listItems) {
         this.cliente = cliente;
         this.listItems = listItems;
         this.totalCompra = totalCompra;
@@ -38,4 +38,20 @@ public class Factura {
     public void setTotalCompra(double totalCompra) {
         this.totalCompra = totalCompra;
     }
+
+    @Override
+    public String toString() {
+        return "Factura{" +
+                "\nCliente = " + cliente +
+                ", \nProductos = " + listItems + "\n----------------------------"+
+                ", \nTotal de la compra = " + calculoTotalCompra() +
+                '}' + "\n ";
+    }
+
+    private double calculoTotalCompra() {
+        return listItems.stream()
+                .mapToDouble(producto -> producto.getCantComprada() * producto.getCostoUnitario())
+                .sum();
+    }
+
 }
