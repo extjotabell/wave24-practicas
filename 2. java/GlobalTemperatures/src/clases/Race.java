@@ -46,15 +46,15 @@ public class Race {
     }
     public Participant generateRandomParticipant() {
         Random random = new Random();
-        int registrationNumber = 1000 + random.nextInt(9000);
+        int registrationNumber = 0 + random.nextInt(5);
         int age = 18 + random.nextInt(20);
-        return new Participant(registrationNumber, "DNI" + registrationNumber, "Name" + registrationNumber, "Surname" + registrationNumber, age, "Cell" + registrationNumber, "Emergency" + registrationNumber, "Group" + registrationNumber);
+        return new Participant(registrationNumber, "Id" + registrationNumber, "Name" + registrationNumber, "Surname" + registrationNumber, age, "Cell" + registrationNumber, "Emergency" + registrationNumber, "Group" + registrationNumber);
     }
     public void showRegisteredInCategory(Category category) {
         System.out.println("Inscritos en la categoría " + category.getName());
         for (Registration registration : registrations) {
             if (registration.category == category) {
-                System.out.println("Número de inscripción:" + registration.getRegistrationNumber());
+                System.out.println("Número de la inscripción:" + registration.getRegistrationNumber());
                 System.out.println("Nombre del participante: " + registration.participant.getFirstName() + " " + registration.participant.getLastName());
                 System.out.println("Costo: $: $" + registration.getAmount());
                 System.out.println("-------------------------");
