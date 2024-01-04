@@ -7,12 +7,14 @@ public class Factura {
     private Cliente cliente;
     private List<Item> items;
 
-    public Factura(Double totalCompra, Cliente cliente, List<Item> items) {
-        this.totalCompra = totalCompra;
+    public Factura(Cliente cliente, List<Item> items) {
         this.cliente = cliente;
         this.items = items;
     }
 
+    public void calcularTotalCompra(){
+        this.totalCompra = items.stream().mapToDouble(x -> x.getCantidadComprada() * x.getCostoUnitario()).sum();
+    }
     public Double getTotalCompra() {
         return totalCompra;
     }
@@ -35,5 +37,14 @@ public class Factura {
 
     public void setItems(List<Item> items) {
         this.items = items;
+    }
+
+    @Override
+    public String toString() {
+        return "Factura{" +
+                "totalCompra=" + totalCompra +
+                ", cliente=" + cliente +
+                ", items=" + items +
+                '}';
     }
 }

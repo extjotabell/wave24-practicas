@@ -1,4 +1,6 @@
 import classes.Cliente;
+import classes.Factura;
+import classes.Item;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -18,7 +20,18 @@ public class Main {
         System.out.println("Los clientes luego de remover a uno: ");
         clientes.forEach(System.out::println);
 
-        Scanner scanner = new Scanner(System.in);
+        List<Factura> facturas = new ArrayList<>();
+        List<Item> items = new ArrayList<>();
+        items.add(new Item(5251L,"Mayonesa",2,635D));
+        items.add(new Item(5252L,"Queso",5,1299D));
+        items.add(new Item(5253L,"Arroz",3,800D));
+        items.add(new Item(5254L,"Tomate",14,345D));
+        Factura factura = new Factura(clientes.get(0),items);
+        factura.calcularTotalCompra();
+        System.out.println("Factura: "+factura);
+
+        //Busqueda de cliente by dni
+        /*Scanner scanner = new Scanner(System.in);
         System.out.println("Ingresar el dni de un cliente: ");
         String dni = scanner.nextLine();
 
@@ -27,7 +40,7 @@ public class Main {
             System.out.println(optionalCliente.get().toString());
         }else{
             System.out.println("El dni no está registrado en ningún cliente.");
-        }
+        }*/
 
     }
 }
