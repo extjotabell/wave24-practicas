@@ -13,4 +13,19 @@ public class Factura {
     private Cliente cliente;
     private List<Item> items;
     private Double total;
+    public Double caclularTotal(){
+        Double total = 0D;
+        for (Item item : items) {
+            total += item.getCostoUnitario();
+        }
+        return total;
+    }
+
+    @Override
+    public String toString() {
+        return
+                " cliente=" + cliente + "\n" +
+                " items=" + items + "\n" +
+                " total=" + total;
+    }
 }

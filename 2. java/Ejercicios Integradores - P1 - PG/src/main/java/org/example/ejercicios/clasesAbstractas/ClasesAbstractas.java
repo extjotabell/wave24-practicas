@@ -6,8 +6,7 @@ import org.example.ejercicios.clasesAbstractas.models.SerieProgresivaEnteros;
 
 public class ClasesAbstractas {
 
-    public static void main(){
-        System.out.println("Hello world!");
+    public void main(){
 
         SerieProgresivaEnteros serieEnteros = new SerieProgresivaEnteros(2);
         serieEnteros.establecerValorInicial(2);
@@ -22,7 +21,7 @@ public class ClasesAbstractas {
         imprimirSerie(serieDobles);
     }
 
-    private static void imprimirSerie(SerieProgresiva<?> serie) {
+    private void imprimirSerie(SerieProgresiva<?> serie) {
         for (int i = 1; i <= 4; i++) {
             System.out.println("Serie " + i  + ": " + serie.valorSiguiente());
         }
