@@ -1,4 +1,4 @@
-package classes;
+package modelo;
 
 import java.util.*;
 public class Factura {
