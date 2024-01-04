@@ -33,5 +33,10 @@ public class Main {
         Garaje garaje = new Garaje(1, listaVehiculos);
 
         System.out.println(garaje);
+
+        //Ordenar lista vehículos por precio de menor a mayor
+        Collections.sort(listaVehiculos, (v1, v2)->Double.compare(v1.getCosto(), v2.getCosto()));
+        System.out.println(garaje);
     }
+
 }
