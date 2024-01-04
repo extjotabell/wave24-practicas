@@ -38,13 +38,21 @@ public class Localizador {
         this.cliente = cliente;
     }
 
+    public Double getTotalPrecio() {
+        return totalPrecio;
+    }
+
+    public void setTotalPrecio(Double totalPrecio) {
+        this.totalPrecio = totalPrecio;
+    }
+
     @Override
     public String toString() {
         return "Localizador{" +
                 "id=" + id +
                 ", reservas=" + reservas +
                 ", cliente=" + cliente +
+                ", totalPrecio=" + totalPrecio +
                 '}';
     }
-
 }

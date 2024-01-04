@@ -26,8 +26,9 @@ public class Main {
         Cliente cliente = repositorioCliente.getById(1L);
         repositorioLocalizador.save(new Localizador(1L,listReservas,cliente));
         Localizador localizador = repositorioLocalizador.getById(1L);
-        System.out.println(localizador);
         Double totalLocalizadorCompleto = repositorioLocalizador.calcularTotal(localizador, cliente.getId());
+        localizador.setTotalPrecio(totalLocalizadorCompleto);
+        System.out.println(localizador);
         System.out.println("El precio total del localizador completo es: "+totalLocalizadorCompleto);
 
     }
@@ -41,8 +42,9 @@ public class Main {
         Cliente cliente = repositorioCliente.getById(1L);
         repositorioLocalizador.save(new Localizador(2L,listReservas,cliente));
         Localizador localizador = repositorioLocalizador.getById(2L);
-        System.out.println(localizador);
         Double totalLocalizadorCompleto = repositorioLocalizador.calcularTotal(localizador, cliente.getId());
+        localizador.setTotalPrecio(totalLocalizadorCompleto);
+        System.out.println(localizador);
         System.out.println("El precio total del localizador completo es: "+totalLocalizadorCompleto);
 
     }
@@ -53,8 +55,9 @@ public class Main {
         Cliente cliente = repositorioCliente.getById(1L);
         repositorioLocalizador.save(new Localizador(3L,listReservas,cliente));
         Localizador localizador = repositorioLocalizador.getById(3L);
-        System.out.println(localizador);
         Double totalLocalizadorCompleto = repositorioLocalizador.calcularTotal(localizador, cliente.getId());
+        localizador.setTotalPrecio(totalLocalizadorCompleto);
+        System.out.println(localizador);
         System.out.println("El precio total del localizador completo es: "+totalLocalizadorCompleto);
     }
 }
