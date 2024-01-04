@@ -24,5 +24,4 @@ public class Main {
         race.calculateTotalAmountByCategory();
         race.calculateTotalRaceAmount();
     }
-    }
 }
