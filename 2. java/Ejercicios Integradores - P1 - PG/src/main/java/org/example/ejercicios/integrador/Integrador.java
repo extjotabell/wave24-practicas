@@ -4,6 +4,7 @@ import org.example.ejercicios.integrador.models.Cliente;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 public class Integrador {
 
@@ -24,6 +25,19 @@ public class Integrador {
 
         imprimirClientes(clientes);
 
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.println("Ingrese un dni para buscar un cliente");
+
+        String dni = scanner.nextLine();
+        Cliente cliente = consultarCliente(clientes, dni);
+        if(cliente != null){
+            System.out.println(cliente);
+        }
+        else {
+            System.out.println("Cliente no encontrado");
+        }
+
     }
 
 
@@ -31,6 +45,15 @@ public class Integrador {
         for (int i = 0; i < clientes.size(); i++) {
             System.out.println(clientes.get(i));
         }
+    }
+
+    private static Cliente consultarCliente(List<Cliente> clientes, String dni){
+        for(Cliente cliente : clientes){
+            if(cliente.getDni().equals(dni)){
+                return cliente;
+            }
+        }
+        return null;
     }
 
 }
