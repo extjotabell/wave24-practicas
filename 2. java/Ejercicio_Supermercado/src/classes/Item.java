@@ -1,6 +1,9 @@
 package classes;
 
 public class Item {
+
+    private static int idItemCounter = 0;
+    private int idItem;
     private String nombre;
     private String codigo;
     private double cantidad;
@@ -46,5 +49,29 @@ public class Item {
 
     public void setPrecioUnitario(double precioUnitario) {
         this.precioUnitario = precioUnitario;
+    }
+
+    public void setIdItemCounter(){
+        idItemCounter++;
+        this.idItem = idItemCounter;
+    }
+
+    public int getIdItem() {
+        return idItem;
+    }
+
+    public void setIdItem(int idItem) {
+        this.idItem = idItem;
+    }
+
+    @Override
+    public String toString() {
+        return "Item{" +
+                "idItem=" + idItem +
+                ", nombre='" + nombre + '\'' +
+                ", codigo='" + codigo + '\'' +
+                ", cantidad=" + cantidad +
+                ", precioUnitario=" + precioUnitario +
+                '}';
     }
 }

@@ -1,51 +1,209 @@
 import classes.Cliente;
+import classes.Factura;
+import classes.Item;
+import repositories.ClienteRepositorio;
+import repositories.FacturaRepositorio;
+import repositories.ItemRepositorio;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
 public class Main {
+
+    private static ClienteRepositorio clienteRepositorio = new ClienteRepositorio();
+    private static ItemRepositorio itemRepositorio = new ItemRepositorio();
+    private static FacturaRepositorio facturaRepositorio = new FacturaRepositorio(clienteRepositorio, itemRepositorio);
     public static void main(String[] args) {
-        Cliente cliente = new Cliente("Juan", "Perez", "12345678");
-        Cliente cliente2 = new Cliente("Ignacio", "Collado", "12345679");
-        Cliente cliente3 = new Cliente("Anakin", "Skywalker", "12345610");
+        boolean salir = false;
 
-        List<Cliente> clientes = new ArrayList<>(List.of(cliente, cliente2, cliente3));
+        while (!salir){
+            System.out.println("1. CRUD CLIENTES");
 
-        System.out.println(clientes);
+            System.out.println("2. CRUD FACTURAS");
 
-        //Eliminar cliente por dni
-        Scanner scanner = new Scanner(System.in);
-        System.out.println("Ingrese el dni del cliente a eliminar: ");
+            System.out.println("3. CRUD ITEMS");
 
-        String dniBorrar = scanner.nextLine();
+            System.out.println("4. Salir");
 
-        boolean removed = clientes.removeIf(c -> c.getDni().equals(dniBorrar));
+            System.out.println("Introduce una opción: ");
 
-        if (removed) {
-            System.out.println("El cliente fue eliminado");
-        } else {
-            System.out.println("El cliente no existe");
-        }
+            Scanner sc = new Scanner(System.in);
+            int opcion = sc.nextInt();
 
-        System.out.println(clientes);
+            switch (opcion) {
+                case 1:
+                    boolean salirCRUDClientes = false;
 
-        //Solicitar dni por teclado
+                    while (!salirCRUDClientes){
 
-        System.out.println("Ingrese el dni del cliente a buscar: ");
+                        System.out.println("1. Agregar cliente");
 
-        String dniBuscar = scanner.nextLine();
+                        System.out.println("2. Listar clientes");
 
-        //Buscar cliente por dni
-        Cliente clienteBuscado = clientes.stream()
-                .filter(c -> c.getDni().equals(dniBuscar))
-                .findFirst()
-                .orElse(null);
+                        System.out.println("3. Editar cliente");
 
-        if (clienteBuscado != null) {
-            System.out.println("El cliente buscado es: " + clienteBuscado);
-        } else {
-            System.out.println("El cliente no existe");
+                        System.out.println("4. Eliminar cliente");
+
+                        System.out.println("5. Salir");
+
+                        System.out.println("Introduce una opción: ");
+
+                        int opcionCRUDClientes = sc.nextInt();
+
+
+
+                        switch (opcionCRUDClientes){
+                            case 1:
+                                System.out.println("Ingrese nombre del cliente");
+                                String nombre = sc.nextLine();
+                                System.out.println("Ingrese apellido del cliente");
+                                String apellido = sc.nextLine();
+                                System.out.println("Ingrese dni del cliente");
+                                int dni = sc.nextInt();
+                                Cliente clienteNuevo = new Cliente(nombre, apellido, dni);
+                                clienteRepositorio.agregar(clienteNuevo);
+                                break;
+                            case 2:
+                                List<Cliente> clientes = clienteRepositorio.listar();
+                                clientes.forEach(System.out::println);
+                                break;
+                            case 3:
+                                System.out.println("Ingrese dni del cliente a editar");
+                                int dniEditar = sc.nextInt();
+                                System.out.println("Ingrese nombre del cliente");
+                                String nombreEditar = sc.nextLine();
+                                System.out.println("Ingrese apellido del cliente");
+                                String apellidoEditar = sc.nextLine();
+                                Cliente clienteEditar = new Cliente(nombreEditar, apellidoEditar, dniEditar);
+                                clienteRepositorio.editar(dniEditar, clienteEditar);
+                                break;
+                            case 4:
+                                System.out.println("Ingrese dni del cliente a eliminar");
+                                int dniEliminar = sc.nextInt();
+                                clienteRepositorio.eliminar(dniEliminar);
+                                break;
+                            case 5:
+                                salirCRUDClientes = true;
+                                break;
+                            default:
+                                System.out.println("Opción no válida");
+                                break;
+                        }
+                    }
+                    break;
+                case 2:
+                    boolean salirCRUDFacturas = false;
+
+                    while (!salirCRUDFacturas){
+
+                        System.out.println("1. Agregar factura");
+
+                        System.out.println("2. Listar facturas");
+
+                        System.out.println("3. Salir");
+
+                        int opcionCRUDFacturas = sc.nextInt();
+                        switch (opcionCRUDFacturas){
+                            case 1:
+                                System.out.println("Ingrese dni del cliente");
+                                int dni = sc.nextInt();
+                                Cliente clienteFactura = clienteRepositorio.listar().stream().filter(c -> c.getDni() == dni).findFirst().orElse(null);
+                                if(clienteFactura == null){
+                                    System.out.println("El cliente no existe");
+                                    System.out.println("Ingrese nombre del cliente");
+                                    String nombre = sc.nextLine();
+                                    System.out.println("Ingrese apellido del cliente");
+                                    String apellido = sc.nextLine();
+                                    clienteFactura = new Cliente(nombre, apellido, dni);
+                                }
+
+                                //TODO agregar items factura
+
+                                Factura facturaNueva = new Factura(clienteFactura, new ArrayList<>());
+                                facturaRepositorio.agregar(facturaNueva);
+                                break;
+                            case 2:
+                                List<Factura> facturas = facturaRepositorio.listar();
+                                facturas.forEach(System.out::println);
+                                break;
+                            default:
+                                System.out.println("Opción no válida");
+                                break;
+                        }
+
+
+                    }
+
+                    break;
+                case 3:
+                    boolean salirCrudItems = false;
+
+                    while (!salirCrudItems){
+
+                        System.out.println("1. Agregar item");
+
+                        System.out.println("2. Listar items");
+
+                        System.out.println("3. Editar item");
+
+                        System.out.println("4. Eliminar item");
+
+                        System.out.println("5. Salir");
+
+                        int opcionCRUDItem = sc.nextInt();
+                        switch (opcionCRUDItem){
+                            case 1:
+                                System.out.println("Ingrese nombre del item");
+                                String nombre = sc.nextLine();
+                                System.out.println("Ingrese codigo del item");
+                                String codigo = sc.nextLine();
+                                System.out.println("Ingrese cantidad del item");
+                                int cantidad = sc.nextInt();
+                                System.out.println("Ingrese precio unitario del item");
+                                double precioUnitario = sc.nextDouble();
+                                Item itemNuevo = new Item(nombre, codigo, cantidad, precioUnitario);
+                                itemRepositorio.agregar(itemNuevo);
+                                break;
+                            case 2:
+                                List<Item> items = itemRepositorio.listar();
+                                items.forEach(System.out::println);
+                                break;
+                            case 3:
+                                System.out.println("Ingrese id del item a editar");
+                                int idEditar = sc.nextInt();
+                                System.out.println("Ingrese nombre del item");
+                                String nombreEditar = sc.nextLine();
+                                System.out.println("Ingrese codigo del item");
+                                String codigoEditar = sc.nextLine();
+                                System.out.println("Ingrese cantidad del item");
+                                int cantidadEditar = sc.nextInt();
+                                System.out.println("Ingrese precio unitario del item");
+                                double precioUnitarioEditar = sc.nextDouble();
+                                Item itemEditar = new Item(nombreEditar, codigoEditar, cantidadEditar, precioUnitarioEditar);
+                                itemRepositorio.editar(idEditar, itemEditar);
+                                break;
+                            case 4:
+                                System.out.println("Ingrese id del item a eliminar");
+                                int idEliminar = sc.nextInt();
+                                itemRepositorio.eliminar(idEliminar);
+                                break;
+                            case 5:
+                                salirCrudItems = true;
+                                break;
+                            default:
+                                System.out.println("Opción no válida");
+                                break;
+                        }
+                    }
+                    break;
+                case 4:
+                    salir = true;
+                    break;
+                default:
+                    System.out.println("Opción no válida");
+                    break;
+            }
         }
 
     }

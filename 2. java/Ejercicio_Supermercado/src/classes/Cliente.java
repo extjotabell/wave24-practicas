@@ -3,12 +3,17 @@ package classes;
 public class Cliente {
     private String nombre;
     private String apellido;
-    private String dni;
+    private int dni;
 
-    public Cliente(String nombre, String apellido, String dni) {
+    public Cliente(String nombre, String apellido, int dni) {
         this.nombre = nombre;
         this.apellido = apellido;
         this.dni = dni;
+    }
+
+    public Cliente(Cliente cliente){
+        this.nombre = cliente.getNombre();
+        this.apellido = cliente.getApellido();
     }
 
     public Cliente() {
@@ -30,11 +35,11 @@ public class Cliente {
         this.apellido = apellido;
     }
 
-    public String getDni() {
+    public int getDni() {
         return dni;
     }
 
-    public void setDni(String dni) {
+    public void setDni(int dni) {
         this.dni = dni;
     }
 
