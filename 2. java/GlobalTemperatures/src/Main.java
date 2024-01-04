@@ -1,26 +1,21 @@
-import clases.Category;
-import clases.Participant;
-import clases.Race;
-
 public class Main {
     public static void main(String[] args) {
-        Race race = new Race();
-        race.createCategories();
 
-        Participant participant1 = new Participant(1, "34645654", "Diego", "Pachon", 28, "3214353345", "3223435645", "O+");
-        race.registerParticipant(race.categories.get(0), participant1);
-        System.out.println("el monto de la inscripción para " + participant1.getFirstName() + " es de: $" + race.registrations.get(0).getAmount());
+        String[] ciudades = new String[]{"Londres", "Madrid", "Nueva York", "BuenosAires", "Asuncion", "Sao Pablo", "Lima", "Santiago De Chile", "Lisboa", "Tokio"};
+        int[][] temperaturas = new int[][]{{-2, 33}, {-3, 32}, {-8, 27}, {4, 37}, {6, 42}, {5, 43}, {0, 39}, {-7, 26}, {-1, 31}, {-10, 35}};
+        int indexMax = 0;
+        int indexMin = 0;
 
-        race.registerRandomParticipants();
+        for(int f = 0; f < temperaturas.length; ++f) {
+            if (temperaturas[indexMin][0] > temperaturas[f][0]) {
+                indexMin = f;
+            }
 
-        Category categoryToShow = race.categories.get(1);
-        race.showRegisteredInCategory(categoryToShow);
-
-        int registrationNumberToUnregister = race.registrations.get(1).getRegistrationNumber();
-        race.unregisterParticipant(registrationNumberToUnregister);
-        race.showRegisteredInCategory(categoryToShow);
-
-        race.calculateTotalAmountByCategory();
-        race.calculateTotalRaceAmount();
+            if (temperaturas[indexMax][1] < temperaturas[f][1]) {
+                indexMax = f;
+            }
+        }
+        System.out.printf("La temperatura máxima es de %d ºC en la ciudad de %s.%n", temperaturas[indexMax][1], ciudades[indexMax]);
+        System.out.printf("La temperatura mínima es de %d ºC en la ciudad de %s.%n", temperaturas[indexMin][0], ciudades[indexMin]);
     }
 }
