@@ -27,8 +27,3 @@ public class Main {
     }
 }
 
-
-// Finalmente queremos mostrar todos los datos de esa persona imprimiendo dicha información por consola.
-// El formato en que vas a mostrar los datos y los mensajes quedan a tu criterio, pero debe ser legible
-// y descriptivo para quien ve la salida del programa.
-//
