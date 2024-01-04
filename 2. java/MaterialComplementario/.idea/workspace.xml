@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="d656da47-1356-4234-abef-d6e3f8530a8c" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/../ClasesAbstractasEInterfaces/src/Main.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ClasesAbstractasEInterfaces/src/ejerciciodos/Main.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ClasesAbstractasEInterfaces/src/ejerciciodos/classes/Curriculum.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ClasesAbstractasEInterfaces/src/ejerciciodos/classes/Documento.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ClasesAbstractasEInterfaces/src/ejerciciodos/classes/Imprimible.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ClasesAbstractasEInterfaces/src/ejerciciodos/classes/Informe.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ClasesAbstractasEInterfaces/src/ejerciciodos/classes/LibroPDF.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ClasesAbstractasEInterfaces/src/ejerciciodos/classes/Printer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ClasesAbstractasEInterfaces/src/ejerciciotres/Main.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ClasesAbstractasEInterfaces/src/ejerciciotres/classes/Animal.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ClasesAbstractasEInterfaces/src/ejerciciotres/classes/Gato.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ClasesAbstractasEInterfaces/src/ejerciciotres/classes/Perro.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ClasesAbstractasEInterfaces/src/ejerciciotres/classes/Vaca.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ClasesAbstractasEInterfaces/src/ejerciciotres/classes/interfaces/Carnivoro.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ClasesAbstractasEInterfaces/src/ejerciciotres/classes/interfaces/Herviboro.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ClasesAbstractasEInterfaces/src/ejerciciouno/classes/Basico.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ClasesAbstractasEInterfaces/src/ejerciciouno/classes/Client.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ClasesAbstractasEInterfaces/src/ejerciciouno/classes/Cobrador.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ClasesAbstractasEInterfaces/src/ejerciciouno/classes/ConsultaSaldo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ClasesAbstractasEInterfaces/src/ejerciciouno/classes/Deposito.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ClasesAbstractasEInterfaces/src/ejerciciouno/classes/Ejecutivo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ClasesAbstractasEInterfaces/src/ejerciciouno/classes/PagoServicios.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ClasesAbstractasEInterfaces/src/ejerciciouno/classes/RetiroEnEfectivo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ClasesAbstractasEInterfaces/src/ejerciciouno/classes/Transferencia.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ClasesAbstractasEInterfaces/src/ejerciciouno/classes/interfaces/Transaction.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../LambdaStreams/src/Main.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../LambdaStreams/src/classes/Person.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+  </component>
+  <component name="ProjectColorInfo"><![CDATA[{
+  "associatedIndex": 8
+}]]></component>
+  <component name="ProjectId" id="2aTIaQHiuvgU0juyKa9w9FItJwA" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "cabello__joaquin",
+    "kotlin-language-version-configured": "true",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "onboarding.tips.debug.path": "/Users/joscabello/Desktop/bootcamp/wave24-practicas/2. java/MaterialComplementario/src/Main.java",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="RunManager">
+    <configuration default="true" type="JetRunConfigurationType">
+      <module name="Recapitulando" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
+      <module name="Recapitulando" />
+      <option name="filePath" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="jdk-21.0.1-openjdk-21.0.1-f644763e9732-2f79fb23" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="d656da47-1356-4234-abef-d6e3f8530a8c" name="Changes" comment="" />
+      <created>1704336205728</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1704336205728</updated>
+      <workItem from="1704336206756" duration="748000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>
