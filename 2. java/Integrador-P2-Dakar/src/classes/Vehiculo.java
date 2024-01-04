@@ -1,6 +1,6 @@
 package classes;
 
-public class Vehiculo {
+public abstract class Vehiculo {
     private Double velocidad;
     private Double aceleracion;
     private Double anguloDeGiro;

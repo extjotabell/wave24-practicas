@@ -32,7 +32,7 @@ public class Carrera {
         return this.listaVehiculos.stream().filter(x -> x.getPatente().equals(patente)).findFirst().orElse(null);
     }
     public Vehiculo obtenerGanadorCarrera(){
-        Map<String, Double> result = listaVehiculos.stream().collect(
+        Map<String, Double> mapVehiculos = listaVehiculos.stream().collect(
                 Collectors.toMap(
                         Vehiculo::getPatente,
                         (vehiculo -> vehiculo.getVelocidad() * (vehiculo.getAceleracion()/2) /
@@ -40,8 +40,8 @@ public class Carrera {
                         )
                 )
         );
-        String key = Collections.max(result.entrySet(), Map.Entry.comparingByValue()).getKey();
-        return this.listaVehiculos.stream().filter(x -> x.getPatente().equals(key)).findFirst().orElse(null);
+        String key = Collections.max(mapVehiculos.entrySet(), Map.Entry.comparingByValue()).getKey();
+        return getVehiculoByPatente(key);
     }
     public void darDeAltaVehiculo(Vehiculo vehiculo){
         if(hayCupo()){
@@ -56,7 +56,7 @@ public class Carrera {
     public void eliminarVehiculoConPatente(String patente){
         this.eliminarVehiculo(getVehiculoByPatente(patente));
     }
-    public boolean hayCupo(){
+    private boolean hayCupo(){
         return cantVehiculosPermitidos - listaVehiculos.size() > 0;
     }
     public Double getDistancia() {
