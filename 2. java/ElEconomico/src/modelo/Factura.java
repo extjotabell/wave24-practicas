@@ -8,13 +8,17 @@ public class Factura {
 
     private List<Item> items;
 
+    private List<Integer> cantidades;
+
     private Double total;
 
-    public Factura(Cliente cliente, List<Item> items, Double total) {
+    public Factura(Cliente cliente, List<Item> items, List<Integer> cantidades) {
         this.cliente = cliente;
         this.items = items;
-        this.total = total;
+        this.cantidades = cantidades;
+        calculateTotal();
     }
+    public Factura(){}
 
     public Cliente getCliente() {
         return cliente;
@@ -37,6 +41,22 @@ public class Factura {
     }
 
     public void setTotal(Double total) {
+        this.total = total;
+    }
+
+    public List<Integer> getCantidades() {
+        return cantidades;
+    }
+
+    public void setCantidades(List<Integer> cantidades) {
+        this.cantidades = cantidades;
+    }
+
+    public void calculateTotal() {
+        Double total = 0.0;
+        for (Item item : items) {
+            total += item.getPrecio();
+        }
         this.total = total;
     }
 }

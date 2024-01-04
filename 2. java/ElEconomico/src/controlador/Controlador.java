@@ -1,6 +1,8 @@
 package controlador;
 
 import modelo.Cliente;
+import modelo.Factura;
+import modelo.Item;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -10,50 +12,54 @@ public class Controlador {
 
     public Controlador () {
 
-        Cliente cliente = new Cliente("123","Juan","Perez");
-        Cliente cliente1 = new Cliente("456","Maria","Gomez");
-        Cliente cliente2 = new Cliente("789","Pedro","Gonzalez");
+       Scanner sc = new Scanner(System.in);
 
-        List<Cliente> clientes = new ArrayList<Cliente>();
+       List<Cliente> clientes = new ArrayList<>();
 
-        clientes.add(cliente);
-        clientes.add(cliente1);
-        clientes.add(cliente2);
+       List<Factura> facturas = new ArrayList<>();
 
-        for (Cliente c : clientes) {
-            System.out.println(c.toString());
-        }
+       List<Item> items = new ArrayList<>();
 
-        clientes.remove(1);
+       boolean salir = false;
 
-        for (Cliente c : clientes) {
-            System.out.println(c.toString());
-        }
+       while (!salir){
+           System.out.println("1. CRUD CLIENTES");
 
-        Scanner sc = new Scanner(System.in);
+           System.out.println("2. CRUD FACTURAS");
 
-        System.out.println("Introduce el dni del cliente a buscar: ");
-        String dni = sc.nextLine();
+           System.out.println("3. CRUD ITEMS");
 
-        try {
-            buscarPorDni(dni, clientes);
-        } catch (RuntimeException e) {
-            System.out.println(e.getMessage());
-        }
+           System.out.println("4. Salir");
+
+           System.out.println("Introduce una opción: ");
+
+           int opcion = sc.nextInt();
+
+           sc.nextLine();
+           switch (opcion) {
+               case 1:
+                   ClienteCRUD clienteCRUD = new ClienteCRUD(clientes);
+                   clientes = clienteCRUD.getClientes();;
+                   break;
+               case 2:
+                   FacturaCRUD facturaCRUD = new FacturaCRUD(facturas, items, clientes);
+                     facturas = facturaCRUD.getFacturas();
+                   break;
+               case 3:
+                   ItemCRUD itemCRUD = new ItemCRUD(items);
+                     items = itemCRUD.getItems();
+                   break;
+               case 4:
+                   salir = true;
+                   break;
+               default:
+                   System.out.println("Opción no válida");
+                   break;
+           }
+       }
+
 
     }
 
-
-    public void buscarPorDni(String dni, List<Cliente> clientes) {
-
-        List<Cliente> clientesAux = clientes.stream().filter(c -> c.getDni().equals(dni)).toList();
-
-        if (!clientesAux.isEmpty()) {
-            System.out.println("Cliente encontrado: " + clientesAux.get(0).toString());
-        } else {
-            throw new RuntimeException("Cliente no encontrado");
-        }
-
-    }
 
 }
