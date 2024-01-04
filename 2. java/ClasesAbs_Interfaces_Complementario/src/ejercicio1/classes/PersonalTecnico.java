@@ -1,6 +1,5 @@
 package ejercicio1.classes;
 
-import ejercicio1.interfaces.Empleado;
 import ejercicio1.interfaces.SoporteTecnico;
 
 public class PersonalTecnico extends Personal implements SoporteTecnico {
