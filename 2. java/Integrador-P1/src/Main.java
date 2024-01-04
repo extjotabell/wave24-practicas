@@ -1,6 +1,4 @@
-import classes.Cliente;
-import classes.Factura;
-import classes.Item;
+import classes.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -8,27 +6,12 @@ import java.util.Optional;
 import java.util.Scanner;
 
 public class Main {
+    static ClienteRepositorio clienteRepositorio = new ClienteRepositorio();
+    static FacturaRepositorio facturaRepositorio = new FacturaRepositorio();
     public static void main(String[] args) {
-        List<Cliente> clientes = new ArrayList<>();
-        clientes.add(new Cliente("1","Pedro","Perez"));
-        clientes.add(new Cliente("2","Juan","Sanchez"));
-        clientes.add(new Cliente("3","Andres","Ramirez"));
+        creacionClientes();
 
-        System.out.println("Todos los clientes: ");
-        clientes.forEach(System.out::println);
-        clientes.remove(2);
-        System.out.println("Los clientes luego de remover a uno: ");
-        clientes.forEach(System.out::println);
-
-        List<Factura> facturas = new ArrayList<>();
-        List<Item> items = new ArrayList<>();
-        items.add(new Item(5251L,"Mayonesa",2,635D));
-        items.add(new Item(5252L,"Queso",5,1299D));
-        items.add(new Item(5253L,"Arroz",3,800D));
-        items.add(new Item(5254L,"Tomate",14,345D));
-        Factura factura = new Factura(15L,clientes.get(0),items);
-        factura.calcularTotalCompra();
-        System.out.println("Factura: "+factura);
+        creacionFactura();
 
         //Busqueda de cliente by dni
         /*Scanner scanner = new Scanner(System.in);
@@ -42,5 +25,32 @@ public class Main {
             System.out.println("El dni no está registrado en ningún cliente.");
         }*/
 
+    }
+    public static void creacionFactura(){
+        List<Item> items = creacionItems();
+        facturaRepositorio.save(new Factura(15L,clienteRepositorio.getById(2L),items));
+        Factura factura = facturaRepositorio.getById(15L);
+        Double totalFactura = facturaRepositorio.calcularTotalCompra(factura);
+        factura.setTotalCompra(totalFactura);
+        System.out.println("Factura: "+factura);
+    }
+    public static List<Item> creacionItems(){
+        List<Item> items = new ArrayList<>();
+        items.add(new Item(5251L,"Mayonesa",2,635D));
+        items.add(new Item(5252L,"Queso",5,1299D));
+        items.add(new Item(5253L,"Arroz",3,800D));
+        items.add(new Item(5254L,"Tomate",14,345D));
+        return items;
+    }
+    public static void creacionClientes(){
+        clienteRepositorio.save(new Cliente(1L,"Pedro","Perez"));
+        clienteRepositorio.save(new Cliente(2L,"Juan","Sanchez"));
+        clienteRepositorio.save(new Cliente(3L,"Andres","Ramirez"));
+
+        System.out.println("Todos los clientes: ");
+        System.out.println(clienteRepositorio.list());
+        clienteRepositorio.delete(clienteRepositorio.getById(1L));
+        System.out.println("Los clientes luego de remover a uno: ");
+        System.out.println(clienteRepositorio.list());
     }
 }
