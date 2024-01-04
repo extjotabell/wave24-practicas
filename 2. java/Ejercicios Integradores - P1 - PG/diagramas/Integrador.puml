@@ -1,0 +1,21 @@
+@startuml
+
+class Cliente {
+    Long dni
+    String nombre
+    String apellido
+}
+
+class Factura {
+    Cliente cliente
+    List<Item> items
+    Double total
+}
+
+class Item {
+    UUID codigo;
+    String nombre
+    Long cantidad
+    Double costoUnitario
+}
+@enduml

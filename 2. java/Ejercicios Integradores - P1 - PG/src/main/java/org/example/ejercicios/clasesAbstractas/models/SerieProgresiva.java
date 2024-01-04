@@ -1,4 +1,4 @@
-package org.example.ejercicios.clasesAbstractas;
+package org.example.ejercicios.clasesAbstractas.models;
 
 public abstract class SerieProgresiva <T extends Number>{
 
