@@ -26,7 +26,7 @@ public class Main {
         items.add(new Item(5252L,"Queso",5,1299D));
         items.add(new Item(5253L,"Arroz",3,800D));
         items.add(new Item(5254L,"Tomate",14,345D));
-        Factura factura = new Factura(clientes.get(0),items);
+        Factura factura = new Factura(15L,clientes.get(0),items);
         factura.calcularTotalCompra();
         System.out.println("Factura: "+factura);
 
