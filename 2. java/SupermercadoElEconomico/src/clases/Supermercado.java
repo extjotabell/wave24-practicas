@@ -12,11 +12,34 @@ public class Supermercado implements Crud {
     private List<Cliente> listaClientes;
     private List<Factura> listaFacturas;
 
-    public Supermercado(List<Cliente> listaClientes) {
+    public Supermercado(List<Cliente> listaClientes, List<Factura> listaFacturas) {
+
         this.listaClientes = listaClientes;
+        this.listaFacturas = listaFacturas;
     }
 
+    //Clientes
+    public List<Cliente> listarClientes() {
+        return listaClientes;
+    }
+    public void altaCliente(Scanner teclado) {
+        System.out.println("Ingrese el DNI del nuevo cliente: ");
+        int dni = teclado.nextInt();
 
+        if (buscar(dni) != null ) {
+            System.out.println("Ya existe un cliente con ese DNI.");
+        }else{
+            System.out.println("Ingrese el nombre del nuevo cliente: ");
+            String nombre = teclado.next();
+
+            System.out.println("Ingrese el apellido del nuevo cliente: ");
+            String apellido = teclado.next();
+
+            Cliente nuevoCliente = new Cliente(dni, nombre, apellido);
+
+            alta(nuevoCliente);
+        }
+    }
     @Override
     public void alta(Object elemento) {
         listaClientes.add((Cliente) elemento);
@@ -61,20 +84,47 @@ public class Supermercado implements Crud {
             }
         }
 
-        System.out.println("No se encontró el cliente.");
         return null;
     }
 
-    @Override
-    public void modificar(Object elemento) {
-
-    }
 
     @Override
-    public List listar() {
-        return listaClientes;
+    public Cliente modificar(int dni) {
+        Cliente cliente = (Cliente) buscar(dni);
+        if(cliente != null){
+            System.out.println("Datos actuales del cliente: ");
+            System.out.println("Seleccione el dato que desea editar:");
+            System.out.println("1. Nombre");
+            System.out.println("2. Apellido");
+
+
+        int opcion = teclado.nextInt();
+
+            switch (opcion) {
+                case 1:
+                    System.out.println("Ingrese el nuevo nombre del cliente:");
+                    String nuevoNombreCliente = teclado.next();
+                    cliente.setNombreCliente(nuevoNombreCliente);
+                    break;
+                case 2:
+                    System.out.println("Ingrese el nuevo apellido del cliente:");
+                    String nuevoApellidoCliente = teclado.next();
+                    cliente.setApellidoCliente(nuevoApellidoCliente);
+                    break;
+                default:
+                    System.out.println("Opción no valida. No se realizaron cambios.");
+                    break;
+            }
+            System.out.println("Cliente actualizado con exito:");
+        }
+        return cliente;
     }
 
+
+    //Facturas
+    public List<Factura> listarFacturas() {
+        return listaFacturas;
+    }
     public void crearFactura(Scanner teclado){
         System.out.println("Ingrese el DNI del cliente para la factura:");
         int dniCliente = teclado.nextInt();
@@ -98,8 +148,11 @@ public class Supermercado implements Crud {
 
         System.out.println("Se ha creado la factura:");
         System.out.println(nuevaFactura);
+        listaFacturas.add(nuevaFactura);
     }
 
+
+    //Productos
     private Item agregarOtroProducto(Scanner teclado) {
         System.out.println("Ingrese el codigo del producto:");
         String codigo = teclado.next();
