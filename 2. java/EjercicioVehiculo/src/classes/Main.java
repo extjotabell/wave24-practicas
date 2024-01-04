@@ -37,6 +37,10 @@ public class Main {
         //Ordenar lista vehículos por precio de menor a mayor
         Collections.sort(listaVehiculos, (v1, v2)->Double.compare(v1.getCosto(), v2.getCosto()));
         System.out.println(garaje);
+
+        //Ordenar lista vehículos por marca y precio
+        Collections.sort(listaVehiculos, Comparator.comparing(Vehiculo::getMarca).thenComparingDouble(Vehiculo::getCosto));
+        System.out.println(garaje);
     }
 
 }

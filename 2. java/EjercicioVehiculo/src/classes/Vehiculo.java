@@ -6,9 +6,9 @@ public class Vehiculo {
 
     private Double costo;
 
-    public Vehiculo(String modelo, String marca, Double costo) {
-        this.modelo = modelo;
+    public Vehiculo(String marca, String  modelo, Double costo) {
         this.marca = marca;
+        this.modelo = modelo;
         this.costo = costo;
     }
 
@@ -39,8 +39,8 @@ public class Vehiculo {
     @Override
     public String toString() {
         return "Vehiculo{" +
-                "modelo=" + modelo +
-                ", marca=" + marca +
+                "marca=" + marca +
+                ", modelo=" + modelo +
                 ", costo=" + costo +
                 '}';
     }
