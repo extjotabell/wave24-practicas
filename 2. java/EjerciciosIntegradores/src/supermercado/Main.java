@@ -1,4 +1,4 @@
-package partone;
+package supermercado;
 
 import java.util.ArrayList;
 import java.util.List;

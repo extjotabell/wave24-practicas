@@ -1,4 +1,4 @@
-package partone;
+package supermercado;
 
 import java.util.List;
 
