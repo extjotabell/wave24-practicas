@@ -5,7 +5,7 @@ public class Item {
     private Integer codigo;
     private String nombre;
     private Integer cantidadComparada;
-    private Double costounitario;
+    private Double costoUnitario;
 
     public Integer getCodigo() {
         return codigo;
@@ -32,11 +32,11 @@ public class Item {
     }
 
     public Double getCostounitario() {
-        return costounitario;
+        return costoUnitario;
     }
 
     public void setCostounitario(Double costounitario) {
-        this.costounitario = costounitario;
+        this.costoUnitario = costounitario;
     }
 
     public Item() {
@@ -47,7 +47,7 @@ public class Item {
         this.codigo = codigo;
         this.nombre = nombre;
         this.cantidadComparada = cantidadComparada;
-        this.costounitario = costounitario;
+        this.costoUnitario = costounitario;
     }
 
     @Override
@@ -56,7 +56,7 @@ public class Item {
                 "codigo=" + codigo +
                 ", nombre='" + nombre + '\'' +
                 ", cantidadComparada=" + cantidadComparada +
-                ", costounitario=" + costounitario +
+                ", costoUnitario=" + costoUnitario +
                 '}';
     }
 }
