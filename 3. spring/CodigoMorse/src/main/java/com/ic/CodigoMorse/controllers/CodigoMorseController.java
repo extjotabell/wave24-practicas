@@ -59,16 +59,22 @@ public class CodigoMorseController {
     @GetMapping("/decodificar/{morseCode}")
     public String deCodificar(@PathVariable String morseCode) {
         StringBuilder palabra = new StringBuilder();
-        String[] codigos = morseCode.split(" ");
+        StringBuilder frase = new StringBuilder();
+        String[] palabras = morseCode.split("   ");
 
-        for (String codigo : codigos) {
-            if (CODIGO_LETRA.containsKey(codigo)) {
-                palabra.append(CODIGO_LETRA.get(codigo));
-            } else {
-                palabra.append("?");
+        for (String palabraMorse : palabras) {
+            String[] codigos = palabraMorse.split(" ");
+            for (String codigo : codigos) {
+                if (CODIGO_LETRA.containsKey(codigo)) {
+                    palabra.append(CODIGO_LETRA.get(codigo));
+                } else {
+                    palabra.append("?");
+                }
             }
+            frase.append(palabra).append(" ");
+            palabra = new StringBuilder();
         }
 
-        return palabra.toString();
+        return frase.toString();
     }
 }
