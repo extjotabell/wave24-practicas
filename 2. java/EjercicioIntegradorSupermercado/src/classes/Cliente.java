@@ -38,11 +38,12 @@ public class Cliente {
         Apellido = apellido;
     }
 
+
     //ToString
     @Override
     public String toString() {
         return "Cliente{" +
-                "dni='" + dni + '\'' +
+                "DNI='" + dni + '\'' +
                 ", Nombre='" + Nombre + '\'' +
                 ", Apellido='" + Apellido + '\'' +
                 '}';
