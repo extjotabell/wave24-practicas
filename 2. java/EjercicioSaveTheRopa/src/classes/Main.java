@@ -11,7 +11,10 @@ public class Main {
         listaPrendas.add(prenda1);
         listaPrendas.add(prenda2);
 
-        System.out.println(listaPrendas);
+
+        GuardaRopa guardaRopa = new GuardaRopa();
+        guardaRopa.guardarPrendas(listaPrendas);
+        System.out.println(guardaRopa);
 
     }
 }
