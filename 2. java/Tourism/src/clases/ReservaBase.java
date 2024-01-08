@@ -1,21 +1,19 @@
 package clases;
 
-public class BaseReservation {
-    String type;
-    double price;
+public class ReservaBase {
+    Private String tipo;
+    double precio;
 
-    public BaseReservation(String type, double price) {
-        this.type = type;
-        this.price = price;
+    public ReservaBase(String tipo, double precio) {
+        this.tipo = tipo;
+        this.precio = precio;
     }
+
     @Override
     public String toString() {
-        return "BaseReservation{" +
-                "type='" + type + '\'' +
-                ", price=" + price +
+        return "Reserva{" +
+                "tipo='" + tipo + '\'' +
+                ", precio=" + precio +
                 '}';
-    }
-    public void applyDiscounts(){
-
     }
 }

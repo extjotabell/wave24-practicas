@@ -5,44 +5,80 @@ import interfaces.Descuentos;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Locator implements Descuentos {
-    String customerName;
-    List<ReservaBase> reservations = new ArrayList<>();
+public class Localizador implements Descuentos {
+    String nombreCliente;
+    List<ReservaBase> reservas = new ArrayList<>();
 
-    public Locator(String customerName) {
-        this.customerName = customerName;
+    public Localizador(String nombreCliente) {
+        this.nombreCliente = nombreCliente;
     }
-    public void addReservation(ReservaBase reservation) {
-        reservations.add(reservation);
+
+    public void agregarReserva(ReservaBase reserva) {
+        reservas.add(reserva);
     }
-    public double calculateTotal() {
+
+    public double calcularTotal() {
         double total = 0;
-        for (ReservaBase reservation : reservations) {
-            total += reservation.price;
+        for (ReservaBase reserva : reservas) {
+            total += reserva.precio;
         }
         return total;
     }
+
     @Override
-    public void applyDiscounts() {
-        int numberOfLocators = CustomerRepository.getNumberOfLocators(customerName);
+    public void aplicarDescuentos() {
+        int cantidadLocalizadores = RepositorioClientes.obtenerCantidadLocalizadores(nombreCliente);
 
-        if (numberOfLocators >= 2) {
-            double discount = calculateTotal() * 0.05;
-            System.out.println("Descuento del 5% aplicado por tener al menos 2 localizadores anteriores: $" + discount);
+        if (cantidadLocalizadores >= 2) {
+            double descuento = calcularTotal() * 0.05;
+            System.out.println("Descuento del 5% aplicado por tener al menos 2 localizadores anteriores: $" + descuento);
         }
-        if (containsCompletePackage()) {
-            double discount = calculateTotal() * 0.10;
-            System.out.println("Descuento del 10% aplicado por adquirir un paquete completo");
+
+        if (contienePaqueteCompleto()) {
+            double descuento = calcularTotal() * 0.10;
+            System.out.println("Descuento del 10% aplicado por adquirir un paquete completo.");
         }
-        if (containsTwoHotelReservations() || containsTwoTravelTickets()) {
-            double discount = calculateTotal() * 0.05;
-            System.out.println("Descuento del 5% aplicado por adquirir 2 reservas de hotel o 2 boletos de viaje");
+
+        if (contieneDosReservasHotel() || contieneDosBoletosViaje()) {
+            double descuento = calcularTotal() * 0.05;
+            System.out.println("Descuento del 5% aplicado por adquirir 2 reservas de hotel o 2 boletos de viaje.");
         }
     }
-    private boolean containsCompletePackage() {
-        // Logic to check if it contains a complete package
-        // You can customize this logic based on real requirements
-        return reservations.size() >= 4;
+
+    private boolean contienePaqueteCompleto() {
+        // Lógica para verificar si contiene un paquete completo
+        // Puedes personalizar esta lógica según los requisitos reales
+        return reservas.size() >= 4;
     }
 
+    private boolean contieneDosReservasHotel() {
+        // Lógica para verificar si contiene al menos 2 reservas de hotel
+        // Puedes personalizar esta lógica según los requisitos reales
+        int countReservasHotel = 0;
+        for (ReservaBase reserva : reservas) {
+            if (reserva.tipo.equals("Hotel")) {
+                countReservasHotel++;
+            }
+        }
+        return countReservasHotel >= 2;
+    }
+
+    private boolean contieneDosBoletosViaje() {
+        // Lógica para verificar si contiene al menos 2 boletos de viaje
+        // Puedes personalizar esta lógica según los requisitos reales
+        int countBoletosViaje = 0;
+        for (ReservaBase reserva : reservas) {
+            if (reserva.tipo.equals("Boleto")) {
+                countBoletosViaje++;
+            }
+        }
+        return countBoletosViaje >= 2;
+    }
+    @Override
+    public String toString() {
+        return "Localizador{" +
+                "nombreCliente='" + nombreCliente + '\'' +
+                ", reservas=" + reservas +
+                '}';
+    }
 }

@@ -1,5 +1,5 @@
 package interfaces;
 
-public interface Discounts {
-    void applyDiscounts();
+public interface Descuentos {
+    void aplicarDescuentos();
 }

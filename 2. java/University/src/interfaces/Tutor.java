@@ -1,2 +1,6 @@
-package interfaces;public interface Tutor {
+package interfaces;
+
+public interface Tutor {
+    void ensenar();
+    void guiar();
 }
