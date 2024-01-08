@@ -22,10 +22,5 @@ public class NoPerecedero extends Producto {
                 "tipo='" + tipo + '\'' +
                 '}';
     }
-
-    @Override
-    public double calcular(int cantidadDeProductos) {
-        return super.calcular(cantidadDeProductos);
-    }
 }
 
