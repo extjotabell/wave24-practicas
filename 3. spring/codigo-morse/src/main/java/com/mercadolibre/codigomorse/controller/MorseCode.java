@@ -12,7 +12,7 @@ import java.util.stream.Collectors;
 @Setter
 public class MorseCode {
     private String text;
-    private final Map<String, String> CODES = new HashMap<>() {{
+    public static final Map<String, String> CODES = new HashMap<>() {{
         put(".-", "A");
         put("-...", "B");
         put("-.-.", "C");
@@ -61,12 +61,29 @@ public class MorseCode {
     public MorseCode() {
     }
 
-    public String deserialize(){
+    public String deserializeToText(){
         String[] words = this.text.split("   ");
 
         return Arrays.stream(words).map((word) -> {
-            return Arrays.stream(word.split(" ")).map(this.CODES::get).collect(Collectors.joining());
+            return Arrays.stream(word.split(" ")).map(MorseCode.CODES::get).collect(Collectors.joining());
         }).collect(Collectors.joining(" "));
+    }
+
+    public String deserializeToCode(){
+        String[] morseCode = this.text.split(" ");
+        System.out.println(Arrays.toString(morseCode));
+        Map<String, String> mapMorseCodeInverted = reverseMapCodes();
+
+        return Arrays.stream(morseCode).map((word) -> {
+            System.out.println(Arrays.stream(word.split("")).toList());
+            var array = Arrays.stream(word.split("")).map(letter -> reverseMapCodes().get(letter));
+            System.out.println(Arrays.toString(array.toArray()));
+            return Arrays.stream(word.split("")).map(letter -> reverseMapCodes().get(letter.toUpperCase())).collect((Collectors.joining(" ")));
+        }).collect(Collectors.joining("   "));
+    }
+
+    private Map<String, String> reverseMapCodes(){
+        return MorseCode.CODES.entrySet().stream().collect(Collectors.toMap(Map.Entry::getValue, Map.Entry::getKey));
     }
     @Override
     public String toString() {
