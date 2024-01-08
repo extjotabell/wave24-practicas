@@ -14,7 +14,8 @@ public class Main {
 
         GuardaRopa guardaRopa = new GuardaRopa();
         guardaRopa.guardarPrendas(listaPrendas);
-        System.out.println(guardaRopa);
+
+        guardaRopa.mostrarPrendas();
 
     }
 }

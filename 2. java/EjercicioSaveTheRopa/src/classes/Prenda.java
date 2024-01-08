@@ -27,9 +27,8 @@ public class Prenda {
 
     @Override
     public String toString() {
-        return "Prenda{" +
+        return
                 "marca='" + marca + '\'' +
-                ", modelo='" + modelo + '\'' +
-                '}';
+                ", modelo='" + modelo + '\'';
     }
 }

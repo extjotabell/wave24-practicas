@@ -3,6 +3,7 @@ package classes;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class GuardaRopa {
     private Integer id = 0;
@@ -45,5 +46,14 @@ public class GuardaRopa {
         id++;
         listaPrendas.put(id, listaDePrenda);
         return id;
+    }
+
+    public void mostrarPrendas(){
+        System.out.println("Prendas en el guardaropas: ");
+        for(Map.Entry<Integer,List<Prenda>> prenda : listaPrendas.entrySet()){
+            Integer clave = prenda.getKey();
+            List<Prenda> valor = prenda.getValue();
+            System.out.println("ID: " + clave + ", Lista prendas: " + valor);
+        }
     }
 }
