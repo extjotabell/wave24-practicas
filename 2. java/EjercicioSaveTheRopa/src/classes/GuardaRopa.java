@@ -56,4 +56,15 @@ public class GuardaRopa {
             System.out.println("ID: " + clave + ", Lista prendas: " + valor);
         }
     }
+
+    public List<Prenda> devolverPrendas(Integer numero){
+        List<Prenda> nuevaLista = new ArrayList<>();
+        for (Map.Entry<Integer,List<Prenda>> prenda : listaPrendas.entrySet()){
+            if (numero == prenda.getKey()){
+                nuevaLista = prenda.getValue();
+            }
+        }
+        return nuevaLista;
+
+    }
 }
