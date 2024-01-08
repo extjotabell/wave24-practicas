@@ -1,10 +1,15 @@
 package com.mercadolibre.codigomorse.controller;
 
+import lombok.Getter;
+import lombok.Setter;
+
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.stream.Collectors;
 
+@Getter
+@Setter
 public class MorseCode {
     private String text;
     private final Map<String, String> CODES = new HashMap<>() {{
@@ -54,14 +59,6 @@ public class MorseCode {
     }
 
     public MorseCode() {
-    }
-
-    public String getText() {
-        return text;
-    }
-
-    public void setText(String text) {
-        this.text = text;
     }
 
     public String deserialize(){
