@@ -5,12 +5,14 @@ import java.util.ArrayList;
 public class Factura {
     private Cliente cliente;
     private ArrayList<Producto> productoArrayList;
-    private Integer totalCompra;
+    private Double totalCompra;
 
-    public Factura(Cliente cliente, ArrayList<Producto> productoArrayList, Integer totalCompra) {
+    public Factura(Cliente cliente, ArrayList<Producto> productoArrayList) {
         this.cliente = cliente;
         this.productoArrayList = productoArrayList;
-        this.totalCompra = totalCompra;
+        this.totalCompra = productoArrayList.stream().mapToDouble(
+                producto -> producto.getCostoUnitario() * producto.getCantidadComprada()
+        ).sum();
     }
 
     public Cliente getCliente() {
@@ -29,11 +31,11 @@ public class Factura {
         this.productoArrayList = productoArrayList;
     }
 
-    public Integer getTotalCompra() {
+    public Double getTotalCompra() {
         return totalCompra;
     }
 
-    public void setTotalCompra(Integer totalCompra) {
+    public void setTotalCompra(Double totalCompra) {
         this.totalCompra = totalCompra;
     }
 

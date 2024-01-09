@@ -1,4 +1,6 @@
 import classes.Cliente;
+import classes.Factura;
+import classes.Producto;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -21,8 +23,26 @@ public class Main {
         System.out.println("\nIngrese el DNI del cliente:");
         int dni = scanner.nextInt();
 
-        var clienteBuscado = clientes.stream().anyMatch(cliente -> cliente.getDni() == dni) ? clientes.stream().filter(cliente -> cliente
-                .getDni() == dni).findFirst().get() : "El cliente no existe";
-        System.out.println(clienteBuscado);
+        Cliente clienteBuscado;
+
+        if (clientes.stream().anyMatch(cliente -> cliente.getDni() == dni)) {
+            clienteBuscado = clientes.stream().filter(cliente -> cliente
+                    .getDni() == dni).findFirst().get();
+        } else {
+            System.out.println("El cliente no existe... \nIngrese el nombre del Cliente:");
+            String nombre = scanner.next();
+            System.out.println("Ingrese el apellido:");
+            String apellido = scanner.next();
+
+            clienteBuscado = new Cliente(dni, nombre, apellido);
+            clientes.add(clienteBuscado);
+        }
+
+        Factura factura = new Factura(clienteBuscado, new ArrayList<>(Arrays.asList(
+                new Producto("producto-1", "Arroz", 3, 19.90),
+                new Producto("producto-2", "Galletas", 7, 17.50)
+        )));
+
+        System.out.println(factura.getTotalCompra());
     }
 }

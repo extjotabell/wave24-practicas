@@ -4,9 +4,9 @@ public class Producto {
     private String codigo;
     private String nombre;
     private Integer cantidadComprada;
-    private Integer costoUnitario;
+    private Double costoUnitario;
 
-    public Producto(String codigo, String nombre, Integer cantidadComprada, Integer costoUnitario) {
+    public Producto(String codigo, String nombre, Integer cantidadComprada, Double costoUnitario) {
         this.codigo = codigo;
         this.nombre = nombre;
         this.cantidadComprada = cantidadComprada;
@@ -37,11 +37,11 @@ public class Producto {
         this.cantidadComprada = cantidadComprada;
     }
 
-    public Integer getCostoUnitario() {
+    public Double getCostoUnitario() {
         return costoUnitario;
     }
 
-    public void setCostoUnitario(Integer costoUnitario) {
+    public void setCostoUnitario(Double costoUnitario) {
         this.costoUnitario = costoUnitario;
     }
 
