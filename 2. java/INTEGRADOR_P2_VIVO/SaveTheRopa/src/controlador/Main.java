@@ -15,6 +15,7 @@ public class Main {
         Prenda prenda2 = new Prenda("Adidas", "Superstar");
         Prenda prenda3 = new Prenda("Puma", "Suede");
 
+        Prenda prenda4 = new Prenda("Reebok", "Classic");
 
         GuardaRopa guardaRopa = new GuardaRopa();
 
