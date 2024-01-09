@@ -1,8 +1,8 @@
+package ejercicio_garaje;
+
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
-import java.util.OptionalDouble;
-import java.util.stream.Collectors;
 
 public class Main {
 
@@ -54,7 +54,7 @@ public class Main {
         System.out.println(vehiculosMenor1000);
         List<Vehiculo> vehiculosMayorIgual1000 = listaDeVehiculos.stream().filter(v -> v.getCosto() >= 1000).toList();
         System.out.println(vehiculosMayorIgual1000);
-        OptionalDouble promedioCostos = listaDeVehiculos.stream().mapToDouble(Vehiculo::getCosto).average();
+        Double promedioCostos = listaDeVehiculos.stream().mapToDouble(Vehiculo::getCosto).average().getAsDouble();
         System.out.println(promedioCostos);
     }
 }

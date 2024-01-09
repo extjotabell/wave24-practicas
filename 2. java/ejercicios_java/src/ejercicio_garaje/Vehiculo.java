@@ -1,3 +1,5 @@
+package ejercicio_garaje;
+
 public class Vehiculo{
     private String marca;
     private String modelo;
