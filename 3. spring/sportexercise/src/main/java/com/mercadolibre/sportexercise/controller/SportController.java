@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Objects;
 
 @RestController
 public class SportController {
@@ -38,8 +39,11 @@ public class SportController {
 
     @GetMapping("/findSport/{name}")
     public ResponseEntity<Integer> findSportByName(@PathVariable String name){
-        Sport sportFinded = this.SPORTS.stream().filter(sport -> sport.getName().equalsIgnoreCase(name)).findFirst().orElseThrow();
-        return ResponseEntity.ok(sportFinded.getLevel());
+        Sport sportFinded = this.SPORTS.stream().filter(sport -> sport.getName().equalsIgnoreCase(name)).findFirst().orElse(null);
+        if(sportFinded != null){
+            return ResponseEntity.ok(sportFinded.getLevel());
+        }
+        return ResponseEntity.notFound().build();
     }
 
     @GetMapping("/findSportsPersons")

@@ -1,4 +1,4 @@
-package com.mercadolibre.covidexercise.controller;
+package com.mercadolibre.covidexercise.classes;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
