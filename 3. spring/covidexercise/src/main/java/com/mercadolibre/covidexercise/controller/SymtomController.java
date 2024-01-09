@@ -45,11 +45,11 @@ public class SymtomController {
 
     @GetMapping("findRiskPerson")
     public ResponseEntity<List<PersonSymptomDTO>> getRiskPerson(){
-        List<PersonSymptomDTO> personsSymptoms= this.PERSONS.stream()
-                .filter(person -> person.getAge() > 60 && !person.getSymptoms().isEmpty())
-                .map(person -> new PersonSymptomDTO(person.getFirstName(), person.getLastName()))
-                .toList();
-
-        return ResponseEntity.ok(personsSymptoms);
+        List<Person> personsFiltered = this.PERSONS.stream().filter(person -> person.getAge() > 60 && !person.getSymptoms().isEmpty()).toList();
+        if(personsFiltered.isEmpty()){
+            return ResponseEntity.notFound().build();
+        }
+        List<PersonSymptomDTO> personSymptomDTOS = personsFiltered.stream().map(person -> new PersonSymptomDTO(person.getFirstName(), person.getLastName())).toList();
+        return ResponseEntity.ok(personSymptomDTOS);
     }
 }
