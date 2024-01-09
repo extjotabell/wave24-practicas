@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 @RestController
 public class DeportistasRestController {
@@ -43,8 +44,8 @@ public class DeportistasRestController {
 
 
     @GetMapping("/findSports")
-    public List<Deporte> findSports() {
-        return deportes;
+    public ResponseEntity<List<Deporte>> findSports() {
+        return ResponseEntity.ok(deportes);
     }
 
     @GetMapping("/findSport/{nombre}")
@@ -58,15 +59,15 @@ public class DeportistasRestController {
     }
 
     @GetMapping("/findSportsPersons")
-    public List<DeportistaDTO> findSportsPersons() {
+    public ResponseEntity<List<DeportistaDTO>> findSportsPersons() {
         List<DeportistaDTO> deportistas = new ArrayList<>();
         personas.forEach(p -> {
-            if (p.getDeporte() != null) {
+            if (Objects.nonNull(p.getDeporte())) {
                 deportistas.add(new DeportistaDTO(p.getNombre(), p.getApellido(), p.getDeporte().getNombre()));
             }
         });
 
-        return deportistas;
+        return ResponseEntity.ok(deportistas);
     }
 
 }
