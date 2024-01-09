@@ -1,5 +1,8 @@
 package classes;
 
+import java.util.ArrayList;
+import java.util.Collection;
+
 public class Person {
     String name;
     int age;
