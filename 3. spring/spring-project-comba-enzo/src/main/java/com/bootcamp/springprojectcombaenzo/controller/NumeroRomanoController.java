@@ -2,15 +2,15 @@ package com.bootcamp.springprojectcombaenzo.controller;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.Collections;
-import java.util.HashMap;
 import java.util.Map;
 import java.util.TreeMap;
-import java.util.stream.Collectors;
 
 @RestController
+@RequestMapping("/romanos")
 public class NumeroRomanoController {
     private static final Map<Integer, String> numerosRomanos = new TreeMap<>(Collections.reverseOrder()){{
         put(1000,"M");
