@@ -18,8 +18,8 @@ public class CovidRestController {
     private final List<Persona> personas = Database.getPersonas();
 
     @GetMapping("/findSymptoms")
-    public List<Sintoma> findSymptoms() {
-        return sintomas;
+    public ResponseEntity<List<Sintoma>> findSymptoms() {
+        return ResponseEntity.ok(sintomas);
     }
 
     @GetMapping("/findSymptom/{name}")
@@ -33,7 +33,7 @@ public class CovidRestController {
     }
 
     @GetMapping("/findRiskPersons")
-    public List<PersonaRiesgoDTO> findRiskPersons() {
+    public ResponseEntity<List<PersonaRiesgoDTO>> findRiskPersons() {
         List<PersonaRiesgoDTO> buscados = personas.stream()
                 .filter(persona -> persona.getEdad() >= 60 && !persona.getSintomas().isEmpty())
                 .map(persona -> new PersonaRiesgoDTO(persona.getNombre(), persona.getApellido(), persona.getSintomas().stream()
@@ -41,7 +41,7 @@ public class CovidRestController {
                         .toList()))
                 .toList();
 
-        return buscados;
+        return ResponseEntity.ok(buscados);
     }
 
 
