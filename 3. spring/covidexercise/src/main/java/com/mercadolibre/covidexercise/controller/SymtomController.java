@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collector;
+import java.util.stream.Collectors;
 
 @RestController
 public class SymtomController {
@@ -20,13 +22,12 @@ public class SymtomController {
     ));
 
     private final List<Person> PERSONS = new ArrayList<>(List.of(
-            new Person("1", "Joaco", "Cabello", 25, new ArrayList<>(List.of(SYMPTOMS.get(1), SYMPTOMS.get(2)))),
-            new Person("2", "Alejandro", "Knubel", 25, new ArrayList<>(List.of(SYMPTOMS.get(1)))),
-            new Person("3", "Doris", "Salazar", 25, new ArrayList<>(List.of(SYMPTOMS.get(3)))),
-            new Person("4", "Victoria", "Marquez", 25, new ArrayList<>(List.of(SYMPTOMS.get(1), SYMPTOMS.get(3)))),
-            new Person("5", "Enzo", "Comba", 25, new ArrayList<>(List.of(SYMPTOMS.get(3), SYMPTOMS.get(2))))
+            new Person("1", "Joaco", "Cabello", 25, new ArrayList<>(List.of(SYMPTOMS.get(0), SYMPTOMS.get(1)))),
+            new Person("2", "Alejandro", "Knubel", 25, new ArrayList<>(List.of(SYMPTOMS.get(0)))),
+            new Person("3", "Doris", "Salazar", 25, new ArrayList<>(List.of(SYMPTOMS.get(2)))),
+            new Person("4", "Victoria", "Marquez", 65, new ArrayList<>(List.of(SYMPTOMS.get(0), SYMPTOMS.get(2)))),
+            new Person("5", "Enzo", "Comba", 25, new ArrayList<>(List.of(SYMPTOMS.get(2), SYMPTOMS.get(1))))
     ));
-
 
     @GetMapping("/findSymptom")
     public ResponseEntity<List<Symptom>> getAllSymptom(){
