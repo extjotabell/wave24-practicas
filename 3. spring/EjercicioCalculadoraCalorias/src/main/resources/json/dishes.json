@@ -1,0 +1,25 @@
+[
+  {
+    "name": "Ensalada",
+    "ingredients": [
+      "Aceitunas negras",
+      "Tomates",
+      "Pepino",
+      "Cebolla",
+      "Aceite de oliva",
+      "Vinagres"
+    ]
+  },
+  {
+    "name": "Risotto de Champiñones",
+    "ingredients": [
+      "Arroz blanco",
+      "Champiñón y otras setas",
+      "Cebolla",
+      "Caldos concentrados",
+      "Aceite de oliva",
+      "Queso parmesano",
+      "Pimiento"
+    ]
+  }
+]
