@@ -3,7 +3,7 @@ package com.mercadolibre.starwarsexersice.service;
 import com.mercadolibre.starwarsexersice.dto.CharacterDTO;
 import com.mercadolibre.starwarsexersice.entity.CharacterEntity;
 import com.mercadolibre.starwarsexersice.repository.CharacterRepository;
-import com.mercadolibre.starwarsexersice.repository.CharacterRepositoryImp;
+import com.mercadolibre.starwarsexersice.repository.CharacterRepositoryImpl;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -13,7 +13,7 @@ public class CharacterService {
     private CharacterRepository characterRepository;
 
     public CharacterService() {
-        this.characterRepository = new CharacterRepositoryImp();
+        this.characterRepository = new CharacterRepositoryImpl();
     }
 
     public List<CharacterDTO> findEntityByNameMach(String nameMach){
