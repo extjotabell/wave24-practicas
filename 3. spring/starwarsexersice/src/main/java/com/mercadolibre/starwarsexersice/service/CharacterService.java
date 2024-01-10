@@ -12,8 +12,8 @@ import java.util.List;
 public class CharacterService {
     private CharacterRepository characterRepository;
 
-    public CharacterService() {
-        this.characterRepository = new CharacterRepositoryImpl();
+    public CharacterService(CharacterRepository characterRepository) {
+        this.characterRepository = characterRepository;
     }
 
     public List<CharacterDTO> findEntityByNameMach(String nameMach){
