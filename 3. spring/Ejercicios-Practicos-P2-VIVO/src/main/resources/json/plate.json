@@ -1,0 +1,42 @@
+[
+  {
+    "name": "Ensalada Mediterránea",
+    "ingredients": ["Aceitunas negras", "Cacao en polvo con azúcar instantáneo", "Chorizo"]
+  },
+  {
+    "name": "Pescado a la Naranja",
+    "ingredients": ["Caballa", "Gallo", "Naranja"]
+  },
+  {
+    "name": "Postre de Verano",
+    "ingredients": ["Pasta al huevo", "Salami", "Helados de agua"]
+  },
+  {
+    "name": "Plato de Caza",
+    "ingredients": ["Perdiz", "Miel", "Jamón crudo"]
+  },
+  {
+    "name": "Calamares con Castañas",
+    "ingredients": ["Calamar", "Castañas", "Cebolla tierna"]
+  },
+  {
+    "name": "Ensalada de Habas y Pera",
+    "ingredients": ["Habas tiernas", "Pera", "Leche descremada"]
+  },
+  {
+    "name": "Pimientos Rellenos con Cereza",
+    "ingredients": ["Cereza", "Pimiento", "Pasta de sémola"]
+  },
+  {
+    "name": "Plato de Pescado con Yogur",
+    "ingredients": ["Lenguado", "Yogur natural con fruta", "Aceitunas verdes"]
+  },
+  {
+    "name": "Flan de Frutas del Bosque",
+    "ingredients": ["Flan de vainilla", "Arándanos", "Pescado"]
+  },
+  {
+    "name": "Compota de Nísperos",
+    "ingredients": ["Nísperos", "Champiñón y otras setas", "Chocolates"]
+  }
+]
