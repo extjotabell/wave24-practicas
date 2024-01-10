@@ -9,6 +9,8 @@ import java.util.List;
 
 
 @AllArgsConstructor
+@Getter
+@Setter
 public class PacienteDTO implements Serializable {
 
     private String nombre;

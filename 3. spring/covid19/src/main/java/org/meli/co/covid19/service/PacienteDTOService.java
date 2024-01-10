@@ -28,7 +28,8 @@ public class PacienteDTOService {
     }
 
     public List<PacienteDTO> getPacientes() {
-        return pacientes;
+        var pacienteEnRiesgo = pacientes.stream().filter(pacienteDTO -> pacienteDTO.getEdad() > 60 && !pacienteDTO.getSintomas().isEmpty());
+        return pacienteEnRiesgo.toList();
     }
 
 
