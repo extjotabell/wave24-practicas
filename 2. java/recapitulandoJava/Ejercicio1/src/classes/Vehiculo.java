@@ -2,9 +2,9 @@ package classes;
 
 public class Vehiculo {
 
-    String modelo;
-    String marca;
-    double costo;
+    private String modelo;
+    private String marca;
+    private double costo;
     public Vehiculo(String modelo, String marca, double costo) {
         this.modelo = modelo;
         this.marca = marca;
@@ -33,5 +33,14 @@ public class Vehiculo {
 
     public void setCosto(double costo) {
         this.costo = costo;
+    }
+
+    @Override
+    public String toString() {
+        return "Vehiculo{" +
+                "modelo='" + modelo + '\'' +
+                "marca='" + marca + '\'' +
+                "costo=" + costo +
+                '}'+ '\n' ;
     }
 }
