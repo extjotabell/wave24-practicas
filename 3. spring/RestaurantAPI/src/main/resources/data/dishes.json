@@ -1,0 +1,22 @@
+[
+  {
+    "name": "Lomo de Salmón",
+    "ingredients": ["Salmonete", "Calabacín", "Aceite de oliva"]
+  },
+  {
+    "name": "Croquetas de Calabacín",
+    "ingredients": [
+      "Calabacín",
+      "Queso gruyere",
+      "Ajos", "Harina de maíz",
+      "Mantequilla",
+      "Leche entera",
+      "Pan de centeno",
+      "Huevo entero"
+    ]
+  },
+  {
+    "name": "Gazpachuelo",
+    "ingredients": ["Huevo entero", "Almendras", "Pan de centeno", "Ajos", "Vinagres"]
+  }
+]
