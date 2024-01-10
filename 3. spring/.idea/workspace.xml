@@ -4,7 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ccf2af35-4ab6-417a-abf8-7d8b8a1e72dc" name="Changes" comment="feat(spring): Agrego ejercios PG" />
+    <list default="true" id="ccf2af35-4ab6-417a-abf8-7d8b8a1e72dc" name="Changes" comment="feat(spring): Agrego ejercios PG">
+      <change afterPath="$PROJECT_DIR$/Deportistas/src/main/java/com/example/Deportistas/controllers/DeportistasController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Deportistas/src/main/java/com/example/Deportistas/dtos/DeportistaDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Deportistas/src/main/java/com/example/Deportistas/entities/Deporte.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Deportistas/src/main/java/com/example/Deportistas/entities/Persona.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Deportistas/src/main/java/com/example/Deportistas/services/PersonaService.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -74,6 +80,7 @@
       <workItem from="1704474741994" duration="1123000" />
       <workItem from="1704481187557" duration="215000" />
       <workItem from="1704803215664" duration="15000" />
+      <workItem from="1704833009220" duration="2000" />
     </task>
     <task id="LOCAL-00001" summary="feat(spring): Agrego ejercios PG">
       <option name="closed" value="true" />
