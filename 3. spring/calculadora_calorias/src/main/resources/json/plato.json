@@ -1,0 +1,54 @@
+[
+  {
+    "name": "Ensalada",
+    "ingredients": [
+      "Aceitunas negras",
+      "Tomates",
+      "Pepino",
+      "Cebolla",
+      "Queso feta",
+      "Aceite de oliva",
+      "Vinagre",
+      "Sal y pimienta"
+    ]
+  },
+  {
+    "name": "Pollo",
+    "ingredients": [
+      "Pollo",
+      "Cebolla",
+      "Ajo",
+      "Pimiento",
+      "Tomate triturado en conserva",
+      "Leche de coco",
+      "Curry en polvo",
+      "Arroz integral"
+    ]
+  },
+  {
+    "name": "Pescado",
+    "ingredients": [
+      "Salmón",
+      "Limón",
+      "Eneldo",
+      "Aceite de oliva",
+      "Quinoa",
+      "Espárragos",
+      "Tomates",
+      "Aguacate"
+    ]
+  },
+  {
+    "name": "Pasta",
+    "ingredients": [
+      "Pasta de sémola",
+      "Carne molida",
+      "Cebolla",
+      "Ajo",
+      "Tomate triturado en conserva",
+      "Albóndigas",
+      "Aceite de oliva",
+      "Albahaca"
+    ]
+  }
+]
