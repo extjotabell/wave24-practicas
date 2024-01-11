@@ -20,32 +20,20 @@ public class PlatoController {
 
     @GetMapping("/{name}/calories")
     public ResponseEntity<CaloriasPorPlato> getCaloriesByPlato(@PathVariable String name){
-        try {
-            CaloriasPorPlato caloriasPorPlato = platoServiceInt.getCaloriesByPlato(name);
-            return ResponseEntity.ok(caloriasPorPlato);
-        } catch (Exception e) {
-            return ResponseEntity.notFound().build();
-        }
+        CaloriasPorPlato caloriasPorPlato = platoServiceInt.getCaloriesByPlato(name);
+        return ResponseEntity.ok(caloriasPorPlato);
     }
 
     @GetMapping("/{name}/ingredients")
     public ResponseEntity<IngredientesPorPlato> getIngredientsByPlato(@PathVariable String name){
-        try {
-            IngredientesPorPlato ingredientesPorPlato = platoServiceInt.getIngredientePorPlato(name);
-            return ResponseEntity.ok(ingredientesPorPlato);
-        } catch (Exception e) {
-            return ResponseEntity.notFound().build();
-        }
+        IngredientesPorPlato ingredientesPorPlato = platoServiceInt.getIngredientePorPlato(name);
+        return ResponseEntity.ok(ingredientesPorPlato);
     }
 
     @GetMapping("/{name}/highestCalories")
     public ResponseEntity<PlatoConMayorCalorias> getHighestCalories(@PathVariable String name){
-        try {
-            PlatoConMayorCalorias highestCalorie = platoServiceInt.getHighestCalorie(name);
-            return ResponseEntity.ok(highestCalorie);
-        } catch (Exception e) {
-            return ResponseEntity.notFound().build();
-        }
+        PlatoConMayorCalorias highestCalorie = platoServiceInt.getHighestCalorie(name);
+        return ResponseEntity.ok(highestCalorie);
     }
 
 

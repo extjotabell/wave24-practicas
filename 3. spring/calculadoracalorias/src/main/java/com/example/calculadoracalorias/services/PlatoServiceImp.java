@@ -5,6 +5,7 @@ import com.example.calculadoracalorias.dtos.IngredientesPorPlato;
 import com.example.calculadoracalorias.dtos.CaloriasPorPlato;
 import com.example.calculadoracalorias.entities.Ingrediente;
 import com.example.calculadoracalorias.entities.Plato;
+import com.example.calculadoracalorias.exception.NotFoundException;
 import com.example.calculadoracalorias.repositories.IngredenteRepository;
 import com.example.calculadoracalorias.repositories.PlatoRepository;
 import com.example.calculadoracalorias.services.interfaces.PlatoServiceInt;
@@ -59,7 +60,7 @@ public class PlatoServiceImp implements PlatoServiceInt {
                 .max(Comparator.comparingInt(Ingrediente::getCalories));
 
         if(ingrediente.isEmpty()){
-            throw new RuntimeException("El plato no tiene ingredientes");
+            throw new NotFoundException("El plato no tiene ingredientes");
         }
 
         return new PlatoConMayorCalorias(ingrediente.get());
@@ -70,7 +71,7 @@ public class PlatoServiceImp implements PlatoServiceInt {
         Optional<Plato> optionalPlato = platoRepository.findByName(name);
 
         if(optionalPlato.isEmpty()){
-            throw new RuntimeException("El plato no existe");
+            throw new NotFoundException("El plato no existe");
         }
         return optionalPlato.get();
     }
