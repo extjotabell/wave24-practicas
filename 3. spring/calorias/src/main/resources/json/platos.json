@@ -1,0 +1,69 @@
+[
+    {
+      "name": "Ensalada de Tomate y Mozzarella",
+      "ingredients": [
+        "Tomates",
+        "Queso mozzarella",
+        "Albahaca",
+        "Aceite de oliva",
+        "Vinagre",
+        "Sal",
+        "Pimienta"
+      ]
+    },
+    {
+      "name": "Pasta Carbonara",
+      "ingredients": [
+        "Pasta",
+        "Bacon (Panceta ahumada)",
+        "Queso parmesano",
+        "Huevo",
+        "Ajo",
+        "Sal",
+        "Pimienta"
+      ]
+    },
+    {
+      "name": "Pollo al Curry",
+      "ingredients": [
+        "Pechuga de pollo",
+        "Cebolla",
+        "Tomate triturado en conserva",
+        "Leche de coco",
+        "Curry en polvo",
+        "Aceite de oliva",
+        "Ajo",
+        "Jengibre",
+        "Sal",
+        "Pimienta"
+      ]
+    },
+    {
+      "name": "Salmón a la Parrilla",
+      "ingredients": [
+        "Salmón",
+        "Aceite de oliva",
+        "Limón",
+        "Eneldo",
+        "Sal",
+        "Pimienta"
+      ]
+    },
+    {
+      "name": "Arroz con Pollo",
+      "ingredients": [
+        "Arroz",
+        "Pechuga de pollo",
+        "Cebolla",
+        "Pimiento",
+        "Ajo",
+        "Tomate triturado en conserva",
+        "Caldo de pollo",
+        "Azafrán",
+        "Aceite de oliva",
+        "Sal",
+        "Pimienta"
+      ]
+    }
+  ]
+  
