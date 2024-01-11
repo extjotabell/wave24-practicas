@@ -5,11 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ccf2af35-4ab6-417a-abf8-7d8b8a1e72dc" name="Changes" comment="feat(spring): Agrego ejercios PG">
-      <change afterPath="$PROJECT_DIR$/Deportistas/src/main/java/com/example/Deportistas/controllers/DeportistasController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Deportistas/src/main/java/com/example/Deportistas/dtos/DeportistaDto.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Deportistas/src/main/java/com/example/Deportistas/entities/Deporte.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Deportistas/src/main/java/com/example/Deportistas/entities/Persona.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Deportistas/src/main/java/com/example/Deportistas/services/PersonaService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -66,6 +62,9 @@
       <workItem from="1704481187557" duration="215000" />
       <workItem from="1704803215664" duration="15000" />
       <workItem from="1704833009220" duration="2000" />
+      <workItem from="1704922090753" duration="197000" />
+      <workItem from="1704975310137" duration="7000" />
+      <workItem from="1704975395986" duration="26000" />
     </task>
     <task id="LOCAL-00001" summary="feat(spring): Agrego ejercios PG">
       <option name="closed" value="true" />
@@ -75,7 +74,23 @@
       <option name="project" value="LOCAL" />
       <updated>1704481347090</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="feat(spring): Agrego ejercios PG">
+      <option name="closed" value="true" />
+      <created>1704922117039</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1704922117039</updated>
+    </task>
+    <task id="LOCAL-00003" summary="feat(spring): Agrego ejercios PG">
+      <option name="closed" value="true" />
+      <created>1704922267766</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1704922267766</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
