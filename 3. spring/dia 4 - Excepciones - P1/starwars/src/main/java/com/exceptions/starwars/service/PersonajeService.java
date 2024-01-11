@@ -1,15 +1,19 @@
-package com.starwars.spring.service;
+package com.exceptions.starwars.service;
 
-import com.starwars.spring.dto.PersonajeDTO;
-import com.starwars.spring.repository.IPersonajeRepository;
-import com.starwars.spring.service.IPersonajeService;
+import com.exceptions.starwars.dto.PersonajeDTO;
+import com.exceptions.starwars.exception.EmptyListException;
+import com.exceptions.starwars.repository.IPersonajeRepository;
+import com.exceptions.starwars.util.enums.CrudOperation;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.ExceptionHandler;
+import org.springframework.web.bind.annotation.ResponseStatus;
 
 import java.util.ArrayList;
 import java.util.stream.Collectors;
 
 @Service
-public class PersonajeService implements IPersonajeService {
+public class PersonajeService implements IPersonajeService{
 
     private IPersonajeRepository personajeRepository;
 
@@ -20,12 +24,12 @@ public class PersonajeService implements IPersonajeService {
     }
 
     @Override
-    public ArrayList<PersonajeDTO> findByName(String name) {
-
-        if(name.trim().isEmpty())
-            return new ArrayList<>();
+    public ArrayList<PersonajeDTO> findByName(String name){
 
         var listPersonajes = this.personajeRepository.findByName(name);
+
+        if(listPersonajes.isEmpty())
+            throw new EmptyListException(CrudOperation.READ, "La lista de personajes esta vacia");
 
         return listPersonajes.stream()
                 .map(p->{

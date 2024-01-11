@@ -1,7 +1,9 @@
-package com.starwars.spring.controller;
+package com.exceptions.starwars.controller;
 
-import com.starwars.spring.service.IPersonajeService;
-import com.starwars.spring.dto.PersonajeDTO;
+import com.exceptions.starwars.dto.PersonajeDTO;
+import com.exceptions.starwars.exception.EmptyParameterException;
+import com.exceptions.starwars.service.IPersonajeService;
+import com.exceptions.starwars.util.enums.CrudOperation;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -22,6 +24,11 @@ public class PersonajeController {
 
     @GetMapping("/findByName/{name}")
     public ResponseEntity<ArrayList<PersonajeDTO>> findByName(@PathVariable String name){
+
+        // Controlador
+        if(name.trim().isEmpty())
+            throw new EmptyParameterException(CrudOperation.READ, "El parametro nombre esta vacio");
+
         return ResponseEntity.ok(
                 this.personajeService.findByName(name)
         );

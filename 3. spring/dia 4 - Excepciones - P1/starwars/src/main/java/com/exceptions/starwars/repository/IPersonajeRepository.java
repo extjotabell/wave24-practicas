@@ -1,8 +1,8 @@
-package com.starwars.spring.repository;
+package com.exceptions.starwars.repository;
 
-import com.starwars.spring.entity.Personaje;
-import com.starwars.spring.repository.ICrudRepository;
+import com.exceptions.starwars.entity.Personaje;
 
+import javax.tools.JavaCompiler;
 import java.util.ArrayList;
 
 public interface IPersonajeRepository extends ICrudRepository<Personaje> {

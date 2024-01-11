@@ -1,10 +1,9 @@
-package com.starwars.spring.repository;
+package com.exceptions.starwars.repository;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.PropertyNamingStrategy;
-import com.starwars.spring.entity.Personaje;
-import com.starwars.spring.repository.IPersonajeRepository;
+import com.exceptions.starwars.entity.Personaje;
 import org.springframework.stereotype.Repository;
 import org.springframework.util.ResourceUtils;
 
@@ -15,7 +14,7 @@ import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Repository
-public class PersonajeRepository implements IPersonajeRepository {
+public class PersonajeRepository implements IPersonajeRepository{
 
     private ArrayList<Personaje> personajes;
 
