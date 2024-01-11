@@ -13,7 +13,14 @@ public class Carrera {
     private SocorristaMoto socorristaMoto = new SocorristaMoto();
     private static final int CUPO = 5;
 
-    public void darDeAltaAuto(Double velocidad,Double aceleracion, Double anguloDeGiro, String patente){
+    public Carrera(Double distancia, Integer premioEnDolares, String nombre, Integer cantidadDeVehiculosPermitidos) {
+        this.distancia = distancia;
+        this.premioEnDolares = premioEnDolares;
+        this.nombre = nombre;
+        this.cantidadDeVehiculosPermitidos = cantidadDeVehiculosPermitidos;
+    }
+
+    public void darDeAltaAuto(Double velocidad, Double aceleracion, Double anguloDeGiro, String patente){
         if(vehiculos.size() < CUPO){
             vehiculos.add(new Auto(velocidad, aceleracion, anguloDeGiro, patente));
         }
@@ -47,12 +54,21 @@ public class Carrera {
         }
     }
     public void socorrerMoto(String patente){
-        Vehiculo v = (Vehiculo) vehiculos.stream().filter(vehiculo -> vehiculo.getPatente().equals(patente));
+        /*Vehiculo v = (Vehiculo) vehiculos.stream().filter(vehiculo -> vehiculo.getPatente().equals(patente));
         if (v != null) {
             socorristaMoto.socorrer(new Moto(v.getVelocidad(), v.getAceleracion(), v.getAnguloDeGiro(), patente));
         }
-
+        */
+        for (Vehiculo vehiculo: vehiculos) {
+            if (vehiculo.getPatente().equals(patente)){
+                socorristaMoto.socorrer(new Moto(vehiculo.getVelocidad(), vehiculo.getAceleracion(), vehiculo.getAnguloDeGiro(), vehiculo.getPatente()));
+            }
+        }
     }
 
 
+    public String obtenerGanador() {
+        //vehiculos.stream().filter(vehiculo -> vehiculo.puntajeDeLlegada());
+        return null;
+    }
 }
