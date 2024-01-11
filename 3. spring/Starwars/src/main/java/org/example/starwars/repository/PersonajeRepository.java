@@ -48,5 +48,5 @@ public class PersonajeRepository implements IPersonajeRepository{
                 .collect(Collectors.toCollection(ArrayList::new));
     }
 
-    
+
 }
