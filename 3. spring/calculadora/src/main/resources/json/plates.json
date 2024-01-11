@@ -1,0 +1,18 @@
+[
+  {
+    "name": "Pasta",
+    "ingredients": ["Aceitunas negras", "Acelgas", "Pasta al huevo"]
+  },
+  {
+    "name": "Huevos",
+    "ingredients": ["Flan de huevo", "Pasta al huevo"]
+  },
+  {
+    "name": "Papas",
+    "ingredients": ["Papas cocidas", "Pistacho"]
+  },
+  {
+    "name": "Pastel de papa",
+    "ingredients": ["Papas cocidas", "Acelgas", "Pasta al huevo", "Pistacho", "Avellanas"]
+  }
+]
