@@ -1,0 +1,22 @@
+[
+  {
+    "name": "Ensalada Mediterránea",
+    "ingredients": ["Aceitunas negras", "Aceitunas verdes", "Tomates", "Pepino", "Lechuga", "Queso Feta", "Aceite de oliva"]
+  },
+  {
+    "name": "Pasta Primavera",
+    "ingredients": ["Pasta al huevo", "Espárragos", "Berenjena", "Calabacín", "Salsa de tomate en conserva", "Queso Parmesano"]
+  },
+  {
+    "name": "Ratatouille",
+    "ingredients": ["Berenjena", "Calabacín", "Pimiento", "Tomates", "Ajo", "Cebolla", "Aceite de oliva", "Hierbas provenzales"]
+  },
+  {
+    "name": "Gazpacho Andaluz",
+    "ingredients": ["Tomates", "Pepino", "Pimientos", "Ajo", "Vinagre", "Aceite de oliva", "Pan duro"]
+  },
+  {
+    "name": "Paella Vegetariana",
+    "ingredients": ["Arroz", "Azafrán", "Pimientos", "Alcachofas", "Judías verdes", "Tomates", "Caldo de verduras", "Aceite de oliva"]
+  }
+]
