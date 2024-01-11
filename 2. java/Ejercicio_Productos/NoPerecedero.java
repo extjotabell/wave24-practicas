@@ -1,7 +1,7 @@
 package Ejercicio_Productos;
 
-public class NoPerecedero extends Producto{
-    private String tipo;
+public class NoPerecedero{
+    /*private String tipo;
 
     public NoPerecedero(String nombre, double precio, String tipo) {
         super(nombre, precio);
@@ -27,5 +27,5 @@ public class NoPerecedero extends Producto{
         return "NoPerecedero{" +
                 "tipo='" + tipo + '\'' +
                 '}';
-    }
+    }*/
 }

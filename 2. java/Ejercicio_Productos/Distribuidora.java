@@ -1,7 +1,7 @@
 package Ejercicio_Productos;
 
 public class Distribuidora {
-    Producto[] products;
+    /*Producto[] products;
     Producto product1 = new Perecedero(4,"Coca Cola", 5.5);
     Producto product2 = new NoPerecedero("Vino", 4.5,"bebida fria");
     public void printProducts(){
@@ -11,6 +11,6 @@ public class Distribuidora {
             total += this.products[i].calculate(5);
         }
         System.out.println("El total de precios de la distribuidora es: " + total);
-    }
+    }*/
 
 }

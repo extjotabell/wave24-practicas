@@ -1,7 +1,7 @@
 package Ejercicio_Productos;
 
-public class Perecedero extends Producto{
-    private int diasPorCaducar;
+public class Perecedero{
+    /*private int diasPorCaducar;
 
     public Perecedero(int diasPorCaducar, String nombre, double precio) {
         super(nombre, precio);
@@ -35,5 +35,5 @@ public class Perecedero extends Producto{
         return "Precedero{" +
                 "diasPorCaducar=" + diasPorCaducar +
                 '}';
-    }
+    }*/
 }
