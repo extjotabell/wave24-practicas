@@ -1,0 +1,14 @@
+[
+  {
+    "name" : "Pizza-vegetariana",
+    "ingredients" : ["Aceitunas negras", "Alcachofas", "Brócoli"]
+  },
+  {
+    "name" : "Tutifruti",
+    "ingredients" : ["Manzana", "Mango", "Melón", "Pera"]
+  },
+  {
+    "name" : "Spaghetti",
+    "ingredients" : ["Pasta al huevo", "Salsa de tomate en conserva"]
+  }
+]
