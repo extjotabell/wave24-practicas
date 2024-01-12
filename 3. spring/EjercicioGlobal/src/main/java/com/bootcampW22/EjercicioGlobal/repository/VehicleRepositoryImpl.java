@@ -24,6 +24,13 @@ public class VehicleRepositoryImpl implements IVehicleRepository{
         return listOfVehicles;
     }
 
+    @Override
+    public List<Vehicle> findByBrand(String brand) {
+        return listOfVehicles.stream().filter(
+                vehicle -> vehicle.getBrand().equalsIgnoreCase(brand)
+        ).toList();
+    }
+
     private void loadDataBase() throws IOException {
         File file;
         ObjectMapper objectMapper = new ObjectMapper();

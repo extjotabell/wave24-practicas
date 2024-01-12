@@ -6,4 +6,6 @@ import java.util.List;
 
 public interface IVehicleService {
     List<VehicleDto> searchAllVehicles();
+
+    List<VehicleDto> getVehiclesByBrandBetweenYears(String brand, Integer startYear, Integer endYear);
 }

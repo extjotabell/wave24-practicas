@@ -30,6 +30,20 @@ public class VehicleServiceImpl implements IVehicleService{
                 .collect(Collectors.toList());
     }
 
+    @Override
+    public List<VehicleDto> getVehiclesByBrandBetweenYears(String brand, Integer startYear, Integer endYear) {
+        var listOfVehicles = this.vehicleRepository.findByBrand(brand).stream().filter(
+                vehicle -> vehicle.getYear()>=startYear && vehicle.getYear()<=endYear
+        ).map(
+                this::convertVehicleToDto
+        ).toList();
+
+        if (listOfVehicles.isEmpty())
+            throw new NotFoundException("No se encontraron vehículos con esos criterios.");
+
+        return listOfVehicles;
+    }
+
     private VehicleDto convertVehicleToDto(Vehicle v){
         return new VehicleDto(
                 v.getId(),

@@ -1,11 +1,15 @@
 package com.bootcampW22.EjercicioGlobal.controller;
 
+import com.bootcampW22.EjercicioGlobal.dto.VehicleDto;
 import com.bootcampW22.EjercicioGlobal.service.IVehicleService;
 import com.bootcampW22.EjercicioGlobal.service.VehicleServiceImpl;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
+
+import java.util.List;
 
 @RestController
 public class VehicleController {
@@ -19,5 +23,12 @@ public class VehicleController {
     @GetMapping("/vehicles")
     public ResponseEntity<?> getVehicles(){
         return new ResponseEntity<>(vehicleService.searchAllVehicles(), HttpStatus.OK);
+    }
+
+    @GetMapping("/vehicles/brand/{brand}/between/{startYear}/{endYear}")
+    public ResponseEntity<List<VehicleDto>> getVehiclesByBrandBetweenYears(@PathVariable String brand,
+                                                                          @PathVariable Integer startYear,
+                                                                          @PathVariable Integer endYear) {
+        return ResponseEntity.ok(vehicleService.getVehiclesByBrandBetweenYears(brand, startYear, endYear));
     }
 }
