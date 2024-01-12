@@ -1,0 +1,5 @@
+package com.bootcampW22.EjercicioGlobal.dto;
+
+public record AverageCapacityDto(Integer capacity) {
+
+}
