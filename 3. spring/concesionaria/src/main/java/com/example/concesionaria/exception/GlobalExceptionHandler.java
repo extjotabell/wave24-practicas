@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import java.text.ParseException;
 
 
-@ControllerAdvice  //todo lo que pasa con el controlaro se saca de aca anotacion para especificar la capa
+@ControllerAdvice
 public class GlobalExceptionHandler {
 
     @ExceptionHandler(ParseException.class)//majejador de excepciones
