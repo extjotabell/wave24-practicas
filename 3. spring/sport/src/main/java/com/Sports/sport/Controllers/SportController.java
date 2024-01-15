@@ -43,6 +43,7 @@ public class SportController {
     }
     @PostMapping("/addSport")
     public static void addSport(@RequestBody Sport sport) {
+
         sports.add(sport);
     }
 

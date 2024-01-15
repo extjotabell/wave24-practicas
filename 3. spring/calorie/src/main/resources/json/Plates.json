@@ -1,0 +1,63 @@
+[
+    {
+      "name": "Ensalada Mediterránea",
+      "ingredients": [
+        {"name": "Aceitunas negras"},
+        {"name": "Tomates"},
+        {"name": "Pepino"},
+        {"name": "Cebolla"},
+        {"name": "Aceite de oliva"},
+        {"name": "Vinagre"},
+        {"name": "Sal"}
+      ]
+    },
+    {
+      "name": "Risotto de Champiñones",
+      "ingredients": [
+        {"name": "Arroz arborio"},
+        {"name": "Champiñón y otras setas"},
+        {"name": "Cebolla"},
+        {"name": "Caldo de verduras"},
+        {"name": "Aceite de oliva"},
+        {"name": "Queso parmesano"},
+        {"name": "Sal"},
+        {"name": "Pimienta"}
+      ]
+    },
+    {
+      "name": "Pollo con Salsa de Mostaza",
+      "ingredients": [
+        {"name": "Pechuga de pollo"},
+        {"name": "Mostaza"},
+        {"name": "Miel"},
+        {"name": "Ajo"},
+        {"name": "Aceite de oliva"},
+        {"name": "Sal"},
+        {"name": "Pimienta"}
+      ]
+    },
+    {
+      "name": "Pasta con Salsa de Tomate y Albóndigas",
+      "ingredients": [
+        {"name": "Pasta de sémola"},
+        {"name": "Tomate triturado en conserva"},
+        {"name": "Albóndigas (carne a elección)"},
+        {"name": "Cebolla"},
+        {"name": "Ajo"},
+        {"name": "Aceite de oliva"},
+        {"name": "Sal"},
+        {"name": "Pimienta"}
+      ]
+    },
+    {
+      "name": "Frutas con Yogur y Granola",
+      "ingredients": [
+        {"name": "Yogur natural"},
+        {"name": "Fresas"},
+        {"name": "Kiwi"},
+        {"name": "Granola"},
+        {"name": "Miel"}
+      ]
+    }
+  ]
+  

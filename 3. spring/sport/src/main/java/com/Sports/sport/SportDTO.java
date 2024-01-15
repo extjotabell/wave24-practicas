@@ -1,5 +1,4 @@
 package com.Sports.sport;
-
 public class SportDTO {
 
     private String firstName;
