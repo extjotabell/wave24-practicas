@@ -24,13 +24,13 @@ public class UserRepository implements IUserRepository{
         Product product2 = new Product(2, "Phone", "Electronics", "BrandY", "Black", "Note2");
         Product product3 = new Product(3, "Camera", "Photography", "BrandZ", "Red", "Note3");
 
-        // Crear usuarios
+// Crear usuarios
         User user1 = new User(1, "User1", new ArrayList<>(), new ArrayList<>(), new ArrayList<>());
         User user2 = new User(2, "User2", new ArrayList<>(), new ArrayList<>(), new ArrayList<>());
         User user3 = new User(3, "User3", new ArrayList<>(), new ArrayList<>(), new ArrayList<>());
         User user4 = new User(4, "User4", new ArrayList<>(), new ArrayList<>(), new ArrayList<>());
 
-        // Crear posts
+// Crear posts
         Post post1 = new Post(1, 1, LocalDate.now().minusDays(7), product1, 1, 100.0,true,10.0);
         Post post2 = new Post(2, 1, LocalDate.now().minusDays(14), product2, 2, 200.0,false,0.0);
         Post post3 = new Post(3, 2, LocalDate.now().minusDays(21), product3, 1, 150.0,true,10.0);
@@ -41,7 +41,7 @@ public class UserRepository implements IUserRepository{
         Post post7 = new Post(7, 4, LocalDate.now().minusDays(5), product1, 1, 130.0,true,10.0);
         Post post8 = new Post(8, 4, LocalDate.now().minusDays(12), product2, 2, 250.0,false,0.0);
 
-        // Agregar posts a los usuarios
+// Agregar posts a los usuarios
         user1.getPosts().add(post1);
         user1.getPosts().add(post2);
 
@@ -53,14 +53,14 @@ public class UserRepository implements IUserRepository{
         user4.getPosts().add(post7);
         user4.getPosts().add(post8);
 
-        // Establecer relaciones de followed
+// Establecer relaciones de followed
         user1.getFollowed().add(user2);
         user1.getFollowed().add(user3);
 
         user4.getFollowed().add(user2);
         user4.getFollowed().add(user3);
 
-        // Agregar usuarios a la lista
+// Agregar usuarios a la lista
 
         users.add(user1);
         users.add(user2);

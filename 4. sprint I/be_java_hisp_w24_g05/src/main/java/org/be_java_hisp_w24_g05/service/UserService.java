@@ -3,6 +3,7 @@ package org.be_java_hisp_w24_g05.service;
 import org.be_java_hisp_w24_g05.dto.UserDTO;
 import org.be_java_hisp_w24_g05.entity.Post;
 import org.be_java_hisp_w24_g05.entity.User;
+import org.be_java_hisp_w24_g05.exception.BadRequestException;
 import org.be_java_hisp_w24_g05.repository.IUserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -28,7 +29,12 @@ public class UserService implements IUserService {
     }
 
     public boolean createPostWithPromo(Post post){
-        return userRepository.createPostWithPromo(post);
+        try {
+            return userRepository.createPostWithPromo(post);
+        }
+        catch (Exception e) {
+            throw new BadRequestException("Post data, not valid");
+        }
     }
 
     public int countPromoPost(int userId){
