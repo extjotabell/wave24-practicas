@@ -7,6 +7,8 @@ public record UserPostDTO(
         String date,
         Product product,
         Integer category,
-        Double price
+        Double price,
+        Boolean has_promo,
+        Double discount
 ) {
 }

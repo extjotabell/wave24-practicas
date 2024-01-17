@@ -6,6 +6,7 @@ import org.socialmeli.be_java_hisp_w24_g04.exception.BadRequestException;
 import org.socialmeli.be_java_hisp_w24_g04.exception.InvalidTimeException;
 import org.socialmeli.be_java_hisp_w24_g04.exception.NotFoundException;
 import org.socialmeli.be_java_hisp_w24_g04.model.Post;
+import org.socialmeli.be_java_hisp_w24_g04.model.PromoPost;
 import org.socialmeli.be_java_hisp_w24_g04.repository.IPostRepository;
 import org.socialmeli.be_java_hisp_w24_g04.repository.IProductRepository;
 import org.socialmeli.be_java_hisp_w24_g04.repository.IUserRepository;
@@ -65,15 +66,28 @@ public class PostService implements IPostService {
             throw new InvalidTimeException("Invalid date format. It should be dd-MM-yyyy");
         }
 
+        Post newPost = userPost.has_promo() != null ?
+                new PromoPost(
+                        postId,
+                        userPost.user_id(),
+                        dt,
+                        userPost.product(),
+                        userPost.category(),
+                        userPost.price(),
+                        userPost.has_promo(),
+                        userPost.discount()
+                ) :
+                new Post(
+                        postId,
+                        userPost.user_id(),
+                        dt,
+                        userPost.product(),
+                        userPost.category(),
+                        userPost.price()
+                );
+
         productRepository.save(userPost.product());
-        postRepository.save(new Post(
-                postId,
-                userPost.user_id(),
-                dt,
-                userPost.product(),
-                userPost.category(),
-                userPost.price()
-        ));
+        postRepository.save(newPost);
 
         return userPost;
     }
@@ -87,9 +101,9 @@ public class PostService implements IPostService {
         if (user.isEmpty())
             throw new NotFoundException("User not found.");
 
-        try{
+        try {
             user.get().getFollowed().forEach(followed -> {
-                postRepository.findAll().stream().filter(post -> post.getUserId().equals(followed.user_id()) && (ChronoUnit.DAYS.between(post.getDate(),dateNow) <= 14)).forEach(post -> {
+                postRepository.findAll().stream().filter(post -> post.getUserId().equals(followed.user_id()) && (ChronoUnit.DAYS.between(post.getDate(), dateNow) <= 14)).forEach(post -> {
                     PostDTO postDTO = new PostDTO(
                             post.getUserId(),
                             post.getPostId(),
@@ -106,7 +120,7 @@ public class PostService implements IPostService {
         }
 
         if (order != null)
-            if(order.equals("date_asc")) {
+            if (order.equals("date_asc")) {
                 foundPosts.sort(Comparator.comparing(PostDTO::date));
             } else if (order.equals("date_desc")) {
                 foundPosts.sort(Comparator.comparing(PostDTO::date).reversed());

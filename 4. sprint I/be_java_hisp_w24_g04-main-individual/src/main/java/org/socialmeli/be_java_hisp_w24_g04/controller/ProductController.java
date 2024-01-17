@@ -27,7 +27,7 @@ public class ProductController {
         return new ResponseEntity<>(postService.searchAllFollowedLastTwoWeeks(userId, order), HttpStatus.OK);
     }
 
-    @PostMapping("/post")
+    @PostMapping({"/post", "/promo-post"})
     public ResponseEntity<SingleResponseDTO> createUserPost(@RequestBody UserPostDTO userPost) {
         return ResponseEntity.ok(
                 new SingleResponseDTO(200, postService.createUserPost(userPost))
