@@ -33,4 +33,11 @@ public class ProductController {
                 new SingleResponseDTO(200, postService.createUserPost(userPost))
         );
     }
+
+    @GetMapping("/promo-post/count")
+    public ResponseEntity<SingleResponseDTO> getPromoPostsCount(@RequestParam("user_id") Integer userId) {
+        return ResponseEntity.ok(
+                new SingleResponseDTO(200, postService.getPromoPostsCount(userId))
+        );
+    }
 }

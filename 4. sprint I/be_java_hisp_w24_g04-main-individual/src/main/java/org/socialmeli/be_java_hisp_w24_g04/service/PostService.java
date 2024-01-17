@@ -1,6 +1,7 @@
 package org.socialmeli.be_java_hisp_w24_g04.service;
 
 import org.socialmeli.be_java_hisp_w24_g04.dto.PostDTO;
+import org.socialmeli.be_java_hisp_w24_g04.dto.PromoPostCountDTO;
 import org.socialmeli.be_java_hisp_w24_g04.dto.UserPostDTO;
 import org.socialmeli.be_java_hisp_w24_g04.exception.BadRequestException;
 import org.socialmeli.be_java_hisp_w24_g04.exception.InvalidTimeException;
@@ -90,6 +91,25 @@ public class PostService implements IPostService {
         postRepository.save(newPost);
 
         return userPost;
+    }
+
+    @Override
+    public PromoPostCountDTO getPromoPostsCount(Integer userId) {
+        var user = userRepository.get(userId);
+        if (user.isEmpty())
+            throw new NotFoundException("User not found.");
+
+        List<Post> foundPosts = postRepository
+                .findAll()
+                .stream()
+                .filter(post -> post.getUserId().equals(userId) && post instanceof PromoPost)
+                .toList();
+
+        return new PromoPostCountDTO(
+                user.get().getUserId(),
+                user.get().getUsername(),
+                foundPosts.size()
+        );
     }
 
     @Override
