@@ -14,5 +14,8 @@ public record CreatePostDTO(
         @NotNull
         Integer category,
         @NotNull
-        Double price
+        Double price,
+        @JsonProperty("has_promo")
+        Boolean hasPromo,
+        Double discount
 ) {}

@@ -17,8 +17,12 @@ public class Post {
     private Integer postId;
     @JsonProperty("user_id")
     private Integer userId;
+    @JsonFormat(pattern = "yyyy-MM-dd")
     private LocalDate date;
     private Product product;
     private Integer category;
     private Double price;
+    @JsonProperty("has_promo")
+    private Boolean hasPromo;
+    private Double discount;
 }

@@ -12,7 +12,9 @@
       "notes": "Potente laptop para tareas exigentes"
     },
     "category": 1,
-    "price": 1299.99
+    "price": 1299.99,
+    "has_promo": true,
+    "discount": 0.15
   },
   {
     "post_id": 2,
@@ -27,7 +29,9 @@
       "notes": "Último modelo de smartphone con cámara de alta resolución"
     },
     "category": 2,
-    "price": 799.99
+    "price": 799.99,
+    "has_promo": false,
+    "discount": 0.0
   },
   {
     "post_id": 3,
@@ -42,7 +46,9 @@
       "notes": "Cámara profesional para fotógrafos aficionados y profesionales"
     },
     "category": 3,
-    "price": 899.99
+    "price": 899.99,
+    "has_promo": true,
+    "discount": 0.20
   },
   {
     "post_id": 4,
@@ -57,7 +63,9 @@
       "notes": "Tablet compacta con pantalla de alta resolución"
     },
     "category": 4,
-    "price": 349.99
+    "price": 349.99,
+    "has_promo": false,
+    "discount": 0.0
   },
   {
     "post_id": 5,
@@ -72,7 +80,9 @@
       "notes": "Auriculares inalámbricos con cancelación de ruido"
     },
     "category": 5,
-    "price": 149.99
+    "price": 149.99,
+    "has_promo": true,
+    "discount": 0.10
   },
   {
     "post_id": 6,
@@ -87,7 +97,9 @@
       "notes": "Impresora multifuncional para oficinas"
     },
     "category": 6,
-    "price": 299.99
+    "price": 299.99,
+    "has_promo": false,
+    "discount": 0.0
   },
   {
     "post_id": 7,
@@ -102,7 +114,9 @@
       "notes": "Teclado mecánico para gamers"
     },
     "category": 7,
-    "price": 89.99
+    "price": 89.99,
+    "has_promo": true,
+    "discount": 0.05
   },
   {
     "post_id": 8,
@@ -117,7 +131,9 @@
       "notes": "Monitor de alta resolución para diseñadores"
     },
     "category": 8,
-    "price": 499.99
+    "price": 499.99,
+    "has_promo": false,
+    "discount": 0.0
   },
   {
     "post_id": 9,
@@ -132,7 +148,9 @@
       "notes": "Altavoces bluetooth de alta fidelidad"
     },
     "category": 9,
-    "price": 199.99
+    "price": 199.99,
+    "has_promo": true,
+    "discount": 0.15
   },
   {
     "post_id": 10,
@@ -147,6 +165,8 @@
       "notes": "Reproductor de Blu-ray 4K con funciones inteligentes"
     },
     "category": 10,
-    "price": 129.99
+    "price": 129.99,
+    "has_promo": false,
+    "discount": 0
   }
 ]
