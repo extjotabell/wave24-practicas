@@ -1,9 +1,10 @@
 {
 	"info": {
-		"_postman_id": "054273b7-a6b2-4fdc-837e-d42acf331e28",
+		"_postman_id": "4ab9f4d2-6d7c-49e2-a82a-a11d9e5a2157",
 		"name": "SOCIALMEDIA_W24_G01",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "32227126"
+		"_exporter_id": "32160060",
+		"_collection_link": "https://grupo1bootcamp.postman.co/workspace/SocialMeli~2154d834-41f2-4e18-adee-5c43e0e211a0/collection/32160060-4ab9f4d2-6d7c-49e2-a82a-a11d9e5a2157?action=share&source=collection_link&creator=32160060"
 	},
 	"item": [
 		{
@@ -327,6 +328,114 @@
 							"key": "order",
 							"value": "date_desc"
 						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "US 0010",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"user_id\": 110,\n  \"date\": \"15-01-2024\",\n  \"product\": {\n    \"product_id\": 1,\n    \"product_name\": \"string\",\n    \"type\": \"string\",\n    \"brand\": \"string\",\n    \"color\": \"string\",\n    \"notes\": \"string\"\n  },\n  \"category\": {\n    \"category_id\": 1,\n    \"category_name\": \"string\"\n  },\n  \"price\": 42,\n  \"has_promo\": true,\n  \"discount\": 42\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/products/promo-post",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"products",
+						"promo-post"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "US 0011",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/products/promo-post/count?user_id=110",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"products",
+						"promo-post",
+						"count"
+					],
+					"query": [
+						{
+							"key": "user_id",
+							"value": "110"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "US 0012",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"discount\": 10\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/products/post/309/promote",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"products",
+						"post",
+						"309",
+						"promote"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "US 0013",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/products/post/309/unpromote",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"products",
+						"post",
+						"309",
+						"unpromote"
 					]
 				}
 			},
