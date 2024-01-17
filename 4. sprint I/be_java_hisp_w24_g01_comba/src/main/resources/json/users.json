@@ -1,0 +1,252 @@
+[
+  {
+    "id": 101,
+    "name": "Alice Johnson",
+    "followers": [
+      {
+        "id": 102,
+        "name": "Bob Smith"
+      },
+      {
+        "id": 103,
+        "name": "Charlie Brown"
+      }
+    ],
+    "followed": [
+      {
+        "id": 104,
+        "name": "David Williams"
+      },
+      {
+        "id": 105,
+        "name": "Eva Martinez"
+      }
+    ],
+    "posts": []
+  },
+  {
+    "id": 102,
+    "name": "Bob Smith",
+    "followers": [
+      {
+        "id": 101,
+        "name": "Alice Johnson"
+      },
+      {
+        "id": 103,
+        "name": "Charlie Brown"
+      }
+    ],
+    "followed": [
+      {
+        "id": 106,
+        "name": "Frank Wilson"
+      },
+      {
+        "id": 107,
+        "name": "Grace Davis"
+      }
+    ],
+    "posts": []
+  },
+  {
+    "id": 103,
+    "name": "Charlie Brown",
+    "followers": [
+      {
+        "id": 101,
+        "name": "Alice Johnson"
+      },
+      {
+        "id": 102,
+        "name": "Bob Smith"
+      }
+    ],
+    "followed": [
+      {
+        "id": 108,
+        "name": "Helen Taylor"
+      },
+      {
+        "id": 109,
+        "name": "Ivy Carter"
+      }
+    ],
+    "posts": []
+  },
+  {
+    "id": 104,
+    "name": "David Williams",
+    "followers": [
+      {
+        "id": 101,
+        "name": "Alice Johnson"
+      },
+      {
+        "id": 103,
+        "name": "Charlie Brown"
+      }
+    ],
+    "followed": [
+      {
+        "id": 110,
+        "name": "Jack Anderson"
+      },
+      {
+        "id": 111,
+        "name": "Karen Lewis"
+      }
+    ],
+    "posts": []
+  },
+  {
+    "id": 105,
+    "name": "Eva Martinez",
+    "followers": [
+      {
+        "id": 101,
+        "name": "Alice Johnson"
+      },
+      {
+        "id": 104,
+        "name": "David Williams"
+      }
+    ],
+    "followed": [
+      {
+        "id": 112,
+        "name": "Liam Garcia"
+      },
+      {
+        "id": 113,
+        "name": "Mia Rodriguez"
+      }
+    ],
+    "posts": []
+  },
+  {
+    "id": 106,
+    "name": "Frank Wilson",
+    "followers": [
+      {
+        "id": 102,
+        "name": "Bob Smith"
+      },
+      {
+        "id": 105,
+        "name": "Eva Martinez"
+      }
+    ],
+    "followed": [
+      {
+        "id": 114,
+        "name": "Natalie Turner"
+      },
+      {
+        "id": 115,
+        "name": "Oliver White"
+      }
+    ],
+    "posts": []
+  },
+  {
+    "id": 107,
+    "name": "Grace Davis",
+    "followers": [
+      {
+        "id": 102,
+        "name": "Bob Smith"
+      },
+      {
+        "id": 105,
+        "name": "Eva Martinez"
+      }
+    ],
+    "followed": [
+      {
+        "id": 116,
+        "name": "Peter Martinez"
+      },
+      {
+        "id": 117,
+        "name": "Quinn Hall"
+      }
+    ],
+    "posts": []
+  },
+  {
+    "id": 108,
+    "name": "Helen Taylor",
+    "followers": [
+      {
+        "id": 103,
+        "name": "Charlie Brown"
+      },
+      {
+        "id": 107,
+        "name": "Grace Davis"
+      }
+    ],
+    "followed": [
+      {
+        "id": 118,
+        "name": "Ryan Moore"
+      },
+      {
+        "id": 119,
+        "name": "Sophie Lee"
+      }
+    ],
+    "posts": []
+  },
+  {
+    "id": 109,
+    "name": "Ivy Carter",
+    "followers": [
+      {
+        "id": 103,
+        "name": "Charlie Brown"
+      },
+      {
+        "id": 108,
+        "name": "Helen Taylor"
+      }
+    ],
+    "followed": [
+      {
+        "id": 120,
+        "name": "Tom Clark"
+      },
+      {
+        "id": 121,
+        "name": "Ursula Scott"
+      }
+    ],
+    "posts": []
+  },
+  {
+    "id": 110,
+    "name": "Jack Anderson",
+    "followers": [
+      {
+        "id": 104,
+        "name": "David Williams"
+      },
+      {
+        "id": 109,
+        "name": "Ivy Carter"
+      }
+    ],
+    "followed": [
+      {
+        "id": 122,
+        "name": "Violet Walker"
+      },
+      {
+        "id": 123,
+        "name": "William Turner"
+      }
+    ],
+    "posts": []
+  }
+]
