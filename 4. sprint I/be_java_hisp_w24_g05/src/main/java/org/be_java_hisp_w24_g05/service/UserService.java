@@ -1,5 +1,6 @@
 package org.be_java_hisp_w24_g05.service;
 
+import org.be_java_hisp_w24_g05.dto.OtherUserDTO;
 import org.be_java_hisp_w24_g05.dto.UserDTO;
 import org.be_java_hisp_w24_g05.entity.Post;
 import org.be_java_hisp_w24_g05.entity.User;
@@ -37,7 +38,8 @@ public class UserService implements IUserService {
         }
     }
 
-    public int countPromoPost(int userId){
+    public OtherUserDTO countPromoPost(int userId){
+
         return userRepository.countPromoPost(userId);
     }
 

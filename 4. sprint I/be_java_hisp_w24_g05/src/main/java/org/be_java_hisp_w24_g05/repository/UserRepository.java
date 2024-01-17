@@ -1,5 +1,6 @@
 package org.be_java_hisp_w24_g05.repository;
 
+import org.be_java_hisp_w24_g05.dto.OtherUserDTO;
 import org.be_java_hisp_w24_g05.dto.UserDTO;
 import org.be_java_hisp_w24_g05.entity.Post;
 import org.be_java_hisp_w24_g05.entity.Product;
@@ -19,7 +20,6 @@ public class UserRepository implements IUserRepository{
 
     public UserRepository() {
         this.users = new ArrayList<>();
-        Product product = new Product(4, "Laptop", "Electronics", "BrandX", "Silver", "Note1");
         Product product1 = new Product(1, "Laptop", "Electronics", "BrandX", "Silver", "Note1");
         Product product2 = new Product(2, "Phone", "Electronics", "BrandY", "Black", "Note2");
         Product product3 = new Product(3, "Camera", "Photography", "BrandZ", "Red", "Note3");
@@ -125,11 +125,15 @@ public class UserRepository implements IUserRepository{
                 .findFirst().get().getPosts().add(post);
     }
 
-    public int countPromoPost(int userId){
-        return users.stream().filter(user -> user.getUserId() == userId)
-                .findFirst().get().getPosts().stream()
-                .filter(post -> post.getHasPromo() == true)
+    public OtherUserDTO countPromoPost(int userId){
+
+        User us = users.stream().filter(user -> user.getUserId() == userId)
+                .findFirst().get();
+        int count = us.getPosts().stream()
+                .filter(post -> post.getHasPromo())
                 .toList().size();
+
+        return new OtherUserDTO(us.getUserId(),us.getUserName(),count);
     }
 
 public List<User> usersWithMoreThanTwoPosts(){
