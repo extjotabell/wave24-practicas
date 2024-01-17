@@ -37,7 +37,9 @@ Por otra parte se puede hacer uso de Swagger y para su acceso : http://localhost
 | Method  | SIGN                            |
 |---------|---------------------------------|
 | GET     | /products/post/{postId}/promote |        	                 
-| Payload | { "discount": 10 }              |        	                 
+| Payload | { "discount": 10 }              |   
+
+
 Response 
 ```json 
 {
@@ -65,6 +67,8 @@ Filters/Parameters:
 | Method  | SIGN                              |
 |---------|-----------------------------------|
 | GET     | /products/post/{postId}/unpromote |
+
+
 Response
 ```json 
 {
