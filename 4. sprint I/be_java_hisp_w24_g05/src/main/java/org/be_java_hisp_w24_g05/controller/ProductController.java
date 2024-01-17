@@ -37,8 +37,8 @@ public class ProductController {
     }
 
     //Cantidad de productos con promocion de un usuario
-    @GetMapping("/promo-post/count/{userId}")
-    public ResponseEntity<?> countPromoPost(@PathVariable int userId){
+    @GetMapping("/promo-post/count")
+    public ResponseEntity<?> countPromoPost(@RequestParam(name = "user_id") int userId){
         return ResponseEntity.ok(userService.countPromoPost(userId));
     }
 
