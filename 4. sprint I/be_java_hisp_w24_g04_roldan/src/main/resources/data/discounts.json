@@ -1,0 +1,17 @@
+[
+  {
+    "discount_id": 1,
+    "product_id": 7,
+    "discount": 0.25
+  },
+  {
+    "discount_id": 2,
+    "product_id": 5,
+    "discount": 0.8
+  },
+  {
+    "discount_id": 3,
+    "product_id": 8,
+    "discount": 0.5
+  }
+]
