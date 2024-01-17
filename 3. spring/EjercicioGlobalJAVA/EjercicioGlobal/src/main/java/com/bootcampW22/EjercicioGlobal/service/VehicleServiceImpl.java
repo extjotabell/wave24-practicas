@@ -40,7 +40,7 @@ public class VehicleServiceImpl implements IVehicleService{
         if(filteredVehicles.isEmpty()){
             throw new NotFoundException("no existen vehiculos dentro de ese rango de peso");
         }
-        
+
         return filteredVehicles.stream().map(this::convertVehicleToDto)
                 .toList();
     }

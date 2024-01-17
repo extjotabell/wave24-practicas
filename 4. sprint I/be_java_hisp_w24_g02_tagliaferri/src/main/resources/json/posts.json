@@ -1,0 +1,172 @@
+[
+  {
+    "post_id": 1,
+    "user_id": 1,
+    "date": "2024-05-15",
+    "product": {
+      "product_id": 1001,
+      "product_name": "Laptop XYZ",
+      "type": "Laptop",
+      "brand": "XYZ",
+      "color": "Silver",
+      "notes": "Potente laptop para tareas exigentes"
+    },
+    "category": 1,
+    "price": 1299.99,
+    "has_promo": false,
+    "discount": 0.0
+  },
+  {
+    "post_id": 2,
+    "user_id": 2,
+    "date": "2024-02-01",
+    "product": {
+      "product_id": 1002,
+      "product_name": "Smartphone ABC",
+      "type": "Smartphone",
+      "brand": "ABC",
+      "color": "Black",
+      "notes": "Último modelo de smartphone con cámara de alta resolución"
+    },
+    "category": 2,
+    "price": 799.99,
+    "has_promo": false,
+    "discount": 0.0
+  },
+  {
+    "post_id": 3,
+    "user_id": 3,
+    "date": "2024-06-10",
+    "product": {
+      "product_id": 1003,
+      "product_name": "Cámara DSLR 123",
+      "type": "Cámara",
+      "brand": "DSLR",
+      "color": "Black",
+      "notes": "Cámara profesional para fotógrafos aficionados y profesionales"
+    },
+    "category": 3,
+    "price": 899.99,
+    "has_promo": false,
+    "discount": 0.0
+  },
+  {
+    "post_id": 4,
+    "user_id": 4,
+    "date": "2024-07-05",
+    "product": {
+      "product_id": 1004,
+      "product_name": "Tablet XYZ",
+      "type": "Tablet",
+      "brand": "XYZ",
+      "color": "White",
+      "notes": "Tablet compacta con pantalla de alta resolución"
+    },
+    "category": 4,
+    "price": 349.99,
+    "has_promo": false,
+    "discount": 0.0
+  },
+  {
+    "post_id": 5,
+    "user_id": 5,
+    "date": "2024-11-20",
+    "product": {
+      "product_id": 1005,
+      "product_name": "Auriculares ABC",
+      "type": "Auriculares",
+      "brand": "ABC",
+      "color": "Red",
+      "notes": "Auriculares inalámbricos con cancelación de ruido"
+    },
+    "category": 5,
+    "price": 149.99,
+    "has_promo": false,
+    "discount": 0.0
+  },
+  {
+    "post_id": 6,
+    "user_id": 6,
+    "date": "2024-09-15",
+    "product": {
+      "product_id": 1006,
+      "product_name": "Impresora XYZ",
+      "type": "Impresora",
+      "brand": "XYZ",
+      "color": "Black",
+      "notes": "Impresora multifuncional para oficinas"
+    },
+    "category": 6,
+    "price": 299.99,
+    "has_promo": false,
+    "discount": 0.0
+  },
+  {
+    "post_id": 7,
+    "user_id": 7,
+    "date": "2024-01-02",
+    "product": {
+      "product_id": 1007,
+      "product_name": "Teclado ABC",
+      "type": "Teclado",
+      "brand": "ABC",
+      "color": "Silver",
+      "notes": "Teclado mecánico para gamers"
+    },
+    "category": 7,
+    "price": 89.99,
+    "has_promo": false,
+    "discount": 0.0
+  },
+  {
+    "post_id": 8,
+    "user_id": 8,
+    "date": "2024-12-18",
+    "product": {
+      "product_id": 1008,
+      "product_name": "Monitor XYZ",
+      "type": "Monitor",
+      "brand": "XYZ",
+      "color": "Black",
+      "notes": "Monitor de alta resolución para diseñadores"
+    },
+    "category": 8,
+    "price": 499.99,
+    "has_promo": false,
+    "discount": 0.0
+  },
+  {
+    "post_id": 9,
+    "user_id": 9,
+    "date": "2024-10-12",
+    "product": {
+      "product_id": 1009,
+      "product_name": "Altavoces ABC",
+      "type": "Altavoces",
+      "brand": "ABC",
+      "color": "Wood",
+      "notes": "Altavoces bluetooth de alta fidelidad"
+    },
+    "category": 9,
+    "price": 199.99,
+    "has_promo": false,
+    "discount": 0.0
+  },
+  {
+    "post_id": 10,
+    "user_id": 10,
+    "date": "2024-10-20",
+    "product": {
+      "product_id": 1010,
+      "product_name": "Reproductor de Blu-ray XYZ",
+      "type": "Reproductor de Blu-ray",
+      "brand": "XYZ",
+      "color": "Black",
+      "notes": "Reproductor de Blu-ray 4K con funciones inteligentes"
+    },
+    "category": 10,
+    "price": 129.99,
+    "has_promo": false,
+    "discount": 0.0
+  }
+]
