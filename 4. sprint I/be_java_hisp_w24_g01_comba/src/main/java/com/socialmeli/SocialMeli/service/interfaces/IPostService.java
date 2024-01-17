@@ -1,12 +1,21 @@
 package com.socialmeli.SocialMeli.service.interfaces;
 
-import com.socialmeli.SocialMeli.dto.LastestPostDTO;
-import com.socialmeli.SocialMeli.dto.PostRequestDTO;
-import com.socialmeli.SocialMeli.dto.PostResponseDTO;
+import com.socialmeli.SocialMeli.dto.*;
 
 public interface IPostService {
+
+
     PostResponseDTO createPost(PostRequestDTO postDTO);
+
+    PostPromoResponseDTO createPromoPost(PostPromoRequestDTO postDTO);
+
     LastestPostDTO getLastestPost(Integer userId, String order);
 
     String checkOrder(String order);
+
+    PostPromoCountResponseDTO getPromoCountByUserId(Integer userId);
+
+    PostPromoResponseDTO promotePost(Integer postId, PostPromoteRequestDTO postPromoteDTO);
+
+    PostPromoResponseDTO unpromotePost(Integer postId);
 }

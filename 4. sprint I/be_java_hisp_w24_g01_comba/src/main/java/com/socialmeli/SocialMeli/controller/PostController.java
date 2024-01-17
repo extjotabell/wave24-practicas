@@ -1,8 +1,6 @@
 package com.socialmeli.SocialMeli.controller;
 
-import com.socialmeli.SocialMeli.dto.LastestPostDTO;
-import com.socialmeli.SocialMeli.dto.PostRequestDTO;
-import com.socialmeli.SocialMeli.dto.PostResponseDTO;
+import com.socialmeli.SocialMeli.dto.*;
 import com.socialmeli.SocialMeli.exception.BadRequestException;
 import com.socialmeli.SocialMeli.service.interfaces.IPostService;
 import org.springframework.http.ResponseEntity;
@@ -24,6 +22,28 @@ public class PostController {
             throw new BadRequestException("Id's must be greater than 0");
         }
         return ResponseEntity.ok().body(postService.createPost(postDTO));
+    }
+    @PostMapping("/promo-post")
+    public ResponseEntity<PostPromoResponseDTO> createPromoPost(@RequestBody PostPromoRequestDTO postDTO) {
+        if(postDTO.user_id() <= 0 || postDTO.product().product_id() <= 0 || postDTO.category().category_id() <= 0) {
+            throw new BadRequestException("Id's must be greater than 0");
+        }
+        return ResponseEntity.ok().body(postService.createPromoPost(postDTO));
+    }
+
+    @GetMapping("/promo-post/count")
+    public ResponseEntity<PostPromoCountResponseDTO> createPromoPost(@RequestParam("user_id") Integer userId) {
+        return ResponseEntity.ok().body(postService.getPromoCountByUserId(userId));
+    }
+
+    @PostMapping("/post/{postId}/promote")
+    public ResponseEntity<PostPromoResponseDTO> promotePost(@PathVariable Integer postId,
+                                         @RequestBody PostPromoteRequestDTO postPromoteDTO) {
+        return ResponseEntity.ok().body(postService.promotePost(postId, postPromoteDTO));
+    }
+    @PostMapping("/post/{postId}/unpromote")
+    public ResponseEntity<PostPromoResponseDTO> unpromotePost(@PathVariable Integer postId) {
+        return ResponseEntity.ok().body(postService.unpromotePost(postId));
     }
 
     @GetMapping("/followed/{userId}/list")

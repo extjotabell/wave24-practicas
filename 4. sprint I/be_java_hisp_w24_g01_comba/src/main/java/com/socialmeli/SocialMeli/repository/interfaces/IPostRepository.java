@@ -8,5 +8,7 @@ public interface IPostRepository extends ICrudRepository<Post>{
 
     int findLastId();
 
-    List<Post> getAllPostsById(Integer userId);
+    List<Post> getAllPostsByUserIdLastTwoWeeks(Integer userId);
+
+    List<Post> findAllByUserId(Integer userId);
 }

@@ -51,7 +51,7 @@ public class PostRepository implements IPostRepository {
 
     @Override
     public Optional<Post> findById(Integer id) {
-        return Optional.empty();
+        return this.listPosts.stream().filter(post -> post.getId().equals(id)).findFirst();
     }
 
     @Override
@@ -59,14 +59,19 @@ public class PostRepository implements IPostRepository {
         return null;
     }
 
-    public List<Post> getAllPostsById(Integer userId) {
-        var latestPost = this.listPosts.stream()
+    @Override
+    public List<Post> getAllPostsByUserIdLastTwoWeeks(Integer userId) {
+        return this.listPosts.stream()
                 .filter(e-> e.getUserId().equals(userId)
                         && ((e.getDate()).isAfter(LocalDate.now().minusWeeks(2))
                         || (e.getDate()).isEqual(LocalDate.now()))
                 ).collect(Collectors.toList());
-
-        return (List<Post>) latestPost;
+    }
+    @Override
+    public List<Post> findAllByUserId(Integer userId) {
+        return this.listPosts.stream()
+                .filter(e-> e.getUserId().equals(userId)
+                ).collect(Collectors.toList());
     }
 
     private void loadDataBase() throws IOException {

@@ -33,7 +33,9 @@
       "id": 2,
       "name": "Footwear"
     },
-    "price": 129.99
+    "price": 129.99,
+    "hasPromo": false,
+    "discount": 0
   },
   {
     "id": 303,
@@ -51,7 +53,9 @@
       "id": 2,
       "name": "Footwear"
     },
-    "price": 69.99
+    "price": 69.99,
+    "hasPromo": false,
+    "discount": 0
   },
   {
     "id": 304,
@@ -69,7 +73,9 @@
       "id": 3,
       "name": "Appliances"
     },
-    "price": 149.99
+    "price": 149.99,
+    "hasPromo": false,
+    "discount": 0
   },
   {
     "id": 305,
@@ -87,7 +93,9 @@
       "id": 3,
       "name": "Appliances"
     },
-    "price": 89.99
+    "price": 89.99,
+    "hasPromo": false,
+    "discount": 0
   },
   {
     "id": 306,
@@ -105,7 +113,9 @@
       "id": 4,
       "name": "Outdoor"
     },
-    "price": 499.99
+    "price": 499.99,
+    "hasPromo": false,
+    "discount": 0
   },
   {
     "id": 307,
@@ -123,7 +133,9 @@
       "id": 4,
       "name": "Outdoor"
     },
-    "price": 599.99
+    "price": 599.99,
+    "hasPromo": false,
+    "discount": 0
   },
   {
     "id": 308,
@@ -141,7 +153,9 @@
       "id": 4,
       "name": "Outdoor"
     },
-    "price": 199.99
+    "price": 199.99,
+    "hasPromo": false,
+    "discount": 0
   },
   {
     "id": 309,
@@ -159,7 +173,9 @@
       "id": 5,
       "name": "Wearables"
     },
-    "price": 299.99
+    "price": 299.99,
+    "hasPromo": false,
+    "discount": 0
   },
   {
     "id": 310,
@@ -177,6 +193,8 @@
       "id": 5,
       "name": "Wearables"
     },
-    "price": 499.99
+    "price": 499.99,
+    "hasPromo": true,
+    "discount": 0.5
   }
 ]

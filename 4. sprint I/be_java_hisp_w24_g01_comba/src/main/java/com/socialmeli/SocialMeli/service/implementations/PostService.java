@@ -4,9 +4,8 @@ import com.socialmeli.SocialMeli.dto.*;
 import com.socialmeli.SocialMeli.entity.Category;
 import com.socialmeli.SocialMeli.entity.Post;
 import com.socialmeli.SocialMeli.entity.Product;
-import com.socialmeli.SocialMeli.exception.EmptyListException;
-import com.socialmeli.SocialMeli.exception.OrderNotFoundException;
-import com.socialmeli.SocialMeli.exception.UserNotFoundException;
+import com.socialmeli.SocialMeli.entity.User;
+import com.socialmeli.SocialMeli.exception.*;
 import com.socialmeli.SocialMeli.repository.interfaces.ICategoryRepository;
 import com.socialmeli.SocialMeli.repository.interfaces.IPostRepository;
 import com.socialmeli.SocialMeli.repository.interfaces.IProductRepository;
@@ -30,6 +29,9 @@ public class PostService implements IPostService {
     }
     @Override
     public PostResponseDTO createPost(PostRequestDTO postDTO) {
+        if(!this.userRepository.userExists(postDTO.user_id())){
+            throw new UserNotFoundException("User id: "+postDTO.user_id()+ " not found.");
+        }
         Product product = this.productRepository.findByIdOrCreate(postDTO.product());
         Category category = this.categoryRepository.findByIdOrCreate(postDTO.category());
         int lastId = postRepository.findLastId();
@@ -40,9 +42,11 @@ public class PostService implements IPostService {
                         postDTO.date(),
                         product,
                         category,
-                        postDTO.price())
+                        postDTO.price(),
+                        false,
+                        0D
+                )
         );
-
         return new PostResponseDTO(
                 post.getId(),
                 post.getUserId(),
@@ -54,7 +58,43 @@ public class PostService implements IPostService {
                 post.getPrice()
         );
     }
+    @Override
+    public PostPromoResponseDTO createPromoPost(PostPromoRequestDTO postDTO) {
+        if(!this.userRepository.userExists(postDTO.user_id())){
+            throw new UserNotFoundException("User id: "+postDTO.user_id()+ " not found.");
+        }
+        Product product = this.productRepository.findByIdOrCreate(postDTO.product());
+        Category category = this.categoryRepository.findByIdOrCreate(postDTO.category());
+        int lastId = postRepository.findLastId();
+        Post post = postRepository.create(
+                new Post(
+                        lastId + 1,
+                        postDTO.user_id(),
+                        postDTO.date(),
+                        product,
+                        category,
+                        postDTO.price(),
+                        postDTO.has_promo(),
+                        postDTO.discount()
+                )
+        );
+        return parsePostToDTO(post);
+    }
 
+    public PostPromoResponseDTO parsePostToDTO(Post post) {
+        return new PostPromoResponseDTO(
+                post.getId(),
+                post.getUserId(),
+                post.getDate().toString(),
+                post.getProduct().getId(),
+                post.getProduct().getProductName(),
+                post.getCategory().getId(),
+                post.getCategory().getName(),
+                post.getPrice(),
+                post.getHasPromo(),
+                post.getDiscount()
+        );
+    }
     public CategoryPostRequestDTO parseCategoryToDTO(Category category) {
         return new CategoryPostRequestDTO(
                 category.getId(),
@@ -84,7 +124,7 @@ public class PostService implements IPostService {
         //Se llaman a los posts por usuario
         List<PostWithIdDTO> postFiltered = new ArrayList<>();
         usersFollowed.forEach((uf) ->{
-            postRepository.getAllPostsById(uf.getId()).stream().forEach(post -> {
+            postRepository.getAllPostsByUserIdLastTwoWeeks(uf.getId()).stream().forEach(post -> {
                 var searchCategory = categoryRepository.findByIdOrCreate(
                         parseCategoryToDTO(post.getCategory())
                 );
@@ -130,5 +170,45 @@ public class PostService implements IPostService {
         }
 
         return order;
+    }
+
+    @Override
+    public PostPromoCountResponseDTO getPromoCountByUserId(Integer userId) {
+        User user = this.userRepository.findById(userId)
+                .orElseThrow(() -> new UserNotFoundException("User id: " +userId + " not found."));
+        Integer promoProductsCount = this.postRepository.findAllByUserId(user.getId())
+                .stream().filter(p -> p.getHasPromo() != null && p.getHasPromo()).toList()
+                .size();
+        return new PostPromoCountResponseDTO(
+                user.getId(),
+                user.getName(),
+                promoProductsCount
+        );
+    }
+
+    @Override
+    public PostPromoResponseDTO promotePost(Integer postId, PostPromoteRequestDTO postPromoteDTO) {
+        Post post = findPostOrThrowException(postId);
+        if(post.getHasPromo()){
+            throw new BadRequestException("Post is already promoted.");
+        }
+        post.setHasPromo(true);
+        post.setDiscount(postPromoteDTO.discount());
+        return parsePostToDTO(post);
+    }
+
+    @Override
+    public PostPromoResponseDTO unpromotePost(Integer postId) {
+        Post post = findPostOrThrowException(postId);
+        if(!post.getHasPromo()){
+            throw new BadRequestException("Post is already unpromoted.");
+        }
+        post.setHasPromo(false);
+        return parsePostToDTO(post);
+    }
+
+    public Post findPostOrThrowException(Integer postId){
+        return this.postRepository.findById(postId)
+                .orElseThrow(() -> new NotFoundException("Post id: " +postId + " not found."));
     }
 }
