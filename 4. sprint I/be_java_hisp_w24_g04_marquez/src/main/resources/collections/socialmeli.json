@@ -1,7 +1,7 @@
 {
 	"info": {
 		"_postman_id": "76e2d546-69d4-47a8-895a-594892009d28",
-		"name": "Social Meli",
+		"name": "Social Meli Individual",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "32227087"
 	},
@@ -45,7 +45,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"user_id\": 234,\n    \"date\": \"29-04-2021\",\n    \"product\": {\n        \"product_id\": 1,\n        \"product_name\": \"Silla Gamer\",\n        \"type\": \"Gamer\",\n        \"brand\": \"Racer\",\n        \"color\": \"Red & Black\",\n        \"notes\": \"Special Edition\"\n    },\n    \"category\": 100,\n    \"price\": 1500.50\n}",
+							"raw": "{\n    \"user_id\": 102,\n    \"date\": \"18-01-2024\",\n    \"product\": {\n        \"product_id\": 1,\n        \"product_name\": \"Silla Gamer Descuento\",\n        \"type\": \"Gamer\",\n        \"brand\": \"Racer\",\n        \"color\": \"Red & Black\",\n        \"notes\": \"Special Edition\"\n    },\n    \"category\": 100,\n    \"price\": 1500.50,\n    \"has_promo\": true,\n    \"discount\": 0.25\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -53,7 +53,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:8080/products/post",
+							"raw": "http://localhost:8080/products/promo-post",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -61,7 +61,7 @@
 							"port": "8080",
 							"path": [
 								"products",
-								"post"
+								"promo-post"
 							]
 						}
 					},
@@ -109,7 +109,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8080/products/followed/:user_id/list",
+							"raw": "http://localhost:8080/products/promo-post/count?user_id=102",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -117,22 +117,13 @@
 							"port": "8080",
 							"path": [
 								"products",
-								"followed",
-								":user_id",
-								"list"
+								"promo-post",
+								"count"
 							],
 							"query": [
 								{
-									"key": "order",
-									"value": "date_asc",
-									"description": "Order could be date_asc or date_desc, anything else will throw an exception.",
-									"disabled": true
-								}
-							],
-							"variable": [
-								{
 									"key": "user_id",
-									"value": "101"
+									"value": "102"
 								}
 							]
 						}
@@ -145,7 +136,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8080/products/followed/:user_id/list",
+							"raw": "http://localhost:8080/products/promo-post/category/:category/list?order=name_asc",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -153,22 +144,22 @@
 							"port": "8080",
 							"path": [
 								"products",
-								"followed",
-								":user_id",
+								"promo-post",
+								"category",
+								":category",
 								"list"
 							],
 							"query": [
 								{
 									"key": "order",
-									"value": "date_asc",
-									"description": "Order could be date_asc or date_desc, anything else will throw an exception.",
-									"disabled": true
+									"value": "name_asc",
+									"description": "Order could be name_asc or name_desc, anything else will throw an exception."
 								}
 							],
 							"variable": [
 								{
-									"key": "user_id",
-									"value": "101"
+									"key": "category",
+									"value": "100"
 								}
 							]
 						}
