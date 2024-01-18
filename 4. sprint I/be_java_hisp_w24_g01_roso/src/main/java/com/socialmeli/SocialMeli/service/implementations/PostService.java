@@ -30,6 +30,9 @@ public class PostService implements IPostService {
     }
     @Override
     public PostResponseDTO createPost(PostRequestDTO postDTO) {
+        if(!this.userRepository.userExists(postDTO.user_id())){
+            throw new UserNotFoundException("User id: "+postDTO.user_id()+ " not found.");
+        }
         Product product = this.productRepository.findByIdOrCreate(postDTO.product());
         Category category = this.categoryRepository.findByIdOrCreate(postDTO.category());
         int lastId = postRepository.findLastId();
