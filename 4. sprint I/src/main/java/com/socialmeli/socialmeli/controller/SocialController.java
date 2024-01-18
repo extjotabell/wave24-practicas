@@ -85,5 +85,10 @@ public class SocialController {
         return new ResponseEntity<>(postService.getLastTwoWeeksFollowedPosts(userId, followedList, order), HttpStatus.OK);
     }
 
+    @GetMapping("/products/posts")
+    public ResponseEntity<List<PostDto>> filterPostsByPrice(@RequestParam("min_price") Double min, @RequestParam("max_price") Double max){
+        return new ResponseEntity<>(postService.filterPostsByPrice(min,max),HttpStatus.OK);
+    }
+
 }
 

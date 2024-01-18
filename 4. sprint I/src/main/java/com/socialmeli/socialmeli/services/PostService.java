@@ -104,6 +104,9 @@ public class PostService implements IPostService{
         List<Post> userPosts = this.postRepository.findAll().stream().filter(post -> post.getUserId().equals(userId)).toList();
 
         return new UserPromoPostsDto(userId,user.getUserName(),userPosts.stream().filter(post -> post.getHasPromo() != null && post.getHasPromo()).toList().size());
+    }
 
+    public List<PostDto> filterPostsByPrice(Double min, Double max){
+        return this.postRepository.findAll().stream().filter(post -> post.getPrice()>=min && post.getPrice()<=max).map(mapper::convertPostToDto).toList();
     }
 }
