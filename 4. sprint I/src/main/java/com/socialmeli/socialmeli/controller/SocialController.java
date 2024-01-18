@@ -63,9 +63,14 @@ public class SocialController {
         return new ResponseEntity<>(userService.listFollowed(userId, order), HttpStatus.OK);
     }
 
-    @PostMapping("/products/post")
-    public ResponseEntity<?> createPost(@RequestBody PostDto postDto){
+    @PostMapping( "/products/post")
+    public ResponseEntity<PostIdDto> createPost(@RequestBody PostDto postDto){
         return new ResponseEntity<>(postService.save(postDto), HttpStatus.OK);
+    }
+
+    @PostMapping("/products/promo-post")
+    public ResponseEntity<PostIdPromoDto> createPromoPost(@RequestBody PostPromoDto postPromoDto){
+        return new ResponseEntity<>(postService.savePromo(postPromoDto), HttpStatus.OK);
     }
 
     @GetMapping("/products/followed/{userId}/list")

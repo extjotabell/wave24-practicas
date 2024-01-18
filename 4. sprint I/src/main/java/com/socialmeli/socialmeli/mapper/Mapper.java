@@ -1,9 +1,6 @@
 package com.socialmeli.socialmeli.mapper;
 
-import com.socialmeli.socialmeli.dto.PostDto;
-import com.socialmeli.socialmeli.dto.PostIdDto;
-import com.socialmeli.socialmeli.dto.ProductDto;
-import com.socialmeli.socialmeli.dto.UserDto;
+import com.socialmeli.socialmeli.dto.*;
 import com.socialmeli.socialmeli.entities.Post;
 import com.socialmeli.socialmeli.entities.Product;
 import com.socialmeli.socialmeli.entities.User;
@@ -33,6 +30,19 @@ public class Mapper {
                 convertProductToDto(entity.getProduct()),
                 entity.getCategory(),
                 entity.getPrice()
+        );
+    }
+
+    public PostIdPromoDto convertPostToPromoDtoWithId(Post entity){
+        return new PostIdPromoDto(
+                entity.getUserId(),
+                entity.getDate(),
+                convertProductToDto(entity.getProduct()),
+                entity.getCategory(),
+                entity.getPrice(),
+                entity.getHasPromo(),
+                entity.getDiscount(),
+                entity.getPostId()
         );
     }
 
@@ -78,4 +88,17 @@ public class Mapper {
                 user.getUserId(),
                 user.getUserName());
     }
+
+    public Post convertPromoDtoToPost(PostPromoDto postPromoDto){
+        Post entity = new Post();
+        entity.setUserId(postPromoDto.user_id());
+        entity.setDate(postPromoDto.date());
+        entity.setProduct(convertDtoToProduct(postPromoDto.product()));
+        entity.setCategory(postPromoDto.category());
+        entity.setPrice(postPromoDto.price());
+        entity.setHasPromo(postPromoDto.has_promo());
+        entity.setDiscount(postPromoDto.discount());
+        return entity;
+    }
+
 }

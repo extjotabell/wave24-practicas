@@ -10,7 +10,6 @@ import java.time.LocalDate;
 
 @Getter
 @Setter
-@AllArgsConstructor
 @NoArgsConstructor
 public class Post {
     private Integer userId;
@@ -23,7 +22,18 @@ public class Post {
     private Boolean hasPromo;
     private Double discount;
 
-    public Post(Integer userId, Integer postId, LocalDate date, Product product, Integer category, Double price) {
+    public Post(Integer userId, Integer postId, LocalDate date, Product product, Integer category, Double price, Boolean hasPromo, Double discount) {
+        this.userId = userId;
+        this.postId = postId;
+        this.date = date;
+        this.product = product;
+        this.category = category;
+        this.price = price;
+        this.hasPromo = hasPromo;
+        this.discount = discount;
+    }
+
+    public Post(Integer userId, Integer postId, LocalDate date, Product product, Integer category, Double price){
         this.userId = userId;
         this.postId = postId;
         this.date = date;

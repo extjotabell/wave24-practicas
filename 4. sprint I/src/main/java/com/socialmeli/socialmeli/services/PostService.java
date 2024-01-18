@@ -46,10 +46,24 @@ public class PostService implements IPostService{
             throw new BadRequestException("No existe el usuario con id: " + postDto.user_id());
         }
         Post post = mapper.convertDtoToPost(postDto);
-        Integer postId = postRepository.findAll().stream().map(node -> node.getPostId()).max(Integer::compareTo).orElse(0);
-        var postWithId = new Post(post.getUserId(), postId+1, post.getDate(), post.getProduct(), post.getCategory(), post.getPrice());
+        Integer postId = postRepository.findAll().stream().map(Post::getPostId).max(Integer::compareTo).orElse(0);
+        Post postWithId = new Post(post.getUserId(), postId+1, post.getDate(), post.getProduct(), post.getCategory(), post.getPrice());
         var postList = postRepository.save(postWithId);
         return mapper.convertPostToDtoWithId(postList);
+    }
+
+    public PostIdPromoDto savePromo(PostPromoDto postPromoDto){
+        System.out.println(postPromoDto);
+        if(postPromoDto.user_id() == null || postPromoDto.date() == null || postPromoDto.product() == null || postPromoDto.category() == null
+                || postPromoDto.price() == null || postPromoDto.has_promo()== null || postPromoDto.discount() == null){
+            throw new BadRequestException("Los datos ingresados no son correctos.");
+        }
+
+        Post post = mapper.convertPromoDtoToPost(postPromoDto);
+        Integer postId = postRepository.findAll().stream().map(Post::getPostId).max(Integer::compareTo).orElse(0);
+        Post postWithId = new Post(post.getUserId(), postId+1, post.getDate(), post.getProduct(), post.getCategory(), post.getPrice(), post.getHasPromo(), post.getDiscount());
+        return mapper.convertPostToPromoDtoWithId(postRepository.save(postWithId));
+
     }
 
     @Override
