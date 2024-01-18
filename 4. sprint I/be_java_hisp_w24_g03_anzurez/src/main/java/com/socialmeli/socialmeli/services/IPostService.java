@@ -10,4 +10,5 @@ public interface IPostService {
     List<PostDto> getUserPosts(Integer userId);
     UserFollowedPostsDto getLastTwoWeeksFollowedPosts(Integer userId, List<UserDto> followedList, String order);
     ResponseDto createPromoPost(PromoPostDto promoPostDto);
+    PromoPostCountDto getPromoPostCount(Integer userId);
 }

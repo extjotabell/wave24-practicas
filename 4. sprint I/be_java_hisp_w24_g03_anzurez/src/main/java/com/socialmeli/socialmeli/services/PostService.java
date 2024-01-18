@@ -112,4 +112,17 @@ public class PostService implements IPostService{
 
         return new ResponseDto("Post con promoción creado");
     }
+
+    @Override
+    public PromoPostCountDto getPromoPostCount(Integer userId) {
+        var user = this.userRepository.findById(userId).orElseThrow(
+                () -> new NotFoundException("El usuario " + userId + " no existe")
+        );
+
+        var count = this.postRepository.findAll().stream().filter(
+                post -> post.getUserId().equals(userId) && post.getHasPromo().equals(true)
+        ).count();
+
+        return new PromoPostCountDto(userId, user.getUserName(), (int) count);
+    }
 }

@@ -79,5 +79,10 @@ public class SocialController {
     public ResponseEntity<ResponseDto> createPromoPost(@RequestBody() PromoPostDto promoPostDto) {
         return ResponseEntity.ok(postService.createPromoPost(promoPostDto));
     }
+
+    @GetMapping("/products/promo-post/count")
+    public ResponseEntity<PromoPostCountDto> getPromoPostCount(@RequestParam Integer user_id) {
+        return ResponseEntity.ok(postService.getPromoPostCount(user_id));
+    }
 }
 
