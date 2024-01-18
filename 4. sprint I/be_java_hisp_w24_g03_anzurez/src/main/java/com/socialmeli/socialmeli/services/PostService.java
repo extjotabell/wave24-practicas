@@ -7,6 +7,7 @@ import com.socialmeli.socialmeli.exceptions.BadRequestException;
 import com.socialmeli.socialmeli.exceptions.NotFoundException;
 import com.socialmeli.socialmeli.mapper.Mapper;
 import com.socialmeli.socialmeli.repositories.PostRepositoryImpl;
+import com.socialmeli.socialmeli.repositories.ProductRepositoryImpl;
 import com.socialmeli.socialmeli.repositories.UserRepositoryImpl;
 import org.springframework.stereotype.Service;
 
@@ -23,11 +24,13 @@ public class PostService implements IPostService{
 
     private final Mapper mapper;
     private final UserRepositoryImpl userRepository;
+    private final ProductRepositoryImpl productRepository;
 
-    public PostService(PostRepositoryImpl postRepository, UserRepositoryImpl userRepository, Mapper mapper) {
+    public PostService(PostRepositoryImpl postRepository, UserRepositoryImpl userRepository, Mapper mapper, ProductRepositoryImpl productRepository) {
         this.postRepository = postRepository;
         this.userRepository = userRepository;
         this.mapper = mapper;
+        this.productRepository = productRepository;
     }
 
     @Override
@@ -83,4 +86,30 @@ public class PostService implements IPostService{
         throw new BadRequestException("Debe ingresar un orden valido, como name_asc o name_desc");
     }
 
+
+    @Override
+    public ResponseDto createPromoPost(PromoPostDto promoPostDto) {
+        if (promoPostDto.user_id()==null || promoPostDto.date()==null || promoPostDto.product()==null
+                || promoPostDto.category()==null || promoPostDto.price()==null || promoPostDto.has_promo()==null
+                || promoPostDto.discount()==null)
+            throw new BadRequestException("Los datos ingresados no son correctos.");
+
+        this.userRepository.findById(
+                promoPostDto.user_id()
+        ).orElseThrow(
+                () -> new NotFoundException("El usuario " + promoPostDto.user_id() + " no existe")
+        );
+
+        if (this.productRepository.findById(promoPostDto.product().product_id()).isEmpty())
+            this.productRepository.save(
+                    mapper.convertDtoToProduct(promoPostDto.product())
+            );
+
+        Integer postId = postRepository.findAll().stream().map(Post::getPostId).max(Integer::compareTo).orElse(0);
+        postRepository.save(
+                mapper.convertPromoPostDtoToPost(promoPostDto, postId+1)
+        );
+
+        return new ResponseDto("Post con promoción creado");
+    }
 }

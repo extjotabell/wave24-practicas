@@ -75,5 +75,9 @@ public class SocialController {
         return new ResponseEntity<>(postService.getLastTwoWeeksFollowedPosts(userId, followedList, order), HttpStatus.OK);
     }
 
+    @PostMapping("/products/promo-post")
+    public ResponseEntity<ResponseDto> createPromoPost(@RequestBody() PromoPostDto promoPostDto) {
+        return ResponseEntity.ok(postService.createPromoPost(promoPostDto));
+    }
 }
 

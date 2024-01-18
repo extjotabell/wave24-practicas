@@ -1,9 +1,6 @@
 package com.socialmeli.socialmeli.services;
 
-import com.socialmeli.socialmeli.dto.PostDto;
-import com.socialmeli.socialmeli.dto.PostIdDto;
-import com.socialmeli.socialmeli.dto.UserDto;
-import com.socialmeli.socialmeli.dto.UserFollowedPostsDto;
+import com.socialmeli.socialmeli.dto.*;
 
 import java.util.List;
 
@@ -12,4 +9,5 @@ public interface IPostService {
     PostIdDto save(PostDto postDto);
     List<PostDto> getUserPosts(Integer userId);
     UserFollowedPostsDto getLastTwoWeeksFollowedPosts(Integer userId, List<UserDto> followedList, String order);
+    ResponseDto createPromoPost(PromoPostDto promoPostDto);
 }
