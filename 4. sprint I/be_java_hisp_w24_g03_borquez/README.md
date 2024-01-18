@@ -485,6 +485,9 @@ Delete a user, their publications and from the followers and followed lists.
 </tr>
 </table>
 
+Link to technical documentation: 
+https://github.com/extjotabell/wave24-practicas/blob/borquez_victoria/4.%20sprint%20I/be_java_hisp_w24_g03_borquez/src/main/resources/documents/Documentacion_tecnica.pdf
+
 
 ## Tests (Postman)
 
