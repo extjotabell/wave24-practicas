@@ -25,7 +25,7 @@ La API se ejecuta localmente utilizando Spring Boot. Para las pruebas, se puede 
 |        GET       | /users/topfollowed                          |
 
 ### Especificación US 0012: (BONUS DESARROLLO INDIVIDUAL)
-<ins>**US 0012: **</ins>Obtener una lista de los 10 usuarios con más seguidores (*más seguidos*) Ordenados de mayor a menor, con su user_name y cantidad de seguidores. 
+<ins>**US 0012: **</ins> Obtener una lista de los 10 usuarios con más seguidores (*más seguidos*) Ordenados de mayor a menor, con su user_name y cantidad de seguidores. 
 
 
 <ins>**Sign:**</ins>
@@ -33,7 +33,7 @@ La API se ejecuta localmente utilizando Spring Boot. Para las pruebas, se puede 
 |    **Method**    | **SIGN**                                                                                                                                                                                                                                                            |
 |------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |        GET       | /users/topfollowed                                                                                                                                                                                                                                                  |
-|     Response     | {<br>  "topFollowedUsers": [<br>    {<br>      "position": 1,<br>      "username": "user1",<br>      "followers": 1000<br>    },<br>    {<br>      "position": 2,<br>      "username": "user2",<br>      "followers": 900<br>    },<br>    //More Users<br>  ]<br>} |
+|     Response     |   [<br>    {<br>      "position": 1,<br>      "user_name": "user1",<br>      "followers": 1000<br>    },<br>    {<br>      "position": 2,<br>      "user_name": "user2",<br>      "followers": 900<br>    },<br>    //More Users<br>  ] |
 
 
 
