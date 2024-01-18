@@ -30,6 +30,22 @@ public class VehicleServiceImpl implements IVehicleService{
                 .collect(Collectors.toList());
     }
 
+    @Override
+    public List<VehicleDto> searchByFuelType(String fuel_type) {
+        List<Vehicle> vehicleList = vehicleRepository.findAll().stream().filter((Vehicle v) -> v.getFuel_type().equals(fuel_type)).toList();
+        if(vehicleList.isEmpty()){
+            throw new NotFoundException("No se encontró ningun auto con ese tipo de combustible.");
+        }
+        return vehicleList.stream()
+                .map(this::convertVehicleToDto)
+                .collect(Collectors.toList());
+    }
+
+    @Override
+    public List<Vehicle> getVehiclesByColorAndYear(String color, int year) {
+        return vehicleRepository.findByColorAndYear(color, year);
+    }
+
     private VehicleDto convertVehicleToDto(Vehicle v){
         return new VehicleDto(
                 v.getId(),

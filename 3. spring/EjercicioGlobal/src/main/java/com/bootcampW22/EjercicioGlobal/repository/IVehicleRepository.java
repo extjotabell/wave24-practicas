@@ -6,4 +6,7 @@ import java.util.List;
 
 public interface IVehicleRepository {
     List<Vehicle> findAll();
+    List<Vehicle> findByColorAndYear(String color, int year);
+
+
 }

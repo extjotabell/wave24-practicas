@@ -24,6 +24,11 @@ public class VehicleRepositoryImpl implements IVehicleRepository{
         return listOfVehicles;
     }
 
+    @Override
+    public List<Vehicle> findByColorAndYear(String color, int year) {
+        return null;
+    }
+
     private void loadDataBase() throws IOException {
         File file;
         ObjectMapper objectMapper = new ObjectMapper();
