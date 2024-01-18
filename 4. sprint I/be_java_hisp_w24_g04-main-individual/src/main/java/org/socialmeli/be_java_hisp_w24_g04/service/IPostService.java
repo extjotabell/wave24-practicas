@@ -11,4 +11,5 @@ public interface IPostService {
     List<PostDTO> searchAllFollowedLastTwoWeeks(Integer userId, String order);
     UserPostDTO createUserPost(UserPostDTO userPost);
     PromoPostCountDTO getPromoPostsCount(Integer userId);
+    PostDTO updatePost(Integer postId, UserPostDTO newPost);
 }

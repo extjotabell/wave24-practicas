@@ -1,13 +1,13 @@
 package org.socialmeli.be_java_hisp_w24_g04.model;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import lombok.AllArgsConstructor;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import java.time.LocalDate;
 
 @Getter
+@Setter
 public class PromoPost extends Post {
     @JsonProperty("has_promo")
     private Boolean hasPromo;

@@ -90,7 +90,7 @@ public class PostService implements IPostService {
         productRepository.save(userPost.product());
         postRepository.save(newPost);
 
-        return userPost;
+        return new UserPostDTO(newPost);
     }
 
     @Override
@@ -123,17 +123,14 @@ public class PostService implements IPostService {
 
         try {
             user.get().getFollowed().forEach(followed -> {
-                postRepository.findAll().stream().filter(post -> post.getUserId().equals(followed.user_id()) && (ChronoUnit.DAYS.between(post.getDate(), dateNow) <= 14)).forEach(post -> {
-                    PostDTO postDTO = new PostDTO(
-                            post.getUserId(),
-                            post.getPostId(),
-                            post.getDate().toString(),
-                            post.getProduct(),
-                            post.getCategory(),
-                            post.getPrice()
-                    );
-                    foundPosts.add(postDTO);
-                });
+                postRepository.findAll().stream()
+                        .filter(post -> post.getUserId().equals(followed.user_id()) && (ChronoUnit.DAYS.between(post.getDate(), dateNow) <= 14))
+                        .forEach(post -> {
+                            if (post instanceof PromoPost)
+                                foundPosts.add(new PostDTO((PromoPost) post));
+                            else
+                                foundPosts.add(new PostDTO(post));
+                        });
             });
         } catch (Exception e) {
             throw new NotFoundException("User not found");
@@ -149,5 +146,33 @@ public class PostService implements IPostService {
             }
 
         return foundPosts;
+    }
+
+    @Override
+    public PostDTO updatePost(Integer postId, UserPostDTO newPostData) {
+        Post post = postRepository.get(postId).orElseThrow(() -> new NotFoundException("Post not found"));
+        post.setCategory(newPostData.category());
+        post.setPrice(newPostData.price());
+        post.setProduct(newPostData.product());
+        post.setDate(LocalDate.now());
+
+        if (newPostData.has_promo() != null) {
+            PromoPost promoPost = new PromoPost(
+                    post.getPostId(),
+                    post.getUserId(),
+                    post.getDate(),
+                    post.getProduct(),
+                    post.getCategory(),
+                    post.getPrice(),
+                    newPostData.has_promo(),
+                    newPostData.discount()
+            );
+
+            postRepository.update(promoPost);
+            return new PostDTO(promoPost);
+        } else {
+            postRepository.update(post);
+            return new PostDTO(post);
+        }
     }
 }

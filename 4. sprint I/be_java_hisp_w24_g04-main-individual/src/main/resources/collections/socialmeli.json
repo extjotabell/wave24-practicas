@@ -3,21 +3,21 @@
 		"_postman_id": "e369ab44-cbad-4e86-a095-c13a3ed5de90",
 		"name": "Social Meli",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "32253076",
-		"_collection_link": "https://itbjava-w24-team4.postman.co/workspace/Team-Workspace~e727ed1c-7b37-4224-8794-d8330f7233f1/collection/32253076-e369ab44-cbad-4e86-a095-c13a3ed5de90?action=share&source=collection_link&creator=32253076"
+		"_exporter_id": "32161365",
+		"_collection_link": "https://itbjava-w24-team4.postman.co/workspace/Team-Workspace~e727ed1c-7b37-4224-8794-d8330f7233f1/collection/32253076-e369ab44-cbad-4e86-a095-c13a3ed5de90?action=share&source=collection_link&creator=32161365"
 	},
 	"item": [
 		{
 			"name": "Products",
 			"item": [
 				{
-					"name": "Save products",
+					"name": "New post",
 					"request": {
 						"method": "POST",
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"user_id\": 234,\n    \"date\": \"29-04-2021\",\n    \"product\": {\n        \"product_id\": 1,\n        \"product_name\": \"Silla Gamer\",\n        \"type\": \"Gamer\",\n        \"brand\": \"Racer\",\n        \"color\": \"Red & Black\",\n        \"notes\": \"Special Edition\"\n    },\n    \"category\": 100,\n    \"price\": 1500.50\n}",
+							"raw": "{\n    \"user_id\": 101,\n    \"date\": \"15-01-2024\",\n    \"product\": {\n        \"product_id\": 1,\n        \"product_name\": \"Silla Gamer\",\n        \"type\": \"Gamer\",\n        \"brand\": \"Racer\",\n        \"color\": \"Red & Black\",\n        \"notes\": \"Special Edition\"\n    },\n    \"category\": 100,\n    \"price\": 1500.50\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -34,6 +34,35 @@
 							"path": [
 								"products",
 								"post"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "New promo post",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"user_id\": 101,\n    \"date\": \"17-01-2024\",\n    \"product\": {\n        \"product_id\": 5,\n        \"product_name\": \"Silla Gamer1\",\n        \"type\": \"Gamer\",\n        \"brand\": \"Racer\",\n        \"color\": \"Red & Black\",\n        \"notes\": \"Special Edition\"\n    },\n    \"category\": 100,\n    \"price\": 999.50,\n    \"has_promo\": true,\n    \"discount\": 0.25\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/products/promo-post",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"products",
+								"promo-post"
 							]
 						}
 					},
@@ -68,7 +97,70 @@
 							"variable": [
 								{
 									"key": "user_id",
+									"value": "103"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Promo posts count",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/products/promo-post/count?user_id=101",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"products",
+								"promo-post",
+								"count"
+							],
+							"query": [
+								{
+									"key": "user_id",
 									"value": "101"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update post",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"product\": {\n        \"product_id\": 1,\n        \"product_name\": \"Silla Gamer\",\n        \"type\": \"Gamer\",\n        \"brand\": \"Racer\",\n        \"color\": \"Red & Black\",\n        \"notes\": \"New Special Edition\"\n    },\n    \"category\": 101,\n    \"price\": 500.50,\n    \"has_promo\": true,\n    \"discount\": 0.50\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/products/post/:post_id",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"products",
+								"post",
+								":post_id"
+							],
+							"variable": [
+								{
+									"key": "post_id",
+									"value": "11"
 								}
 							]
 						}
@@ -101,11 +193,11 @@
 							"variable": [
 								{
 									"key": "user_id",
-									"value": "101"
+									"value": "103"
 								},
 								{
 									"key": "user_id_to_follow",
-									"value": "103"
+									"value": "101"
 								}
 							]
 						}
@@ -133,11 +225,11 @@
 							"variable": [
 								{
 									"key": "user_id",
-									"value": "101"
+									"value": "103"
 								},
 								{
 									"key": "user_id_to_follow",
-									"value": "102"
+									"value": "104"
 								}
 							]
 						}
@@ -172,7 +264,7 @@
 							"variable": [
 								{
 									"key": "user_id",
-									"value": "101"
+									"value": "103"
 								}
 							]
 						}
@@ -218,7 +310,27 @@
 					"name": "Get Count",
 					"request": {
 						"method": "GET",
-						"header": []
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/users/:user_id/followers/count",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"users",
+								":user_id",
+								"followers",
+								"count"
+							],
+							"variable": [
+								{
+									"key": "user_id",
+									"value": "104"
+								}
+							]
+						}
 					},
 					"response": []
 				}

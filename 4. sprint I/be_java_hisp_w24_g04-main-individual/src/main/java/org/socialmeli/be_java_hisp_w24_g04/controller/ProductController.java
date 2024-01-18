@@ -40,4 +40,21 @@ public class ProductController {
                 new SingleResponseDTO(200, postService.getPromoPostsCount(userId))
         );
     }
+
+    @GetMapping("/promo-post/count")
+    public ResponseEntity<SingleResponseDTO> getPromoPostsCount(@RequestParam("user_id") Integer userId) {
+        return ResponseEntity.ok(
+                new SingleResponseDTO(200, postService.getPromoPostsCount(userId))
+        );
+    }
+
+    @PutMapping("/post/{postId}")
+    public ResponseEntity<SingleResponseDTO> updatePost(
+            @PathVariable Integer postId,
+            @RequestBody UserPostDTO newPost
+    ) {
+        return ResponseEntity.ok(
+                new SingleResponseDTO(200, postService.updatePost(postId, newPost))
+        );
+    }
 }
