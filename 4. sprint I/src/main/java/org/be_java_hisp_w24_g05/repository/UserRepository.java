@@ -50,7 +50,7 @@ public class UserRepository implements IUserRepository{
     }
     @Override
     public ArrayList<User> findAll() {
-        return null;
+        return users;
     }
 
     // Posts of followed users by user id from last 2 weeks sorted by date

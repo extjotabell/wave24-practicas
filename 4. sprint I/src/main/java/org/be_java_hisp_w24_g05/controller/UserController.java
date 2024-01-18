@@ -51,4 +51,8 @@ public class UserController {
     public ResponseEntity<CountFollowersDto> searchUserFollowers(@PathVariable Integer userId) {
         return ResponseEntity.ok(userService.searchUserFollowers(userId));
     }
+    @GetMapping("/topfollowed")
+    public ResponseEntity<?> getTopFollowed(){
+        return new ResponseEntity<>(userService.getTopFollowed(), HttpStatus.OK);
+    }
 }

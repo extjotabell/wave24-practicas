@@ -20,6 +20,7 @@ import java.util.Collections;
 import java.util.Comparator;
 
 import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
 @Service
 public class UserService implements IUserService {
@@ -126,5 +127,20 @@ public class UserService implements IUserService {
                 user.getFollowers().size()
         );
     }
+    @Override
+    public List<TopFollowersDto> getTopFollowed() {
+        List<User> topUsers = userRepository.findAll().stream()
+                .sorted(Comparator.comparingInt((User o) -> o.getFollowers().size()).reversed())
+                .limit(10)
+                .collect(Collectors.toList());
+
+        return IntStream.range(0, topUsers.size())
+                .mapToObj(i -> {
+                    User obj = topUsers.get(i);
+                    return new TopFollowersDto(i+1, obj.getUserName(), obj.getFollowers().size());
+                })
+                .collect(Collectors.toList());
+    }
+
 
 }

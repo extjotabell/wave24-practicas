@@ -25,4 +25,6 @@ public interface IUserService {
     UserFollowedDto unfollowUser(int userId, int userIdToUnfollow);
 
     CountFollowersDto searchUserFollowers(Integer userId);
+
+    List<TopFollowersDto> getTopFollowed();
 }
