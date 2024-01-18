@@ -378,6 +378,13 @@ Publish a new product on promotion
 </tr>
 </table>
 
+
+| Response |      | Description     |
+| :-------- | :------- |:----------------|
+| `200` | `OK` | response dto    |
+| `400` | `Bad Request` | bodyless or dto |
+
+
 #### US 0011 (Desiree Melisa Limachi)
 
 Get the number of products on promotion from a certain seller
@@ -391,6 +398,29 @@ Get the number of products on promotion from a certain seller
 | :-------- | :------- | :------------------------- |
 | `userId` | `int` | **Required**. id of user|
 
+<table>
+<tr>
+<td> Status </td> <td> Response </td>
+</tr>
+<tr>
+<td> 200 </td>
+<td>
+
+```json
+{
+  "user_id": 1465,
+  "user_name": "usuario1",
+  "promo_products_count": 2
+}
+
+```
+
+</td>
+</tr>
+<tr>
+</tr>
+</table>
+
 #### US 0012 (Desiree Melisa Limachi)
 
 Filter products by user categories
@@ -403,6 +433,40 @@ Filter products by user categories
 | Parameter | Type     | Description                |
 | :-------- | :------- | :------------------------- |
 | `userId` | `int` | **Required**. id of user|
+
+<table>
+<tr>
+<td> Status </td> <td> Response </td>
+</tr>
+<tr>
+<td> 200 </td>
+<td>
+
+```json
+{
+    "user_id": 4698,
+    "user_name": "usuario4",
+    "categories": {
+        "100": [
+          {
+            "product_id": 7,
+            "product_name": "Mochila",
+            "type": "",
+            "brand": "Everlast",
+            "color": "Blue",
+            "notes": "Permite Notebook"
+          }
+        ]
+      }
+}
+
+```
+
+</td>
+<tr>
+</tr>
+</table>
+
 
 ## Tests (Postman)
 

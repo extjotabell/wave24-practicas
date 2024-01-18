@@ -9,7 +9,7 @@ public interface IPostService {
     PostIdDto save(PostDto postDto);
     List<PostDto> getUserPosts(Integer userId);
     UserFollowedPostsDto getLastTwoWeeksFollowedPosts(Integer userId, List<UserDto> followedList, String order);
-    PostIdPromDto savePostProm(PostPromDto postPromDto);
+    ResponseDto savePostProm(PostPromDto postPromDto);
     UserProductsDto getTotalProductsProm(Integer userId);
     UserCategoriesDto getProductsForCategory(Integer userId);
 

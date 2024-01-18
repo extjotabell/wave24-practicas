@@ -42,7 +42,7 @@ public class PostService implements IPostService{
         }
         User user = userRepository.findById(postDto.user_id()).orElse(null);
         if(Objects.isNull(user)){
-            throw new BadRequestException("No existe el usuario con id: " + postDto.user_id());
+            throw new NotFoundException("No existe el usuario con id: " + postDto.user_id());
         }
         Post post = mapper.convertDtoToPost(postDto);
         Integer postId = postRepository.findAll().stream().map(node -> node.getPostId()).max(Integer::compareTo).orElse(0);
@@ -83,7 +83,7 @@ public class PostService implements IPostService{
     }
 
     @Override
-    public PostIdPromDto savePostProm(PostPromDto postPromDto) {
+    public ResponseDto savePostProm(PostPromDto postPromDto) {
         if(postPromDto.user_id() == null || postPromDto.date() == null || postPromDto.product() == null || postPromDto.category() == null
                 || postPromDto.price() == null || postPromDto.has_promo() == null || postPromDto.discount() == null){
             throw new BadRequestException("Los datos ingresados no son correctos.");
@@ -91,12 +91,12 @@ public class PostService implements IPostService{
 
         User user = userRepository.findById(postPromDto.user_id()).orElse(null);
         if(Objects.isNull(user)){
-            throw new BadRequestException("No existe el usuario con id: " + postPromDto.user_id());
+            throw new NotFoundException("No existe el usuario con id: " + postPromDto.user_id());
         }
 
         Post post = mapper.convertDtoToPostProm(postPromDto);
-        Post postSaved = postRepository.save(post);
-        return mapper.convertPostIdPromToDto(postSaved);
+        postRepository.save(post);
+        return new ResponseDto("Se agrego correctamente el post");
     }
 
     @Override
@@ -105,7 +105,7 @@ public class PostService implements IPostService{
         User user = userRepository.findById(userId).orElse(null);
 
         if(user == null)
-            throw new BadRequestException("No existe el usuario " + userId);
+            throw new NotFoundException("No existe el usuario " + userId);
 
         return new UserProductsDto(userId, user.getUserName(), posts.size());
     }
@@ -113,7 +113,7 @@ public class PostService implements IPostService{
     public UserCategoriesDto getProductsForCategory(Integer userId){
         User user = userRepository.findById(userId).orElse(null);
         if(Objects.isNull(user)){
-            throw new BadRequestException("No existe el usuario con id: " + userId);
+            throw new NotFoundException("No existe el usuario con id: " + userId);
         }
 
         List<Post> posts = postRepository.findAll().stream().filter(post -> post.getUserId().equals(userId)).toList();
