@@ -337,6 +337,157 @@ Ordered list of posts made by the sellers that a user follows in the last two we
 | `date_asc` | `String` | **Required**. date asc sort|
 | `date_desc` | `String` | **Required**. date desc sort|
 
+#### US 0010 (Marcos Anzurez)
+
+Create a promo post.
+
+```http
+  POST /products/promo-post
+
+```
+
+<table>
+<tr>
+<td> Payload </td>
+</tr>
+<tr>
+<td>
+
+```json
+{
+    "user_id": 234,
+    "date": "29-04-2021",
+    "product": {
+        "product_id": 1,
+        "product_name": "Silla Gamer",
+        "type": "Gamer",
+        "brand": "Racer",
+        "color": "Red & Black",
+        "notes": "Special Edition"
+    },
+    "category": 100,
+    "price": 1500.50,
+    "has_promo": true,
+    "discount": 0.25
+}
+
+
+```
+
+</td>
+</tr>
+<tr>
+</tr>
+</table>
+
+| Parameter | Type     | Description                |
+| :-------- | :------- | :------------------------- |
+| `user_id_` | `int` | **Required**. id of user|
+| `date` | `LocalDate` | **Required**. date of post|
+| `product_id` | `int` | **Required**. id of product|
+| `product_name` | `String` | **Required**. name of product|
+| `type` | `String` | **Required**. type of product|
+| `brand` | `String` | **Required**. brand of product|
+| `color` | `String` | **Required**. color of product|
+| `notes` | `String` | **Required**. notes of product|
+| `category` | `int` | **Required**. category of post|
+| `price` | `double` | **Required**. price of product|
+| `has_promo` | `boolean` | **Required**. promo of post|
+| `discount` | `double` | **Required**. discount of product|
+
+| Response |      | Description                |
+| :-------- | :------- | :------------------------- |
+| `200` | `OK` | bodyless or dto|
+| `400` | `Bad Request` | bodyless or dto|
+
+#### US 0011 (Marcos Anzurez)
+
+Get promo post count by user
+
+```http
+  POST /products/promo-post/count?user_id={userId}
+
+```
+
+| Parameter | Type     | Description                |
+| :-------- | :------- | :------------------------- |
+| `user_id` | `int` | **Required**. id of user|
+| `user_name` | `Stirng` | **Required**. name of user|
+| `promo_products_count` | `int` | **Required**. promo post of user|
+
+| Response |      | Description                |
+| :-------- | :------- | :------------------------- |
+| `200` | `OK` | bodyless or dto|
+| `400` | `Bad Request` | bodyless or dto|
+
+#### US 0012 (Marcos Anzurez) (to implement in the future)
+
+Get a list of all users selling the same product to compare promotions
+
+```http
+  POST /users/product/{productId}
+
+```
+
+| Parameter | Type     | Description                |
+| :-------- | :------- | :------------------------- |
+| `productId` | `int` | **Required**. id of product|
+
+| Response |      | Description                |
+| :-------- | :------- | :------------------------- |
+| `200` | `OK` | dto|
+| `400` | `Bad Request` | dto|
+
+<table>
+<tr>
+<td> Status </td> <td> Response </td>
+</tr>
+<tr>
+<td> 200 </td>
+<td>
+
+```json
+{
+  [
+    {
+      "user_id": 234,
+      "user_name": "vendedor1",
+      "date": "29-04-2021",
+      "price": 1241.99,
+      "has_promo": false
+    },
+    {
+      "user_id": 4698,
+      "user_name": "usuario1",
+      "date": "29-04-2021",
+      "price": 1500.50,
+      "has_promo": false
+    },
+    {
+      "user_id": 1536,
+      "user_name": "usuario2",
+      "date": "29-04-2021",
+      "price": 999.99,
+      "has_promo": true
+    },
+    {
+      "user_id": 2236,
+      "user_name": "usuario3",
+      "date": "29-04-2021",
+      "price": 1249.99,
+      "has_promo": false
+    }
+  ]
+}
+
+```
+
+</td>
+</tr>
+<tr>
+</tr>
+</table>
+
 
 ## Tests (Postman)
 
