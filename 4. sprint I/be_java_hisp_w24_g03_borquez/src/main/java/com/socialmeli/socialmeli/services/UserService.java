@@ -179,7 +179,7 @@ public class UserService implements IUserService{
 
         User user = userRepository.findById(id).orElse(null);
         if (user == null){
-            throw new BadRequestException("No se encontró usuario"); //CAMBIAR A NOTFOUNDEXCEPTION
+            throw new BadRequestException("No se encontró usuario con id " + id);
         }
         this.userRepository.deleteById(id);
         var postUser = this.postRepository.deleteById(id);
