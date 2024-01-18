@@ -392,6 +392,19 @@ Obtain the quantity of products on promotion from a given supplier
 | :-------- | :------- | :------------------------- |
 | `userId` | `int` | **Required**. id of user|
 
+#### US 0012 (Doris Elena Salazar)
+
+Change the status of a promotion post
+
+```http
+  GET /products/promo-post/change-promo/{postId}
+
+```
+
+| Parameter | Type     | Description                |
+| :-------- | :------- | :------------------------- |
+| `postId` | `int` | **Required**. id of user|
+
 ## Tests (Postman)
 
 To run tests, use the postman collection located in the following directory:
