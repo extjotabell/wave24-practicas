@@ -1,0 +1,185 @@
+{
+	"info": {
+		"_postman_id": "af5eab55-3684-4b47-a304-40a7d4cd36e7",
+		"name": "Estudiantes",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "29817437"
+	},
+	"item": [
+		{
+			"name": "Record",
+			"item": [
+				{
+					"name": "getEstudianteRecordPorNombre",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/estudiantes/records?nombre=Ludmila",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"estudiantes",
+								"records"
+							],
+							"query": [
+								{
+									"key": "nombre",
+									"value": "Ludmila"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getEstudianteRecord",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/estudiantes/records/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"estudiantes",
+								"records",
+								"2"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "DTO",
+			"item": [
+				{
+					"name": "getEstudianteDTOPorNombre",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/estudiantes/dtos?nombre=Ludmila",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"estudiantes",
+								"dtos"
+							],
+							"query": [
+								{
+									"key": "nombre",
+									"value": "Ludmila"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getEstudianteDTO",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/estudiantes/dtos/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"estudiantes",
+								"dtos",
+								"2"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "POJO",
+			"item": [
+				{
+					"name": "getEstudiantePOJOPorNombre",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/estudiantes/pojos?nombre=Ludmila",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"estudiantes",
+								"pojos"
+							],
+							"query": [
+								{
+									"key": "nombre",
+									"value": "Ludmila"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getEstudiantePOJO",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/estudiantes/pojos/3",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"estudiantes",
+								"pojos",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getEstudiantesPOJO",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/estudiantes",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"estudiantes"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
