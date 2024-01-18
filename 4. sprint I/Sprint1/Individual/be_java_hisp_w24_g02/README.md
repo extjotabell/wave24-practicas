@@ -1,7 +1,7 @@
-# Social Meli Grupo 02
+# Social Meli Grupo 02 PARTE INDIVIDUAL
 
 ## Descripción del Problema
-Desarrollar una API para un escenario determinado de manera grupal. En el punto A de la siguiente sección se encuentra una descripción detallada del escenario y cada uno de los requerimientos solicitados. La idea es que puedan trabajar en equipo, haciendo la correspondiente división de tareas para lograr la resolución en conjunto del escenario correspondiente.
+Se agregan solucion de los problemas US00010 , US00011 Y EL BONUS US00012 especificado más adelante en el documento
 
 ## Definiciones de Equipo
 
