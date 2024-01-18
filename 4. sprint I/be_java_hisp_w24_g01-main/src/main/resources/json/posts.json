@@ -1,0 +1,182 @@
+[
+  {
+    "id": 301,
+    "userId": 101,
+    "date": "20-01-2024",
+    "product": {
+      "id": 201,
+      "productName": "Smartphone",
+      "type": "Electronics",
+      "brand": "Samsung",
+      "color": "Black",
+      "notes": "6.5-inch display, 128GB storage"
+    },
+    "category": {
+      "id": 1,
+      "name": "Electronics"
+    },
+    "price": 799.99
+  },
+  {
+    "id": 302,
+    "userId": 102,
+    "date": "21-01-2024",
+    "product": {
+      "id": 202,
+      "productName": "Running Shoes",
+      "type": "Footwear",
+      "brand": "Nike",
+      "color": "Blue",
+      "notes": "Ideal for long-distance running"
+    },
+    "category": {
+      "id": 2,
+      "name": "Footwear"
+    },
+    "price": 129.99
+  },
+  {
+    "id": 303,
+    "userId": 103,
+    "date": "22-01-2024",
+    "product": {
+      "id": 203,
+      "productName": "Coffee Maker",
+      "type": "Appliances",
+      "brand": "Keurig",
+      "color": "Silver",
+      "notes": "Single-serve with multiple brew sizes"
+    },
+    "category": {
+      "id": 2,
+      "name": "Footwear"
+    },
+    "price": 69.99
+  },
+  {
+    "id": 304,
+    "userId": 104,
+    "date": "23-01-2024",
+    "product": {
+      "id": 204,
+      "productName": "Wireless Earbuds",
+      "type": "Electronics",
+      "brand": "Apple",
+      "color": "White",
+      "notes": "Active noise cancellation, sweat-resistant"
+    },
+    "category": {
+      "id": 3,
+      "name": "Appliances"
+    },
+    "price": 149.99
+  },
+  {
+    "id": 305,
+    "userId": 105,
+    "date": "24-01-2024",
+    "product": {
+      "id": 205,
+      "productName": "Backpack",
+      "type": "Outdoor",
+      "brand": "Patagonia",
+      "color": "Green",
+      "notes": "Durable and water-resistant"
+    },
+    "category": {
+      "id": 3,
+      "name": "Appliances"
+    },
+    "price": 89.99
+  },
+  {
+    "id": 306,
+    "userId": 106,
+    "date": "25-01-2024",
+    "product": {
+      "id": 206,
+      "productName": "Gaming Console",
+      "type": "Electronics",
+      "brand": "Sony",
+      "color": "Black",
+      "notes": "PlayStation 5 with 1TB storage"
+    },
+    "category": {
+      "id": 4,
+      "name": "Outdoor"
+    },
+    "price": 499.99
+  },
+  {
+    "id": 307,
+    "userId": 107,
+    "date": "26-01-2024",
+    "product": {
+      "id": 207,
+      "productName": "Digital Camera",
+      "type": "Electronics",
+      "brand": "Canon",
+      "color": "Silver",
+      "notes": "24MP sensor, 4K video recording"
+    },
+    "category": {
+      "id": 4,
+      "name": "Electronics"
+    },
+    "price": 599.99
+  },
+  {
+    "id": 308,
+    "userId": 108,
+    "date": "27-01-2024",
+    "product": {
+      "id": 208,
+      "productName": "Smart Watch",
+      "type": "Wearables",
+      "brand": "Fitbit",
+      "color": "Rose Gold",
+      "notes": "Fitness tracker with heart rate monitor"
+    },
+    "category": {
+      "id": 4,
+      "name": "Outdoor"
+    },
+    "price": 199.99
+  },
+  {
+    "id": 309,
+    "userId": 109,
+    "date": "28-01-2024",
+    "product": {
+      "id": 209,
+      "productName": "Blender",
+      "type": "Appliances",
+      "brand": "Vitamix",
+      "color": "Red",
+      "notes": "High-performance blender for smoothies"
+    },
+    "category":  {
+      "id": 5,
+      "name": "Wearables"
+    },
+    "price": 299.99
+  },
+  {
+    "id": 310,
+    "userId": 110,
+    "date": "29-01-2024",
+    "product": {
+      "id": 210,
+      "productName": "Desk Chair",
+      "type": "Furniture",
+      "brand": "Herman Miller",
+      "color": "Gray",
+      "notes": "Ergonomic office chair with lumbar support"
+    },
+    "category":  {
+      "id": 5,
+      "name": "Wearables"
+    },
+    "price": 499.99
+  }
+]
