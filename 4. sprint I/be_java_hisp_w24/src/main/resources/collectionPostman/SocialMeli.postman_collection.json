@@ -151,6 +151,67 @@
 				"url": "localhost:8080/users/234/unfollow/1115"
 			},
 			"response": []
+		},
+		{
+			"name": "ProductPromoPost(US_0010)",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/products/promo-post/count?user_id=11",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"products",
+						"promo-post",
+						"count"
+					],
+					"query": [
+						{
+							"key": "user_id",
+							"value": "11"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ProductPromoPostsCount(US_0011)",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/products/promo-post/count?user_id=1465",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"products",
+						"promo-post",
+						"count"
+					],
+					"query": [
+						{
+							"key": "user_id",
+							"value": "1465"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "FilterByCategory",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "localhost:8080/products/categories/4698"
+			},
+			"response": []
 		}
 	]
 }
