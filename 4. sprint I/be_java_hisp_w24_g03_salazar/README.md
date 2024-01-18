@@ -338,6 +338,60 @@ Ordered list of posts made by the sellers that a user follows in the last two we
 | `date_desc` | `String` | **Required**. date desc sort|
 
 
+#### US 0010 (Doris Elena Salazar)
+
+Publish a new promotional product
+
+```http
+  POST /products/promo-post
+
+```
+<table>
+<tr>
+<td> Payload </td>
+</tr>
+<tr>
+<td>
+
+```json
+{
+  "user_id": 1465,
+  "date": "29-04-2021",
+  "product": {
+    "product_id": 1,
+    "product_name": "Silla Gamer",
+    "type": "Gamer",
+    "brand": "Racer",
+    "color": "Red & Black",
+    "notes": "Special Edition"
+  },
+  "category": 100,
+  "price": 1500.50,
+  "has_promo": true,
+  "discount": 0.25
+}
+
+```
+
+</td>
+</tr>
+<tr>
+</tr>
+</table>
+
+#### US 0011 (Doris Elena Salazar)
+
+Obtain the quantity of products on promotion from a given supplier
+
+```http
+  GET /products/promo-post/count?user_id={userId}
+
+```
+
+| Parameter | Type     | Description                |
+| :-------- | :------- | :------------------------- |
+| `userId` | `int` | **Required**. id of user|
+
 ## Tests (Postman)
 
 To run tests, use the postman collection located in the following directory:
