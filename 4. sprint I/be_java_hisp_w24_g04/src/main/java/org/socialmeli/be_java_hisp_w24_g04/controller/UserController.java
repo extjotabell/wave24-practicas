@@ -1,11 +1,8 @@
 package org.socialmeli.be_java_hisp_w24_g04.controller;
 
-import org.socialmeli.be_java_hisp_w24_g04.dto.UserFollowedDTO;
-import org.socialmeli.be_java_hisp_w24_g04.dto.UserFollowerCountDTO;
-import org.socialmeli.be_java_hisp_w24_g04.dto.UserFollowersDTO;
+import org.socialmeli.be_java_hisp_w24_g04.dto.*;
 import org.socialmeli.be_java_hisp_w24_g04.exception.BadRequestException;
 import org.socialmeli.be_java_hisp_w24_g04.model.User;
-import org.socialmeli.be_java_hisp_w24_g04.dto.SingleResponseDTO;
 import org.socialmeli.be_java_hisp_w24_g04.service.IUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -62,5 +59,13 @@ public class UserController {
         } catch (NumberFormatException e) {
             throw new BadRequestException("User id and user id to unfollow must be integers");
         }
+    }
+
+    /* Historia de usuario US0012 opcional */
+    @PostMapping("/create")
+    public ResponseEntity<SingleResponseDTO> createUser(@RequestBody UserDTO user) {
+        return ResponseEntity.ok(
+                new SingleResponseDTO(200, userService.createUser(user))
+        );
     }
 }
