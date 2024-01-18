@@ -1,6 +1,7 @@
 package com.mercadolibre.be_java_hisp_w24_g02.controller;
 
 import com.mercadolibre.be_java_hisp_w24_g02.dto.CreatePostDTO;
+import com.mercadolibre.be_java_hisp_w24_g02.dto.PostBrandDTO;
 import com.mercadolibre.be_java_hisp_w24_g02.dto.UserFollowedsPostsDTO;
 import com.mercadolibre.be_java_hisp_w24_g02.exception.BadRequestException;
 import com.mercadolibre.be_java_hisp_w24_g02.service.implementations.UserServiceImpl;
@@ -10,6 +11,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 
 @RestController
@@ -49,7 +52,7 @@ public class PostController {
      */
     @GetMapping("/promo-post/count")
     public ResponseEntity<?>getPostPromoUser(@RequestParam(name = "user_id") Integer userId){
-        return ResponseEntity.ok(postService.CountProductsPromoUser(userId));
+        return ResponseEntity.ok(postService.countProductsPromoUser(userId));
     }
     /**
      * This method is used to get the followed posts of a user
@@ -61,5 +64,10 @@ public class PostController {
     public ResponseEntity<UserFollowedsPostsDTO> getUserFollowed(@PathVariable Integer userId, @RequestParam(defaultValue = "none") String order) throws BadRequestException {
         UserFollowedsPostsDTO userServiceUserFollowed = userService.getFollowedPost(userId,order);
         return ResponseEntity.ok(userServiceUserFollowed);
+    }
+    @GetMapping("/post/brand/{brand}/list")
+    public ResponseEntity<List<PostBrandDTO>> getPostBrand(@PathVariable String brand){
+        List<PostBrandDTO> postBrandDTOList = postService.postByBrands(brand);
+        return ResponseEntity.ok(postBrandDTOList);
     }
 }

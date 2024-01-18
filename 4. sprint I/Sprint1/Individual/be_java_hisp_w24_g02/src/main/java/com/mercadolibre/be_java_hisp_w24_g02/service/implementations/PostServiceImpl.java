@@ -1,7 +1,6 @@
 package com.mercadolibre.be_java_hisp_w24_g02.service.implementations;
 
-import com.mercadolibre.be_java_hisp_w24_g02.dto.CreatePostDTO;
-import com.mercadolibre.be_java_hisp_w24_g02.dto.PostPromoCountDTO;
+import com.mercadolibre.be_java_hisp_w24_g02.dto.*;
 import com.mercadolibre.be_java_hisp_w24_g02.entity.Post;
 import com.mercadolibre.be_java_hisp_w24_g02.entity.Product;
 import com.mercadolibre.be_java_hisp_w24_g02.entity.User;
@@ -38,8 +37,15 @@ public class PostServiceImpl implements IPostService {
         this.postRepository.save(this.transformCreatePostDAOToPostEntity(createPostDTO));
     }
 
+    /**
+     * the count of promos of this user
+     * @param userid
+     * @return PostPromoCountDTO
+     * @throws  NotFoundException if user id not exists
+     */
+
     @Override
-    public PostPromoCountDTO CountProductsPromoUser(Integer userid) {
+    public PostPromoCountDTO countProductsPromoUser(Integer userid) {
         List<Post> postUser= this.postRepository.findAll().stream().filter(p->p.getUserId().equals(userid) && p.getHasPromo()).toList();
         String name = userRepository.findById(userid).get().getName();
         if (name == null || name.isEmpty()){
@@ -50,6 +56,33 @@ public class PostServiceImpl implements IPostService {
         return new PostPromoCountDTO(
         userid,name,count
         );
+    }
+
+    @Override
+    public List<PostBrandDTO> postByBrands (String brand){
+        List<Post> posts = postRepository.findAll().stream()
+                .filter(p -> p.getProduct().getBrand().equals(brand))
+                .collect(Collectors.toList());
+
+        if (!posts.isEmpty()) {
+            return posts.stream()
+                    .map(this::convertPostsDTO)
+                    .collect(Collectors.toList());
+        } else {
+            throw new NotFoundException("Brand not found in the posts");
+        }
+    }
+
+
+    private PostBrandDTO convertPostsDTO(Post posts){
+        return new PostBrandDTO(posts.getPostId(),
+                posts.getUserId(),
+                posts.getDate(),
+                posts.getProduct(),
+                posts.getCategory(),
+                posts.getPrice(),
+                posts.getHasPromo(),
+                posts.getDiscount());
     }
 
     /**
