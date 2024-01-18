@@ -1,0 +1,82 @@
+[
+  {
+    "id": 201,
+    "productName": "Smartphone",
+    "type": "Electronics",
+    "brand": "Samsung",
+    "color": "Black",
+    "notes": "6.5-inch display, 128GB storage"
+  },
+  {
+    "id": 202,
+    "productName": "Running Shoes",
+    "type": "Footwear",
+    "brand": "Nike",
+    "color": "Blue",
+    "notes": "Ideal for long-distance running"
+  },
+  {
+    "id": 203,
+    "productName": "Coffee Maker",
+    "type": "Appliances",
+    "brand": "Keurig",
+    "color": "Silver",
+    "notes": "Single-serve with multiple brew sizes"
+  },
+  {
+    "id": 204,
+    "productName": "Wireless Earbuds",
+    "type": "Electronics",
+    "brand": "Apple",
+    "color": "White",
+    "notes": "Active noise cancellation, sweat-resistant"
+  },
+  {
+    "id": 205,
+    "productName": "Backpack",
+    "type": "Outdoor",
+    "brand": "Patagonia",
+    "color": "Green",
+    "notes": "Durable and water-resistant"
+  },
+  {
+    "id": 206,
+    "productName": "Gaming Console",
+    "type": "Electronics",
+    "brand": "Sony",
+    "color": "Black",
+    "notes": "PlayStation 5 with 1TB storage"
+  },
+  {
+    "id": 207,
+    "productName": "Digital Camera",
+    "type": "Electronics",
+    "brand": "Canon",
+    "color": "Silver",
+    "notes": "24MP sensor, 4K video recording"
+  },
+  {
+    "id": 208,
+    "productName": "Smart Watch",
+    "type": "Wearables",
+    "brand": "Fitbit",
+    "color": "Rose Gold",
+    "notes": "Fitness tracker with heart rate monitor"
+  },
+  {
+    "id": 209,
+    "productName": "Blender",
+    "type": "Appliances",
+    "brand": "Vitamix",
+    "color": "Red",
+    "notes": "High-performance blender for smoothies"
+  },
+  {
+    "id": 210,
+    "productName": "Desk Chair",
+    "type": "Furniture",
+    "brand": "Herman Miller",
+    "color": "Gray",
+    "notes": "Ergonomic office chair with lumbar support"
+  }
+]
