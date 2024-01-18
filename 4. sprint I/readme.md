@@ -13,7 +13,6 @@ Follow a specific user.
 
 ```http
   POST /users/{userId}/follow/{userIdToFollow}
-
 ```
 
 | Parameter | Type     | Description                |
@@ -32,7 +31,6 @@ Number of users following a specific seller.
 
 ```http
   GET /users/{userId}/followers/count
-
 ```
 
 | Parameter | Type     | Description                |
@@ -68,7 +66,6 @@ List of all users following a specific seller.
 
 ```http
   GET /users/{userId}/followers/list
-
 ```
 
 | Parameter | Type     | Description                |
@@ -103,7 +100,6 @@ List of all users following a specific seller.
         }
     ]
 }
-
 ```
 
 </td>
@@ -118,7 +114,6 @@ List of all the sellers followed by a specific user.
 
 ```http
   GET /users/{userId}/followed/list
-
 ```
 
 | Parameter | Type     | Description                |
@@ -152,7 +147,6 @@ List of all the sellers followed by a specific user.
         }
     ]
 }
-
 ```
 
 </td>
@@ -167,7 +161,6 @@ Create a new Post
 
 ```http
   POST /products/post
-
 ```
 
 
@@ -193,8 +186,6 @@ Create a new Post
     "category": 100,
     "price": 1500.50
 }
-
-
 ```
 
 </td>
@@ -228,7 +219,6 @@ Get a list of posts made by the sellers that a user follows in the last two week
 
 ```http
   GET /products/followed/{userId}/list
-
 ```
 
 | Parameter | Type     | Description                |
@@ -278,7 +268,6 @@ Get a list of posts made by the sellers that a user follows in the last two week
         }
     ]
 }
-
 ```
 
 </td>
@@ -293,7 +282,6 @@ Unfollow a specific user.
 
 ```http
   POST /users/{userId}/unfollow/{userIdToUnfollow}
-
 ```
 
 | Parameter | Type     | Description                |
@@ -312,7 +300,6 @@ Ordered list of all the sellers followed by a specific user.
   GET /users/{UserID}/followers/list?order=name_desc
   GET /users/{UserID}/followed/list?order=name_asc
   GET /users/{UserID}/followed/list?order=name_desc
-
 ```
 
 | Parameter | Type     | Description                |
@@ -328,7 +315,6 @@ Ordered list of posts made by the sellers that a user follows in the last two we
 ```http
   GET /products/followed/{userId}/list?order=date_asc
   GET /products/followed/{userId}/list?order=date_desc
-
 ```
 
 | Parameter | Type     | Description                |
@@ -337,6 +323,205 @@ Ordered list of posts made by the sellers that a user follows in the last two we
 | `date_asc` | `String` | **Required**. date asc sort|
 | `date_desc` | `String` | **Required**. date desc sort|
 
+#### US 0010 (Camilo Galezo)
+
+Create a new Promo Post
+
+```http
+  POST /products/promo-post
+```
+
+
+<table>
+<tr>
+<td> Payload </td>
+</tr>
+<tr>
+<td>
+
+```json
+{
+  "user_id": 234,
+  "date": "29-04-2021",
+  "product": {
+    "product_id": 1,
+    "product_name": "Silla Gamer",
+    "type": "Gamer",
+    "brand": "Racer",
+    "color": "Red & Black",
+    "notes": "Special Edition"
+  },
+  "category": 100,
+  "price": 1500.50,
+  "has_promo": true,
+  "discount": 0.25
+}
+```
+
+</td>
+</tr>
+<tr>
+</tr>
+</table>
+
+| Response |      |
+| :-------- | :------- |
+| `200` | `OK` | 
+| `400` | `Bad Request` | 
+
+
+| Parameter | Type     | Description                                                     |
+| :-------- | :------- |:----------------------------------------------------------------|
+| `user_id` | `int` | **Required**. id of user                                        |
+| `date` | `LocalDate` | **Required**. date of post                                      |
+| `product_id` | `int` | **Required**. id of product                                     |
+| `product_name` | `String` | **Required**. name of product                                   |
+| `type` | `String` | **Required**. type of product                                   |
+| `brand` | `String` | **Required**. brand of product                                  |
+| `color` | `String` | **Required**. color of product                                  |
+| `notes` | `String` | **Required**. observations/notes of product                     |
+| `category` | `int` | **Required**. category of product. ex 100: Sillas, 58: Teclados |
+| `price` | `double` | **Required**. price of product                                  |
+| `has_promo` | `boolean` | **Required**. true if post has promotion, false otherwise       |
+| `discount` | `double` | **Required**. post discount                                     |
+
+#### US 0011 (Camilo Galezo)
+
+Count how many promo post have a specific seller.
+
+```http
+  GET /products/promo-post/count?user_id={userId}
+```
+
+<table>
+<tr>
+<td> Status </td> <td> Response </td>
+</tr>
+<tr>
+<td> 200 </td>
+<td>
+
+```json
+{
+  "user_id" : 234,
+  "user_name": "vendedor1",
+  "promo_products_count": 23
+}
+```
+
+</td>
+</tr>
+<tr>
+</tr>
+</table>
+
+| Parameter | Type     | Description                    |
+| :-------- |:---------|:-------------------------------|
+| `user_id` | `int`    | id of seller                   |
+| `user_name` | `String` | name of seller                 |
+| `promo_products_count` | `int`    | number of promo post of seller |
+
+#### US 0012 (Camilo Galezo)
+
+Filter products by price (between minPrice and maxPrice inclusive)
+
+```http
+  GET /products/posts?min_price={minPrice}&max_price={maxPrice}
+```
+
+<table>
+<tr>
+<td> Status </td> <td> Response </td>
+</tr>
+<tr>
+<td> 200 </td>
+<td>
+
+```json
+[
+  {
+    "user_id": 1465,
+    "date": "02-01-2024",
+    "product": {
+      "product_id": 1,
+      "product_name": "Silla Gamer",
+      "type": "Gamer",
+      "brand": "Racer",
+      "color": "Red & Black",
+      "notes": "Special Edition"
+    },
+    "category": 100,
+    "price": 1500.5
+  },
+  {
+    "user_id": 1465,
+    "date": "30-12-2023",
+    "product": {
+      "product_id": 2,
+      "product_name": "Headset RGB Inalámbrico",
+      "type": "Gamer",
+      "brand": "Razer",
+      "color": "Green with RGB",
+      "notes": "Sin Batería"
+    },
+    "category": 100,
+    "price": 1500.5
+  },
+  {
+    "user_id": 1465,
+    "date": "02-01-2024",
+    "product": {
+      "product_id": 2,
+      "product_name": "MacBook Pro",
+      "type": "Gamer",
+      "brand": "Apple",
+      "color": "Gray",
+      "notes": "Microprocesador M1"
+    },
+    "category": 100,
+    "price": 1500.5
+  },
+  {
+    "user_id": 4698,
+    "date": "09-01-2024",
+    "product": {
+      "product_id": 5,
+      "product_name": "Silla Gamer",
+      "type": "Gamer",
+      "brand": "Racer",
+      "color": "Red & Black",
+      "notes": "Special Edition"
+    },
+    "category": 200,
+    "price": 1500.5
+  },
+  {
+    "user_id": 4698,
+    "date": "03-01-2024",
+    "product": {
+      "product_id": 6,
+      "product_name": "Gamer Stick",
+      "type": "Gamer",
+      "brand": "Gadnic",
+      "color": "Grey",
+      "notes": ""
+    },
+    "category": 100,
+    "price": 500.5
+  }
+]
+```
+
+</td>
+</tr>
+<tr>
+</tr>
+</table>
+
+| Parameter              | Type     | Description                         |
+|:-----------------------|:---------|:------------------------------------|
+| `min_price`            | `double` | minimum price to filter (inclusive) |
+| `max_price`            | `double` | maximum price to filter (inclusive) |    
 
 ## Tests (Postman)
 
