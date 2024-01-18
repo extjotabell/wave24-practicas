@@ -35,6 +35,11 @@ public class SocialController {
     public ResponseEntity<List<UserDto>> getAllUsers() {
         return ResponseEntity.ok(userService.getAllUsers());
     }
+    @GetMapping("/posts/promo-post")
+    public ResponseEntity<List<PostIdPromDto>> getAllPromPosts() {
+        return ResponseEntity.ok(postService.getAllPostsProm());
+    }
+
 
     @GetMapping("/users/{userId}/followers/count")
     public ResponseEntity<UserFollowersDto> getTotalFollowers(@PathVariable("userId") Integer userId) {

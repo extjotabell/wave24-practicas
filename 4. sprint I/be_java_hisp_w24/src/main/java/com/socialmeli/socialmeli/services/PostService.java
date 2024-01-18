@@ -79,11 +79,11 @@ public class PostService implements IPostService{
         if(order.equals("date_desc"))
             return posts.stream().sorted(Comparator.comparing(PostDto::date).reversed()).toList();
 
-        throw new BadRequestException("Debe ingresar un orden valido, como name_asc o name_desc");
+        throw new BadRequestException("Debe ingresar un orden valido");
     }
 
     @Override
-    public PostPromDto savePostProm(PostPromDto postPromDto) {
+    public PostIdPromDto savePostProm(PostPromDto postPromDto) {
         if(postPromDto.user_id() == null || postPromDto.date() == null || postPromDto.product() == null || postPromDto.category() == null
                 || postPromDto.price() == null || postPromDto.has_promo() == null || postPromDto.discount() == null){
             throw new BadRequestException("Los datos ingresados no son correctos.");
@@ -96,7 +96,7 @@ public class PostService implements IPostService{
 
         Post post = mapper.convertDtoToPostProm(postPromDto);
         Post postSaved = postRepository.save(post);
-        return mapper.convertPostPromToDto(postSaved);
+        return mapper.convertPostIdPromToDto(postSaved);
     }
 
     @Override
@@ -122,6 +122,11 @@ public class PostService implements IPostService{
                 .entrySet().stream().collect(Collectors.toMap(Map.Entry::getKey, entry-> mapper.convertToProductDtoList(entry.getValue())));
 
         return new UserCategoriesDto(userId, user.getUserName(), categories);
+    }
+
+    @Override
+    public List<PostIdPromDto> getAllPostsProm() {
+        return this.postRepository.findAll().stream().map(mapper::convertPostIdPromToDto).toList();
     }
 
 

@@ -24,6 +24,15 @@
 			"response": []
 		},
 		{
+			"name": "GetPromoPosts",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "localhost:8080/posts/promo-post"
+			},
+			"response": []
+		},
+		{
 			"name": "Follow(US_0001)",
 			"request": {
 				"method": "POST",
@@ -155,26 +164,18 @@
 		{
 			"name": "ProductPromoPost(US_0010)",
 			"request": {
-				"method": "GET",
+				"method": "POST",
 				"header": [],
-				"url": {
-					"raw": "localhost:8080/products/promo-post/count?user_id=11",
-					"host": [
-						"localhost"
-					],
-					"port": "8080",
-					"path": [
-						"products",
-						"promo-post",
-						"count"
-					],
-					"query": [
-						{
-							"key": "user_id",
-							"value": "11"
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"user_id\": 234,\n    \"date\": \"29-04-2021\",\n    \"product\": {\n        \"product_id\": 1,\n        \"product_name\": \"Silla Gamer\",\n        \"type\": \"Gamer\",\n        \"brand\": \"Racer\",\n        \"color\": \"Red & Black\",\n        \"notes\": \"Special Edition\"\n    },\n    \"category\": 100,\n    \"price\": 1500.50,\n    \"has_promo\": true,\n    \"discount\": 0.25\n}",
+					"options": {
+						"raw": {
+							"language": "json"
 						}
-					]
-				}
+					}
+				},
+				"url": "localhost:8080/products/promo-post"
 			},
 			"response": []
 		},
@@ -205,7 +206,7 @@
 			"response": []
 		},
 		{
-			"name": "FilterByCategory",
+			"name": "FilterByCategory(US_0012)",
 			"request": {
 				"method": "GET",
 				"header": [],

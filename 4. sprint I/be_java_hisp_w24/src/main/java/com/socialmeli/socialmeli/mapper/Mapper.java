@@ -105,4 +105,17 @@ public class Mapper {
         entity.setDiscount(postPromDto.discount());
         return entity;
     }
+
+    public PostIdPromDto convertPostIdPromToDto(Post entity){
+        return new PostIdPromDto(
+                entity.getUserId(),
+                entity.getPostId(),
+                entity.getDate(),
+                convertProductToDto(entity.getProduct()),
+                entity.getCategory(),
+                entity.getPrice(),
+                entity.getHasPromo(),
+                entity.getDiscount()
+        );
+    }
 }
