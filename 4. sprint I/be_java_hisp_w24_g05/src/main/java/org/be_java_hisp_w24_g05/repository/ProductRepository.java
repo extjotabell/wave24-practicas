@@ -3,6 +3,7 @@ package org.be_java_hisp_w24_g05.repository;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.PropertyNamingStrategy;
+import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import org.be_java_hisp_w24_g05.entity.Product;
 import org.be_java_hisp_w24_g05.entity.User;
 import org.springframework.stereotype.Repository;
@@ -23,7 +24,8 @@ public class ProductRepository implements IProductRepository {
     }
     @Override
     public Product save(Product product) {
-        return null;
+        products.add(product);
+        return product;
     }
 
     @Override
@@ -52,7 +54,9 @@ public class ProductRepository implements IProductRepository {
     private ArrayList<Product> loadData() {
         ArrayList<Product> data = null;
         File file;
-        ObjectMapper objectMapper = new ObjectMapper();
+        ObjectMapper objectMapper = new ObjectMapper()
+                .setPropertyNamingStrategy(PropertyNamingStrategy.SNAKE_CASE)
+                .registerModule(new JavaTimeModule());
 
         TypeReference<ArrayList<Product>> typeRef = new TypeReference<>() {};
         try {

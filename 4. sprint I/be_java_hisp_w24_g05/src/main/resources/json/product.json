@@ -1,0 +1,5 @@
+[
+  {"product_id": 1, "product_name": "Laptop", "brand": "BrandX", "color": "Silver", "note": "Note1"},
+  {"product_id": 2, "product_name": "Phone", "brand": "BrandY", "color": "Black", "note": "Note2"},
+  {"product_id": 3, "product_name": "Camera", "brand": "BrandZ", "color": "Red", "note": "Note3"}
+]

@@ -43,4 +43,12 @@ public class ProductController {
     public ResponseEntity<?> getPromoPost(@RequestParam(name = "user_id") Integer userId){
         return new ResponseEntity<>(userService.countPromoPost(userId), HttpStatus.OK);
     }
+
+    @GetMapping()
+    public ResponseEntity<?> getPostWithDiscount(@RequestParam(name = "discount") Integer discount){
+        if(discount < 1 || discount > 100){
+            return new ResponseEntity<>("Discount must be between 1 and 100", HttpStatus.BAD_REQUEST);
+        }
+        return new ResponseEntity<>(productService.getPostPromoDiscount(discount), HttpStatus.OK);
+    }
 }

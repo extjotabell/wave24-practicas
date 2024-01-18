@@ -3,6 +3,7 @@ package org.be_java_hisp_w24_g05.repository;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.PropertyNamingStrategy;
+import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import org.be_java_hisp_w24_g05.entity.Post;
@@ -30,7 +31,8 @@ public class PostRepository implements IPostRepository {
 
     @Override
     public Post save(Post post) {
-        return null;
+        posts.add(post);
+        return post;
     }
 
     @Override
@@ -50,13 +52,20 @@ public class PostRepository implements IPostRepository {
 
     @Override
     public ArrayList<Post> findAll() {
-        return null;
+        return posts;
+    }
+
+    @Override
+    public Integer findLastId() {
+        return this.posts.stream().mapToInt(Post::getPostId).max().orElse(0);
     }
 
     private ArrayList<Post> loadData() {
         ArrayList<Post> data = null;
         File file;
-        ObjectMapper objectMapper = new ObjectMapper();
+        ObjectMapper objectMapper = new ObjectMapper()
+                .setPropertyNamingStrategy(PropertyNamingStrategy.SNAKE_CASE)
+                .registerModule(new JavaTimeModule());
 
 
         TypeReference<ArrayList<Post>> typeRef = new TypeReference<>() {};
