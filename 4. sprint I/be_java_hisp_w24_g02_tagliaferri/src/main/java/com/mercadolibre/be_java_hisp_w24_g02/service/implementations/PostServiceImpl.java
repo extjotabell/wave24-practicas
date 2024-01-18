@@ -1,9 +1,6 @@
 package com.mercadolibre.be_java_hisp_w24_g02.service.implementations;
 
-import com.mercadolibre.be_java_hisp_w24_g02.dto.CreatePostDTO;
-import com.mercadolibre.be_java_hisp_w24_g02.dto.CreatePromoPostDTO;
-import com.mercadolibre.be_java_hisp_w24_g02.dto.PromoPostCountUserDTO;
-import com.mercadolibre.be_java_hisp_w24_g02.dto.UserFollowersCountDTO;
+import com.mercadolibre.be_java_hisp_w24_g02.dto.*;
 import com.mercadolibre.be_java_hisp_w24_g02.entity.Post;
 import com.mercadolibre.be_java_hisp_w24_g02.entity.Product;
 import com.mercadolibre.be_java_hisp_w24_g02.entity.User;
@@ -15,6 +12,7 @@ import com.mercadolibre.be_java_hisp_w24_g02.util.ValidateDate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -50,6 +48,12 @@ public class PostServiceImpl implements IPostService {
         this.postRepository.save(this.transformCreatePromoPostDAOToPostEntity(createPromoPostDTO));
     }
 
+    /**
+     * Get the numbers of promo posts by user id
+     * @param userId
+     * @throws NotFoundException if the user id not exists
+     * */
+
     @Override
     public PromoPostCountUserDTO getPromoPostCountUser(Integer userId) {
         Optional<User> user = this.userRepository.findById(userId);
@@ -63,6 +67,29 @@ public class PostServiceImpl implements IPostService {
                 .toList()
                 .size();
         return new PromoPostCountUserDTO(userId, user.get().getName(), promoPostCount);
+    }
+
+    /**
+     * gets all the promo posts with discount greater or equal to the discount parameter
+     * @param discount
+     * */
+
+    @Override
+    public List<PromoPostDTO> getPromoPostByDiscount(Double discount) {
+        return postRepository.findAll().stream()
+                .filter(Post::getHasPromo)
+                .filter(post -> post.getDiscount() >= discount)
+                .map(post -> new PromoPostDTO(
+                        post.getPostId(),
+                        post.getUserId(),
+                        post.getDate(),
+                        post.getProduct(),
+                        post.getCategory(),
+                        post.getPrice(),
+                        post.getHasPromo(),
+                        post.getDiscount()
+                ))
+                .toList();
     }
 
     /**

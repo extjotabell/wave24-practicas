@@ -132,8 +132,8 @@
     },
     "category": 8,
     "price": 499.99,
-    "has_promo": false,
-    "discount": 0.0
+    "has_promo": true,
+    "discount": 0.75
   },
   {
     "post_id": 9,
@@ -149,8 +149,8 @@
     },
     "category": 9,
     "price": 199.99,
-    "has_promo": false,
-    "discount": 0.0
+    "has_promo": true,
+    "discount": 0.80
   },
   {
     "post_id": 10,
@@ -166,7 +166,7 @@
     },
     "category": 10,
     "price": 129.99,
-    "has_promo": false,
-    "discount": 0.0
+    "has_promo": true,
+    "discount": 0.50
   }
 ]

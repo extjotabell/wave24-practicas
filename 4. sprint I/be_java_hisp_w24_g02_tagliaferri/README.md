@@ -14,6 +14,7 @@ Desarrollar una API para un escenario determinado de manera grupal. En el punto 
 
 ### Pruebas
 - Se encuentra la colección de Postman en la carpeta [docs](src/main/resources/docs) del proyecto
+- Se encuentra la coleccion de pruebas de Posta de la actividad individual en la carpeta [docs](src/main/resources/docs) del proyecto
 
 ## Endpoints y Responsables
 - [US0001] - Follow user - Juan Felipe Saenz Garcia
@@ -25,6 +26,9 @@ Desarrollar una API para un escenario determinado de manera grupal. En el punto 
 - [US0007] - Unfollow user - Juan Felipe Saenz Garcia y Jose Joaquin Cabello Alegria
 - [US0008] - Get followers or followed list for a user, with order by name asc and desc - Ignacio Collado y Stefano Guillermo Tagliaferri
 - [US0009] - Get recent posts from the followed users, with order by date asc and desc - Juan Camilo Guerrero Alarcon
+- [US0010] - Add new Promo Post - Stefano Tagliaferri
+- [US0011] - Get count of promo post from an user - Stefano Tagliaferri
+- [US0012] - Get list of promo post with an equal or higher discount - Stefano Tagliaferri
 
 ## Integrantes
 - Ignacio Benjamin Collado
