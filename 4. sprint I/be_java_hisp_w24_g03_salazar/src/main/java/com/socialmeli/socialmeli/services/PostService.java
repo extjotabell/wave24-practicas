@@ -1,7 +1,9 @@
 package com.socialmeli.socialmeli.services;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.socialmeli.socialmeli.dto.*;
 import com.socialmeli.socialmeli.entities.Post;
+import com.socialmeli.socialmeli.entities.Product;
 import com.socialmeli.socialmeli.entities.User;
 import com.socialmeli.socialmeli.exceptions.BadRequestException;
 import com.socialmeli.socialmeli.exceptions.NotFoundException;
@@ -73,7 +75,6 @@ public class PostService implements IPostService{
 
         return new UserFollowedPostsDto(userId, sortLastFollowedPost(allFollowedPosts.stream().filter(post -> ChronoUnit.DAYS.between(post.date(),currentDate)<=14).toList(), order)) ;
     }
-
     public List<PostDto> sortLastFollowedPost(List<PostDto> posts, String order){
         if(order.equals("date_asc"))
             return posts.stream().sorted(Comparator.comparing(PostDto::date)).toList() ;
@@ -81,6 +82,42 @@ public class PostService implements IPostService{
             return posts.stream().sorted(Comparator.comparing(PostDto::date).reversed()).toList();
 
         throw new BadRequestException("Debe ingresar un orden valido, como name_asc o name_desc");
+    }
+
+    public PromoPostDto createPromoPost(PromoPostDto promoPostDto){
+
+        if(promoPostDto.user_id() == null || promoPostDto.date() == null || promoPostDto.product() == null || promoPostDto.category() == null
+                || promoPostDto.price() == null || promoPostDto.has_promo() == null || promoPostDto.discount() == null){
+            throw new BadRequestException("Uno o más campos son nulos.");
+        }
+        if(!promoPostDto.has_promo() || promoPostDto.discount() == 0){
+            throw new BadRequestException("El producto no está en promoción.");
+        }
+        User user = userRepository.findById(promoPostDto.user_id()).orElse(null);
+        if(Objects.isNull(user)){
+            throw new NotFoundException("No existe el usuario con id: " + promoPostDto.user_id());
+        }
+
+        Post post = mapper.convertDtoToPostPromo(promoPostDto);
+
+        Integer postId = postRepository.findAll().stream().map(node -> node.getPostId()).max(Integer::compareTo).orElse(0);
+
+        var postWithId = new Post(post.getUserId(), postId+1, post.getDate(), post.getProduct(), post.getCategory(), post.getPrice(), post.getHasPromo(), post.getDiscount());
+        var postList = postRepository.save(postWithId);
+        return promoPostDto;
+    }
+    public PromoPostCountDto getPromoPostCount(Integer userId){
+        User user = userRepository.findById(userId).orElse(null);
+
+        if(Objects.isNull(user)){
+            throw new NotFoundException("No existe el usuario con id: " + userId);
+        }
+        List<Post> posts = postRepository.findAll().stream().filter(post -> post.getUserId().equals(userId)).filter(post -> post.getHasPromo()).toList();
+
+        if(posts.size() == 0)
+            throw new NotFoundException("No se encontraron post del usuario " + userId);
+
+        return new PromoPostCountDto(userId, user.getUserName(),posts.size());
     }
 
 }

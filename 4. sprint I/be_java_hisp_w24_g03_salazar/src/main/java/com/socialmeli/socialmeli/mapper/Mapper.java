@@ -1,9 +1,6 @@
 package com.socialmeli.socialmeli.mapper;
 
-import com.socialmeli.socialmeli.dto.PostDto;
-import com.socialmeli.socialmeli.dto.PostIdDto;
-import com.socialmeli.socialmeli.dto.ProductDto;
-import com.socialmeli.socialmeli.dto.UserDto;
+import com.socialmeli.socialmeli.dto.*;
 import com.socialmeli.socialmeli.entities.Post;
 import com.socialmeli.socialmeli.entities.Product;
 import com.socialmeli.socialmeli.entities.User;
@@ -43,6 +40,18 @@ public class Mapper {
         entity.setProduct(convertDtoToProduct(postDto.product()));
         entity.setCategory(postDto.category());
         entity.setPrice(postDto.price());
+        return entity;
+    }
+
+    public Post convertDtoToPostPromo(PromoPostDto postDto){
+        Post entity = new Post();
+        entity.setUserId(postDto.user_id());
+        entity.setDate(postDto.date());
+        entity.setProduct(convertDtoToProduct(postDto.product()));
+        entity.setCategory(postDto.category());
+        entity.setPrice(postDto.price());
+        entity.setHasPromo(postDto.has_promo());
+        entity.setDiscount(postDto.discount());
         return entity;
     }
 

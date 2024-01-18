@@ -74,6 +74,14 @@ public class SocialController {
 
         return new ResponseEntity<>(postService.getLastTwoWeeksFollowedPosts(userId, followedList, order), HttpStatus.OK);
     }
+    @PostMapping("/products/promo-post")
+    public ResponseEntity<?> createPromoPost(@RequestBody PromoPostDto promoPostDto){
+        return new ResponseEntity<>(postService.createPromoPost(promoPostDto), HttpStatus.OK);
+    }
+    @GetMapping("/products/promo-post/count")
+    public ResponseEntity<PromoPostCountDto> getPromoPostCount(@RequestParam("user_id") int userId){
+        return new ResponseEntity<>(postService.getPromoPostCount(userId), HttpStatus.OK);
+    }
 
 }
 
