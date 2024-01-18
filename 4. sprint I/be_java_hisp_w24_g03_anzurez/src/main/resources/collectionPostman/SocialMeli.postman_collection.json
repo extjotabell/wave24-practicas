@@ -269,6 +269,27 @@
 				}
 			},
 			"response": []
+		},
+		{
+			"name": "Get users by product (US_0012)",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/users/product/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"users",
+						"product",
+						"1"
+					]
+				}
+			},
+			"response": []
 		}
 	]
 }

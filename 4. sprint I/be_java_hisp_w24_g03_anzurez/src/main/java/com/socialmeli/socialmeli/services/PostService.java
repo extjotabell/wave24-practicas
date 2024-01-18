@@ -125,4 +125,27 @@ public class PostService implements IPostService{
 
         return new PromoPostCountDto(userId, user.getUserName(), (int) count);
     }
+
+    @Override
+    public List<ProductByUserDto> getProductByUser(Integer productId) {
+        if (this.productRepository.findById(productId).isEmpty())
+            throw new BadRequestException("El producto " + productId + " no existe");
+
+        var posts = this.postRepository.findAll().stream().filter(
+                post -> post.getProduct().getProductId().equals(productId)
+        ).toList();
+
+        if (posts.isEmpty())
+            throw new NotFoundException("No hay publicaciones del producto " + productId);
+
+        return posts.stream().map(
+                post -> new ProductByUserDto(
+                            post.getUserId(),
+                            this.userRepository.findById(post.getUserId()).get().getUserName(),
+                            post.getDate(),
+                            post.getPrice(),
+                            post.getHasPromo()
+                    )
+        ).toList();
+    }
 }
