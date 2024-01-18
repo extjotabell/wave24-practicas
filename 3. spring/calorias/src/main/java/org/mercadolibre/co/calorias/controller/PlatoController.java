@@ -22,14 +22,14 @@ public class PlatoController {
         this.platoService = platoService;
     }
 
-    @PostMapping("/calorias")
+    @PostMapping("/calorias/")
     public ResponseEntity<List<PlatoDTO>> calcularCalorias(@RequestBody String[] platos){
         var platosFinales = platoService.getCaloriasPlatos(platos);
         return ResponseEntity.ok().body(platosFinales);
 
     }
 
-    @PostMapping("/ingredientes")
+    @PostMapping("/ingredientes/")
     public ResponseEntity<List<IngredienteDTO>> getIngredientes(@RequestBody String[] platos){
 
         var ingredientes = platoService.getIngredientes(platos);
@@ -37,7 +37,7 @@ public class PlatoController {
        return ResponseEntity.ok().body(ingredientes);
     }
 
-    @PostMapping("/ingredientes/mayor")
+    @PostMapping("/ingredientes/mayor/")
     public ResponseEntity<List<IngredienteDTO>> getIngredienteMayor(@RequestBody String[] platos){
 
         var ingrediente = platoService.getIngredienteMayor(platos);
