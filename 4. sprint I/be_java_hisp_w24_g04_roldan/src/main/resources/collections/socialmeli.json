@@ -1,10 +1,9 @@
 {
 	"info": {
-		"_postman_id": "e369ab44-cbad-4e86-a095-c13a3ed5de90",
+		"_postman_id": "f3c735a3-d682-44c4-9040-4d20ca6d737f",
 		"name": "Social Meli",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "32253076",
-		"_collection_link": "https://itbjava-w24-team4.postman.co/workspace/Team-Workspace~e727ed1c-7b37-4224-8794-d8330f7233f1/collection/32253076-e369ab44-cbad-4e86-a095-c13a3ed5de90?action=share&source=collection_link&creator=32253076"
+		"_exporter_id": "32253076"
 	},
 	"item": [
 		{
@@ -126,6 +125,90 @@
 									"key": "user_id",
 									"value": "101"
 								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Post by Product Name",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/products/post/:product_name",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"products",
+								"post",
+								":product_name"
+							],
+							"variable": [
+								{
+									"key": "product_name",
+									"value": "Product 10"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Discounts by Range",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/products/promo-post/range?low_price=30.0&high_price=70.0",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"products",
+								"promo-post",
+								"range"
+							],
+							"query": [
+								{
+									"key": "low_price",
+									"value": "30.0"
+								},
+								{
+									"key": "high_price",
+									"value": "70.0"
+								},
+								{
+									"key": "only_promos",
+									"value": "true",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Discount Prices",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/products/promo-post/discount-price",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"products",
+								"promo-post",
+								"discount-price"
 							]
 						}
 					},

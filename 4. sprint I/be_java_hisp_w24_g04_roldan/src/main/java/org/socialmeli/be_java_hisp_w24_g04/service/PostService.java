@@ -116,4 +116,25 @@ public class PostService implements IPostService {
 
         return foundPosts;
     }
+
+    @Override
+    public UserPostDTO getPostByProductName(String productName) {
+        var postFound = postRepository
+                .findAll()
+                .stream()
+                .filter(post -> post.getProduct().getName().equals(productName))
+                .findFirst()
+                .orElse(null);
+
+        if (postFound == null)
+            throw new BadRequestException("Product does not exist.");
+
+        return new UserPostDTO(
+                postFound.getUserId(),
+                postFound.getDate().toString(),
+                postFound.getProduct(),
+                postFound.getCategory(),
+                postFound.getPrice()
+        );
+    }
 }

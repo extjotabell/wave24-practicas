@@ -89,4 +89,12 @@ public class DiscountRepository implements IDiscountRepository{
 
         return entity;
     }
+
+    @Override
+    public Optional<Discount> getDiscountByProductId(Integer productId) {
+        return discounts
+              .stream()
+              .filter(post -> post.getProductId().equals(productId))
+              .findFirst();
+    }
 }

@@ -11,19 +11,22 @@ Luego importar el archivo utilizando Postman para visualizar y realizar pruebas 
 
 ## Endpoints
 
-| **User Story** | **Endpoint**                                          | **Responsable**                |
-|----------------|-------------------------------------------------------|--------------------------------|
-| US0001         | POST - /users/{userId}/follow/{userIdToFollow}        | Nicolas Ortega                 |
-| US0002         | GET - /users/{userId}/followers/count                 | Victoria Iglesias Márquez      |
-| US0003         | GET - /users/{userId}/followers/list                  | Facundo Mamani Flores          |
-| US0004         | GET - /users/{userId}/followed/list                   | Jorge Guerra                   |
-| US0005         | POST - /products/post                                 | Comilo Roldan Quijano          |
-| US0006         | GET - /products/followed/{userId}/list                | Guillermo Arturo Marcano Funes |
-| US0007         | POST - /users/{userId}/unfollow/{userIdToUnfollow}    | Nicolas Ortega                 |
-| US0008         | GET - /users/{UserID}/followers/list?order=name_asc   | Jorge Guerra                   |
-| US0009         | GET - /products/followed/{userId}/list?order=date_asc | Guillermo Arturo Marcano Funes |
-| US0010         | POST - /products/promo-post                           | Camilo Roldán Quijano          |
-| US0011         | GET - /products/promo-post/count?user_id=101          | Camilo Roldán Quijano          |
+| **User Story** | **Endpoint**                                                  | **Responsable**                |
+|----------------|---------------------------------------------------------------|--------------------------------|
+| US0001         | POST - /users/{userId}/follow/{userIdToFollow}                | Nicolas Ortega                 |
+| US0002         | GET - /users/{userId}/followers/count                         | Victoria Iglesias Márquez      |
+| US0003         | GET - /users/{userId}/followers/list                          | Facundo Mamani Flores          |
+| US0004         | GET - /users/{userId}/followed/list                           | Jorge Guerra                   |
+| US0005         | POST - /products/post                                         | Comilo Roldan Quijano          |
+| US0006         | GET - /products/followed/{userId}/list                        | Guillermo Arturo Marcano Funes |
+| US0007         | POST - /users/{userId}/unfollow/{userIdToUnfollow}            | Nicolas Ortega                 |
+| US0008         | GET - /users/{UserID}/followers/list?order=name_asc           | Jorge Guerra                   |
+| US0009         | GET - /products/followed/{userId}/list?order=date_asc         | Guillermo Arturo Marcano Funes |
+| US0010         | POST - /products/promo-post                                   | Camilo Roldán Quijano          |
+| US0011         | GET - /products/promo-post/count?user_id=101                  | Camilo Roldán Quijano          |
+| US0012         | GET - /products/post/{product_name}                           | Camilo Roldán Quijano          |
+| US0013         | GET - /products/promo-post/range?low_price=0.0&high_price=1.0 | Camilo Roldán Quijano          |
+| US0014         | GET - /products/promo-post/discount-price                     | Camilo Roldán Quijano          |
 
 ## Integrantes
 

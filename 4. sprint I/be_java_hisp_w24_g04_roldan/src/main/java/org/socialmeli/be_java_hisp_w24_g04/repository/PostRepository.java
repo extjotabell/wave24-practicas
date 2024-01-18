@@ -87,4 +87,12 @@ public class PostRepository implements IPostRepository{
 
         return entity;
     }
+
+    @Override
+    public Optional<Post> getPostByProductId(Integer productId) {
+        return postRepository
+               .stream()
+               .filter(post -> post.getProduct().getProductId().equals(productId))
+               .findFirst();
+    }
 }
