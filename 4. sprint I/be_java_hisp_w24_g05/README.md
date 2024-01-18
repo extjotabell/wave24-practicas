@@ -57,6 +57,52 @@ La API se ejecuta localmente utilizando Spring Boot. Para las pruebas, se puede 
   
 - **GET /products/followed/{userId}/list?order=date_desc**
   - Responsable: [@JuanIgnacioZunino](https://github.com/JuanIgnacioZunino)
+ 
+- **POST /products/promo-post**
+  - Responsable: [@ImanolSuppoMELI](https://github.com/ImanolSuppoMELI)
+ 
+- **GET /products/promo-post/count?user_id={user_id}**
+  - Responsable: [@ImanolSuppoMELI](https://github.com/ImanolSuppoMELI)
+
+
+## Desarrollo BONUS 🎁
+
+### US 0012: Obtener los productos con descuento
+
+| Method  | SIGN                            |
+|---------|---------------------------------|
+| GET     | /products?discount={discount}   |     
+
+
+Response 
+```json 
+[
+    {
+        "user_id": 1,
+        "has_promo": true,
+        "date": "29-04-2021",
+        "product": {
+            "product_id": 1,
+            "product_name": "Silla Gamer",
+            "type": "Gamer",
+            "brand": "Racer",
+            "color": "Red & Black",
+            "note": null
+        },
+        "category": 100,
+        "price": 1500.5,
+        "discount": 0.25
+    }
+]
+```
+
+Filters/Parameters:
+
+| Parameter | Type    | Description                                                |
+|-----------|---------|------------------------------------------------------------|
+| discount  | double  | Descuento que se utilizara para filtrar (10 -> 10% o 0.10) |
+
+
 
 ### Integrantes
 #### Developers:
