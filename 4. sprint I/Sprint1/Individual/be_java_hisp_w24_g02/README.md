@@ -18,8 +18,30 @@ Desarrollar una API para un escenario determinado de manera grupal. En el punto 
 ## Endpoints y Responsables
 - [US0010] - Create post with promo - Juan Esteban Guevara Perez
 - [US0011] - Get count of promo products of user - Juan Esteban Guevara Perez
-- [US0012] - Get post by brand - Juan Esteban Guevara Perez
+- 
+### [US0012] - INDIVIDUAL BONUS : Get Post by brand - Endpoint GET: `/products/post/brand/ABC/list`
 
+Realiza una solicitud GET para obtener una lista de posts relacionados con la marca "ABC".
+
+### Response Example:
+
+{
+    "post_id": 2,
+    "user_id": 2,
+    "has_promo": false,
+    "date": "2024-02-01",
+    "product": {
+        "type": "Smartphone",
+        "brand": "ABC",
+        "color": "Black",
+        "notes": "Último modelo de smartphone con cámara de alta resolución",
+        "product_id": 1002,
+        "product_name": "Smartphone ABC"
+    },
+    "category": 2,
+    "price": 799.99,
+    "discount": 0.0
+}
 
 ## Integrantes
 - Juan Esteban Guevara Perez
