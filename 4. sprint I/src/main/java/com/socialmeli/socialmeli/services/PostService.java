@@ -53,7 +53,6 @@ public class PostService implements IPostService{
     }
 
     public PostIdPromoDto savePromo(PostPromoDto postPromoDto){
-        System.out.println(postPromoDto);
         if(postPromoDto.user_id() == null || postPromoDto.date() == null || postPromoDto.product() == null || postPromoDto.category() == null
                 || postPromoDto.price() == null || postPromoDto.has_promo()== null || postPromoDto.discount() == null){
             throw new BadRequestException("Los datos ingresados no son correctos.");
@@ -97,4 +96,14 @@ public class PostService implements IPostService{
         throw new BadRequestException("Debe ingresar un orden valido, como name_asc o name_desc");
     }
 
+    public UserPromoPostsDto countPromoPost(Integer userId){
+        User user = userRepository.findById(userId).orElse(null);
+        if(Objects.isNull(user)){
+            throw new BadRequestException("No existe el usuario con id: " + userId);
+        }
+        List<Post> userPosts = this.postRepository.findAll().stream().filter(post -> post.getUserId().equals(userId)).toList();
+
+        return new UserPromoPostsDto(userId,user.getUserName(),userPosts.stream().filter(post -> post.getHasPromo() != null && post.getHasPromo()).toList().size());
+
+    }
 }

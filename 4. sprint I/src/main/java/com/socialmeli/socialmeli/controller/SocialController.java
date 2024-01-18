@@ -73,6 +73,11 @@ public class SocialController {
         return new ResponseEntity<>(postService.savePromo(postPromoDto), HttpStatus.OK);
     }
 
+    @GetMapping("/products/promo-post/count")
+    public ResponseEntity<UserPromoPostsDto> countUserPromoPost(@RequestParam("user_id") Integer userId){
+        return new ResponseEntity<>(postService.countPromoPost(userId),HttpStatus.OK);
+    }
+
     @GetMapping("/products/followed/{userId}/list")
     public ResponseEntity<UserFollowedPostsDto> getLastTwoWeeksFollowedPosts(@PathVariable("userId") Integer userId, @RequestParam(defaultValue = "date_desc", required = false) String order){
         List<UserDto> followedList = userService.listFollowed(userId,"name_asc").followed();
