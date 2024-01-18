@@ -20,7 +20,7 @@ public class PlateRepositoryImpl implements IPlateRepository {
     private final List<Plate> plates;
 
     public PlateRepositoryImpl() {
-        plates = loadData();
+        plates = new ArrayList<>();
     }
 
     @Override
@@ -58,18 +58,5 @@ public class PlateRepositoryImpl implements IPlateRepository {
 
     }
 
-    private ArrayList<Plate> loadData() {
-        ArrayList<Plate> data = null;
-        File file;
-        ObjectMapper objectMapper = new ObjectMapper();
 
-        TypeReference<ArrayList<Plate>> typeRef = new TypeReference<>() {};
-        try {
-            file = ResourceUtils.getFile("classpath:json/plate.json");
-            data = objectMapper.readValue(file, typeRef);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        return data;
-    }
 }
