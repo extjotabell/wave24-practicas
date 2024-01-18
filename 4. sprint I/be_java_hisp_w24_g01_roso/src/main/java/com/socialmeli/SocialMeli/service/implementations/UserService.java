@@ -82,8 +82,8 @@ public class UserService implements IUserService {
 
     @Override
     public UserFollowerDTO getUserWithFollowers(Integer id, String order) {
-        User followers = userRepository.getFollowers(id);
-        if (followers == null)
+        Optional<User> userWithFollowers = userRepository.getFollowers(id);
+        if (userWithFollowers == null)
             throw new NotFoundException("User not found");
 
         List<User> followersByOrder;
@@ -91,7 +91,7 @@ public class UserService implements IUserService {
         if ("name_asc".equals(order) || "name_desc".equals(order)) {
             boolean descendingOrder = "name_desc".equals(order);
 
-            followersByOrder = followers.getFollowers().stream()
+            followersByOrder = userWithFollowers.get().getFollowers().stream()
                     .sorted(Comparator.comparing(User::getName)
                             .thenComparing(User::getId))
                     .collect(Collectors.toList());
@@ -103,7 +103,7 @@ public class UserService implements IUserService {
             throw new BadRequestException("The 'order' parameter is incorrect");
         }
 
-        return new UserFollowerDTO(followers.getId(), followers.getName(), transformFollowers(followersByOrder));
+        return new UserFollowerDTO(userWithFollowers.get().getId(), userWithFollowers.get().getName(), transformFollowers(followersByOrder));
     }
 
     private List<FollowerDTO> transformFollowers(List<User> followers) {

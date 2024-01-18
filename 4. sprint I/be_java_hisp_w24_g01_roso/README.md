@@ -34,9 +34,10 @@ Por otra parte se puede hacer uso de Swagger y para su acceso : http://localhost
 
 ## Bonus endpoint
 
-| Requerimiento | Descripción                    | Responsable	|
-|--------------|--------------------------------|---------------|
-| US0012       | Eliminar un post de un usuario | Jesus David Roso |
+| Requerimiento | Descripción                                                    | Responsable	|
+|---------------|----------------------------------------------------------------|---------------|
+| US0012        | Eliminar un post de un usuario                                 | Jesus David Roso |
+| US0013        | Ordenar los posts de un usuario por precio (Orden descendente) | Jesus David Roso |
 
 
 ### Nota: 

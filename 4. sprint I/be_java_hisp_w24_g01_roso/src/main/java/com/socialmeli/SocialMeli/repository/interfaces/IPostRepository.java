@@ -12,4 +12,5 @@ public interface IPostRepository extends ICrudRepository<Post>{
     List<Post> getQuantityPostsPromo(Integer id);
 
     List<Post> deleteMyPostById(Integer postId, Integer userId);
+    List<Post> getMyPostsByHigherPrice(Integer userId);
 }

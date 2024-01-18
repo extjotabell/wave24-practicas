@@ -338,7 +338,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"user_id\": 105,\n    \"date\": \"13-01-2024\",\n    \"product\": {\n        \"product_id\": 1,\n        \"product_name\": \"Silla Gamer\",\n        \"type\": \"Gamer\",\n        \"brand\": \"Racer\",\n        \"color\": \"Red & Black\",\n        \"notes\": \"Special Edition\"\n    },\n    \"category\": 10,\n    \"price\": 1500.50,\n    \"has_promo\": true,\n    \"discount\": 0.25\n}",
+					"raw": "{\n    \"user_id\": 105,\n    \"date\": \"13-01-2024\",\n    \"product\": {\n        \"product_id\": 2,\n        \"product_name\": \"Silla Gamer\",\n        \"type\": \"Gamer\",\n        \"brand\": \"Racer\",\n        \"color\": \"Red & Black\",\n        \"notes\": \"Special Edition\"\n    },\n    \"category\": 10,\n    \"price\": 1500.50,\n    \"has_promo\": true,\n    \"discount\": 0.25\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -404,6 +404,30 @@
 						"305",
 						"user",
 						"105"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "US 0013",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/products/user/101/posts/list/higher-price",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"products",
+						"user",
+						"101",
+						"posts",
+						"list",
+						"higher-price"
 					]
 				}
 			},

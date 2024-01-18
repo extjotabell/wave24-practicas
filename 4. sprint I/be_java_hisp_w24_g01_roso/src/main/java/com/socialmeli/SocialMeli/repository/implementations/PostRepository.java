@@ -13,10 +13,7 @@ import org.springframework.util.ResourceUtils;
 import java.io.File;
 import java.io.IOException;
 import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Objects;
-import java.util.Optional;
+import java.util.*;
 import java.util.stream.Collectors;
 
 @Repository
@@ -83,6 +80,13 @@ public class PostRepository implements IPostRepository {
         if(!listPosts.removeIf(post -> post.getId().equals(postId)))
             throw new NotFoundException("The post id: " + postId + " not found, post not deleted");
         return listPosts.stream().filter(post -> post.getUserId().equals(userId)).collect(Collectors.toList());
+    }
+    @Override
+    public List<Post> getMyPostsByHigherPrice(Integer userId) {
+        return listPosts.stream()
+                .filter(post -> post.getUserId().equals(userId))
+                .sorted(Comparator.comparing(Post::getPrice).reversed())
+                .collect(Collectors.toList());
     }
 
     private void loadDataBase() throws IOException {

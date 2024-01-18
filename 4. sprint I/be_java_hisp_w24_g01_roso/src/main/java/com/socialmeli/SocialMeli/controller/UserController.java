@@ -36,8 +36,6 @@ public class UserController {
     @GetMapping("/{userId}/followers/list")
     public ResponseEntity<UserFollowerDTO> getFollowersOfUser(@PathVariable Integer userId,
                                                               @RequestParam(required = false, defaultValue = "name_asc") String order) {
-        if(userId == null)
-            throw new IllegalArgumentException("User Id is invalid");
         return ResponseEntity.ok(userService.getUserWithFollowers(userId, order));
     }
 

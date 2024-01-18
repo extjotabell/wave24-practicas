@@ -186,6 +186,15 @@ public class PostService implements IPostService {
         return posts.stream().map(this::parsePostToPostPromoRequestDTO).collect(Collectors.toList());
     }
 
+    @Override
+    public UserPostsByPriceResponseDTO getMyPostsByHigherPrice(Integer userId) {
+        List<Post> posts = postRepository.getMyPostsByHigherPrice(userId);
+        User user = userRepository.findById(userId).get();
+        if (posts.isEmpty())
+            throw new EmptyListException("Posts not found");
+        return new UserPostsByPriceResponseDTO(userId,user.getName(),posts);
+    }
+
     private PostPromoRequestDTO parsePostToPostPromoRequestDTO(Post post) {
         return new PostPromoRequestDTO(
                 post.getUserId(),

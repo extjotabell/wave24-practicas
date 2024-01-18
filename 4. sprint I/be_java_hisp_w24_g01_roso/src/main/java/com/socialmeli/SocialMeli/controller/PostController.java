@@ -54,4 +54,11 @@ public class PostController {
             throw new BadRequestException("Id's must be greater than 0");
         return ResponseEntity.ok().body(postService.deleteMyPostById(userId, postId));
     }
+
+    @GetMapping("/user/{userId}/posts/list/higher-price")
+    public ResponseEntity<UserPostsByPriceResponseDTO> getMyPostsByHigherPrice(@PathVariable Integer userId) {
+        if (userId <= 0)
+            throw new BadRequestException("Id's must be greater than 0");
+        return ResponseEntity.ok().body(postService.getMyPostsByHigherPrice(userId));
+    }
 }

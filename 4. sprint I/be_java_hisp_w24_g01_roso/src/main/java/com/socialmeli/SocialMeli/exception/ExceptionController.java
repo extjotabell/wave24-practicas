@@ -8,6 +8,7 @@ import org.springframework.web.bind.MissingServletRequestParameterException;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseStatus;
+import org.springframework.web.servlet.resource.NoResourceFoundException;
 
 @ControllerAdvice
 public class ExceptionController {
@@ -57,4 +58,11 @@ public class ExceptionController {
         ExceptionDTO exceptionDTO = new ExceptionDTO(e.getMessage());
         return new ResponseEntity<>(exceptionDTO, HttpStatus.BAD_REQUEST);
     }
+
+    @ExceptionHandler(NoResourceFoundException.class)
+    public ResponseEntity<?> notFoundResource(NoResourceFoundException e){
+        ExceptionDTO exceptionDTO = new ExceptionDTO("Resource not found");
+        return new ResponseEntity<>(exceptionDTO, HttpStatus.BAD_REQUEST);
+    }
+
 }

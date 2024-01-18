@@ -13,4 +13,6 @@ public interface IPostService {
 
     ResponseQuantityPostPromoDTO getQuantityPostsPromo(Integer id);
     List<PostPromoRequestDTO> deleteMyPostById(Integer userId, Integer postId);
+
+    UserPostsByPriceResponseDTO getMyPostsByHigherPrice(Integer userId);
 }
