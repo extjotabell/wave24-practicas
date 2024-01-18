@@ -420,7 +420,7 @@ Get promo post count by user
 | `200` | `OK` | bodyless or dto|
 | `400` | `Bad Request` | bodyless or dto|
 
-#### US 0012 (Marcos Anzurez) (to implement in the future)
+#### US 0012 (Marcos Anzurez)
 
 Get a list of all users selling the same product to compare promotions
 
