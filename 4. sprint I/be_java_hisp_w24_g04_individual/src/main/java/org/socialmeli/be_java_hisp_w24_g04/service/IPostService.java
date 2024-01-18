@@ -12,7 +12,7 @@ public interface IPostService {
     List<PostDTO> searchAllFollowedLastTwoWeeks(Integer userId, String order);
     UserPostDTO createUserPost(UserPostDTO userPost);
 
-    PromoPostDTO createPromoPost(PromoPostDTO promoPostDTO);
+    Integer createPromoPost(PromoPostDTO promoPostDTO);
 
     PromoPostCountDTO getPromoPostCount(Integer userId);
 

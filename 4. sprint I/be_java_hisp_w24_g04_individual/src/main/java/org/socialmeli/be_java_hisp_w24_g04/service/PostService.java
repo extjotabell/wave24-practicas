@@ -80,50 +80,38 @@ public class PostService implements IPostService {
     }
 
     @Override
-    public PromoPostDTO createPromoPost(PromoPostDTO promoPostDTO) {
-
+    public Integer createPromoPost(PromoPostDTO promoPostDTO) {
         Optional<User> foundUser = userRepository.get(promoPostDTO.user_id());
-
         if(foundUser.isEmpty())
             throw new NotFoundException("Couldn't create user's post. Please, try again with a valid user ID.");
 
         Integer postId = postRepository.findAll().size() + 1;
 
-        LocalDate dt;
+        LocalDate dt= getLocalDate(promoPostDTO);
 
+        if(promoPostDTO.has_promo() && promoPostDTO.discount() == 0.0
+                || !promoPostDTO.has_promo() && promoPostDTO.discount() > 0.0
+        ) throw new BadRequestException("Couldn't create user's post. Please, try again with a valid discount.");
+
+        productRepository.save(promoPostDTO.product());
+        postRepository.save(createPromoPost(promoPostDTO, postId, dt));
+
+        return postId;
+    }
+
+    private static LocalDate getLocalDate(PromoPostDTO promoPostDTO) {
+        LocalDate dt;
         try {
             DateTimeFormatter dateFormat = DateTimeFormatter.ofPattern("dd-MM-yyyy");
             dt = LocalDate.parse(promoPostDTO.date(), dateFormat);
         } catch (Exception e) {
             throw new InvalidTimeException("Invalid date format. It should be dd-MM-yyyy");
         }
+        return dt;
+    }
 
-        if(promoPostDTO.has_promo() && promoPostDTO.discount() == 0.0
-                || !promoPostDTO.has_promo() && promoPostDTO.discount() > 0.0
-        )
-            throw new BadRequestException("Couldn't create user's post. Please, try again with a valid discount.");
-
-        productRepository.save(promoPostDTO.product());
-        postRepository.save(new Post(
-                postId,
-                promoPostDTO.user_id(),
-                dt,
-                promoPostDTO.product(),
-                promoPostDTO.category(),
-                promoPostDTO.price(),
-                promoPostDTO.has_promo(),
-                promoPostDTO.discount()
-        ));
-
-        return new PromoPostDTO(
-                promoPostDTO.user_id(),
-                postId,
-                promoPostDTO.date(),
-                promoPostDTO.product(),
-                promoPostDTO.category(),
-                promoPostDTO.price(),
-                promoPostDTO.has_promo(),
-                promoPostDTO.discount());
+    private static Post createPromoPost(PromoPostDTO promoPostDTO, Integer postId, LocalDate dt) {
+        return new Post(postId, promoPostDTO.user_id(), dt, promoPostDTO.product(), promoPostDTO.category(), promoPostDTO.price(), promoPostDTO.has_promo(), promoPostDTO.discount());
     }
 
     @Override
@@ -155,7 +143,11 @@ public class PostService implements IPostService {
             posts = posts.stream().filter(post -> post.getProduct().getType().equals(type)).toList();
         }
 
-        return posts.stream().map(post -> new PromoPostDTO(
+        return posts.stream().map(this::createFromPost).toList();
+    }
+
+    public PromoPostDTO createFromPost(Post post) {
+        return new PromoPostDTO(
                 post.getUserId(),
                 post.getPostId(),
                 post.getDate().toString(),
@@ -163,7 +155,7 @@ public class PostService implements IPostService {
                 post.getCategory(),
                 post.getPrice(),
                 post.getHasPromo(),
-                post.getDiscount())).toList();
+                post.getDiscount());
     }
 
     @Override
