@@ -82,6 +82,10 @@ public class SocialController {
     public ResponseEntity<PromoPostCountDto> getPromoPostCount(@RequestParam("user_id") int userId){
         return new ResponseEntity<>(postService.getPromoPostCount(userId), HttpStatus.OK);
     }
+    @GetMapping("/products/promo-post/change/{postId}")
+    public ResponseEntity<?> changePromoPost(@PathVariable("postId") int postId){
+        return new ResponseEntity<>(postService.changePromoPost(postId), HttpStatus.OK);
+    }
 
 }
 

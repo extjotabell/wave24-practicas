@@ -87,4 +87,15 @@ public class Mapper {
                 user.getUserId(),
                 user.getUserName());
     }
+    public PromoPostDto convertPostToDtoPromo(Post entity){
+        return new PromoPostDto(
+                entity.getUserId(),
+                entity.getDate(),
+                convertProductToDto(entity.getProduct()),
+                entity.getCategory(),
+                entity.getPrice(),
+                entity.getHasPromo(),
+                entity.getDiscount()
+        );
+    }
 }

@@ -397,7 +397,7 @@ Obtain the quantity of products on promotion from a given supplier
 Change the status of a promotion post
 
 ```http
-  GET /products/promo-post/change-promo/{postId}
+  GET /products/promo-post/change/{postId}
 
 ```
 

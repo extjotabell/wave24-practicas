@@ -120,4 +120,20 @@ public class PostService implements IPostService{
         return new PromoPostCountDto(userId, user.getUserName(),posts.size());
     }
 
+    public PromoPostDto changePromoPost(Integer postId){
+        System.out.println(postId);
+        Post post = postRepository.findById(postId).orElse(null);
+
+        if(Objects.isNull(post)){
+            throw new NotFoundException("No existe el promo post con id: " + postId);
+        }
+        if(!post.getHasPromo()){
+            throw new BadRequestException("El post no está en promoción.");
+        }
+        post.setHasPromo(false);
+        post.setDiscount(0.0);
+        postRepository.save(post);
+        return mapper.convertPostToDtoPromo(post);
+    }
+
 }
