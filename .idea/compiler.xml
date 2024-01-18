@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="consigna" />
+        <module name="Starwars" />
+        <module name="MorseCode" />
+        <module name="be_java_hisp_w24_g04 (1)" />
+        <module name="calorias" />
+        <module name="NumerosRomanos" />
+        <module name="be_java_hisp_w24_g04" />
+        <module name="practica" />
+        <module name="EjercicioGlobal" />
+        <module name="CalcularEdad" />
+      </profile>
+    </annotationProcessing>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="CalcularEdad" options="-parameters" />
+      <module name="EjercicioGlobal" options="-parameters" />
+      <module name="MorseCode" options="-parameters" />
+      <module name="NumerosRomanos" options="-parameters" />
+      <module name="Starwars" options="-parameters" />
+      <module name="be_java_hisp_w24_g04" options="-parameters" />
+      <module name="be_java_hisp_w24_g04 (1)" options="-parameters" />
+      <module name="calorias" options="-parameters" />
+      <module name="consigna" options="-parameters" />
+      <module name="practica" options="-parameters" />
+    </option>
+  </component>
+</project>

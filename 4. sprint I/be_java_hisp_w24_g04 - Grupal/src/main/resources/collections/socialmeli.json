@@ -1,0 +1,228 @@
+{
+	"info": {
+		"_postman_id": "e369ab44-cbad-4e86-a095-c13a3ed5de90",
+		"name": "Social Meli",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "32253076",
+		"_collection_link": "https://itbjava-w24-team4.postman.co/workspace/Team-Workspace~e727ed1c-7b37-4224-8794-d8330f7233f1/collection/32253076-e369ab44-cbad-4e86-a095-c13a3ed5de90?action=share&source=collection_link&creator=32253076"
+	},
+	"item": [
+		{
+			"name": "Products",
+			"item": [
+				{
+					"name": "Save products",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"user_id\": 234,\n    \"date\": \"29-04-2021\",\n    \"product\": {\n        \"product_id\": 1,\n        \"product_name\": \"Silla Gamer\",\n        \"type\": \"Gamer\",\n        \"brand\": \"Racer\",\n        \"color\": \"Red & Black\",\n        \"notes\": \"Special Edition\"\n    },\n    \"category\": 100,\n    \"price\": 1500.50\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/products/post",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"products",
+								"post"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "List Followed Products",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/products/followed/:user_id/list",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"products",
+								"followed",
+								":user_id",
+								"list"
+							],
+							"query": [
+								{
+									"key": "order",
+									"value": "date_asc",
+									"description": "Order could be date_asc or date_desc, anything else will throw an exception.",
+									"disabled": true
+								}
+							],
+							"variable": [
+								{
+									"key": "user_id",
+									"value": "101"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Users",
+			"item": [
+				{
+					"name": "Follow user",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/users/:user_id/follow/:user_id_to_follow",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"users",
+								":user_id",
+								"follow",
+								":user_id_to_follow"
+							],
+							"variable": [
+								{
+									"key": "user_id",
+									"value": "101"
+								},
+								{
+									"key": "user_id_to_follow",
+									"value": "103"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Unfollow user",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/users/:user_id/unfollow/:user_id_to_follow",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"users",
+								":user_id",
+								"unfollow",
+								":user_id_to_follow"
+							],
+							"variable": [
+								{
+									"key": "user_id",
+									"value": "101"
+								},
+								{
+									"key": "user_id_to_follow",
+									"value": "102"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get followed users",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/users/:user_id/followed/list?order=name_asc",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"users",
+								":user_id",
+								"followed",
+								"list"
+							],
+							"query": [
+								{
+									"key": "order",
+									"value": "name_asc",
+									"description": "Order could be name_asc or name_desc, anything else will throw an exception."
+								}
+							],
+							"variable": [
+								{
+									"key": "user_id",
+									"value": "101"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get followers count",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/users/:user_id/followers/count?order=name_asc",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"users",
+								":user_id",
+								"followers",
+								"count"
+							],
+							"query": [
+								{
+									"key": "order",
+									"value": "name_asc",
+									"description": "Order could be name_asc or name_desc, anything else will throw an exception."
+								}
+							],
+							"variable": [
+								{
+									"key": "user_id",
+									"value": "456"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Count",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
