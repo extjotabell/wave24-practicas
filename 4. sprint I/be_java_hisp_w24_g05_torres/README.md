@@ -2,6 +2,7 @@
 
 ## Descripción de BONUS
 Para ver detalles ver el archivo pdf ubicado en resourses/pdf, ahi se encontrarán los requerimientos especificados.
+La coleccion de postman se llama **Individual.json** y está en la carpeta **resourses/postman**
 
 # 1 - AÑADIR UN POST COMO FAVORITO
 Si en cualquier caso un usuario quiera tener un post destacado sin seguir al vendedor, se puede añadir como favorito solamente un post.
