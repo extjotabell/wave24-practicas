@@ -5,8 +5,28 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="00bff524-75be-4f28-af0f-c9ee68dd1aff" name="Changes" comment="Sprint 1: Individual Development">
-      <change afterPath="$PROJECT_DIR$/../be_java_hisp_w24_g03" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/socialmeli/socialmeli/controller/SocialController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/socialmeli/socialmeli/controller/SocialController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/socialmeli/socialmeli/dto/ExceptionDto.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/socialmeli/socialmeli/dto/ExceptionDto.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/socialmeli/socialmeli/dto/PostDto.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/socialmeli/socialmeli/dto/PostDto.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/socialmeli/socialmeli/dto/PostIdDto.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/socialmeli/socialmeli/dto/PostIdDto.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/socialmeli/socialmeli/dto/PostPromoDto.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/socialmeli/socialmeli/dto/PostPromoDto.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/socialmeli/socialmeli/dto/ProductDto.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/socialmeli/socialmeli/dto/ProductDto.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/socialmeli/socialmeli/dto/PromoProductCountDto.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/socialmeli/socialmeli/dto/PromoProductCountDto.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/socialmeli/socialmeli/dto/ResponseDto.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/socialmeli/socialmeli/dto/ResponseDto.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/socialmeli/socialmeli/dto/UserDto.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/socialmeli/socialmeli/dto/UserDto.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/socialmeli/socialmeli/dto/UserFollowedDto.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/socialmeli/socialmeli/dto/UserFollowedDto.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/socialmeli/socialmeli/dto/UserFollowedPostsDto.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/socialmeli/socialmeli/dto/UserFollowedPostsDto.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/socialmeli/socialmeli/dto/UserFollowerDto.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/socialmeli/socialmeli/dto/UserFollowerDto.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/socialmeli/socialmeli/dto/UserFollowersDto.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/socialmeli/socialmeli/dto/UserFollowersDto.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/socialmeli/socialmeli/dto/UserInfoDto.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/socialmeli/socialmeli/dto/UserInfoDto.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/socialmeli/socialmeli/mapper/Mapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/socialmeli/socialmeli/mapper/Mapper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/socialmeli/socialmeli/repositories/PostRepositoryImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/socialmeli/socialmeli/repositories/PostRepositoryImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/socialmeli/socialmeli/repositories/UserRepositoryImpl$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/socialmeli/socialmeli/repositories/UserRepositoryImpl$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/socialmeli/socialmeli/repositories/UserRepositoryImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/socialmeli/socialmeli/repositories/UserRepositoryImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/socialmeli/socialmeli/services/PostService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/socialmeli/socialmeli/services/PostService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/socialmeli/socialmeli/services/UserService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/socialmeli/socialmeli/services/UserService.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -49,7 +69,7 @@
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;Spring Boot.SocialmeliApplication.executor&quot;: &quot;Run&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;US__0004&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;carrada__yamila&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
     &quot;last_opened_file_path&quot;: &quot;/Users/yacarrada/Documents/wave24/wave24-practicas/4. sprint I/be_java_hisp_w24_g03_carrada&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
@@ -58,8 +78,8 @@
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
     &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
     &quot;settings.editor.selected.configurable&quot;: &quot;reference.settings.project.maven.importing&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
@@ -127,7 +147,12 @@
       <workItem from="1705585226624" duration="121000" />
       <workItem from="1705585436655" duration="331000" />
       <workItem from="1705585773262" duration="4763000" />
-      <workItem from="1705590950793" duration="301000" />
+      <workItem from="1705590950793" duration="623000" />
+      <workItem from="1705591586158" duration="25000" />
+      <workItem from="1705591616432" duration="68000" />
+      <workItem from="1705591691966" duration="122000" />
+      <workItem from="1705591821680" duration="665000" />
+      <workItem from="1705592613409" duration="39000" />
     </task>
     <servers />
   </component>
