@@ -16,23 +16,13 @@ Desarrollar una API para un escenario determinado de manera grupal. En el punto 
 - Se encuentra la colección de Postman en la carpeta [docs](src/main/resources/docs) del proyecto
 
 ## Endpoints y Responsables
-- [US0001] - Follow user - Juan Felipe Saenz Garcia
-- [US0002] - Count of followers for a user - Juan Esteban Guevara Perez
-- [US0003] - Get followers list for a user - Ignacio Collado
-- [US0004] - Get followed list for a user - Stefano Guillermo Tagliaferri
-- [US0005] - Add a new post - Jose Joaquin Cabello Alegria
-- [US0006] - Get recent posts from the followed users - Juan Camilo Guerrero Alarcon
-- [US0007] - Unfollow user - Juan Felipe Saenz Garcia y Jose Joaquin Cabello Alegria
-- [US0008] - Get followers or followed list for a user, with order by name asc and desc - Ignacio Collado y Stefano Guillermo Tagliaferri
-- [US0009] - Get recent posts from the followed users, with order by date asc and desc - Juan Camilo Guerrero Alarcon
+- [US0010] - Create post with promo - Juan Esteban Guevara Perez
+- [US0011] - Get count of promo products of user - Juan Esteban Guevara Perez
+- [US0012] - Get post by brand - Juan Esteban Guevara Perez
+
 
 ## Integrantes
-- Ignacio Benjamin Collado
-- Stefano Guillermo Tagliaferri
-- Jose Joaquin Cabello Alegria
-- Juan Camilo Guerrero Alarcon
 - Juan Esteban Guevara Perez
-- Juan Felipe Saenz Garcia
 
 ## Cierre y Agradecimientos
 - En este proyecto se logró aplicar los conocimientos adquiridos durante el curso hasta ahora. Aprendimos a trabajar en equipo y dividir las tareas de manera eficiente.
