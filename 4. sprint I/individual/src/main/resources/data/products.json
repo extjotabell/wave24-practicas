@@ -1,0 +1,82 @@
+[
+  {
+    "product_id": 1,
+    "product_name": "Product 1",
+    "type": "Electronics",
+    "brand": "ExampleBrand1",
+    "color": "Red",
+    "notes": "Product notes 1"
+  },
+  {
+    "product_id": 2,
+    "product_name": "Product 2",
+    "type": "Clothing",
+    "brand": "ExampleBrand2",
+    "color": "Blue",
+    "notes": "Product notes 2"
+  },
+  {
+    "product_id": 3,
+    "product_name": "Product 3",
+    "type": "Home",
+    "brand": "ExampleBrand3",
+    "color": "Green",
+    "notes": "Product notes 3"
+  },
+  {
+    "product_id": 4,
+    "product_name": "Product 4",
+    "type": "Electronics",
+    "brand": "ExampleBrand4",
+    "color": "Black",
+    "notes": "Product notes 4"
+  },
+  {
+    "product_id": 5,
+    "product_name": "Product 5",
+    "type": "Clothing",
+    "brand": "ExampleBrand5",
+    "color": "White",
+    "notes": "Product notes 5"
+  },
+  {
+    "product_id": 6,
+    "product_name": "Product 6",
+    "type": "Home",
+    "brand": "ExampleBrand6",
+    "color": "Yellow",
+    "notes": "Product notes 6"
+  },
+  {
+    "product_id": 7,
+    "product_name": "Product 7",
+    "type": "Electronics",
+    "brand": "ExampleBrand7",
+    "color": "Purple",
+    "notes": "Product notes 7"
+  },
+  {
+    "product_id": 8,
+    "product_name": "Product 8",
+    "type": "Clothing",
+    "brand": "ExampleBrand8",
+    "color": "Brown",
+    "notes": "Product notes 8"
+  },
+  {
+    "product_id": 9,
+    "product_name": "Product 9",
+    "type": "Home",
+    "brand": "ExampleBrand9",
+    "color": "Gray",
+    "notes": "Product notes 9"
+  },
+  {
+    "product_id": 10,
+    "product_name": "Product 10",
+    "type": "Electronics",
+    "brand": "ExampleBrand10",
+    "color": "Pink",
+    "notes": "Product notes 10"
+  }
+]
