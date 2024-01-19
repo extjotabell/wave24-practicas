@@ -207,4 +207,10 @@ $RECYCLE.BIN/
 # Windows shortcuts
 *.lnk
 
+# target
+5. testing/ObtenerDiploma/target/
+
+# idea
+5. testing/ObtenerDiploma/.idea/
+
 # End of https://www.toptal.com/developers/gitignore/api/macos,intellij+iml,java,maven,windows,linux,visualstudiocode
