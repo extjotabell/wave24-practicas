@@ -1,14 +1,13 @@
 package org.starwars.ejerciciostarwars.entity;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 @AllArgsConstructor
 @Getter
 @NoArgsConstructor
 @Setter
+@EqualsAndHashCode
+@ToString
 public class Personaje {
     Integer id;
     String name;
