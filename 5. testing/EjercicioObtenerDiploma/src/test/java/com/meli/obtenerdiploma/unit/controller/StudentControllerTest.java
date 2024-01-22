@@ -3,8 +3,6 @@ package com.meli.obtenerdiploma.unit.controller;
 import com.meli.obtenerdiploma.controller.StudentController;
 import com.meli.obtenerdiploma.dto.StudentDTO;
 import com.meli.obtenerdiploma.dto.SubjectDTO;
-import com.meli.obtenerdiploma.entity.Student;
-import com.meli.obtenerdiploma.entity.Subject;
 import com.meli.obtenerdiploma.service.IStudentService;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
@@ -42,6 +40,28 @@ public class StudentControllerTest {
 
         //assert
         Assertions.assertEquals(expected, result, "The object not registered correctly");
+    }
+
+    @Test
+    @DisplayName("Test that register student not correctly")
+    public void registerStudentExceptionTest() {
+        //arrange
+        Long id = 2L;
+        String name = "Pedro";
+        Set<SubjectDTO> subjectDTO = Set.of(
+                new SubjectDTO("Matemática", 10.0),
+                new SubjectDTO("Física", 8.0),
+                new SubjectDTO("Química", 4.0)
+        );
+        StudentDTO studentDTO = new StudentDTO(id, name, subjectDTO);
+        ResponseEntity<?> expected = ResponseEntity.badRequest().build();
+
+        //act
+        Mockito.when(studentService.create(studentDTO)).thenReturn(false);
+        ResponseEntity<?> result = studentController.registerStudent(studentDTO);
+
+        //assert
+        Assertions.assertEquals(expected, result, "The object registered correctly");
     }
 
     @Test
@@ -85,6 +105,28 @@ public class StudentControllerTest {
     }
 
     @Test
+    @DisplayName("Test that modify student not correctly")
+    public void modifyStudentExceptionTest() {
+        //arrange
+        Long idParam = 2L;
+        String name = "Pedro";
+        Set<SubjectDTO> subjectDTO = Set.of(
+                new SubjectDTO("Matemática", 10.0),
+                new SubjectDTO("Física", 8.0),
+                new SubjectDTO("Química", 4.0)
+        );
+        StudentDTO studentDTO = new StudentDTO(idParam, name, subjectDTO);
+        ResponseEntity<?> expected = ResponseEntity.badRequest().build();
+
+        //act
+        Mockito.when(studentService.update(studentDTO)).thenReturn(false);
+        ResponseEntity<?> result = studentController.modifyStudent(studentDTO);
+
+        //assert
+        Assertions.assertEquals(expected, result, "The object modified correctly");
+    }
+
+    @Test
     @DisplayName("Test that remove student correctly")
     public void removeStudentTest() {
 
@@ -98,6 +140,22 @@ public class StudentControllerTest {
 
         //assert
         Assertions.assertEquals(expected, result, "The object not removed correctly");
+    }
+
+    @Test
+    @DisplayName("Test that remove student not correctly")
+    public void removeStudentExceptionTest() {
+
+        //arrange
+        Long idParam = 2L;
+        ResponseEntity<StudentDTO> expected = ResponseEntity.badRequest().build();
+
+        //act
+        Mockito.when(studentService.delete(idParam)).thenReturn(false);
+        ResponseEntity<?> result = studentController.removeStudent(idParam);
+
+        //assert
+        Assertions.assertEquals(expected, result, "The object removed correctly");
     }
 
     @Test

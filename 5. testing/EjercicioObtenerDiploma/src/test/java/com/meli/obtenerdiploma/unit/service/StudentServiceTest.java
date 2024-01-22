@@ -4,6 +4,7 @@ import com.meli.obtenerdiploma.dto.StudentDTO;
 import com.meli.obtenerdiploma.dto.SubjectDTO;
 import com.meli.obtenerdiploma.entity.Student;
 import com.meli.obtenerdiploma.entity.Subject;
+import com.meli.obtenerdiploma.exception.StudentNotFoundException;
 import com.meli.obtenerdiploma.repository.IStudentRepository;
 import com.meli.obtenerdiploma.service.StudentService;
 import org.junit.jupiter.api.Assertions;
@@ -69,6 +70,23 @@ public class StudentServiceTest {
 
         //assert
         Assertions.assertEquals(expectedDTO, result, "The object not found");
+    }
+
+    @Test
+    @DisplayName("Test that read student not correctly")
+    public void readExceptionTest() {
+
+        //arrange
+        Long id = 3L;
+
+        //act
+        Mockito.when(studentRepository.findById(id)).thenReturn(Optional.empty());
+
+        //assert
+        Assertions.assertThrows(
+                StudentNotFoundException.class,
+                ()->studentService.read(id)
+        );
     }
 
     @Test

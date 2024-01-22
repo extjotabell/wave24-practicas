@@ -1,6 +1,5 @@
 package com.meli.obtenerdiploma.controller;
 
-import com.meli.obtenerdiploma.dto.StudentDTO;
 import com.meli.obtenerdiploma.dto.StudentWithMessageDTO;
 import com.meli.obtenerdiploma.service.IObtenerDiplomaService;
 import org.springframework.beans.factory.annotation.Autowired;

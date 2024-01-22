@@ -4,6 +4,7 @@ import com.meli.obtenerdiploma.dto.StudentWithMessageDTO;
 import com.meli.obtenerdiploma.dto.SubjectDTO;
 import com.meli.obtenerdiploma.entity.Student;
 import com.meli.obtenerdiploma.entity.Subject;
+import com.meli.obtenerdiploma.exception.StudentNotFoundException;
 import com.meli.obtenerdiploma.repository.IStudentRepository;
 import com.meli.obtenerdiploma.service.ObtenerDiplomaService;
 import org.junit.jupiter.api.Assertions;
@@ -89,5 +90,22 @@ public class ObtenerDiplomaServiceTest {
 
         //assert
         Assertions.assertEquals(expected, result, "The object not analyzed correctly");
+    }
+
+    @Test
+    @DisplayName("Test that analyze scores is calculated correctly")
+    public void analyzeScoresExceptionTest() {
+
+        //arrange
+        Long idParam = 3L;
+
+        //act
+        Mockito.when(studentRepository.findById(idParam)).thenReturn(Optional.empty());
+
+        //assert
+        Assertions.assertThrows(
+                StudentNotFoundException.class,
+                ()-> obtenerDiplomaService.analyzeScores(idParam)
+        );
     }
 }

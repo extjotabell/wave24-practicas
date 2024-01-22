@@ -1,17 +1,13 @@
 package com.meli.obtenerdiploma.unit.repository;
 
-import com.meli.obtenerdiploma.dto.StudentDTO;
-import com.meli.obtenerdiploma.dto.SubjectDTO;
 import com.meli.obtenerdiploma.entity.Student;
 import com.meli.obtenerdiploma.entity.Subject;
+import com.meli.obtenerdiploma.exception.StudentNotFoundException;
 import com.meli.obtenerdiploma.repository.IStudentRepository;
 import com.meli.obtenerdiploma.repository.StudentRepository;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-
-import java.util.HashSet;
-import java.util.List;
 import java.util.Optional;
 import java.util.Set;
 
@@ -80,6 +76,24 @@ public class StudentRepositoryTest {
     }
 
     @Test
+    @DisplayName("Test validates that update student not correctly")
+    public void updateException() {
+        //arrange
+        Subject subjectToUpdate = new Subject("Matemáticas", 8.0);
+        Student studentToUpdate = new Student(
+                4L,
+                "Carlos",
+                Set.of(subjectToUpdate)
+        );
+
+        //act && assert
+        Assertions.assertThrows(
+                NullPointerException.class,
+                () -> studentRepository.update(studentToUpdate)
+        );
+    }
+
+    @Test
     @DisplayName("Test validates that delete student correctly")
     public void delete() {
         //arrange
@@ -89,6 +103,20 @@ public class StudentRepositoryTest {
 
         //assert
         Assertions.assertEquals(true, result, "Student not deleted correctly");
+    }
+
+    @Test
+    @DisplayName("Test validates that delete student not correctly")
+    public void deleteException() {
+
+        //arrange
+        Long expected = 3L;
+
+        //act & assert
+        Assertions.assertThrows(
+                StudentNotFoundException.class,
+                () -> studentRepository.delete(expected)
+        );
     }
 
     @Test
