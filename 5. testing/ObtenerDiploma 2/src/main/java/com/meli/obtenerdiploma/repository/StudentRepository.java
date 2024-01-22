@@ -17,6 +17,7 @@ import java.util.HashSet;
 import java.util.Optional;
 import java.util.Properties;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 @Repository
 public class StudentRepository implements IStudentRepository {
@@ -35,10 +36,15 @@ public class StudentRepository implements IStudentRepository {
     @Override
     public boolean save(Student stu) {
 
-        if (!exists(stu)) stu.setId((this.students.size() + 1L));
+        if (!exists(stu))
+        {
+            stu.setId((this.students.size() + 1L));
+            return students.add(stu);
+        }
 
-        return students.add(stu);
+        return false;
     }
+
 
     @Override
     public boolean delete(Long id) {
@@ -55,8 +61,7 @@ public class StudentRepository implements IStudentRepository {
     public boolean exists(Student stu) {
         boolean ret = false;
 
-        ret  = this
-                .findById(stu.getId()).isPresent();
+        ret  = this.findById(stu.getId()).isPresent();
 
         return ret;
     }
@@ -66,6 +71,13 @@ public class StudentRepository implements IStudentRepository {
         return students.stream()
                 .filter(stu -> stu.getId().equals(id))
                 .findFirst();
+    }
+
+    @Override
+    public boolean update(Student stu) {
+        this.findById(stu.getId()).orElseThrow(() -> new StudentNotFoundException(stu.getId()));
+        students.stream().map(stu2 -> stu.getId().equals(stu.getId()) ? stu : stu2);
+        return true;
     }
 
     private void loadData() {

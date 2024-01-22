@@ -27,13 +27,13 @@ public class StudentController {
         return ResponseEntity.ok(this.studentService.read(id));
     }
 
-    @PostMapping("/modifyStudent")
+    @PutMapping("/modifyStudent")
     public ResponseEntity<?> modifyStudent(@RequestBody @Valid StudentDTO stu) {
 
         return this.studentService.update(stu) ? ResponseEntity.noContent().build() : ResponseEntity.badRequest().build();
     }
 
-    @GetMapping("/removeStudent/{id}")
+    @DeleteMapping("/removeStudent/{id}")
     public ResponseEntity<?> removeStudent(@PathVariable Long id) {
 
         return this.studentService.delete(id) ? ResponseEntity.noContent().build() : ResponseEntity.badRequest().build();
