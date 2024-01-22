@@ -9,6 +9,7 @@ import com.meli.obtenerdiploma.repository.IStudentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
 
@@ -26,7 +27,7 @@ public class StudentService implements IStudentService {
                 stu.studentName(),
                 stu.subjects().stream().map(
                         s -> new Subject(s.name(), s.score())
-                ).collect(Collectors.toSet())
+                ).collect(Collectors.toList())
         );
 
         return studentRepository.save(studentEntity);
@@ -43,7 +44,7 @@ public class StudentService implements IStudentService {
                         subject -> new SubjectDTO(
                                 subject.getName(),
                                 subject.getScore()
-                        )).collect(Collectors.toSet())
+                        )).collect(Collectors.toList())
         );
     }
 
@@ -54,7 +55,7 @@ public class StudentService implements IStudentService {
                 stu.studentName(),
                 stu.subjects().stream().map(
                         s -> new Subject(s.name(), s.score())
-                ).collect(Collectors.toSet())
+                ).collect(Collectors.toList())
         );
 
         return studentRepository.save(studentEntity);
@@ -66,7 +67,7 @@ public class StudentService implements IStudentService {
     }
 
     @Override
-    public Set<StudentDTO> getAll() {
+    public List<StudentDTO> getAll() {
         return this.studentRepository.findAll().stream()
                 .map(
                         s -> new StudentDTO(
@@ -76,8 +77,8 @@ public class StudentService implements IStudentService {
                                         subject -> new SubjectDTO(
                                                 subject.getName(),
                                                 subject.getScore()
-                                        )).collect(Collectors.toSet())
+                                        )).collect(Collectors.toList())
                                 )
-                        ).collect(Collectors.toSet());
+                        ).collect(Collectors.toList());
     }
 }

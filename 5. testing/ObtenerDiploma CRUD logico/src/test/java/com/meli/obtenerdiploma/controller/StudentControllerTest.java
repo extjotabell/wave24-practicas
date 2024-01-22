@@ -14,9 +14,7 @@ import org.mockito.Mockito;
 import org.mockito.junit.jupiter.MockitoExtension;
 
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 import java.util.stream.Collectors;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -36,9 +34,9 @@ class StudentControllerTest {
             new Subject("Matemática", 10D),
             new Subject("Física", 8D),
             new Subject("Química", 4D));
-    private final Set<Student> students = Set.of(
-            new Student(1L, "Juan", new HashSet<>(subjects.subList(0, 3))),
-            new Student(2L, "Pedro", new HashSet<>(subjects.subList(3, 6)))
+    private final List<Student> students = List.of(
+            new Student(1L, "Juan", new ArrayList<>(subjects.subList(0, 3))),
+            new Student(2L, "Pedro", new ArrayList<>(subjects.subList(3, 6)))
     );
 
 
@@ -48,9 +46,9 @@ class StudentControllerTest {
                     s.getScore()
             )
     ).collect(Collectors.toList());
-    private final Set<StudentDTO> studentsDTO = Set.of(
-            new StudentDTO(1L, "Juan", new HashSet<>(subjectsDTO.subList(0, 3))),
-            new StudentDTO(2L, "Pedro", new HashSet<>(subjectsDTO.subList(3, 6)))
+    private final List<StudentDTO> studentsDTO = List.of(
+            new StudentDTO(1L, "Juan", new ArrayList<>(subjectsDTO.subList(0, 3))),
+            new StudentDTO(2L, "Pedro", new ArrayList<>(subjectsDTO.subList(3, 6)))
     );
 
     @BeforeEach
@@ -59,24 +57,33 @@ class StudentControllerTest {
 
     @Test
     void registerStudent() {
-        StudentDTO studentDTO = new StudentDTO(1L, "Juan", new HashSet<>(subjectsDTO.subList(0, 3)));
+        StudentDTO studentDTO = new StudentDTO(1L, "Juan", new ArrayList<>(subjectsDTO.subList(0, 3)));
         Mockito.when(service.create(studentDTO)).thenReturn(true);
         assertNull(controller.registerStudent(studentDTO).getBody());
     }
 
     @Test
     void getStudent() {
+        Mockito.when(service.read(1L)).thenReturn(studentsDTO.iterator().next());
+        assertEquals(studentsDTO.iterator().next(), controller.getStudent(1L).getBody());
     }
 
     @Test
     void modifyStudent() {
+        StudentDTO studentDTO = new StudentDTO(1L, "Juan", new ArrayList<>(subjectsDTO.subList(0, 3)));
+        Mockito.when(service.update(studentDTO)).thenReturn(true);
+        assertNull(controller.modifyStudent(studentDTO).getBody());
     }
 
     @Test
     void removeStudent() {
+        Mockito.when(service.delete(1L)).thenReturn(true);
+        assertNull(controller.removeStudent(1L).getBody());
     }
 
     @Test
     void listStudents() {
+        Mockito.when(service.getAll()).thenReturn(studentsDTO);
+        assertEquals(studentsDTO, controller.listStudents());
     }
 }

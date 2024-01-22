@@ -13,29 +13,29 @@ import org.springframework.util.ResourceUtils;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.util.HashSet;
-import java.util.Optional;
-import java.util.Properties;
-import java.util.Set;
+import java.util.*;
 
 @Repository
 public class StudentRepository implements IStudentRepository {
 
-    private Set<Student> students;
+    private List<Student> students;
 
     public StudentRepository() {
         loadData();
     }
 
     @Override
-    public Set<Student> findAll() {
+    public List<Student> findAll() {
         return this.students;
     }
 
     @Override
     public boolean save(Student stu) {
 
-        if (!exists(stu)) stu.setId((this.students.size() + 1L));
+        if (exists(stu))
+            throw new IllegalArgumentException("El estudiante ya existe");
+
+        stu.setId((this.students.size() + 1L));
 
         return students.add(stu);
     }
@@ -68,13 +68,13 @@ public class StudentRepository implements IStudentRepository {
     }
 
     private void loadData() {
-        Set<Student> loadedData = new HashSet<>();
+        List<Student> loadedData = new ArrayList<>();
 
         ObjectMapper objectMapper = new ObjectMapper();
         File file;
         try {
             file = ResourceUtils.getFile("classpath:users.json");
-            loadedData = objectMapper.readValue(file, new TypeReference<Set<Student>>(){});
+            loadedData = objectMapper.readValue(file, new TypeReference<List<Student>>(){});
         } catch (FileNotFoundException e) {
             e.printStackTrace();
             System.out.println("Failed while initializing DB, check your resources files");

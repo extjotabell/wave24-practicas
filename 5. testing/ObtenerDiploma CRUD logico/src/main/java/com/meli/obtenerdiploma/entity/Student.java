@@ -17,5 +17,5 @@ public class Student {
 
     private String studentName;
 
-    private Set<Subject> subjects;
+    private List<Subject> subjects;
 }

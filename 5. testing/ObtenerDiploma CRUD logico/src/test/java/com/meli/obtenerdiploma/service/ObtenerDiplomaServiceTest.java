@@ -16,11 +16,7 @@ import org.mockito.junit.jupiter.MockitoExtension;
 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Optional;
-import java.util.Set;
-import java.util.stream.Collectors;
+import java.util.*;
 
 @ExtendWith(MockitoExtension.class)
 class ObtenerDiplomaServiceTest {
@@ -38,9 +34,9 @@ class ObtenerDiplomaServiceTest {
             new Subject("Matemática", 10D),
             new Subject("Física", 8D),
             new Subject("Química", 4D));
-    private final Set<Student> students = Set.of(
-            new Student(1L, "Juan", new HashSet<>(subjects.subList(0, 3))),
-            new Student(2L, "Pedro", new HashSet<>(subjects.subList(3, 6)))
+    private final List<Student> students = List.of(
+            new Student(1L, "Juan", new ArrayList<>(subjects.subList(0, 3))),
+            new Student(2L, "Pedro", new ArrayList<>(subjects.subList(3, 6)))
     );
 
 
@@ -50,22 +46,22 @@ class ObtenerDiplomaServiceTest {
 
     @Test
     void analyzeScores() {
-        Set<SubjectDTO> subjectsDTO = new HashSet<>(subjects.subList(0, 3)).stream().map(
+        List<SubjectDTO> subjectsDTO = new ArrayList<>(subjects.subList(0, 3)).stream().map(
                 s -> new SubjectDTO(
                         s.getName(),
                         s.getScore()
                 )
-        ).collect(Collectors.toSet());
+        ).toList();
 
         StudentWithMessageDTO expect = new StudentWithMessageDTO(
                 1L,
                 "Juan",
-                new HashSet<>(subjectsDTO),
+                new ArrayList<>(subjectsDTO),
                 "El alumno Juan ha obtenido un promedio de 7.33. Puedes mejorar.",
                 7.333333333333333
         );
 
-        Mockito.when(studentRepository.findById(1L)).thenReturn(Optional.of(new Student(1L, "Juan", new HashSet<>(subjects.subList(0, 3)))));
+        Mockito.when(studentRepository.findById(1L)).thenReturn(Optional.of(new Student(1L, "Juan", new ArrayList<>(subjects.subList(0, 3)))));
 
         StudentWithMessageDTO result = service.analyzeScores(1L);
 
@@ -84,9 +80,9 @@ class ObtenerDiplomaServiceTest {
     @Test
     public void calculateAverage() throws NoSuchMethodException, InvocationTargetException, IllegalAccessException {
         Double expect = 7.333333333333333;
-        Method method = ObtenerDiplomaService.class.getDeclaredMethod("calculateAverage", Set.class);
+        Method method = ObtenerDiplomaService.class.getDeclaredMethod("calculateAverage", List.class);
         method.setAccessible(true);
-        Double result = (Double) method.invoke(service, new HashSet<>(subjects.subList(0, 3)));
+        Double result = (Double) method.invoke(service, subjects.subList(0, 3));
         Assertions.assertEquals(expect, result);
     }
 }

@@ -33,7 +33,7 @@ public class ObtenerDiplomaService implements IObtenerDiplomaService {
                                 s.getName(),
                                 s.getScore()
                         )
-                ).collect(Collectors.toSet()),
+                ).collect(Collectors.toList()),
                 getGreetingMessage(stu.getStudentName(), calculateAverage(stu.getSubjects())),
                 calculateAverage(stu.getSubjects())
         );
@@ -44,7 +44,7 @@ public class ObtenerDiplomaService implements IObtenerDiplomaService {
                 + ((average > 9) ? ". Felicitaciones!" : ". Puedes mejorar.");
     }
 
-    private Double calculateAverage(Set<Subject> scores) {
+    private Double calculateAverage(List<Subject> scores) {
         return scores.stream()
                 .reduce(0D, (partialSum, score)  -> partialSum + score.getScore(), Double::sum)
                 / scores.size();

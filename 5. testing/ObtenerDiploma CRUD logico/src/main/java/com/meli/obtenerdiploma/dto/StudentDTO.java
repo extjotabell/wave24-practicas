@@ -12,6 +12,6 @@ public record StudentDTO(
 
     String studentName,
 
-    Set< SubjectDTO> subjects
+    List< SubjectDTO> subjects
 ){
 }

@@ -34,9 +34,9 @@ class StudentServiceTest {
             new Subject("Matemática", 10D),
             new Subject("Física", 8D),
             new Subject("Química", 4D));
-    private final Set<Student> students = Set.of(
-            new Student(1L, "Juan", new HashSet<>(subjects.subList(0, 3))),
-            new Student(2L, "Pedro", new HashSet<>(subjects.subList(3, 6)))
+    private final List<Student> students = List.of(
+            new Student(1L, "Juan", new ArrayList<>(subjects.subList(0, 3))),
+            new Student(2L, "Pedro", new ArrayList<>(subjects.subList(3, 6)))
     );
 
 
@@ -46,9 +46,9 @@ class StudentServiceTest {
                     s.getScore()
             )
     ).collect(Collectors.toList());
-    private final Set<StudentDTO> studentsDTO = Set.of(
-            new StudentDTO(1L, "Juan", new HashSet<>(subjectsDTO.subList(0, 3))),
-            new StudentDTO(2L, "Pedro", new HashSet<>(subjectsDTO.subList(3, 6)))
+    private final List<StudentDTO> studentsDTO = List.of(
+            new StudentDTO(1L, "Juan", new ArrayList<>(subjectsDTO.subList(0, 3))),
+            new StudentDTO(2L, "Pedro", new ArrayList<>(subjectsDTO.subList(3, 6)))
     );
 
 
@@ -86,7 +86,7 @@ class StudentServiceTest {
     @Test
     void getAll() {
         Mockito.when(studentRepository.findAll()).thenReturn(students);
-        Set<StudentDTO> actual = service.getAll();
+        List<StudentDTO> actual = service.getAll();
         assertEquals(studentsDTO, actual);
     }
 }

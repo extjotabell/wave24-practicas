@@ -5,6 +5,7 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
+import java.util.List;
 import java.util.Set;
 
 public record StudentWithMessageDTO (
@@ -16,7 +17,7 @@ public record StudentWithMessageDTO (
         String studentName,
 
         @NotEmpty(message = "La lista de materias no puede estar vacía.")
-        Set<@Valid SubjectDTO> subjects,
+        List<@Valid SubjectDTO> subjects,
 
         String message,
         Double averageScore
