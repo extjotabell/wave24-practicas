@@ -57,11 +57,11 @@ public class PersonajeServiceTest {
     );
 
 
-    @Mock
-    private IPersonajeRepository personajeRepository;
-
     @InjectMocks
     private PersonajeService personajeService;
+
+    @Mock
+    private IPersonajeRepository personajeRepository;
 
     @Test
     @DisplayName("test that given a name returns the correct object")
