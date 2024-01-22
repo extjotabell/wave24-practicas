@@ -74,7 +74,7 @@ class StudentServiceTest {
     @Test
     void update() {
         StudentDTO studentDTO = studentsDTO.iterator().next();
-        Mockito.when(studentRepository.save(Mockito.any(Student.class))).thenReturn(true);
+        Mockito.when(studentRepository.update(Mockito.any(Student.class))).thenReturn(true);
         assertTrue(service.update(studentDTO));
     }
 

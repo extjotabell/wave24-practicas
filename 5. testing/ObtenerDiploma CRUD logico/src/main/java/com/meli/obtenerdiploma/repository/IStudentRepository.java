@@ -13,6 +13,8 @@ public interface IStudentRepository {
 
     boolean save(Student stu);
 
+    boolean update(Student stu);
+
     boolean delete(Long id);
 
     Optional<Student> findById(Long id);

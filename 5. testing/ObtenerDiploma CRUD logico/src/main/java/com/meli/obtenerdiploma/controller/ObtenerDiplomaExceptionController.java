@@ -29,4 +29,10 @@ public class ObtenerDiplomaExceptionController {
         return new ResponseEntity<>(error, HttpStatus.BAD_REQUEST);
     }
 
+    @ExceptionHandler(IllegalArgumentException.class)
+    protected ResponseEntity<ErrorDTO> handleValidationExceptions(IllegalArgumentException e) {
+        ErrorDTO error = new ErrorDTO("IllegalArgumentException", e.getMessage());
+        return new ResponseEntity<>(error, HttpStatus.BAD_REQUEST);
+    }
+
 }

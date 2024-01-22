@@ -41,6 +41,15 @@ public class StudentRepository implements IStudentRepository {
     }
 
     @Override
+    public boolean update(Student stu) {
+        if (!exists(stu))
+            throw new StudentNotFoundException(stu.getId());
+
+        delete(stu.getId());
+        return students.add(stu);
+    }
+
+    @Override
     public boolean delete(Long id) {
         boolean ret = false;
 
