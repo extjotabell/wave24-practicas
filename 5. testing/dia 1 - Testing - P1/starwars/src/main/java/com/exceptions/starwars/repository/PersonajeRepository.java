@@ -28,7 +28,7 @@ public class PersonajeRepository implements IPersonajeRepository{
         // Si el nuevo personaje se agrego, devolver el mismo parametro
 
         // Asigno un nuevo id en base al tamaño actual de la lista
-        personaje.setId(personajes.size());
+        personaje.setId(personajes.size() + 1);
 
         // añado
         if(this.personajes.add(personaje))

@@ -1,6 +1,6 @@
 package com.exceptions.starwars.unit.service;
 
-import com.exceptions.starwars.dto.PersonajeDTO;
+import com.exceptions.starwars.dto.PersonajeInfoDTO;
 import com.exceptions.starwars.entity.Personaje;
 import com.exceptions.starwars.exception.EmptyListException;
 import com.exceptions.starwars.repository.IPersonajeRepository;
@@ -15,12 +15,11 @@ import org.mockito.Mockito;
 import org.mockito.junit.jupiter.MockitoExtension;
 
 import java.util.ArrayList;
-import java.util.List;
 
 @ExtendWith(MockitoExtension.class)
 public class PersonajeServiceTest {
 
-    private final PersonajeDTO personajeDTOId1 = new PersonajeDTO(
+    private final PersonajeInfoDTO personajeInfoDTOId1 = new PersonajeInfoDTO(
             1,
             "Luke Skywalker",
             172,
@@ -69,8 +68,8 @@ public class PersonajeServiceTest {
     public void findByName(){
         // arrange
         String nameParam = "Luke";
-        ArrayList<PersonajeDTO> expected = new ArrayList<>();
-        expected.add(personajeDTOId1);
+        ArrayList<PersonajeInfoDTO> expected = new ArrayList<>();
+        expected.add(personajeInfoDTOId1);
 
         ArrayList<Personaje> personajeFilteredList = new ArrayList<>();
         personajeFilteredList.add(personajeId1);
@@ -97,7 +96,6 @@ public class PersonajeServiceTest {
         String nameParam = "Luke";
 
         ArrayList<Personaje> personajeFilteredList = new ArrayList<>();
-        personajeFilteredList.add(personajeId1);
 
         // act
 

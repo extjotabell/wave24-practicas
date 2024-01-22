@@ -1,13 +1,12 @@
 package com.exceptions.starwars.controller;
 
-import com.exceptions.starwars.dto.PersonajeDTO;
+import com.exceptions.starwars.dto.PersonajeCompleteDTO;
+import com.exceptions.starwars.dto.PersonajeInfoDTO;
 import com.exceptions.starwars.exception.EmptyParameterException;
 import com.exceptions.starwars.service.IPersonajeService;
 import com.exceptions.starwars.util.enums.CrudOperation;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 
@@ -23,7 +22,7 @@ public class PersonajeController {
     }
 
     @GetMapping("/findByName/{name}")
-    public ResponseEntity<ArrayList<PersonajeDTO>> findByName(@PathVariable String name){
+    public ResponseEntity<ArrayList<PersonajeInfoDTO>> findByName(@PathVariable String name){
 
         // Controlador
         if(name.trim().isEmpty())
@@ -31,6 +30,13 @@ public class PersonajeController {
 
         return ResponseEntity.ok(
                 this.personajeService.findByName(name)
+        );
+    }
+
+    @PostMapping("/add")
+    public ResponseEntity<PersonajeCompleteDTO> addPersonaje(@RequestBody PersonajeCompleteDTO personaje){
+        return ResponseEntity.ok(
+                this.personajeService.addPersonaje(personaje)
         );
     }
 

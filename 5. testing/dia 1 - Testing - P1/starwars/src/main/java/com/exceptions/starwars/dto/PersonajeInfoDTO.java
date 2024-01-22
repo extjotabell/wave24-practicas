@@ -1,6 +1,6 @@
 package com.exceptions.starwars.dto;
 
-public record PersonajeDTO(
+public record PersonajeInfoDTO(
         Integer id,
         String name,
         Integer height,

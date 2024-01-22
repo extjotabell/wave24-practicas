@@ -1,13 +1,12 @@
 package com.exceptions.starwars.service;
 
-import com.exceptions.starwars.dto.PersonajeDTO;
+import com.exceptions.starwars.dto.PersonajeCompleteDTO;
+import com.exceptions.starwars.dto.PersonajeInfoDTO;
+import com.exceptions.starwars.entity.Personaje;
 import com.exceptions.starwars.exception.EmptyListException;
 import com.exceptions.starwars.repository.IPersonajeRepository;
 import com.exceptions.starwars.util.enums.CrudOperation;
-import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.ExceptionHandler;
-import org.springframework.web.bind.annotation.ResponseStatus;
 
 import java.util.ArrayList;
 import java.util.stream.Collectors;
@@ -24,7 +23,7 @@ public class PersonajeService implements IPersonajeService{
     }
 
     @Override
-    public ArrayList<PersonajeDTO> findByName(String name){
+    public ArrayList<PersonajeInfoDTO> findByName(String name){
 
         var listPersonajes = this.personajeRepository.findByName(name);
 
@@ -33,7 +32,7 @@ public class PersonajeService implements IPersonajeService{
 
         return listPersonajes.stream()
                 .map(p->{
-                    return new PersonajeDTO(
+                    return new PersonajeInfoDTO(
                             p.getId(),
                             p.getName(),
                             p.getHeight(),
@@ -45,4 +44,39 @@ public class PersonajeService implements IPersonajeService{
                 })
                 .collect(Collectors.toCollection(ArrayList::new));
     }
+
+    @Override
+    public PersonajeCompleteDTO addPersonaje(PersonajeCompleteDTO personaje) {
+        Personaje personajeEntity = new Personaje(
+                personaje.id(),
+                personaje.name(),
+                personaje.height(),
+                personaje.mass(),
+                personaje.hairColor(),
+                personaje.skinColor(),
+                personaje.eyeColor(),
+                personaje.birthYear(),
+                personaje.gender(),
+                personaje.homeworld(),
+                personaje.species()
+        );
+
+        personajeEntity = this.personajeRepository.save(personajeEntity);
+
+        return new PersonajeCompleteDTO(
+                personajeEntity.getId(),
+                personajeEntity.getName(),
+                personajeEntity.getHeight(),
+                personajeEntity.getMass(),
+                personajeEntity.getHairColor(),
+                personajeEntity.getSkinColor(),
+                personajeEntity.getEyeColor(),
+                personajeEntity.getBirthYear(),
+                personajeEntity.getGender(),
+                personajeEntity.getHomeworld(),
+                personajeEntity.getSpecies()
+        );
+    }
+
+
 }
