@@ -1,9 +1,11 @@
-package com.meli.obtenerdiploma.repository;
+package com.meli.obtenerdiploma.unit.repository;
 
 import com.meli.obtenerdiploma.entity.Student;
 import com.meli.obtenerdiploma.entity.Subject;
 import com.meli.obtenerdiploma.exception.InvalidDuplicatedDataException;
 import com.meli.obtenerdiploma.exception.StudentNotFoundException;
+import com.meli.obtenerdiploma.repository.IStudentRepository;
+import com.meli.obtenerdiploma.repository.StudentRepository;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -28,7 +30,7 @@ class StudentRepositoryTest {
             "Pedro",
             pedroSubjects
     );
-    StudentRepository studentRepository = new StudentRepository(new HashSet<>(){
+    IStudentRepository studentRepository = new StudentRepository(new HashSet<>(){
         {
             add(pedroId1);
         }
