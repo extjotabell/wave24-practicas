@@ -1,5 +1,6 @@
-package com.meli.obtenerdiploma.controller;
+package com.meli.obtenerdiploma.unit.controller;
 
+import com.meli.obtenerdiploma.controller.StudentController;
 import com.meli.obtenerdiploma.dto.StudentDTO;
 import com.meli.obtenerdiploma.dto.SubjectDTO;
 import com.meli.obtenerdiploma.entity.Student;

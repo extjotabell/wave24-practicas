@@ -1,10 +1,11 @@
-package com.meli.obtenerdiploma.service;
+package com.meli.obtenerdiploma.unit.service;
 
 import com.meli.obtenerdiploma.dto.StudentWithMessageDTO;
 import com.meli.obtenerdiploma.dto.SubjectDTO;
 import com.meli.obtenerdiploma.entity.Student;
 import com.meli.obtenerdiploma.entity.Subject;
 import com.meli.obtenerdiploma.repository.IStudentRepository;
+import com.meli.obtenerdiploma.service.ObtenerDiplomaService;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
