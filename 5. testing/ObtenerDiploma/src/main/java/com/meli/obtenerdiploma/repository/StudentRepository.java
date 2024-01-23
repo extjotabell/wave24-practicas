@@ -17,13 +17,14 @@ import java.util.HashSet;
 import java.util.Optional;
 import java.util.Properties;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 @Repository
 public class StudentRepository implements IStudentRepository {
 
     private Set<Student> students;
 
-    public StudentRepository(Set<Student> students) {
+    public StudentRepository() {
         loadData();
     }
 
@@ -55,7 +56,7 @@ public class StudentRepository implements IStudentRepository {
     public boolean exists(Student stu) {
         boolean ret = false;
 
-        ret  = this.findById(stu.getId()).orElseThrow(() -> new StudentNotFoundException(stu.getId())) != null;
+        ret  = this.findById(stu.getId()).isPresent();
 
         return ret;
     }
@@ -65,6 +66,20 @@ public class StudentRepository implements IStudentRepository {
         return students.stream()
                 .filter(stu -> stu.getId().equals(id))
                 .findFirst();
+    }
+
+    @Override
+    public boolean update(Student stu) {
+        boolean ret = false;
+
+        if (exists(stu)) {
+            students = students.stream().map(
+                    student -> student.getId().equals(stu.getId()) ? stu : student
+            ).collect(Collectors.toSet());
+            ret = true;
+        }
+
+        return ret;
     }
 
     private void loadData() {
