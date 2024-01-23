@@ -8,6 +8,9 @@ import org.springframework.web.bind.annotation.RestController;
 public class RomanNumeralsRestController {
   @GetMapping("/{number}")
   public String toRoman(@PathVariable Integer number) {
+
+    if (number <= 0) throw new IllegalArgumentException("Number must be greater than 0");
+
     StringBuilder romanNumber = new StringBuilder();
     int[] numbersToCompare = {1000,900,500,400,100,90,50,40,10, 9, 5, 4, 1};
     String[] romanNumbers = {"M","CM","D","CD","C","XC","L","XL", "X", "IX", "V", "IV", "I"};
