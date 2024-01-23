@@ -1,17 +1,25 @@
 package com.meli.obtenerdiploma.unittest.service;
 
+import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.meli.obtenerdiploma.model.StudentDTO;
 import com.meli.obtenerdiploma.repository.IStudentDAO;
 import com.meli.obtenerdiploma.repository.IStudentRepository;
 import com.meli.obtenerdiploma.service.StudentService;
 import com.meli.obtenerdiploma.util.TestUtilsGenerator;
 import org.apache.commons.collections4.CollectionUtils;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
+import org.springframework.core.io.ClassPathResource;
+import org.springframework.util.ResourceUtils;
 
+import java.io.File;
+import java.io.IOException;
+import java.util.Properties;
 import java.util.Set;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -91,5 +99,25 @@ public class StudentServiceTests {
         // assert
         verify(studentRepo, atLeastOnce()).findAll();
         assertTrue(CollectionUtils.isEqualCollection(students, readStudents));
+    }
+
+    @AfterEach
+    public void restoreDatabase() {
+        Properties properties = new Properties();
+        ObjectMapper objectMapper = new ObjectMapper();
+        try {
+            properties.load(new ClassPathResource("application.properties").getInputStream());
+            String scope = properties.getProperty("api.scope");
+
+            File backupFile = ResourceUtils.getFile("./src/" + scope + "/resources/users_backup.json");
+            Set<StudentDTO> initialData = objectMapper.readValue(backupFile, new TypeReference<Set<StudentDTO>>() {
+            });
+
+            File file = ResourceUtils.getFile("./src/" + scope + "/resources/users.json");
+            objectMapper.writeValue(file, initialData);
+        } catch (IOException e) {
+            e.printStackTrace();
+            System.out.println("Failed while restoring DB, check your resources files and JSON formatting.");
+        }
     }
 }
