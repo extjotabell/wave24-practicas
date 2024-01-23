@@ -52,7 +52,6 @@ public class AlumnoRepository {
                 )
                 .findFirst();
     }
-
     public List<Alumno> findAll(){
         return alumnos;
     }

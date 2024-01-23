@@ -1,0 +1,41 @@
+[
+  {
+    "dni" : "1111111",
+    "name": "Joy",
+    "age" : 18,
+    "birthDate": "2006-07-12",
+    "materiasList" : [
+      {
+        "id" : 1,
+        "name": "Matematicas",
+        "promedio" : 7
+      }
+    ]
+  },
+  {
+    "dni" : "2222222",
+    "name": "Gus",
+    "age" : 19,
+    "birthDate": "2005-05-01",
+    "materiasList" : [
+      {
+        "id" : 2,
+        "name" : "Lengua",
+        "promedio" : 10
+      }
+    ]
+  },
+  {
+    "dni" : "33333333",
+    "name": "Jean",
+    "age" : 26,
+    "birthDate": "1998-02-05" ,
+    "materiasList" : [
+      {
+        "id" : 3,
+        "name" : "Fisica de particulas",
+        "promedio" : 2
+      }
+    ]
+  }
+]

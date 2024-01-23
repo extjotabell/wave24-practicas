@@ -5,14 +5,15 @@ import com.demospring.demo.dto.ExceptionDTO;
 import com.demospring.demo.exceptions.AlumnoYaExisteException;
 import com.demospring.demo.exceptions.ListaVaciaException;
 import com.demospring.demo.exceptions.IdNoEncontradoException;
+import jakarta.validation.ConstraintViolation;
+import jakarta.validation.ConstraintViolationException;
 import org.springframework.context.support.DefaultMessageSourceResolvable;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
+import org.springframework.web.method.annotation.HandlerMethodValidationException;
 
-import javax.validation.ConstraintViolation;
-import javax.validation.ConstraintViolationException;
 import java.util.stream.Collectors;
 
 @ControllerAdvice
