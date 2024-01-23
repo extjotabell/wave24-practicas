@@ -114,4 +114,25 @@ public class StudentRepositoryTest {
         Assertions.assertFalse(result);
     }
 
+    @Test
+    @DisplayName("should delete a student when the id is valid")
+    public void shouldDeleteAStudentWhenTheIdIsValid() {
+        // Arrange
+        Long id = 1L;
+        // Act
+        boolean result = studentRepository.delete(id);
+        // Assert
+        Assertions.assertTrue(result);
+    }
+
+    @Test
+    @DisplayName("should delete a student when the id is invalid, return StudentNotFoundException")
+    public void shouldDeleteAStudentWhenTheIdIsInvalid() {
+        // Arrange
+        Long id = 10L;
+        // Act
+        // Assert
+        Assertions.assertThrows(StudentNotFoundException.class, () -> studentRepository.delete(id));
+    }
+
 }

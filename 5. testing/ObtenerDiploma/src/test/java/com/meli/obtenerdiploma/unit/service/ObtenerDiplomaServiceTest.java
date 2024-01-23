@@ -44,4 +44,5 @@ public class ObtenerDiplomaServiceTest {
         StudentWithMessageDTO studentWithMessageDTO = obtenerDiplomaService.analyzeScores(studentId);
         Assertions.assertEquals(studentWithMessageDTO.studentName(), "Juan");
     }
+
 }

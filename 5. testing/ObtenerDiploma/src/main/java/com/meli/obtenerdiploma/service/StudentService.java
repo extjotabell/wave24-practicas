@@ -22,7 +22,8 @@ public class StudentService implements IStudentService {
     public boolean create(StudentDTO stu) {
 
         Student studentEntity = new Student(
-                stu.id(),
+                stu
+                        .id(),
                 stu.studentName(),
                 stu.subjects().stream().map(
                         s -> new Subject(s.name(), s.score())
