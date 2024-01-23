@@ -57,7 +57,7 @@ public class StudentService implements IStudentService {
                 ).collect(Collectors.toSet())
         );
 
-        return studentRepository.save(studentEntity);
+        return studentRepository.update(studentEntity);
     }
 
     @Override
