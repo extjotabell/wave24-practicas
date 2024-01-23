@@ -52,6 +52,7 @@ public class StudentRepository implements IStudentRepository {
         return ret;
     }
 
+    @Override
     public boolean exists(Student stu) {
         boolean ret = false;
 

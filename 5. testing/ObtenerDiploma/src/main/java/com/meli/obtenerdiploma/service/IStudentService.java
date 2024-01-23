@@ -10,4 +10,6 @@ public interface IStudentService {
     boolean update(StudentDTO stu);
     boolean delete(Long id);
     Set<StudentDTO> getAll();
+
+    boolean exists(StudentDTO student);
 }

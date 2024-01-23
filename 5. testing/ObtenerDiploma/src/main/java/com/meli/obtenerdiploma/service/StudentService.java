@@ -80,4 +80,15 @@ public class StudentService implements IStudentService {
                                 )
                         ).collect(Collectors.toSet());
     }
+
+    @Override
+    public boolean exists(StudentDTO student) {
+        return this.studentRepository.exists(new Student(
+                student.id(),
+                student.studentName(),
+                student.subjects().stream().map(
+                        s -> new Subject(s.name(), s.score())
+                ).collect(Collectors.toSet())
+        ));
+    }
 }

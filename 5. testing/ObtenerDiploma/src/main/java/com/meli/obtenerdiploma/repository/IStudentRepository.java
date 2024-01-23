@@ -16,4 +16,5 @@ public interface IStudentRepository {
 
     Optional<Student> findById(Long id);
 
+    boolean exists(Student student);
 }
