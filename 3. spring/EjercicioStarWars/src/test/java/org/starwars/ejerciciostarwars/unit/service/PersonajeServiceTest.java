@@ -91,11 +91,11 @@ public class PersonajeServiceTest {
     @Test
     @DisplayName("test that given a wrong name returns an empty list")
     public void findByNameEmptyListException(){
+
         // arrange
         String nameParam = "Luke";
 
         ArrayList<Personaje> personajeFilteredList = new ArrayList<>();
-        personajeFilteredList.add(personajeId1);
 
         // act
 

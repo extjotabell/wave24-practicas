@@ -10,6 +10,7 @@ import org.starwars.ejerciciostarwars.entity.Personaje;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Objects;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
@@ -26,16 +27,19 @@ public class PersonajeRepository implements IPersonajeRepository {
     }
     @Override
     public Personaje save(Personaje personaje) {
+        for (Personaje p : personajes) {
+            if (Objects.equals(p.getId(), personaje.getId())) {
+                return null;
+            }
+        }
         personaje.setId(personajes.size());
-        if(this.personajes.add(personaje))
-            return personaje;
-        return null;
+        this.personajes.add(personaje);
+        return personaje;
     }
 
     @Override
     public Personaje update(Personaje personaje) {
-        var id = this.personajes.indexOf(personaje);
-
+        var id = personajes.stream().map(Personaje::getId).collect(Collectors.toList()).indexOf(personaje.getId());
         if(id != -1) {
             this.personajes.set(id, personaje);
             return personaje;

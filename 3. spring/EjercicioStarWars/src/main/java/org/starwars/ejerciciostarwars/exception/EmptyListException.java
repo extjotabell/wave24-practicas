@@ -5,8 +5,6 @@ import org.starwars.ejerciciostarwars.util.enums.CrudOperation;
 @Getter
 public class EmptyListException extends RuntimeException{
     CrudOperation crudOperation;
-    public EmptyListException() {
-    }
 
     public EmptyListException(CrudOperation crudOperation, String message) {
         super(message);
