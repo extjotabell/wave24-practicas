@@ -23,4 +23,15 @@ public record StudentWithMessageDTO (
 
 
 ) {
+        public StudentWithMessageDTO(Long id,
+                                     String studentName,
+                                     Set<@Valid SubjectDTO> subjects,
+                                     String message,
+                                     Double averageScore) {
+                this.id = id;
+                this.studentName = studentName;
+                this.subjects = subjects;
+                this.message = message;
+                this.averageScore = averageScore;
+        }
 }

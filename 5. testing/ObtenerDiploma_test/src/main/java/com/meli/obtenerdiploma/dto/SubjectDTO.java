@@ -13,4 +13,9 @@ public record SubjectDTO(
     @DecimalMin(value = "0.0", message = "La nota mínima de la materia es de 0 pts.")
     Double score
 ){
+    public SubjectDTO(String name,
+                      Double score) {
+        this.name = name;
+        this.score = score;
+    }
 }
