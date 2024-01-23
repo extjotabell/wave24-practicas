@@ -1,5 +1,7 @@
 package com.mercadolibre.calculadorametroscuadrados.dto;
 
+import java.util.List;
+
 public class HouseResponseDTO extends HouseDTO {
   private Integer squareFeet;
   private Integer price;
@@ -12,6 +14,13 @@ public class HouseResponseDTO extends HouseDTO {
     this.setName(house.getName());
     this.setAddress(house.getAddress());
     this.setRooms(house.getRooms());
+  }
+
+  public HouseResponseDTO(String name, String address, List<RoomDTO> rooms, Integer squareFeet, Integer price, RoomDTO biggest) {
+    super(name, address, rooms);
+    this.squareFeet = squareFeet;
+    this.price = price;
+    this.biggest = biggest;
   }
 
   public Integer getSquareFeet() {
