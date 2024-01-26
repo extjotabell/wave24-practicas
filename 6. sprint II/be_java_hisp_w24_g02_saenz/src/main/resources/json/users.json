@@ -1,0 +1,62 @@
+[
+  {
+    "id": 1,
+    "name": "Usuario 1",
+    "followersIds": [3, 5, 6, 9],
+    "followedIds": [2,3]
+  },
+  {
+    "id": 2,
+    "name": "Usuario 2",
+    "followersIds": [6, 9],
+    "followedIds": [5, 3]
+  },
+  {
+    "id": 3,
+    "name": "Usuario 3",
+    "followersIds": [2, 7, 10],
+    "followedIds": [1, 4, 8]
+  },
+  {
+    "id": 4,
+    "name": "Usuario 4",
+    "followersIds": [3],
+    "followedIds": []
+  },
+  {
+    "id": 5,
+    "name": "Usuario 5",
+    "followersIds": [2, 6],
+    "followedIds": [1, 7]
+  },
+  {
+    "id": 6,
+    "name": "Usuario 6",
+    "followersIds": [7, 8, 10],
+    "followedIds": [2, 1, 5]
+  },
+  {
+    "id": 7,
+    "name": "Usuario 7",
+    "followersIds": [5, 8],
+    "followedIds": [9, 3, 6]
+  },
+  {
+    "id": 8,
+    "name": "Usuario 8",
+    "followersIds": [3],
+    "followedIds": [6, 7, 9]
+  },
+  {
+    "id": 9,
+    "name": "Usuario 9",
+    "followersIds": [1, 7, 8],
+    "followedIds": [2, 10, 1]
+  },
+  {
+    "id": 10,
+    "name": "Usuario 10",
+    "followersIds": [9],
+    "followedIds": [3, 6]
+  }
+]
