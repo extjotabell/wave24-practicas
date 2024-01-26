@@ -72,7 +72,7 @@ public class UserRepositoryTest {
     @DisplayName("Test to find all user")
     void findAllTest(){
         // Arrange
-        int expected = 2;
+        int expected = 4;
 
         // Act
         int result = userRepository.findAll().size();
