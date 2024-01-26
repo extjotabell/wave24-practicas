@@ -16,12 +16,11 @@ import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.result.MockMvcResultHandlers;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @SpringBootTest
 @AutoConfigureMockMvc
-public class ProductIntegrationTest {
+public class ProductControllerTest {
 
     @Autowired
     MockMvc mockMvc;
@@ -36,7 +35,7 @@ public class ProductIntegrationTest {
         // Arrange
 
         // paso 1 - request
-        String url = "/followed/{userId}/list";
+        String url = "/products/followed/{userId}/list";
         Integer param = 1;
         RequestBuilder request = MockMvcRequestBuilders.get(url, param);
 

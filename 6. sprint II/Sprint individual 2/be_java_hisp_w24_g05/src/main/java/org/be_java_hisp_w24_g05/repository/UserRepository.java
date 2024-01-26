@@ -5,8 +5,6 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.PropertyNamingStrategy;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import org.be_java_hisp_w24_g05.entity.Post;
-import org.be_java_hisp_w24_g05.entity.Product;
-import org.be_java_hisp_w24_g05.entity.Post;
 import org.be_java_hisp_w24_g05.entity.User;
 import org.be_java_hisp_w24_g05.exception.BadRequestException;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,20 +28,6 @@ public class UserRepository implements IUserRepository{
     private ArrayList<User> users;
     public UserRepository() {
         users = Data.loadData();
-    }
-    @Override
-    public User save(User user) {
-        return null;
-    }
-
-    @Override
-    public User update(User user) {
-        return null;
-    }
-
-    @Override
-    public Boolean deleteById(Integer id) {
-        return null;
     }
 
     @Override
@@ -87,17 +71,7 @@ public class UserRepository implements IUserRepository{
     }
 
     @Override
-    public User addFollower(int userId, int userIdToFollow) {
-
-        if (userId == userIdToFollow)
-            throw new BadRequestException("User with id " + userId + " cannot follow himself");
-
-        User user = this.users.stream().filter(u -> u.getUserId() == userId).findFirst().orElseThrow(() -> new BadRequestException("User with id " + userId + " not found"));
-        User userToFollow = this.users.stream().filter(u -> u.getUserId() == userIdToFollow).findFirst().orElseThrow(() -> new BadRequestException("User with id " + userIdToFollow + " not found"));
-
-        if (user.getFollowed().stream().filter(u -> u.getUserId() == userIdToFollow).findFirst().orElse(null) != null)
-            throw new BadRequestException("User with id " + userIdToFollow + " already followed");
-
+    public User addFollower(User user, User userToFollow) {
 
         user.getFollowed().add(userToFollow);
 
@@ -108,37 +82,15 @@ public class UserRepository implements IUserRepository{
     }
 
     @Override
-    public User removeFollower(int userId, int userIdToUnfollow) {
+    public User removeFollower(User user, int userIdToUnfollow) {
 
-        User user = this.users.stream().filter(u -> u.getUserId() == userId).findFirst().orElse(null);
+        User userToUnfollow = this.users.stream().filter(u -> u.getUserId() == userIdToUnfollow).findFirst().orElse(null);
 
-        if (user != null) {
-            User userToUnfollow = user.getFollowed().stream().filter(u -> u.getUserId() == userIdToUnfollow).findFirst().orElse(null);
-            if (userToUnfollow != null) {
-                user.getFollowed().remove(userToUnfollow);
-                userToUnfollow.getFollowers().remove(user);
-                return user;
-            }else{
-                throw new BadRequestException("User with id " + userIdToUnfollow + " not found in followed list");
-            }
-        }
-        throw new BadRequestException("User with id " + userId + " not found");
+        user.getFollowed().remove(userToUnfollow);
+        assert userToUnfollow != null;
+        userToUnfollow.getFollowers().remove(user);
+
+        return user;
     }
 
-    private ArrayList<User> loadData() {
-        ArrayList<User> data = new ArrayList<>();
-        File file;
-        ObjectMapper objectMapper = new ObjectMapper()
-                .setPropertyNamingStrategy(PropertyNamingStrategy.SNAKE_CASE)
-                .registerModule(new JavaTimeModule());
-
-        TypeReference<ArrayList<User>> typeRef = new TypeReference<>() {};
-        try {
-            file = ResourceUtils.getFile("classpath:json/user.json");
-            data = objectMapper.readValue(file, typeRef);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        return data;
-    }
 }

@@ -13,11 +13,8 @@ import org.be_java_hisp_w24_g05.repository.IUserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
-import java.util.Collections;
-import java.util.Comparator;
+import java.util.*;
 
-import java.util.NoSuchElementException;
 import java.util.stream.Collectors;
 
 @Service
@@ -57,19 +54,38 @@ public class UserService implements IUserService {
 
     @Override
     public UserFollowedDto followUser(int userId, int userIdToFollow) {
-        User user = this.userRepository.addFollower(userId, userIdToFollow);
-        return modelMapper.userToUserFollowedDTO(user);
+        if (userId == userIdToFollow)
+            throw new BadRequestException("User with id " + userId + " cannot follow himself");
+
+        User user = this.userRepository.findById(userId).orElseThrow(() -> new BadRequestException("User with id " + userId + " not found"));
+        User userToFollow = this.userRepository.findById(userIdToFollow).orElseThrow(() -> new BadRequestException("User with id " + userIdToFollow + " not found"));
+
+        if (user.getFollowed().stream().filter(u -> u.getUserId() == userIdToFollow).findFirst().orElse(null) != null)
+            throw new BadRequestException("User with id " + userIdToFollow + " already followed");
+
+        User userTodDto = this.userRepository.addFollower(user, userToFollow);
+
+        return modelMapper.userToUserFollowedDTO(userTodDto);
     }
 
     @Override
     public UserFollowedDto unfollowUser(int userId, int userIdToUnfollow) {
-        User user = this.userRepository.removeFollower(userId, userIdToUnfollow);
-        return modelMapper.userToUserFollowedDTO(user);
+        if (userId == userIdToUnfollow)
+            throw new BadRequestException("User with id " + userId + " cannot unfollow himself");
+
+        User user = this.userRepository.findById(userId).orElseThrow(() -> new BadRequestException("User with id " + userId + " not found"));
+
+        if (user.getFollowed().stream().filter(u -> u.getUserId() == userIdToUnfollow).findFirst().orElse(null) == null)
+            throw new BadRequestException("User with id " + userIdToUnfollow + " not followed");
+
+        User userToDto = this.userRepository.removeFollower(user, userIdToUnfollow);
+
+        return modelMapper.userToUserFollowedDTO(userToDto);
     }
     @Override
     public List<UserFollowersDto> searchUserFollowers(Integer userId, String order) {
         User user = userRepository.findById(userId).orElseThrow(() -> new NotFoundException("User not found"));
-        List<User> users= user.getFollowers();
+        List<User> users= new ArrayList<>(user.getFollowers());
         if (users.isEmpty()) throw new NotFoundException("User ID: " + userId + " doesn't have any followers.");
         if(order.equals("name_asc")  || order.equals("")){
             users.sort(Comparator.comparing(User::getUserName));
@@ -80,7 +96,7 @@ public class UserService implements IUserService {
             throw new BadOrderException("Order isn't valid, please use name_asc or name_desc.");
         }
 
-        return Collections.singletonList(modelMapper.convertUserFollowersToDto(user, users.stream()
+        return Arrays.asList(modelMapper.convertUserFollowersToDto(user, users.stream()
                 .map(modelMapper::convertUserToDto)
                 .collect(Collectors.toList())));
 
@@ -90,7 +106,7 @@ public class UserService implements IUserService {
         User user = userRepository.findById(userId).orElseThrow(() -> new NotFoundException("User not found"));
         List<User> followedList = user.getFollowed();
         if (followedList.isEmpty()) throw new NotFoundException("User ID: " + userId + " doesn't follow any seller.");
-        if(order.equals("name_asc")){
+        if(order.equals("name_asc") || order.isEmpty()){
             followedList.sort(Comparator.comparing(User::getUserName));
         }else if(order.equals("name_desc")){
             followedList.sort(Comparator.comparing(User::getUserName).reversed());

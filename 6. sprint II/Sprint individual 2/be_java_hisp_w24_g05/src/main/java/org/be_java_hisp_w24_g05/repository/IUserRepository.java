@@ -8,9 +8,7 @@ import java.util.List;
 public interface IUserRepository extends ICrudRepository<User> {
     List<Post> recentPostsOfFollowedUsers(int userId, String order);
     User addPost(Post post);
+    User addFollower(User user, User userToFollow);
 
-    User addFollower(int userId, int userIdToFollow);
-
-    User removeFollower(int userId, int userIdToUnfollow);
-
+    User removeFollower(User user, int userToUnfollow);
 }
