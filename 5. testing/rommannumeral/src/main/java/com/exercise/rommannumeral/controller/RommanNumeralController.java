@@ -24,6 +24,7 @@ public class RommanNumeralController {
             @PathVariable @Min(value = 1, message = "El numero debe ser mayor a 0") Integer number
     ){
         System.out.println(number);
+
         return ResponseEntity.ok(rommanNumeralService.transformNumberToRomman(number));
     }
 }
