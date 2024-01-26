@@ -8,13 +8,13 @@
   {
     "id": 2,
     "name": "Usuario 2",
-    "followersIds": [6, 9],
+    "followersIds": [6, 9, 1],
     "followedIds": [5, 3]
   },
   {
     "id": 3,
     "name": "Usuario 3",
-    "followersIds": [2, 7, 10],
+    "followersIds": [2, 7, 10, 1],
     "followedIds": [1, 4, 8]
   },
   {
