@@ -1,0 +1,71 @@
+[
+    {"user_id":1465,
+      "user_name":"usuario1",
+      "followers": [
+        {
+          "user_id": 4698,
+          "user_name": "usuario2"
+        }],
+      "followed": [
+        {
+          "user_id": 4698,
+          "user_name": "usuario2"
+        }]
+    },
+    {"user_id":1115,
+      "user_name":"usuario3",
+      "followers": [],
+      "followed": [
+        {
+          "user_id": 4698,
+          "user_name": "usuario2"
+        }]
+    },
+  {"user_id":4698,
+    "user_name":"usuario2",
+    "followers": [
+      {
+        "user_id": 1115,
+        "user_name": "usuario3"
+      },
+      {
+        "user_id": 1465,
+        "user_name": "usuario1"
+      },
+      {
+        "user_id": 123,
+        "user_name": "usuario5"
+      }],
+    "followed": [
+      {
+        "user_id": 234,
+        "user_name": "usuario4"
+      },
+      {
+        "user_id": 1465,
+        "user_name": "usuario1"
+      },
+      {
+        "user_id": 123,
+        "user_name": "usuario5"
+      }
+    ]
+  },
+  {"user_id":1411,
+    "user_name":"usuario4",
+    "followers": [
+      {
+        "user_id": 1465,
+        "user_name": "usuario1"
+      },
+      {
+        "user_id": 123,
+        "user_name": "usuario5"
+      }],
+    "followed": [
+      {
+        "user_id": 1465,
+        "user_name": "usuario1"
+      }]
+  }
+]
