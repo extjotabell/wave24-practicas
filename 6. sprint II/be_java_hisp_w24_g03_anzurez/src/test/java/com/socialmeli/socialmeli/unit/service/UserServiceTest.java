@@ -22,6 +22,8 @@ import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.junit.jupiter.MockitoExtension;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
 
@@ -39,6 +41,38 @@ public class UserServiceTest {
     @InjectMocks
     private UserService userService;
     UserUtils userUtils = new UserUtils();
+
+    @Test
+    @DisplayName("Test to find all user")
+    void getAllUsersTest() {
+        // Arrange
+        ArrayList<User> users = new ArrayList<>(
+                Arrays.asList(
+                        userUtils.getUSER_4698(),
+                        userUtils.getUSER_1115(),
+                        userUtils.getUSER_1465()
+                )
+        );
+        ArrayList<UserDto> expected = new ArrayList<>(
+                Arrays.asList(
+                        userUtils.getUSER_DTO_4698(),
+                        userUtils.getUSER_DTO_1115(),
+                        userUtils.getUSER_DTO_1465()
+                )
+        );
+
+        // when-then
+        Mockito.when(userRepository.findAll()).thenReturn(users);
+        Mockito.when(mapper.convertToUserDto(userUtils.getUSER_4698())).thenReturn(userUtils.getUSER_DTO_4698());
+        Mockito.when(mapper.convertToUserDto(userUtils.getUSER_1115())).thenReturn(userUtils.getUSER_DTO_1115());
+        Mockito.when(mapper.convertToUserDto(userUtils.getUSER_1465())).thenReturn(userUtils.getUSER_DTO_1465());
+
+        // Act
+        var result = userService.getAllUsers();
+
+        // Assert
+        Assertions.assertEquals(expected, result, "Lists are not equals");
+    }
 
     @Test
     @DisplayName("Test to follow an existing user")
@@ -147,6 +181,20 @@ public class UserServiceTest {
     }
 
     @Test
+    @DisplayName("Test that given a null user to unfollow an user")
+    void nullUserFollowToNullUser() {
+        // Arrange
+        int user = 1115;
+
+        // Act & Assert
+        Assertions.assertThrows(
+                BadRequestException.class,
+                () -> userService.follow(null, user),
+                "User was able to unfollow a null user"
+        );
+    }
+
+    @Test
     @DisplayName("Test to unfollow an existing user")
     void unfollowToExistentUserTest() {
         // Arrange
@@ -222,7 +270,7 @@ public class UserServiceTest {
     }
 
     @Test
-    @DisplayName("Test to follow to the same user")
+    @DisplayName("Test to unfollow to the same user")
     void unfollowToSameUserTest() {
         // Arrange
         int user = 1115;
@@ -239,7 +287,7 @@ public class UserServiceTest {
     }
 
     @Test
-    @DisplayName("Test to follow a null user")
+    @DisplayName("Test to unfollow a null user")
     void unfollowToNullUser() {
         // Arrange
         int user = 1115;
@@ -248,6 +296,20 @@ public class UserServiceTest {
         Assertions.assertThrows(
                 BadRequestException.class,
                 () -> userService.unfollow(user, null),
+                "User was able to unfollow a null user"
+        );
+    }
+
+    @Test
+    @DisplayName("Test that given a null user to unfollow an user")
+    void nullUserUnfollowToNullUser() {
+        // Arrange
+        int user = 1115;
+
+        // Act & Assert
+        Assertions.assertThrows(
+                BadRequestException.class,
+                () -> userService.unfollow(null, user),
                 "User was able to unfollow a null user"
         );
     }

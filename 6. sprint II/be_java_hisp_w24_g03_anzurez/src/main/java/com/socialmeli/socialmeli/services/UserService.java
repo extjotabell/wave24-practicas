@@ -86,7 +86,7 @@ public class UserService implements IUserService{
         User user = userRepository.findById(userId).orElse(null);
 
         if (Objects.isNull(user)){
-            throw new BadRequestException("El usuario "  + userId +  " no existe.");
+            throw new NotFoundException("El usuario "  + userId +  " no existe.");
         }
         List<UserDto> followerList = sortFollower(user.getFollowers(),order);
 

@@ -1,6 +1,7 @@
 package com.socialmeli.socialmeli.utils;
 
 import com.socialmeli.socialmeli.dto.PostDto;
+import com.socialmeli.socialmeli.dto.PostIdDto;
 import com.socialmeli.socialmeli.dto.ProductDto;
 import com.socialmeli.socialmeli.entities.Post;
 import com.socialmeli.socialmeli.entities.Product;
@@ -50,4 +51,34 @@ public class PostUtils {
             8000.50);
 
 
+    PostIdDto postIdDto1 = new PostIdDto(
+            1465,
+            1,
+            LocalDate.of(2024, 1, 2),
+            new ProductDto(
+                    1,
+                    "Silla Gamer",
+                    "Gamer",
+                    "Racer",
+                    "Red",
+                    "Special Edition"
+            ),
+            100,
+            1500.50
+    );
+    PostIdDto postIdDto2 = new PostIdDto(
+            1465,
+            2,
+            LocalDate.of(2023, 12, 30),
+            new ProductDto(
+                    2,
+                    "Headset RGB Inalámbrico",
+                    "Gamer",
+                    "Razer",
+                    "Green with RGB",
+                    "Sin Batería"
+            ),
+            100,
+            1500.50
+    );
 }

@@ -11,6 +11,18 @@ import java.util.stream.Collectors;
 
 @Getter
 public class UserUtils {
+    private final UserDto USER_DTO_1465 = new UserDto(
+            1465,
+            "usuario1"
+    );
+    private final UserDto USER_DTO_1115 = new UserDto(
+            1115,
+            "usuario3"
+    );
+    private final UserDto USER_DTO_4698 = new UserDto(
+            4698,
+            "usuario2"
+    );
     private final User USER_1465 = new User(
             1465,
             "usuario1",
@@ -58,7 +70,7 @@ public class UserUtils {
                     new User(1115, "usuario3",null,null),
                     new User(1465, "usuario1",null,null),
                     new User( 123,"usuario5",null,null)
-                    )),
+            )),
             new ArrayList(List.of(
                     new User( 234, "usuario4", null,null),
                     new User(1465, "usuario1",null,null),
