@@ -4,13 +4,16 @@ import com.socialmeli.SocialMeli.dto.*;
 import com.socialmeli.SocialMeli.exception.BadRequestException;
 import com.socialmeli.SocialMeli.service.interfaces.IPostService;
 import jakarta.validation.Valid;
+import jakarta.validation.constraints.Pattern;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
 @RequestMapping("/products")
+@Validated
 public class PostController {
 
     private final IPostService postService;
@@ -43,7 +46,7 @@ public class PostController {
     }
 
     @GetMapping("/promo-post/count")
-    public ResponseEntity<ProductResponseDTO> getPromoPostCount(@RequestParam Integer user_id) {
+    public ResponseEntity<ProductResponseDTO> getPromoPostCount(@RequestParam  Integer user_id) {
         return ResponseEntity.ok().body(postService.getPromoPostCount(user_id));
     }
 
