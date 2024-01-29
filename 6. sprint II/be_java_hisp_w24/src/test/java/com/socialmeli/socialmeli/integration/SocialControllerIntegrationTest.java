@@ -83,7 +83,7 @@ public class SocialControllerIntegrationTest {
 
     @Test
     @DisplayName("Test to create a new post in a sad path")
-    public void createPostThowsBadRequestExceptionTest() throws Exception {
+    public void createPostThrowsBadRequestExceptionTest() throws Exception {
         // Arrange
         PostDto postDto = postUtils.getPostDtoWithNonexistentId();
         String url = "/products/post";
