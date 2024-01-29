@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.MediaType;
+import org.springframework.test.annotation.DirtiesContext;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.RequestBuilder;
 import org.springframework.test.web.servlet.ResultMatcher;
@@ -23,6 +24,7 @@ import java.util.List;
 
 @SpringBootTest
 @AutoConfigureMockMvc
+@DirtiesContext(classMode = DirtiesContext.ClassMode.BEFORE_EACH_TEST_METHOD)
 public class UserControllerTest {
 
     @Autowired
@@ -33,34 +35,6 @@ public class UserControllerTest {
 
     @Autowired
     private UserRepository userRepository; // Assuming you have a UserRepository for database operations
-
-    @BeforeEach
-    public void setup() throws Exception {
-        //Load the database before each test
-        //Non-optimal solution, but it works
-        userRepository.loadDataBase();
-
-        //This is what should be done instead
-        /*
-        // Clear existing data
-        userRepository.deleteAll();
-
-        // Create and save test data
-        User alice = new User(101, "Alice Johnson", new ArrayList<>(), new ArrayList<>(), new ArrayList<>());
-        User bob = new User(102, "Bob Smith", new ArrayList<>(), new ArrayList<>(), new ArrayList<>());
-        // Add more users as needed
-
-        // Set up relationships
-        alice.getFollowed().add(bob);
-        bob.getFollowers().add(alice);
-
-        // Save users
-        userRepository.save(alice);
-        userRepository.save(bob);
-        // Save more users as needed
-        */
-
-    }
 
     // Integration test for the getFollowersCount endpoint
     @Test

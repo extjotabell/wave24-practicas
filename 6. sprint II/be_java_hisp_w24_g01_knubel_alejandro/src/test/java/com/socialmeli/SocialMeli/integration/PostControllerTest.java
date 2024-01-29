@@ -17,6 +17,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.MediaType;
+import org.springframework.test.annotation.DirtiesContext;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.ResultMatcher;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
@@ -29,6 +30,7 @@ import java.util.List;
 
 @SpringBootTest
 @AutoConfigureMockMvc
+@DirtiesContext(classMode = DirtiesContext.ClassMode.BEFORE_EACH_TEST_METHOD)
 public class PostControllerTest {
 
     @Autowired
@@ -39,14 +41,6 @@ public class PostControllerTest {
 
     @Autowired
     private PostRepository postRepository; // Assuming you have a UserRepository for database operations
-
-
-    @BeforeEach
-    public void setup() throws Exception {
-        //Load the database before each test
-        //Non-optimal solution, but it works
-        postRepository.loadDataBase();
-    }
 
     @Test
     @DisplayName("Create Post Test")
@@ -93,10 +87,7 @@ public class PostControllerTest {
                         new CategoryPostRequestDTO(3, "Appliances"), 89.99),
                 new PostWithIdDTO(104, 304, LocalDate.parse("23-01-2024", DateTimeFormatter.ofPattern("dd-MM-yyyy")),
                         new ProductPostRequestDTO(204, "Wireless Earbuds", "Electronics", "Apple", "White", "Active noise cancellation, sweat-resistant"),
-                        new CategoryPostRequestDTO(3, "Appliances"), 149.99),
-                new PostWithIdDTO(102, 302, LocalDate.parse("21-01-2024", DateTimeFormatter.ofPattern("dd-MM-yyyy")),
-                        new ProductPostRequestDTO(202, "Running Shoes", "Footwear", "Nike", "Blue", "Ideal for long-distance running"),
-                        new CategoryPostRequestDTO(2, "Footwear"), 129.99)
+                        new CategoryPostRequestDTO(3, "Appliances"), 149.99)
         );
 
         LastestPostDTO expectedResponse = new LastestPostDTO(userId, posts);
