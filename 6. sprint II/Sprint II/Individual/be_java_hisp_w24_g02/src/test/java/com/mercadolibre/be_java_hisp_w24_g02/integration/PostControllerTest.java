@@ -6,6 +6,7 @@ import com.mercadolibre.be_java_hisp_w24_g02.dto.CreateProductDTO;
 import com.mercadolibre.be_java_hisp_w24_g02.dto.PostDto;
 import com.mercadolibre.be_java_hisp_w24_g02.dto.UserFollowedsPostsDTO;
 import com.mercadolibre.be_java_hisp_w24_g02.entity.Product;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mock;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,6 +32,7 @@ public class PostControllerTest {
     ObjectMapper mapper;
 
     @Test
+    @DisplayName("test to get user followeds of a user integration")
     public void getUserFollowed() throws Exception {
         Integer param = 1;
         String url = "/products/followed/{userId}/list";
@@ -88,6 +90,7 @@ public class PostControllerTest {
         //assert
     }
     @Test
+    @DisplayName("create new post test integration")
     public void addNewProductPost() throws Exception {
         String url = "/products/post";
 

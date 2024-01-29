@@ -5,6 +5,7 @@ import com.mercadolibre.be_java_hisp_w24_g02.dto.UserBasicInfoDTO;
 import com.mercadolibre.be_java_hisp_w24_g02.dto.UserFollowedsPostsDTO;
 import com.mercadolibre.be_java_hisp_w24_g02.dto.UserFollowersCountDTO;
 import com.mercadolibre.be_java_hisp_w24_g02.dto.UserRelationshipsDTO;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
@@ -33,6 +34,7 @@ public class UserControllerTest {
 
 
     @Test
+    @DisplayName("test followers count of a user controller")
     public void getUserFollowersCount() throws Exception {
         //arrage
        Integer param = 1;
@@ -58,6 +60,7 @@ public class UserControllerTest {
     }
 
     @Test
+    @DisplayName("get user followers integration")
     public void getUserFollowers() throws Exception {
         //Arrage
         Integer param = 2;
@@ -83,6 +86,7 @@ public class UserControllerTest {
 
     }
     @Test
+    @DisplayName("follow a user test integration")
     public void followUser() throws Exception {
 //Arrage
         String url = "/users/{userId}/follow/{userIdToFollow}";
@@ -99,6 +103,7 @@ public class UserControllerTest {
 
     }
     @Test
+    @DisplayName("get de user followeds integration")
     public void getUserFollowed() throws Exception {
         String url = "/users/{userId}/followed/list";
         Integer param = 1;
