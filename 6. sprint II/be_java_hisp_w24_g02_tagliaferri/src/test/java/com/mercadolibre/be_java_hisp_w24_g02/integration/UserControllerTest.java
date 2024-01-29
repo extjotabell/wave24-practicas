@@ -14,7 +14,6 @@ import org.springframework.test.web.servlet.RequestBuilder;
 import org.springframework.test.web.servlet.ResultMatcher;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
-import org.springframework.web.bind.annotation.PostMapping;
 
 @SpringBootTest
 @AutoConfigureMockMvc
@@ -72,7 +71,6 @@ public class UserControllerTest {
         ResultMatcher statusExpected = MockMvcResultMatchers.status().isBadRequest();
 
         // Expected body
-        BadRequestException expected = new BadRequestException("Ya estás siguiendo a este usuario: 3");
         ResultMatcher bodyExpected = MockMvcResultMatchers.jsonPath("$.message")
                 .value("Ya estás siguiendo a este usuario: 3");
 

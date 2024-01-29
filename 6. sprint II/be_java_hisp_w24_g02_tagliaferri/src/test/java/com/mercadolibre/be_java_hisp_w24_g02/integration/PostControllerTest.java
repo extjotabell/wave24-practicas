@@ -71,8 +71,8 @@ public class PostControllerTest {
     }
 
     @Test
-    @DisplayName("Listing all post from an user from last 2 weeks, happy path.")
-    public void getUserFollowedPostHappyPath () throws Exception {
+    @DisplayName("Listing all post from an user from last 2 weeks, happy path with date Asc sorting.")
+    public void getUserFollowedPostHappyPathDateAsc () throws Exception {
 
         //arrange
 
