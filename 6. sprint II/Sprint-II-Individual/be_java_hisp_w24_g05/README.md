@@ -1,4 +1,4 @@
-# Bootcamp Backend Java Sprint Nº 1 - Spring
+# Bootcamp Backend Java Sprint Nº 2 - Spring
 
 ## Descripción
 Implementación de una API REST en Java con Spring para gestionar datos según los requisitos especificados en el enunciado del Bootcamp Backend Java Sprint Nº 1 de Mercado Libre.
