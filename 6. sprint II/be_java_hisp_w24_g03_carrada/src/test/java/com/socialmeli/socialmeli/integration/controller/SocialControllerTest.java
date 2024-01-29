@@ -365,5 +365,30 @@ public class SocialControllerTest {
 
     }
 
+    @Test
+    @DisplayName("Test unfollow endpoint.")
+    public void unfollowTest() throws Exception{
+        //request
+        String url = "/users/{userId}/unfollow/{userIdToUnfollow}";
+        Integer userId = 1115;
+        Integer userIdToFollow = 4698;
+
+        RequestBuilder request = MockMvcRequestBuilders.post(url, userId, userIdToFollow);
+
+        //status
+        ResultMatcher statusExpected = MockMvcResultMatchers.status().isOk();
+
+        //ContentType
+        ResultMatcher contentTypeExpected = MockMvcResultMatchers.content().contentType(MediaType.APPLICATION_JSON);
+
+        //Body
+        ResultMatcher bodyExpected = MockMvcResultMatchers.jsonPath("$.message").value("Unfollow exitoso");
+
+        mockMvc.perform(request)
+                .andDo(MockMvcResultHandlers.print())
+                .andExpectAll(statusExpected, bodyExpected, contentTypeExpected); //resultMatchers: status, body, contentType
+
+    }
+
     //endregion
 }
