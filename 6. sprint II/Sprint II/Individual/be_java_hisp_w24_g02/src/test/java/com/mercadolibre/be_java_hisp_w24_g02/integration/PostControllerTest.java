@@ -1,6 +1,8 @@
 package com.mercadolibre.be_java_hisp_w24_g02.integration;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.mercadolibre.be_java_hisp_w24_g02.dto.CreatePostDTO;
+import com.mercadolibre.be_java_hisp_w24_g02.dto.CreateProductDTO;
 import com.mercadolibre.be_java_hisp_w24_g02.dto.PostDto;
 import com.mercadolibre.be_java_hisp_w24_g02.dto.UserFollowedsPostsDTO;
 import com.mercadolibre.be_java_hisp_w24_g02.entity.Product;
@@ -85,4 +87,30 @@ public class PostControllerTest {
                 .andExpect(contetTypeExpected); //verifica el contentType
         //assert
     }
+    @Test
+    public void addNewProductPost() throws Exception {
+        String url = "/products/post";
+
+        CreatePostDTO requestBody = new CreatePostDTO(1,"29-04-2021",
+                new CreateProductDTO(1,
+                        "Silla Gamer",
+                        "Gamer",
+                        "Racer",
+                        "Red & Black",
+                        "Special Edition"),
+                        100,
+                        1500.50);
+
+        RequestBuilder request = MockMvcRequestBuilders.post(url).contentType(MediaType.APPLICATION_JSON).
+                content(mapper.writeValueAsString(requestBody));
+
+        ResultMatcher status = MockMvcResultMatchers.status().isOk();
+
+
+        mockMvc.perform(request).
+                andDo(MockMvcResultHandlers.print()).
+                andExpect(status);
+    }
+
+
 }
