@@ -31,27 +31,27 @@ public class PostControllerTest {
     @Autowired
     ObjectMapper mapper;
 
-    private final CreateProductDTO product1 = new CreateProductDTO(
-            1,
-            "Silla Gamer",
-            "Gamer",
-            "Racer",
-            "Red & Black",
-            "Special Edition"
-    );
-    private final CreatePostDTO post1 = new CreatePostDTO(
-            1,
-            "29-04-2021",
-            product1,
-            100,
-            1500.50);
-
 
     @Test
     @DisplayName("Adding new post, happy path.")
     public void addNewProductPostHappyPath() throws Exception {
 
         //arrange
+        CreateProductDTO product1 = new CreateProductDTO(
+                1,
+                "Silla Gamer",
+                "Gamer",
+                "Racer",
+                "Red & Black",
+                "Special Edition"
+        );
+        CreatePostDTO post1 = new CreatePostDTO(
+                1,
+                "29-04-2021",
+                product1,
+                100,
+                1500.50);
+
 
         // paso 1 - request
 
