@@ -4,6 +4,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.socialmeli.socialmeli.dto.PostIdDto;
 import com.socialmeli.socialmeli.dto.UserDto;
 import com.socialmeli.socialmeli.dto.UserFollowedDto;
+import com.socialmeli.socialmeli.dto.UserFollowerDto;
 import com.socialmeli.socialmeli.utils.PostUtils;
 import com.socialmeli.socialmeli.utils.UserUtils;
 import org.junit.jupiter.api.DisplayName;
@@ -200,5 +201,118 @@ public class SocialControllerTest {
         mockMvc.perform(request)
                 .andDo(MockMvcResultHandlers.print())
                 .andExpectAll(statusExpected, bodyExpected, contentTypeExpected);
+    }
+
+    @Test
+    @DisplayName("Test getAllFollower endpoint with valid userId and order ('name_asc').")
+    public void getAllFollowerAscHappyPath() throws Exception {
+
+        UserFollowerDto userFollowerList = userUtils.getFollowerList();
+
+        //Request creation
+        String url = "/users/{userId}/followers/list";
+        Integer userId = 4698;
+        RequestBuilder request = MockMvcRequestBuilders.get(url,userId)
+                .param("order", "name_asc");
+
+        //Status
+        ResultMatcher statusExpected = MockMvcResultMatchers.status().isOk();
+
+        //ContentType
+        ResultMatcher contentTypeExpected = MockMvcResultMatchers.content().contentType(MediaType.APPLICATION_JSON);
+
+        //Body
+        ResultMatcher bodyExpected = MockMvcResultMatchers.content().json(
+                objectMapper.writeValueAsString(
+                        userFollowerList
+                )
+        );
+
+        mockMvc.perform(request)
+                .andDo(MockMvcResultHandlers.print())
+                .andExpectAll(statusExpected, bodyExpected, contentTypeExpected);
+    }
+
+    @Test
+    @DisplayName("Test getAllFollower endpoint with valid userId and order ('name_desc').")
+    public void getAllFollowerDescHappyPath() throws Exception {
+
+        UserFollowerDto userFollowerList = userUtils.getFollowerList();
+
+        //Request creation
+        String url = "/users/{userId}/followers/list";
+        Integer userId = 4698;
+        RequestBuilder request = MockMvcRequestBuilders.get(url,userId)
+                .param("order", "name_desc");
+
+        //Status
+        ResultMatcher statusExpected = MockMvcResultMatchers.status().isOk();
+
+        //ContentType
+        ResultMatcher contentTypeExpected = MockMvcResultMatchers.content().contentType(MediaType.APPLICATION_JSON);
+
+        //Body
+        ResultMatcher bodyExpected = MockMvcResultMatchers.content().json(
+                objectMapper.writeValueAsString(
+                        userFollowerList
+                )
+        );
+
+        mockMvc.perform(request)
+                .andDo(MockMvcResultHandlers.print())
+                .andExpectAll(statusExpected, bodyExpected, contentTypeExpected);
+    }
+
+    @Test
+    @DisplayName("Test getAllFollower endpoint with an invalid userId")
+    public void getAllFollowerSadPath() throws Exception {
+
+        UserFollowerDto userFollowerList = userUtils.getFollowerList();
+
+        //Request creation
+        String url = "/users/{userId}/followed/list";
+        Integer userId = 469;
+        RequestBuilder request = MockMvcRequestBuilders.get(url,userId)
+                .param("order", "name_asc");
+
+        //Status
+        ResultMatcher statusExpected = MockMvcResultMatchers.status().isNotFound();
+
+        //ContentType
+        ResultMatcher contentTypeExpected = MockMvcResultMatchers.content().contentType(MediaType.APPLICATION_JSON);
+
+        //Body
+        ResultMatcher bodyExpected = MockMvcResultMatchers.jsonPath("$.message").value("No se encontro un usuario con el id " + userId);
+
+        mockMvc.perform(request)
+                .andDo(MockMvcResultHandlers.print())
+                .andExpectAll(statusExpected, bodyExpected, contentTypeExpected);
+    }
+
+    @Test
+    @DisplayName("Test getAllFollowed endpoint with an invalid order")
+    public void getAllFollowerOrderSadPath() throws Exception {
+
+        UserFollowerDto userFollowerList = userUtils.getFollowerList();
+
+        //Request creation
+        String url = "/users/{userId}/followed/list";
+        Integer userId = 4698;
+        RequestBuilder request = MockMvcRequestBuilders.get(url,userId)
+                .param("order", "invalid");
+
+        //Status
+        ResultMatcher statusExpected = MockMvcResultMatchers.status().isBadRequest();
+
+        //ContentType
+        ResultMatcher contentTypeExpected = MockMvcResultMatchers.content().contentType(MediaType.APPLICATION_JSON);
+
+        //Body
+        ResultMatcher bodyExpected = MockMvcResultMatchers.jsonPath("$.message").value("Orden invalido" );
+
+        mockMvc.perform(request)
+                .andDo(MockMvcResultHandlers.print())
+                .andExpectAll(statusExpected, bodyExpected, contentTypeExpected);
+
     }
 }
