@@ -1,0 +1,134 @@
+[
+  {
+    "user_id": 1,
+    "user_name": "User1",
+    "posts": [
+      {
+        "post_id": 1,
+        "user_id": 1,
+        "date": "2024-01-09",
+        "product": {"product_id": 1, "product_name": "Laptop", "brand": "BrandX", "color": "Silver", "notes": "Note1"},
+        "category": 1,
+        "price": 100.0
+      },
+      {
+        "post_id": 2,
+        "user_id": 1,
+        "date": "2024-01-02",
+        "product": {"product_id": 2, "product_name": "Phone", "brand": "BrandY", "color": "Black", "notes": "Note2"},
+        "category": 2,
+        "price": 200.0
+      }
+    ],
+    "followed": [
+      {
+        "user_id": 2,
+        "user_name": "User2",
+        "posts": [
+          {
+            "post_id": 3,
+            "user_id": 2,
+            "date": "2023-12-26",
+            "product": {"product_id": 3, "product_name": "Camera", "brand": "BrandZ", "color": "Red", "notes": "Note3"},
+            "category": 1,
+            "price": 150.0
+          }
+        ],
+        "followed": [],
+        "followers": []
+      },
+      {"user_id": 3, "user_name": "User3", "posts": [], "followed": [], "followers": []}
+    ],
+    "followers": [
+      {"user_id": 2, "user_name": "User2", "posts": [], "followed": [], "followers": []},
+      {"user_id": 3, "user_name": "User3", "posts": [], "followed": [], "followers": []}
+    ]
+  },
+  {
+    "user_id": 2,
+    "user_name": "User2",
+    "posts": [
+      {
+        "post_id": 3,
+        "user_id": 2,
+        "date": "2023-12-26",
+        "product": {"product_id": 3, "product_name": "Camera", "brand": "BrandZ", "color": "Red", "notes": "Note3"},
+        "category": 1,
+        "price": 150.0
+      },
+      {
+        "post_id": 4,
+        "user_id": 2,
+        "date": "2024-01-13",
+        "product": {"product_id": 1, "product_name": "Laptop", "brand": "BrandX", "color": "Silver", "notes": "Note1"},
+        "category": 2,
+        "price": 120.0
+      }
+    ],
+    "followed": [],
+    "followers": []
+  },
+  {
+    "user_id": 3,
+    "user_name": "User3",
+    "posts": [
+      {
+        "post_id": 5,
+        "user_id": 3,
+        "date": "2024-01-06",
+        "product": {"product_id": 2, "product_name": "Phone", "brand": "BrandY", "color": "Black", "notes": "Note2"},
+        "category": 1,
+        "price": 180.0
+      },
+      {
+        "post_id": 6,
+        "user_id": 3,
+        "date": "2023-12-29",
+        "product": {"product_id": 3, "product_name": "Camera", "brand": "BrandZ", "color": "Red", "notes": "Note3"},
+        "category": 2,
+        "price": 220.0
+      }
+    ],
+    "followed": [],
+    "followers": []
+  },
+  {
+    "user_id": 4,
+    "user_name": "User4",
+    "posts": [
+      {
+        "post_id": 7,
+        "user_id": 4,
+        "date": "2024-01-11",
+        "product": {"product_id": 1, "product_name": "Laptop", "brand": "BrandX", "color": "Silver", "notes": "Note1"},
+        "category": 1,
+        "price": 130.0
+      },
+      {
+        "post_id": 8,
+        "user_id": 4,
+        "date": "2024-01-04",
+        "product": {"product_id": 2, "product_name": "Phone", "brand": "BrandY", "color": "Black", "notes": "Note2"},
+        "category": 2,
+        "price": 250.0
+      }
+    ],
+    "followed": [
+      {
+        "user_id": 2,
+        "user_name": "User2",
+        "posts": [],
+        "followers": [],
+        "followed": []
+      },
+      {
+        "user_id": 3,
+        "user_name": "User3",
+        "posts": [],
+        "followers": [],
+        "followed": []
+      }
+    ],
+    "followers": []
+  }
+]
