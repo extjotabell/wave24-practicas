@@ -88,4 +88,30 @@ public class SocialControllerTest {
                 .andExpectAll(statusExpected, bodyExpected, contentTypeExpected);
     }
 
+    @Test
+    @DisplayName("Test getAllFollowed endpoint with an invalid userId")
+    public void getAllFollowedSadPath() throws Exception {
+
+        UserFollowedDto userFollowedList = userUtils.getUserFollowedList();
+
+        //Request creation
+        String url = "/users/{userId}/followed/list";
+        Integer userId = 469;
+        RequestBuilder request = MockMvcRequestBuilders.get(url,userId)
+                .param("order", "name_asc");
+
+        //Status
+        ResultMatcher statusExpected = MockMvcResultMatchers.status().isNotFound();
+
+        //ContentType
+        ResultMatcher contentTypeExpected = MockMvcResultMatchers.content().contentType(MediaType.APPLICATION_JSON);
+
+        //Body
+        ResultMatcher bodyExpected = MockMvcResultMatchers.jsonPath("$.message").value("No se encontro un usuario con el id " + userId);
+
+        mockMvc.perform(request)
+                .andDo(MockMvcResultHandlers.print())
+                .andExpectAll(statusExpected, bodyExpected, contentTypeExpected); //resultMatchers: status, body, contentType
+    }
+
 }
