@@ -248,7 +248,7 @@ Get a list of posts made by the sellers that a user follows in the last two week
 {
     "user_id": 4698,
     "posts": [ {
-            “user_id”: 123,
+            "user_id": 123,
             "postId": 32,
             "date": "01-05-2021",
             "product": {
@@ -263,7 +263,7 @@ Get a list of posts made by the sellers that a user follows in the last two week
             "price": 2800.69
         },
         {
-            “user_id”: 234,
+            "user_id": 234,
             "postId": 18,
             "date": "29-04-2021",
             "product": {
@@ -377,6 +377,32 @@ To run tests, use the postman collection located in the following directory:
 | T-0007 | Verificar que la cantidad de seguidores de un determinado usuario sea correcta. (US-0002) | Devuelve el cálculo correcto del total de la cantidad de seguidores que posee un usuario.| Desiree Limachi|
 | T-0008 | Verificar que la consulta de publicaciones realizadas en las últimas dos semanas de un determinado vendedor sean efectivamente de las últimas dos semanas. (US-0006) | Devuelve únicamente los datos de las publicaciones que tengan fecha de publicación dentro de las últimas dos semanas a partir del día de la fecha. | Victoria Bórquez|
 
+## Individual Development
+### Integration Tests
+
+| Integration Test | Entry situations                   | Expected behavior                                                                                                                                              |  
+|:-----------------|:-----------------------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------| 
+| T-0009           | Verificar la relación al endpoint "/users/{userId}/followed/list" | **Se cumple:** Status code 200 <br> **No se cumple:** <br/>- Status code 404 (en caso de id inexistente)<br/> - Status code 400 (en caso de un orden inválido) | 
+
+### Coverage
+![Coverage con test de integracion individual](/be_java_hisp_w25_g03_carrada/src/main/java/resources/CoverageImage/Tests-Individual.png)
+
+## Individual Development
+### Bonus
+
+| Integration Test | Entry situations                                                                | Expected behavior                                                                                                                                             |  
+|:-----------------|:--------------------------------------------------------------------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------| 
+| T-0010           | Verificar la relación al endpoint "/users"                                      | **Se cumple:** Status code 200 <br>                                                                                                                           | 
+| T-0011           | Verificar la relación al endpoint "/posts"                                      | **Se cumple:** Status code 200 <br>                                                                                                                           | 
+| T-0012           | Verificar la relación al endpoint "/users/{userId}/followers/list"              | **Se cumple:** Status code 200 <br> **No se cumple:** <br/>- Status code 404 (en caso de id inexistente)<br/> - Status code 400 (en caso de un orden inválido) | 
+| T-0013           | Verificar la relación al endpoint "/users/{userId}/follow/{userIdToFollow}"     | **Se cumple:** Status code 200 <br> **No se cumple:**  Status code 404 (en caso de id inexistente)<br/>                                                       | 
+| T-0014           | Verificar la relación al endpoint "/users/{userId}/unfollow/{userIdToUnfollow}" | **Se cumple:** Status code 200 <br> | 
+| T-0015           | Verificar la relación al endpoint "/products/post" | **Se cumple:** Status code 200 <br> | 
+
+### Coverage (BONUS)
+```md
+![Coverage con test de integracion bonus](/be_java_hisp_w25_g03_carrada/src/main/java/resources/CoverageImage/Tests-Bonus.png)
+```
 
 ## Authors
 
