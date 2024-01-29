@@ -33,3 +33,18 @@ Luego importar el archivo utilizando Postman para visualizar y realizar pruebas 
 | Nicolas Ortega                 |nicolas.ortegacaicedo@mercadolibre.com.co                                        |
 | Guillermo Arturo Marcano Funes |guillermo.marcano@mercadolibre.com.co                                       |
 | Facundo Mamani Flores          | facundo.fmamaniflores@mercadolibre.com |
+
+# Testing
+
+| **User Story** | **Descripción**                                              | **Responsable**                   |
+|------------|-------------------------------------------------------|--------------------------------|
+| T-0001     | Verificar que el usuario a seguir exista. (US-0001)        | Comilo Roldan Quijano                 |
+| T-0002     | Verificar que el usuario a dejar de seguir exista. (US-0007)                 | Victoria Iglesias Márquez      |
+| T-0003     | Verificar que el tipo de ordenamiento alfabético exista (US-0008) name_asc , name_desc                 | Facundo Mamani Flores          |
+| T-0004     | Verificar el correcto ordenamiento ascendente y descendente por nombre. (US-0008)                | Jorge Guerra                   |
+| T-0005     | Verificar que el tipo de ordenamiento por fecha exista (US-0009) date_asc , date_desc                                | Facundo Mamani Flores          |
+| T-0006     | Verificar el correcto ordenamiento ascendente y descendente por fecha. (US-0009)               | Guillermo Arturo Marcano Funes |
+| T-0007     | Verificar que la cantidad de seguidores de un determinado usuario sea correcta. (US-0002)   | Nicolas Ortega                 |
+| T-0008     | Verificar que la consulta de publicaciones realizadas en las últimas dos semanas de un determinado vendedor sean efectivamente de las últimas dos semanas. (US-0006)   | Guillermo Arturo Marcano Funes                   |
+| V-0001     | Realizar todas las validaciones adecuadas | Comilo Roldan Quijano
+| Fix-0001   | Refactoring Controller/Service Code | Nicolas Ortega |
