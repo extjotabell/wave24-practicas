@@ -18,7 +18,7 @@ public class PostRepository implements IPostRepository{
     private List<Post> postRepository;
     private String jsonFile = "classpath:data/posts.json";
 
-    public PostRepository(List<Post> postRepository) {
+    public PostRepository() {
         this.postRepository = loadPosts();
     }
 
@@ -52,18 +52,18 @@ public class PostRepository implements IPostRepository{
 
     @Override
     public Post remove(Integer id) {
-        var productToDelete = postRepository
+        var postToDelete = postRepository
                 .stream()
                 .filter(post -> post.getPostId().equals(id))
                 .findFirst()
                 .orElse(null);
 
-        if (productToDelete == null)
+        if (postToDelete == null)
             return null;
 
-        postRepository.remove(productToDelete);
+        postRepository.remove(postToDelete);
 
-        return productToDelete;
+        return postToDelete;
     }
 
     @Override

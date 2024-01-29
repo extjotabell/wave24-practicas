@@ -20,7 +20,10 @@ import org.socialmeli.be_java_hisp_w24_g04.repository.PostRepository;
 import org.socialmeli.be_java_hisp_w24_g04.repository.UserRepository;
 import org.socialmeli.be_java_hisp_w24_g04.service.PostService;
 
+import java.time.Clock;
+import java.time.Instant;
 import java.time.LocalDate;
+import java.time.ZoneId;
 import java.util.Arrays;
 import java.util.Optional;
 import java.util.Set;
@@ -39,6 +42,9 @@ public class PostServiceTests {
     @Mock
     UserRepository userRepository;
 
+    @Mock
+    Clock clock;
+
     private User userWithId101;
     private User userWithId102;
     private List<PostDTO> expectedPostDTOFor102Asc;
@@ -50,6 +56,10 @@ public class PostServiceTests {
 
     @BeforeEach
     public void setUp() {
+        Instant fixedInstant = Instant.parse("2024-01-27T00:00:00Z");
+        when(clock.instant()).thenReturn(fixedInstant);
+        when(clock.getZone()).thenReturn(ZoneId.systemDefault());
+
         UserDTO followedUserDTO = new UserDTO(102, "User2");
         userWithId101 = new User(101, "User1", Set.of(followedUserDTO), Set.of());
         UserDTO followerUserDTO102 = new UserDTO(103, "User3");
