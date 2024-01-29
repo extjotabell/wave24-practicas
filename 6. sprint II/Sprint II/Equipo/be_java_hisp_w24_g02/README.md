@@ -26,6 +26,16 @@ Desarrollar una API para un escenario determinado de manera grupal. En el punto 
 - [US0008] - Get followers or followed list for a user, with order by name asc and desc - Ignacio Collado y Stefano Guillermo Tagliaferri
 - [US0009] - Get recent posts from the followed users, with order by date asc and desc - Juan Camilo Guerrero Alarcon
 
+## Test y Responsables
+- [T0001] - Verify follow user - Juan Felipe Saenz Garcia
+- [T0002] - Verify that user to follow exist - Jose Joaquin Cabello Alegria
+- [T0003] - Verify params to order followers and followed - Ignacio Collado
+- [T0004] - Verify that list is successfully ordered - Stefano Guillermo Tagliaferri
+- [T0005] - Verify params to order by date - Jose Joaquin Cabello Alegria
+- [T0006] - Verify that list of post is successfully ordered - Juan Camilo Guerrero Alarcon
+- [T0007] - Verify that followers count of a user is correct - Juan Esteban Guevara
+- [T0008] - Verify that post of list are from two weeks - Juan Esteban Guevara y Juan Camilo Guerrero Alarcon
+
 ## Integrantes
 - Ignacio Benjamin Collado
 - Stefano Guillermo Tagliaferri
