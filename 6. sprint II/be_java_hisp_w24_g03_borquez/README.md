@@ -380,7 +380,7 @@ To run tests, use the postman collection located in the following directory:
 ### Desarrollo individual
 
 #### Integration Test (Victoria Bórquez)
-| Test unitario | Entry situations     | Expected behavior                | 
+| Test | Entry situations     | Expected behavior                | 
 | :-------- | :------- | :------------------------- |
 | TI-0001 | Verificar que la cantidad de usuarios que siguen a un usuario sea correcta (US_0002) | **Se cumple:** permite continuar con normalidad <br> **No se cumple:** Notifica la no existencia mediante una excepción|
 | TI-0002 | Verificar que lista de usuarios que siguen a un usuario sea correcta (US_0003) | **Se cumple:** permite continuar con normalidad <br> **No se cumple:** Notifica la no existencia mediante una excepción|
