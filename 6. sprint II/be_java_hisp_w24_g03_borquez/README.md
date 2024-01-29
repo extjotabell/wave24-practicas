@@ -390,7 +390,7 @@ To run tests, use the postman collection located in the following directory:
 
 
 #### Coverage (unit test + integration test)
-![Alt text](image-1.png)
+![Markdown image](./docs/coverage.png)
 
 ## Authors
 
