@@ -377,6 +377,20 @@ To run tests, use the postman collection located in the following directory:
 | T-0007 | Verificar que la cantidad de seguidores de un determinado usuario sea correcta. (US-0002) | Devuelve el cálculo correcto del total de la cantidad de seguidores que posee un usuario.| Desiree Limachi|
 | T-0008 | Verificar que la consulta de publicaciones realizadas en las últimas dos semanas de un determinado vendedor sean efectivamente de las últimas dos semanas. (US-0006) | Devuelve únicamente los datos de las publicaciones que tengan fecha de publicación dentro de las últimas dos semanas a partir del día de la fecha. | Victoria Bórquez|
 
+### Desarrollo individual
+
+#### Integration Test (Victoria Bórquez)
+| Test unitario | Entry situations     | Expected behavior                | 
+| :-------- | :------- | :------------------------- |
+| TI-0001 | Verificar que la cantidad de usuarios que siguen a un usuario sea correcta (US_0002) | **Se cumple:** permite continuar con normalidad <br> **No se cumple:** Notifica la no existencia mediante una excepción|
+| TI-0002 | Verificar que lista de usuarios que siguen a un usuario sea correcta (US_0003) | **Se cumple:** permite continuar con normalidad <br> **No se cumple:** Notifica la no existencia mediante una excepción|
+| TI-0003 | Verificar correcto seguimiento de usuario (US_0001) | **Se cumple:** permite continuar con normalidad <br> **No se cumple:** Notifica la no existencia mediante una excepción|
+| TI-0004 | Verificar correcto funcionamiento de la acción de dejar de seguir a usuario (US_0007) | **Se cumple:** permite continuar con normalidad <br> **No se cumple:** Notifica la no existencia mediante una excepción|
+| TI-0005 | Verificar la correcta creación de un post (US_0005) | **Se cumple:** permite continuar con normalidad <br> **No se cumple:** Notifica la no existencia mediante una excepción|
+
+
+#### Coverage (unit test + integration test)
+![Alt text](image-1.png)
 
 ## Authors
 
