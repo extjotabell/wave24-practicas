@@ -386,7 +386,7 @@ To run tests, use the postman collection located in the following directory:
 
 ### Coverage
 ```md
-![](src/main/resources/CoverageImage/Tests-Individual.png)
+![](https://github.com/extjotabell/wave24-practicas/blob/carrada_yamila/6.%20sprint%20II/be_java_hisp_w24_g03_carrada/src/main/resources/CoverageImage/Tests-Individual.png?raw=true)
 ```
 ## Individual Development
 ### Bonus
@@ -402,7 +402,7 @@ To run tests, use the postman collection located in the following directory:
 
 ### Coverage (BONUS)
 ```md
-![](src/main/resources/CoverageImage/Tests-Bonus.png)
+![](https://github.com/extjotabell/wave24-practicas/blob/carrada_yamila/6.%20sprint%20II/be_java_hisp_w24_g03_carrada/src/main/resources/CoverageImage/Tests-Bonus.png?raw=true)
 ```
 
 ## Authors
