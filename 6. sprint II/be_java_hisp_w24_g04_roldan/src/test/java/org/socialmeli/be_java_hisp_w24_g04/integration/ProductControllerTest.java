@@ -2,28 +2,47 @@ package org.socialmeli.be_java_hisp_w24_g04.integration;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.hamcrest.Matchers;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import org.mockito.Mock;
+import org.socialmeli.be_java_hisp_w24_g04.AppConfig;
 import org.socialmeli.be_java_hisp_w24_g04.dto.ProductDTO;
 import org.socialmeli.be_java_hisp_w24_g04.dto.UserPostDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.result.MockMvcResultHandlers;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
+
+import java.time.Clock;
+import java.time.Instant;
+import java.time.ZoneId;
+
+import static org.mockito.Mockito.when;
 
 @SpringBootTest
 @AutoConfigureMockMvc
 class ProductControllerTest {
     MockMvc mockMvc;
     ObjectMapper objectMapper;
+    @MockBean
+    Clock clock;
 
     @Autowired
     public ProductControllerTest(MockMvc mockMvc, ObjectMapper objectMapper) {
         this.mockMvc = mockMvc;
         this.objectMapper = objectMapper;
+    }
+
+    @BeforeEach
+    public void setUp() {
+        Instant fixedInstant = Instant.parse("2024-01-27T00:00:00Z");
+        when(clock.instant()).thenReturn(fixedInstant);
+        when(clock.getZone()).thenReturn(ZoneId.systemDefault());
     }
 
     @Test

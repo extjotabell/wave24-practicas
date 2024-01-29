@@ -15,6 +15,7 @@ import org.socialmeli.be_java_hisp_w24_g04.repository.IUserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.time.Clock;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.time.temporal.ChronoUnit;
@@ -27,16 +28,23 @@ public class PostService implements IPostService {
     private final IPostRepository postRepository;
     private final IUserRepository userRepository;
     private final IProductRepository productRepository;
+    private final Clock clock;
 
     @Autowired
     public PostService(
             IPostRepository postRepository,
             IUserRepository userRepository,
-            IProductRepository productRepository
-    ) {
+            IProductRepository productRepository,
+            Clock clock
+            ) {
         this.postRepository = postRepository;
         this.userRepository = userRepository;
         this.productRepository = productRepository;
+        this.clock = clock;
+    }
+
+    public LocalDate getCurrentDate() {
+        return LocalDate.now(clock);
     }
 
     @Override
@@ -86,7 +94,7 @@ public class PostService implements IPostService {
     @Override
     public List<PostDTO> searchAllFollowedLastTwoWeeks(Integer userId, String order) {
         List<PostDTO> foundPosts = new ArrayList<>();
-        LocalDate dateNow = LocalDate.now();
+        LocalDate dateNow = this.getCurrentDate();
         User user = userRepository.get(userId).orElseThrow(() -> new NotFoundException("User not found."));
 
         try {

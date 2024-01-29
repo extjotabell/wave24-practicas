@@ -11,25 +11,52 @@ Luego importar el archivo utilizando Postman para visualizar y realizar pruebas 
 
 ## Endpoints
 
-| **User Story** | **Endpoint**                                              | **Responsable**                   |
-|------------|-------------------------------------------------------|--------------------------------|
-| US0001     | POST - /users/{userId}/follow/{userIdToFollow}        | Nicolas Ortega                 |
-| US0002     | GET - /users/{userId}/followers/count                 | Victoria Iglesias Márquez      |
-| US0003     | GET - /users/{userId}/followers/list                  | Facundo Mamani Flores          |
-| US0004     | GET - /users/{userId}/followed/list                   | Jorge Guerra                   |
-| US0005     | POST - /products/post                                 | Comilo Roldan Quijano          |
-| US0006     | GET - /products/followed/{userId}/list                | Guillermo Arturo Marcano Funes |
-| US0007     | POST - /users/{userId}/unfollow/{userIdToUnfollow}    | Nicolas Ortega                 |
-| US0008     | GET - /users/{UserID}/followers/list?order=name_asc   | Jorge Guerra                   |
-| US0009     | GET - /products/followed/{userId}/list?order=date_asc | Guillermo Arturo Marcano Funes |
+| **User Story** | **Endpoint**                                          | **Responsable**                |
+|----------------|-------------------------------------------------------|--------------------------------|
+| US0001         | POST - /users/{userId}/follow/{userIdToFollow}        | Nicolas Ortega                 |
+| US0002         | GET - /users/{userId}/followers/count                 | Victoria Iglesias Márquez      |
+| US0003         | GET - /users/{userId}/followers/list                  | Facundo Mamani Flores          |
+| US0004         | GET - /users/{userId}/followed/list                   | Jorge Guerra                   |
+| US0005         | POST - /products/post                                 | Comilo Roldan Quijano          |
+| US0006         | GET - /products/followed/{userId}/list                | Guillermo Arturo Marcano Funes |
+| US0007         | POST - /users/{userId}/unfollow/{userIdToUnfollow}    | Nicolas Ortega                 |
+| US0008         | GET - /users/{UserID}/followers/list?order=name_asc   | Jorge Guerra                   |
+| US0009         | GET - /products/followed/{userId}/list?order=date_asc | Guillermo Arturo Marcano Funes |
 
 ## Integrantes
 
-| **Integrante**                     | **Email**                                  |
-|--------------------------------|----------------------------------------|
-| Jorge Guerra                   |jorge.guerraguzman@mercadolibre.cl                                        |
-| Victoria Iglesias Márquez      |victoria.marquez@mercadolibre.com                                        |
-| Comilo Roldan Quijano          |camilo.roldanquijano@mercadolibre.com.co                                        |
-| Nicolas Ortega                 |nicolas.ortegacaicedo@mercadolibre.com.co                                        |
-| Guillermo Arturo Marcano Funes |guillermo.marcano@mercadolibre.com.co                                       |
-| Facundo Mamani Flores          | facundo.fmamaniflores@mercadolibre.com |
+| **Integrante**                 | **Email**                                 |
+|--------------------------------|-------------------------------------------|
+| Jorge Guerra                   | jorge.guerraguzman@mercadolibre.cl        |
+| Victoria Iglesias Márquez      | victoria.marquez@mercadolibre.com         |
+| Comilo Roldan Quijano          | camilo.roldanquijano@mercadolibre.com.co  |
+| Nicolas Ortega                 | nicolas.ortegacaicedo@mercadolibre.com.co |
+| Guillermo Arturo Marcano Funes | guillermo.marcano@mercadolibre.com.co     |
+| Facundo Mamani Flores          | facundo.fmamaniflores@mercadolibre.com    |
+
+# Testing
+
+| **User Story** | **Descripción**                                                                                                                                                      | **Responsable**                |
+|----------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------|
+| T-0001         | Verificar que el usuario a seguir exista. (US-0001)                                                                                                                  | Comilo Roldan Quijano          |
+| T-0002         | Verificar que el usuario a dejar de seguir exista. (US-0007)                                                                                                         | Victoria Iglesias Márquez      |
+| T-0003         | Verificar que el tipo de ordenamiento alfabético exista (US-0008) name_asc , name_desc                                                                               | Facundo Mamani Flores          |
+| T-0004         | Verificar el correcto ordenamiento ascendente y descendente por nombre. (US-0008)                                                                                    | Jorge Guerra                   |
+| T-0005         | Verificar que el tipo de ordenamiento por fecha exista (US-0009) date_asc , date_desc                                                                                | Facundo Mamani Flores          |
+| T-0006         | Verificar el correcto ordenamiento ascendente y descendente por fecha. (US-0009)                                                                                     | Guillermo Arturo Marcano Funes |
+| T-0007         | Verificar que la cantidad de seguidores de un determinado usuario sea correcta. (US-0002)                                                                            | Nicolas Ortega                 |
+| T-0008         | Verificar que la consulta de publicaciones realizadas en las últimas dos semanas de un determinado vendedor sean efectivamente de las últimas dos semanas. (US-0006) | Guillermo Arturo Marcano Funes |
+| V-0001         | Realizar todas las validaciones adecuadas                                                                                                                            | Comilo Roldan Quijano          |
+| Fix-0001       | Refactoring Controller/Service Code                                                                                                                                  | Nicolas Ortega                 |
+
+# Integration Test (Individual and Bonus)
+
+| **User Story** | **Descripción**                                                |
+|----------------|----------------------------------------------------------------|
+| T-0009         | Verificar que funcione "/followed/{userId}/list"               |
+| T-0010         | Verificar que funcione "/post"                                 |
+| T-0011         | Verificar que funcione "/{userId}/followers/list"              |
+| T-0012         | Verificar que funcione "/{userId}/followers/count"             |
+| T-0013         | Verificar que funcione "/{userId}/follow/{userIdToFollow}"     |
+| T-0014         | Verificar que funcione "/{userId}/unfollow/{userIdToUnfollow}" |
+| T-0015         | Verificar que funcione "/{userId}/followed/list"               |
