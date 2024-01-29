@@ -58,6 +58,33 @@ La API se ejecuta localmente utilizando Spring Boot. Para las pruebas, se puede 
 - **GET /products/followed/{userId}/list?order=date_desc**
   - Responsable: [@JuanIgnacioZunino](https://github.com/JuanIgnacioZunino)
 
+
+### Testing Unitarios
+| Situaciones de entrada                                                                               | Comportamiento Esperado                                                               |
+|------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------|
+| T-0001 Verificar que el usuario a seguir exista. (US-0001)                                          | - Se cumple: Permite continuar con normalidad.                                         |
+|                                                                                                      | - No se cumple: Notifica la no existencia mediante una excepción.                      |
+| T-0002 Verificar que el usuario a dejar de seguir exista. (US-0007)                                  | - Se cumple: Permite continuar con normalidad.                                         |
+|                                                                                                      | - No se cumple: Notifica la no existencia mediante una excepción.                      |
+| T-0003 Verificar que el tipo de ordenamiento alfabético exista (US-0008) name_asc , name_desc         | - Se cumple: Permite continuar con normalidad.                                         |
+|                                                                                                      | - No se cumple: Notifica la no existencia mediante una excepción.                      |
+| T-0004 Verificar el correcto ordenamiento ascendente y descendente por nombre. (US-0008)             | - Devuelve la lista ordenada según el criterio solicitado.                              |
+| T-0005 Verificar que el tipo de ordenamiento por fecha exista (US-0009) date_asc , date_desc         | - Se cumple: Permite continuar con normalidad.                                         |
+|                                                                                                      | - No se cumple: Notifica la no existencia mediante una excepción.                      |
+| T-0006 Verificar el correcto ordenamiento ascendente y descendente por fecha. (US-0009)              | - Devuelve la lista ordenada según el criterio solicitado.                              |
+| T-0007 Verificar que la cantidad de seguidores de un determinado usuario sea correcta. (US-0002)    | - Devuelve el cálculo correcto del total de la cantidad de seguidores que posee un usuario.|
+| T-0008 Verificar que la consulta de publicaciones realizadas en las últimas dos semanas de un determinado vendedor sean efectivamente de las últimas dos semanas. (US-0006)| - Devuelve únicamente los datos de las publicaciones que tengan fecha de publicación dentro de las últimas dos semanas a partir del día de la fecha.|
+
+
+### Testing Integración
+| Situaciones de entrada                                                                               | Comportamiento Esperado                                                               |
+|------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------|
+| T-0001 Verificar que la cantidad de seguidores de un determinado usuario registrado sea correcta.                                         | - Se cumple: Devuelve el id del usuario, el user name y la cantidad de seguidores del mismo
+|                                                                                                      | - No se cumple: Notifica la no existencia del usuario mediante una excepción.                      |
+
+
+
+
 ### Integrantes
 #### Developers:
 - [@ImanolSuppoMELI](https://github.com/ImanolSuppoMELI) - Imanol Suppo Alaniz
