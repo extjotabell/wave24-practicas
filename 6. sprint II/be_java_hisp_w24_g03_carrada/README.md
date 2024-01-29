@@ -385,8 +385,9 @@ To run tests, use the postman collection located in the following directory:
 | T-0009           | Verificar la relación al endpoint "/users/{userId}/followed/list" | **Se cumple:** Status code 200 <br> **No se cumple:** <br/>- Status code 404 (en caso de id inexistente)<br/> - Status code 400 (en caso de un orden inválido) | 
 
 ### Coverage
-![Coverage con test de integracion individual](/be_java_hisp_w25_g03_carrada/src/main/java/resources/CoverageImage/Tests-Individual.png)
-
+```md
+![](src/main/resources/CoverageImage/Tests-Individual.png)
+```
 ## Individual Development
 ### Bonus
 
@@ -401,7 +402,7 @@ To run tests, use the postman collection located in the following directory:
 
 ### Coverage (BONUS)
 ```md
-![Coverage con test de integracion bonus](/be_java_hisp_w25_g03_carrada/src/main/java/resources/CoverageImage/Tests-Bonus.png)
+![](src/main/resources/CoverageImage/Tests-Bonus.png)
 ```
 
 ## Authors
