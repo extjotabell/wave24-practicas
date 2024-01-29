@@ -1,0 +1,69 @@
+[
+  {
+    "id": 101,
+    "name": "Alice Johnson",
+    "followers": [
+      {
+        "id": 102,
+        "name": "Bob Smith"
+      },
+      {
+        "id": 103,
+        "name": "Charlie Brown"
+      }
+    ],
+    "followed": [
+      {
+        "id": 104,
+        "name": "David Williams"
+      },
+      {
+        "id": 105,
+        "name": "Eva Martinez"
+      }
+    ],
+    "posts": []
+  },
+  {
+    "id": 102,
+    "name": "Bob Smith",
+    "followers": [
+      {
+        "id": 101,
+        "name": "Alice Johnson"
+      },
+      {
+        "id": 103,
+        "name": "Charlie Brown"
+      }
+    ],
+    "followed": [
+      {
+        "id": 106,
+        "name": "Frank Wilson"
+      },
+      {
+        "id": 107,
+        "name": "Grace Davis"
+      }
+    ],
+    "posts": []
+  },
+  {
+    "id": 104,
+    "name": "David Williams",
+    "followers": [
+      {
+        "id": 101,
+        "name": "Alice Johnson"
+      },
+      {
+        "id": 103,
+        "name": "Charlie Brown"
+      }
+    ],
+    "followed": [],
+    "posts": []
+  }
+
+]
