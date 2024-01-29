@@ -52,44 +52,6 @@ public class UserServiceTest {
     private UserService userService;
 
     @Test
-    @DisplayName("T-0007 Verify that the number of followers of a certain user is correct")
-    public void getFollowersCountTest() {
-        // Arrange
-        int userId = 101;
-        String userName = "Alice Johnson";
-        ArrayList<User> followers = new ArrayList<>();
-        followers.add(UserConstants.USER2);
-        followers.add(UserConstants.USER3);
-        User user = UserConstants.USER1;
-
-        UserFollowersCountDTO expected = new UserFollowersCountDTO(userId, userName, followers.size());
-
-        // Act
-        Mockito.when(userRepository.findById(userId)).thenReturn(Optional.of(user));
-        var result = userService.getFollowersCount(userId);
-
-        // Assert
-        Assertions.assertEquals(expected, result);
-    }
-
-    @Test
-    @DisplayName("T-0007 Verify that UserNotFoundException is thrown when user is not found")
-    public void getFollowersCountTestUserNotFoundException() {
-        // Arrange
-        int userId = 10132;
-
-        // Act
-        Mockito.when(userRepository.findById(userId)).thenReturn(Optional.empty());
-
-        // Assert
-        Assertions.assertThrows(
-                UserNotFoundException.class,
-                () -> userService.getFollowersCount(userId)
-        );
-    }
-
-
-    @Test
     @DisplayName("T-001 Follow user service test")
     public void followUserGoodTest() {
         // Arrange
@@ -147,7 +109,7 @@ public class UserServiceTest {
     }
 
     @Test
-    @DisplayName("When unfollowing an existing user, then unfollow successfully")
+    @DisplayName("T-0002 When unfollowing an existing user, then unfollow successfully")
     public void unfollowExistingUser() {
         // Arrange
         // Create user and userToUnfollow objects to simulate existing users in the system.
@@ -173,7 +135,7 @@ public class UserServiceTest {
 
 
     @Test
-    @DisplayName("When unfollowing a non-existing user, then handle gracefully")
+    @DisplayName("T-0002 When unfollowing a non-existing user, then handle gracefully")
     public void unfollowNonExistingUser() {
         // Arrange
         int userId = 101; // Existing user ID
@@ -192,7 +154,7 @@ public class UserServiceTest {
         );
     }
 
-
+    //T-0003 y T-0004
     private void validateAlphabeticalOrderTest(int userId, String order, boolean isAscendingOrder) {
 
         //arrange
@@ -217,7 +179,7 @@ public class UserServiceTest {
     }
 
     @Test
-    @DisplayName("Test that validates the value of the alphabetical order parameter for a value null")
+    @DisplayName("T-0003 Test that validates the value of the alphabetical order parameter for a value null")
     public void validateAlphabeticalOrderExceptionNullParameterTest() {
         //arrange
         isValidateExceptionTest = true;
@@ -225,7 +187,7 @@ public class UserServiceTest {
     }
 
     @Test
-    @DisplayName("Test that validates the value of the alphabetical order parameter for a value empty")
+    @DisplayName("T-0003 Test that validates the value of the alphabetical order parameter for a value empty")
     public void validateAlphabeticalOrderExceptionEmptyParameterTest() {
         //arrange
         isValidateExceptionTest = true;
@@ -233,7 +195,7 @@ public class UserServiceTest {
     }
 
     @Test
-    @DisplayName("Test that validates the value of the alphabetical order parameter for a value other than 'name_asc' or 'name_desc'")
+    @DisplayName("T-0003 Test that validates the value of the alphabetical order parameter for a value other than 'name_asc' or 'name_desc'")
     public void validateAlphabeticalOrderExceptionBadParameterTest() {
         //arrange
         isValidateExceptionTest = true;
@@ -241,18 +203,58 @@ public class UserServiceTest {
     }
 
     @Test
-    @DisplayName("Test that validates the correct functionality of alphabetical order ascending")
+    @DisplayName("T-0004 Test that validates the correct functionality of alphabetical order ascending")
     public void getUserWithFollowersAscTest() {
         //arrange
         validateAlphabeticalOrderTest(101, "name_asc", true);
     }
 
     @Test
-    @DisplayName("Test that validates the correct functionality of alphabetical order descending")
+    @DisplayName("T-0004 Test that validates the correct functionality of alphabetical order descending")
     public void getUserWithFollowersDescTest() {
         //arrange
         validateAlphabeticalOrderTest(101, "name_desc", false);
     }
+
+
+    @Test
+    @DisplayName("T-0007 Verify that the number of followers of a certain user is correct")
+    public void getFollowersCountTest() {
+        // Arrange
+        int userId = 101;
+        String userName = "Alice Johnson";
+        ArrayList<User> followers = new ArrayList<>();
+        followers.add(UserConstants.USER2);
+        followers.add(UserConstants.USER3);
+        User user = UserConstants.USER1;
+
+        UserFollowersCountDTO expected = new UserFollowersCountDTO(userId, userName, followers.size());
+
+        // Act
+        Mockito.when(userRepository.findById(userId)).thenReturn(Optional.of(user));
+        var result = userService.getFollowersCount(userId);
+
+        // Assert
+        Assertions.assertEquals(expected, result);
+    }
+
+    @Test
+    @DisplayName("T-0007 Verify that UserNotFoundException is thrown when user is not found")
+    public void getFollowersCountTestUserNotFoundException() {
+        // Arrange
+        int userId = 10132;
+
+        // Act
+        Mockito.when(userRepository.findById(userId)).thenReturn(Optional.empty());
+
+        // Assert
+        Assertions.assertThrows(
+                UserNotFoundException.class,
+                () -> userService.getFollowersCount(userId)
+        );
+    }
+
+
 
 
 }

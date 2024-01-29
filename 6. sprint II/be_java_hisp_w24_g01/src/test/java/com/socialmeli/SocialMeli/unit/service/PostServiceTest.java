@@ -191,7 +191,7 @@ public class PostServiceTest {
     }
   
     @Test
-    @DisplayName("Given a userId and return a list of posts those are from the last two weeks")
+    @DisplayName("T-0008 Given a userId and return a list of posts those are from the last two weeks")
     public void testGetLastestPostHappyPath() {
         //Arrange
         Integer userId = 101;
@@ -216,7 +216,7 @@ public class PostServiceTest {
     }
 
     @Test
-    @DisplayName("No posts found from the last two weeks")
+    @DisplayName("T-0008 No posts found from the last two weeks")
     public void testGetLastestPostEmptyListException() {
         //Arrange
         Integer userId = 101;
