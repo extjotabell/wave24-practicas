@@ -8,15 +8,9 @@ import org.be_java_hisp_w24_g05.entity.Post;
 
 import java.util.List;
 
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-public class PostFollowedDto {
 
-
+public record PostFollowedDto (
     @JsonProperty("user_id")
-    private Integer userId;
-    private List<Post> posts;
-
-
-}
+    Integer userId,
+    List<Post> posts
+){}

@@ -91,7 +91,7 @@ public class UserServiceTest {
 
         //assert
 
-        Assertions.assertEquals(expectedPostFollowedDto.getPosts(), result.getPosts());
+        Assertions.assertEquals(expectedPostFollowedDto.posts(), result.posts());
     }
 
     @Test

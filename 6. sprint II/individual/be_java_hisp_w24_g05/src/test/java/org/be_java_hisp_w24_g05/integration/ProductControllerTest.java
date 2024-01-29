@@ -43,6 +43,7 @@ public class ProductControllerTest {
     public void recentPostsOfFollowedUsersHappyPath() throws Exception {
         // Arrange
 
+
         // paso 1 - request
         String url = "/products/followed/{userId}/list";
         Integer userId = 1;

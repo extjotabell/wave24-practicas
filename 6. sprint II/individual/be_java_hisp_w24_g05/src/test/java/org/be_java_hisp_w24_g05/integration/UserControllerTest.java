@@ -4,6 +4,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import org.be_java_hisp_w24_g05.common.Data;
 import org.be_java_hisp_w24_g05.dto.*;
 import org.be_java_hisp_w24_g05.entity.Post;
+import org.be_java_hisp_w24_g05.entity.User;
 import org.be_java_hisp_w24_g05.exception.BadOrderException;
 import org.be_java_hisp_w24_g05.exception.BadRequestException;
 import org.junit.jupiter.api.DisplayName;
@@ -453,6 +454,7 @@ public class UserControllerTest {
     @DisplayName("search user followers with order asc happy path")
     public void searchUserFollowersCountHappyPath() throws Exception {
         // Arrange
+        //just to test user constructor
 
         // step 1 - request
         String url = "/users/{userId}/followers/count";
