@@ -30,7 +30,6 @@ public class UserController {
             @NotNull(message = "Parámetro user_id faltante (tipo Integer).")
             @PositiveOrZero(message = "El user_id debe ser mayor a cero.")
             Integer userId,
-
             @RequestParam(required = false) String order) {
         User user = userService.findById(userId);
         Set<UserDTO> followers = userService.getFollowers(userId);
@@ -70,21 +69,15 @@ public class UserController {
             @PathVariable
             @NotNull(message = "Parámetro user_id faltante (tipo Integer).")
             @PositiveOrZero(message = "El user_id debe ser mayor a cero.")
-            String userId,
+            int userId,
 
             @PathVariable
             @NotNull(message = "Parámetro userIdToFollow faltante (tipo Integer).")
             @PositiveOrZero(message = "El userIdToFollow debe ser mayor a cero.")
-            String userIdToFollow
+            int userIdToFollow
     ) {
-        try {
-            Integer userIdInt = Integer.parseInt(userId);
-            Integer userIdToFollowInt = Integer.parseInt(userIdToFollow);
-            userService.follow(userIdInt, userIdToFollowInt);
-            return ResponseEntity.ok().build();
-        } catch (NumberFormatException e) {
-            throw new BadRequestException("User id and user id to follow must be integers");
-        }
+        userService.follow(userId, userIdToFollow);
+        return ResponseEntity.ok().build();
     }
 
     @PostMapping("/{userId}/unfollow/{userIdToUnfollow}")
@@ -92,20 +85,14 @@ public class UserController {
             @PathVariable
             @NotNull(message = "Parámetro user_id faltante (tipo Integer).")
             @PositiveOrZero(message = "El user_id debe ser mayor a cero.")
-            String userId,
+            int userId,
 
             @PathVariable
             @NotNull(message = "Parámetro userIdToUnfollow faltante (tipo Integer).")
             @PositiveOrZero(message = "El userIdToUnfollow debe ser mayor a cero.")
-            String userIdToUnfollow
+            int userIdToUnfollow
     ) {
-        try {
-            Integer userIdInt = Integer.parseInt(userId);
-            Integer userIdToUnfollowInt = Integer.parseInt(userIdToUnfollow);
-            userService.unfollow(userIdInt, userIdToUnfollowInt);
-            return ResponseEntity.ok().build();
-        } catch (NumberFormatException e) {
-            throw new BadRequestException("User id and user id to unfollow must be integers");
-        }
+        userService.unfollow(userId, userIdToUnfollow);
+        return ResponseEntity.ok().build();
     }
 }

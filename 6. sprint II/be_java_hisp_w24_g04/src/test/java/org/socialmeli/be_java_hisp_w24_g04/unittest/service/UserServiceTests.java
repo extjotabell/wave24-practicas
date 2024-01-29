@@ -217,6 +217,22 @@ public class UserServiceTests {
     }
 
     @Test
+    public void testFollowInvalidTargetUser() {
+        // arrange
+        Integer userId = 1;
+        User user = new User();
+        user.setUserId(userId);
+
+        Integer userIdToFollow = 2;
+
+        Mockito.when(userRepository.get(userId)).thenReturn(Optional.of(user));
+        Mockito.when(userRepository.get(userIdToFollow)).thenReturn(Optional.empty());
+
+        // act & assert
+        Assertions.assertThrows(NotFoundException.class, () -> userService.follow(userId, userIdToFollow));
+    }
+
+    @Test
     public void testUnfollow() {
         // arrange
         Integer userId = 1;
@@ -246,6 +262,22 @@ public class UserServiceTests {
         Integer userIdToUnfollow = 2;
 
         Mockito.when(userRepository.get(userId)).thenReturn(Optional.empty());
+
+        // act & assert
+        Assertions.assertThrows(NotFoundException.class, () -> userService.unfollow(userId, userIdToUnfollow));
+    }
+
+    @Test
+    public void testUnfollowInvalidTargetUser() {
+        // arrange
+        Integer userId = 1;
+        User user = new User();
+        user.setUserId(userId);
+
+        Integer userIdToUnfollow = 2;
+
+        Mockito.when(userRepository.get(userId)).thenReturn(Optional.of(user));
+        Mockito.when(userRepository.get(userIdToUnfollow)).thenReturn(Optional.empty());
 
         // act & assert
         Assertions.assertThrows(NotFoundException.class, () -> userService.unfollow(userId, userIdToUnfollow));
