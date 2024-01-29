@@ -4,6 +4,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.socialmeli.SocialMeli.dto.requestDTO.CategoryPostRequestDTO;
 import com.socialmeli.SocialMeli.dto.requestDTO.PostRequestDTO;
 import com.socialmeli.SocialMeli.dto.requestDTO.ProductPostRequestDTO;
+import com.socialmeli.SocialMeli.dto.responseDTO.ExceptionDTO;
 import com.socialmeli.SocialMeli.dto.responseDTO.LastestPostDTO;
 import com.socialmeli.SocialMeli.dto.responseDTO.PostResponseDTO;
 import com.socialmeli.SocialMeli.dto.responseDTO.PostWithIdDTO;
@@ -47,38 +48,38 @@ public class PostControllerTest {
         postRepository.loadDataBase();
     }
 
-        @Test
-        @DisplayName("Create Post Test")
-        public void createPostTestOk () throws Exception {
-            // Arrange
-            String url = "/products/post";
+    @Test
+    @DisplayName("Create Post Test")
+    public void createPostTestOk() throws Exception {
+        // Arrange
+        String url = "/products/post";
 
-            //Storing date
-            LocalDate date = LocalDate.now();
-            //DTO for response and request
-            PostRequestDTO postRequest = new PostRequestDTO(
-                    101, // Example user ID
-                    date,
-                    new ProductPostRequestDTO(101, "Product 1", "Description 1", "Brand","BR", "BRL"),
-                    new CategoryPostRequestDTO(10, "Clothing"),
-                    999.99
-            );
+        //Storing date
+        LocalDate date = LocalDate.now();
+        //DTO for response and request
+        PostRequestDTO postRequest = new PostRequestDTO(
+                101, // Example user ID
+                date,
+                new ProductPostRequestDTO(101, "Product 1", "Description 1", "Brand", "BR", "BRL"),
+                new CategoryPostRequestDTO(10, "Clothing"),
+                999.99
+        );
 
-            // Mock expected response
-            PostResponseDTO expectedResponse = new PostResponseDTO(311, 101, date.toString(), 101,"Product 1", 10,"Clothing", 999.99); // Populate with expected data
-            String requestBody = objectMapper.writeValueAsString(postRequest);
-            ResultMatcher statusExpected = MockMvcResultMatchers.status().isOk();
-            ResultMatcher bodyExpected = MockMvcResultMatchers.content().json(objectMapper.writeValueAsString(expectedResponse));
+        // Mock expected response
+        PostResponseDTO expectedResponse = new PostResponseDTO(311, 101, date.toString(), 101, "Product 1", 10, "Clothing", 999.99); // Populate with expected data
+        String requestBody = objectMapper.writeValueAsString(postRequest);
+        ResultMatcher statusExpected = MockMvcResultMatchers.status().isOk();
+        ResultMatcher bodyExpected = MockMvcResultMatchers.content().json(objectMapper.writeValueAsString(expectedResponse));
 
-            // Act & Assert
-            mockMvc.perform(MockMvcRequestBuilders.post(url)
-                            .contentType(MediaType.APPLICATION_JSON)
-                            .content(requestBody))
-                    .andExpect(statusExpected)
-                    .andExpect(bodyExpected);
-        }
+        // Act & Assert
+        mockMvc.perform(MockMvcRequestBuilders.post(url)
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content(requestBody))
+                .andExpect(statusExpected)
+                .andExpect(bodyExpected);
+    }
 
-        //Default order is date_desc
+    //Default order is date_desc
     @Test
     @DisplayName("List Post User Test with Date Descending Order")
     public void listPostUserTest() throws Exception {
@@ -104,7 +105,55 @@ public class PostControllerTest {
         // Act & Assert
         mockMvc.perform(MockMvcRequestBuilders.get(url))
                 .andExpect(MockMvcResultMatchers.status().isOk())
-                .andExpect(MockMvcResultMatchers.content().json(objectMapper.writeValueAsString(expectedResponse)));;
+                .andExpect(MockMvcResultMatchers.content().json(objectMapper.writeValueAsString(expectedResponse)));
+        ;
+
+    }
+
+    @Test
+    @DisplayName("Exception for empty list in list post user test")
+    public void listPostUserTestThrowsEmptyListException() throws Exception {
+        /* In the JSON data there is a post for this user,
+         * but it is not from the last
+         * two weeks, so it should throw the exception
+         * also, its followers don't have any posts made in the last two weeks
+         */
+
+        // Arrange
+        int userId = 110; // Example user ID
+        String url = "/products/followed/" + userId + "/list?order=date_desc";
+
+        // Expected Exception DTO
+        ExceptionDTO expectedException = new ExceptionDTO("No posts found from the last two weeks");
+
+        // Act & Assert
+        mockMvc.perform(MockMvcRequestBuilders.get(url))
+                .andExpect(MockMvcResultMatchers.status().isNotFound())
+                .andExpect(MockMvcResultMatchers.content().json(objectMapper.writeValueAsString(expectedException)));
+
+    }
+
+    @Test
+    @DisplayName("Exception for non existant order in list post user test")
+    public void listPostUserTestThrowsOrderNotFoundException() throws Exception {
+        /* Null order wont trigger this exception
+         * because the default order is date_desc
+         * so this test should throw an exception
+         * because the order is not valid
+         */
+
+        // Arrange
+        int userId = 101; // Example user ID
+        String url = "/products/followed/" + userId + "/list?order=TESTNONEXISTANTORDER";
+
+        // Expected Exception DTO
+        ExceptionDTO expectedException = new ExceptionDTO("Sorting parameter TESTNONEXISTANTORDER does not exist");
+
+        // Act & Assert
+        mockMvc.perform(MockMvcRequestBuilders.get(url))
+                .andExpect(MockMvcResultMatchers.status().isBadRequest())
+                .andExpect(MockMvcResultMatchers.content().json(objectMapper.writeValueAsString(expectedException)));
+
     }
 }
 
