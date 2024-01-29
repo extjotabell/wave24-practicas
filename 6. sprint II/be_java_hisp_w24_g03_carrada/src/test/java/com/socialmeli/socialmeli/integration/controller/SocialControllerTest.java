@@ -290,7 +290,7 @@ public class SocialControllerTest {
     }
 
     @Test
-    @DisplayName("Test getAllFollowed endpoint with an invalid order")
+    @DisplayName("Test getAllFollower endpoint with an invalid order")
     public void getAllFollowerOrderSadPath() throws Exception {
 
         UserFollowerDto userFollowerList = userUtils.getFollowerList();
@@ -313,6 +313,57 @@ public class SocialControllerTest {
         mockMvc.perform(request)
                 .andDo(MockMvcResultHandlers.print())
                 .andExpectAll(statusExpected, bodyExpected, contentTypeExpected);
+    }
+
+    @Test
+    @DisplayName("Test follow endpoint with valid userId and userIdToFollow.")
+    public void followHappyPathTest() throws Exception{
+        //request
+        String url = "/users/{userId}/follow/{userIdToFollow}";
+        Integer userId = 1465;
+        Integer userIdToFollow = 1115;
+
+        RequestBuilder request = MockMvcRequestBuilders.post(url, userId, userIdToFollow);
+
+        //status
+        ResultMatcher statusExpected = MockMvcResultMatchers.status().isOk();
+
+        //ContentType
+        ResultMatcher contentTypeExpected = MockMvcResultMatchers.content().contentType(MediaType.APPLICATION_JSON);
+
+        //Body
+        ResultMatcher bodyExpected = MockMvcResultMatchers.jsonPath("$.message").value("Follow exitoso");
+
+        mockMvc.perform(request)
+                .andDo(MockMvcResultHandlers.print())
+                .andExpectAll(statusExpected, bodyExpected, contentTypeExpected); //resultMatchers: status, body, contentType
 
     }
+
+    @Test
+    @DisplayName("Test follow endpoint with a non existing userId")
+    public void followSadPathTest() throws Exception{
+        //request
+        String url = "/users/{userId}/follow/{userIdToFollow}";
+        Integer userId = 146;
+        Integer userIdToFollow = 1115;
+
+        RequestBuilder request = MockMvcRequestBuilders.post(url, userId, userIdToFollow);
+
+        //status
+        ResultMatcher statusExpected = MockMvcResultMatchers.status().isNotFound();
+
+        //ContentType
+        ResultMatcher contentTypeExpected = MockMvcResultMatchers.content().contentType(MediaType.APPLICATION_JSON);
+
+        //Body
+        ResultMatcher bodyExpected = MockMvcResultMatchers.jsonPath("$.message").value("El usuario "+userId + " no existe");
+
+        mockMvc.perform(request)
+                .andDo(MockMvcResultHandlers.print())
+                .andExpectAll(statusExpected, bodyExpected, contentTypeExpected); //resultMatchers: status, body, contentType
+
+    }
+
+    //endregion
 }
