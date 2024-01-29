@@ -15,6 +15,7 @@ import org.springframework.test.web.servlet.result.MockMvcResultHandlers;
 import java.util.List;
 
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
@@ -383,6 +384,69 @@ public class SocialMeliControllerTest {
 
         String url = "/users/{userId}/followers/count";
         RequestBuilder request = get(url, userId);
+
+        ResultMatcher statusExpected = status().isNotFound();
+        ResultMatcher bodyExpected = content().json(mapper.writeValueAsString(expected));
+
+        ResultMatcher contentTypeExpected = content().contentType(MediaType.APPLICATION_JSON);
+
+        // act & assert
+        mockMvc.perform(request)
+                .andDo(MockMvcResultHandlers.print())
+                .andExpect(statusExpected) // verify status code
+                .andExpect(bodyExpected) // verify response body
+                .andExpect(contentTypeExpected);   // verify content type
+    }
+
+    @Test
+    public void followUserHappyTest() throws Exception{
+        // average
+        Integer userId = 3105;
+        Integer userIdToFollow = 4698;
+
+        String url = "/users/{userId}/follow/{userIdToFollow}";
+        RequestBuilder request = post(url, userId, userIdToFollow);
+
+        ResultMatcher statusExpected = status().isOk();
+
+        // act & assert
+        mockMvc.perform(request)
+                .andDo(MockMvcResultHandlers.print())
+                .andExpect(statusExpected);   // verify content type
+    }
+
+    @Test
+    public void followUserIdInvalidToFollowTest() throws Exception{
+        // average
+        Integer userId = 3105;
+        Integer userIdToFollow = 8;
+        ExceptionDto expected = new ExceptionDto("El usuario "  + userIdToFollow +" no existe");
+
+        String url = "/users/{userId}/follow/{userIdToFollow}";
+        RequestBuilder request = post(url, userId, userIdToFollow);
+
+        ResultMatcher statusExpected = status().isNotFound();
+        ResultMatcher bodyExpected = content().json(mapper.writeValueAsString(expected));
+
+        ResultMatcher contentTypeExpected = content().contentType(MediaType.APPLICATION_JSON);
+
+        // act & assert
+        mockMvc.perform(request)
+                .andDo(MockMvcResultHandlers.print())
+                .andExpect(statusExpected) // verify status code
+                .andExpect(bodyExpected) // verify response body
+                .andExpect(contentTypeExpected);   // verify content type
+    }
+
+    @Test
+    public void followUserInvalidUserIdTest() throws Exception{
+        // average
+        Integer userId = 8;
+        Integer userIdToFollow = 4698;
+        ExceptionDto expected = new ExceptionDto("El usuario "  + userId +" no existe");
+
+        String url = "/users/{userId}/follow/{userIdToFollow}";
+        RequestBuilder request = post(url, userId, userIdToFollow);
 
         ResultMatcher statusExpected = status().isNotFound();
         ResultMatcher bodyExpected = content().json(mapper.writeValueAsString(expected));
