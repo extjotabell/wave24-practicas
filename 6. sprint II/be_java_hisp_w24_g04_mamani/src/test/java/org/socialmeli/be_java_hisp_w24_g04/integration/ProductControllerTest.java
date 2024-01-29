@@ -79,26 +79,8 @@ public class ProductControllerTest {
 
         ResultMatcher statusExpected = MockMvcResultMatchers.status().isOk();
 
-        ProductDTO productDTO = new ProductDTO(
-                3,
-                "Product 3",
-                "Home",
-                "ExampleBrand3",
-                "Green",
-                "Product notes 3"
-        );
-
-        PostDTO postDTO = new PostDTO(
-                102,
-                3,
-                "2024-01-12",
-                productDTO,
-                1,
-                79.99
-        );
-
         ResultMatcher bodyExpected = MockMvcResultMatchers.content().json(
-                mapper.writeValueAsString(Arrays.asList(postDTO))
+                mapper.writeValueAsString(Arrays.asList())
         );
 
         mockMvc

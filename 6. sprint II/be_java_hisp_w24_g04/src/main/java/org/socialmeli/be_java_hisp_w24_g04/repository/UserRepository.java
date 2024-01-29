@@ -52,18 +52,18 @@ public class UserRepository implements IUserRepository {
 
     @Override
     public User remove(Integer id) {
-        var productToDelete = userRepository
+        var userToDelete = userRepository
                 .stream()
                 .filter(user -> user.getUserId().equals(id))
                 .findFirst()
                 .orElse(null);
 
-        if (productToDelete == null)
+        if (userToDelete == null)
             return null;
 
-        userRepository.remove(productToDelete);
+        userRepository.remove(userToDelete);
 
-        return productToDelete;
+        return userToDelete;
     }
 
     @Override
@@ -90,25 +90,21 @@ public class UserRepository implements IUserRepository {
 
     @Override
     public boolean addFollower(User user, User userToFollow) {
-        try {
-            user.getFollowed().add(new UserDTO(userToFollow.getUserId(), userToFollow.getUsername()));
-            userToFollow.getFollowers().add(new UserDTO(user.getUserId(), user.getUsername()));
-            return true;
-        } catch (Exception e) {
-            e.printStackTrace();
+        if (userToFollow.getFollowers().stream().anyMatch(u -> u.user_id().equals(user.getUserId())))
             return false;
-        }
+
+        user.getFollowed().add(new UserDTO(userToFollow.getUserId(), userToFollow.getUsername()));
+        userToFollow.getFollowers().add(new UserDTO(user.getUserId(), user.getUsername()));
+        return true;
     }
 
     @Override
     public boolean removeFollower(User user, User userToUnfollow) {
-        try {
-            user.getFollowed().removeIf(u -> u.user_id().equals(userToUnfollow.getUserId()));
-            userToUnfollow.getFollowers().removeIf(u -> u.user_id().equals(user.getUserId()));
-            return true;
-        } catch (Exception e) {
-            e.printStackTrace();
+        if (userToUnfollow.getFollowers().stream().noneMatch(u -> u.user_id().equals(user.getUserId())))
             return false;
-        }
+
+        user.getFollowed().removeIf(u -> u.user_id().equals(userToUnfollow.getUserId()));
+        userToUnfollow.getFollowers().removeIf(u -> u.user_id().equals(user.getUserId()));
+        return true;
     }
 }
