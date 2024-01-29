@@ -2,6 +2,7 @@ package com.socialmeli.socialmeli.utils;
 
 import com.socialmeli.socialmeli.dto.UserDto;
 import com.socialmeli.socialmeli.dto.UserFollowedDto;
+import com.socialmeli.socialmeli.dto.UserFollowerDto;
 import com.socialmeli.socialmeli.entities.User;
 import lombok.Getter;
 
@@ -125,5 +126,20 @@ public class UserUtils {
                             "usuario1"),
                     new UserDto(123,
                             "usuario5")));
+
+    //Bonus
+
+    List<UserDto> allUsers = List.of(
+            new UserDto(1465, "usuario1"),
+            new UserDto(1115, "usuario3"),
+            new UserDto(4698, "usuario2")
+    );
+
+    UserFollowerDto followerList = new UserFollowerDto(
+            4698,
+            "usuario2",
+            List.of( new UserDto( 1115,"usuario3"),
+                    new UserDto( 1465,"usuario1"),
+                    new UserDto(  123,"usuario5")));
 
 }

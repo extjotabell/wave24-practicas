@@ -1,6 +1,8 @@
 package com.socialmeli.socialmeli.integration.controller;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.socialmeli.socialmeli.dto.PostIdDto;
+import com.socialmeli.socialmeli.dto.UserDto;
 import com.socialmeli.socialmeli.dto.UserFollowedDto;
 import com.socialmeli.socialmeli.utils.PostUtils;
 import com.socialmeli.socialmeli.utils.UserUtils;
@@ -17,6 +19,8 @@ import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.result.MockMvcResultHandlers;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 
+import java.util.List;
+
 @SpringBootTest
 @AutoConfigureMockMvc
 public class SocialControllerTest {
@@ -26,6 +30,7 @@ public class SocialControllerTest {
     @Autowired
     ObjectMapper objectMapper;
     UserUtils userUtils = new UserUtils();
+    PostUtils postUtils = new PostUtils();
 
     //region Desarrollo Individual
     @Test
@@ -114,4 +119,86 @@ public class SocialControllerTest {
                 .andExpectAll(statusExpected, bodyExpected, contentTypeExpected); //resultMatchers: status, body, contentType
     }
 
+    @Test
+    @DisplayName("Test getAllFollowed endpoint with an invalid order")
+    public void getAllFollowedOrderSadPath() throws Exception {
+
+        UserFollowedDto userFollowedList = userUtils.getUserFollowedList();
+
+        //Request creation
+        String url = "/users/{userId}/followed/list";
+        Integer userId = 4698;
+        RequestBuilder request = MockMvcRequestBuilders.get(url,userId)
+                .param("order", "invalid");
+
+        //Status
+        ResultMatcher statusExpected = MockMvcResultMatchers.status().isBadRequest();
+
+        //ContentType
+        ResultMatcher contentTypeExpected = MockMvcResultMatchers.content().contentType(MediaType.APPLICATION_JSON);
+
+        //Body
+        ResultMatcher bodyExpected = MockMvcResultMatchers.jsonPath("$.message").value("Orden invalido" );
+
+        mockMvc.perform(request)
+                .andDo(MockMvcResultHandlers.print())
+                .andExpectAll(statusExpected, bodyExpected, contentTypeExpected); //resultMatchers: status, body, contentType
+    }
+    //endregion
+
+    //region Bonus
+    @Test
+    @DisplayName("Test getAllUsers endpoint.")
+    public void getAllUsersTest() throws Exception{
+
+        List<UserDto> allUsers = userUtils.getAllUsers();
+
+        //request
+        String url = "/users";
+        RequestBuilder request = MockMvcRequestBuilders.get(url);
+
+        //status
+        ResultMatcher statusExpected = MockMvcResultMatchers.status().isOk();
+
+        //ContentType
+        ResultMatcher contentTypeExpected = MockMvcResultMatchers.content().contentType(MediaType.APPLICATION_JSON);
+
+        //Body
+        ResultMatcher bodyExpected = MockMvcResultMatchers.content().json(
+                objectMapper.writeValueAsString(
+                        allUsers
+                )
+        );
+
+        mockMvc.perform(request)
+                .andDo(MockMvcResultHandlers.print())
+                .andExpectAll(statusExpected, bodyExpected, contentTypeExpected); //resultMatchers: status, body, contentType
+
+    }
+
+    @Test
+    @DisplayName("Test getAllPosts endpoint.")
+    public void getAllPostsTest() throws Exception{
+        List<PostIdDto> allPosts = postUtils.getPostsListId();
+        //request
+        String url = "/posts";
+        RequestBuilder request = MockMvcRequestBuilders.get(url);
+
+        //status
+        ResultMatcher statusExpected = MockMvcResultMatchers.status().isOk();
+
+        //ContentType
+        ResultMatcher contentTypeExpected = MockMvcResultMatchers.content().contentType(MediaType.APPLICATION_JSON);
+
+        //Body
+        ResultMatcher bodyExpected = MockMvcResultMatchers.content().json(
+                objectMapper.writeValueAsString(
+                        allPosts
+                )
+        );
+
+        mockMvc.perform(request)
+                .andDo(MockMvcResultHandlers.print())
+                .andExpectAll(statusExpected, bodyExpected, contentTypeExpected);
+    }
 }
