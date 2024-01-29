@@ -114,4 +114,87 @@ public class UserUtils {
                 .collect(Collectors.toList());
     }
 
+    private final User USER_234 = new User(
+            234,
+            "usuario4",
+            new ArrayList<>(
+                    List.of(
+                            new User(
+                                    4698,
+                                    "usuario2",
+                                    null,
+                                    null
+                            )
+                    )
+            ),
+            new ArrayList<>()
+    );
+
+    private final User USER_123 = new User(
+            123,
+            "usuario5",
+            new ArrayList<>(
+                    List.of(
+                            new User(
+                                    4698,
+                                    "usuario2",
+                                    null,
+                                    null
+                            )
+                    )
+            ),
+            new ArrayList<>(
+                    List.of(
+                            new User(
+                                    4698,
+                                    "usuario2",
+                                    null,
+                                    null
+                            )
+                    )
+            )
+    );
+
+    private final User USER_567 = new User(
+            567,
+            "usuario6",
+            new ArrayList<>(
+                    List.of(
+                            new User(
+                                    1465,
+                                    "usuario1",
+                                    null,
+                                    null
+                            )
+                    )
+            ),
+            new ArrayList<>(
+                    List.of(
+                            new User(
+                                    123,
+                                    "usuario5",
+                                    null,
+                                    null
+                            )
+                    )
+            )
+    );
+
+
+
+    private final UserDto USERDTO_1465 = new UserDto(1465, "usuario1");
+
+    private final UserDto USERDTO_1115 = new UserDto(1115, "usuario3");
+
+    private final UserDto USERDTO_4698 = new UserDto(4698, "usuario2");
+
+    private final UserDto USERDTO_234 = new UserDto(234, "usuario4");
+
+    private final UserDto USERDTO_123 = new UserDto(123, "usuario5");
+
+    private final UserDto USERDTO_567 = new UserDto(567, "usuario6");
+
+    List<UserDto> userDtoList = List.of(USERDTO_1465, USERDTO_1115, USERDTO_4698, USERDTO_234, USERDTO_123, USERDTO_567);
+
+
 }
