@@ -33,7 +33,7 @@ public class ProductControllerTest {
     private final Data data = new Data();
 
     @Test
-    public void recentPostsOfFollowedUsersDateDescPositive() throws Exception {
+    public void recentPostsOfFollowedUsersDateDescHappyPath() throws Exception {
         String url = "/products/followed/{userId}/list";
         Integer param = 1;
         RequestBuilder request = MockMvcRequestBuilders.get(url, param);

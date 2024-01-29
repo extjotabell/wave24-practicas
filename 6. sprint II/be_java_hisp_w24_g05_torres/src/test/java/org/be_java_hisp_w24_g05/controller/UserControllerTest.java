@@ -125,6 +125,24 @@ public class UserControllerTest {
     }
 
     @Test
+    public void testUsersSame() throws Exception {
+        String url = "/users/{userId}/follow/{userIdToFollow}";
+        String userId = "1";
+        String userIdToFollow = "1";
+
+        RequestBuilder requestBuilder = MockMvcRequestBuilders.post(url, userId, userIdToFollow);
+
+        ResultMatcher expectedStatus = status().isBadRequest();
+
+        ResultMatcher expectedContentType = content().contentType(MediaType.APPLICATION_JSON);
+
+        mockMvc.perform(requestBuilder)
+                .andDo(print())
+                .andExpect(expectedStatus)
+                .andExpect(expectedContentType);
+    }
+
+    @Test
     public void testSearchUserFollowersHappyPath() throws Exception {
 
         String url = "/users";
