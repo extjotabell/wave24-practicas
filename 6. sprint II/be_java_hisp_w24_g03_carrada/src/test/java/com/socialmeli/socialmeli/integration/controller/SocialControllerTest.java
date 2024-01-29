@@ -1,10 +1,7 @@
 package com.socialmeli.socialmeli.integration.controller;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.socialmeli.socialmeli.dto.PostIdDto;
-import com.socialmeli.socialmeli.dto.UserDto;
-import com.socialmeli.socialmeli.dto.UserFollowedDto;
-import com.socialmeli.socialmeli.dto.UserFollowerDto;
+import com.socialmeli.socialmeli.dto.*;
 import com.socialmeli.socialmeli.utils.PostUtils;
 import com.socialmeli.socialmeli.utils.UserUtils;
 import org.junit.jupiter.api.DisplayName;
@@ -20,6 +17,7 @@ import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.result.MockMvcResultHandlers;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 
+import java.time.LocalDate;
 import java.util.List;
 
 @SpringBootTest
@@ -388,6 +386,43 @@ public class SocialControllerTest {
                 .andDo(MockMvcResultHandlers.print())
                 .andExpectAll(statusExpected, bodyExpected, contentTypeExpected); //resultMatchers: status, body, contentType
 
+    }
+
+    @Test
+    @DisplayName("Test createPost endpoint.")
+    public void createPostTest() throws Exception{
+
+        //request
+        PostDto postDto = new PostDto(1115,
+                LocalDate.of(2024,01,18),
+                new ProductDto(1,
+                        "Silla Gamer",
+                        "Gamer",
+                        "Racer",
+                        "Red and Black",
+                        "Special Edition"),
+                100,
+                1500.50);
+
+        String postDtoJson = objectMapper.writeValueAsString(postDto);
+        String url = "/products/post";
+
+        RequestBuilder request = MockMvcRequestBuilders.post(url)
+                .content(postDtoJson)
+                .contentType(MediaType.APPLICATION_JSON);
+
+        //status
+        ResultMatcher statusExpected = MockMvcResultMatchers.status().isOk();
+
+        //ContentType
+        ResultMatcher contentTypeExpected = MockMvcResultMatchers.content().contentType(MediaType.APPLICATION_JSON);
+
+        //Body
+        ResultMatcher bodyExpected = MockMvcResultMatchers.content().json(postDtoJson);
+
+        mockMvc.perform(request)
+                .andDo(MockMvcResultHandlers.print())
+                .andExpectAll(statusExpected, bodyExpected,contentTypeExpected);
     }
 
     //endregion
