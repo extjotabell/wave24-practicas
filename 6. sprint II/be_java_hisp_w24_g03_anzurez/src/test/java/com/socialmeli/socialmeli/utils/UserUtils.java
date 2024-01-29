@@ -102,6 +102,12 @@ public class UserUtils {
             new ArrayList<>()
     );
 
+    List<UserDto> followedList = List.of(
+            new UserDto(1465, "usuario1"),
+            new UserDto(234, "usuario4"),
+            new UserDto(123, "usuario5")
+    );
+
     List<UserDto> ascListFolowers = List.of(
             new UserDto(1465, "usuario1"),
             new UserDto(4698, "usuario2"),
