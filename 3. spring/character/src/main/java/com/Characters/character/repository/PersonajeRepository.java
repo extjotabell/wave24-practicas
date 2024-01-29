@@ -1,24 +1,25 @@
 package com.Characters.character.repository;
 
 import com.Characters.character.entity.Personaje;
+import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.PropertyNamingStrategy;
 import org.springframework.stereotype.Repository;
 import org.springframework.util.ResourceUtils;
 
-import java.io.*;
+import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
-import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Repository
-public class PersonajeRepository implements IPersonajeRepository {
+public class PersonajeRepository implements IPersonajeRepository{
 
-    private final ArrayList<Personaje> personajes;
+    private ArrayList<Personaje> personajes;
 
     public PersonajeRepository() {
-        System.out.println("Se esta inicializando el repository.");
+        System.out.println("Se esta inicializando el repository");
         this.personajes = loadData();
     }
 
@@ -27,10 +28,10 @@ public class PersonajeRepository implements IPersonajeRepository {
         // Si el nuevo personaje se agrego, devolver el mismo parametro
 
         // Asigno un nuevo id en base al tamaño actual de la lista
-        personaje.setId(personajes.size());
+        personaje.setId(personajes.size() + 1);
 
         // añado
-        if (this.personajes.add(personaje))
+        if(this.personajes.add(personaje))
             return personaje;
         // else
         //   aca retorno el error, pero todavia no vimos excepciones. Devuelvo null por el momento.
@@ -42,22 +43,15 @@ public class PersonajeRepository implements IPersonajeRepository {
 
         var id = this.personajes.indexOf(personaje);
 
-        if (id != -1) {
+        if(id != -1) {
             this.personajes.set(id, personaje);
             return personaje;
         }
+
         // else
         //   aca retorno el error, pero todavia no vimos excepciones. Devuelvo null por el momento.
-        return null;
-    }
-    @Override
-    public Boolean deleteByid(Integer id) {
-        return null;
-    }
 
-    @Override
-    public Boolean deleteById(Integer id) {
-        return this.personajes.removeIf(personaje -> personaje.getId().equals(id));
+        return null;
     }
 
     @Override
@@ -74,6 +68,11 @@ public class PersonajeRepository implements IPersonajeRepository {
     }
 
     @Override
+    public Boolean deleteById(Integer id) {
+        return this.personajes.removeIf(personaje -> personaje.getId().equals(id));
+    }
+
+    @Override
     public ArrayList<Personaje> findByName(String name) {
         return this.personajes.stream()
                 .filter(p -> p.getName().toLowerCase().contains(name.toLowerCase()))
@@ -81,28 +80,17 @@ public class PersonajeRepository implements IPersonajeRepository {
     }
 
     private ArrayList<Personaje> loadData() {
-        ArrayList<Personaje> data = new ArrayList<>();
+        ArrayList<Personaje> data = null;
         File file;
         ObjectMapper objectMapper = new ObjectMapper();
+
         objectMapper.setPropertyNamingStrategy(PropertyNamingStrategy.SNAKE_CASE);
 
-        com.fasterxml.jackson.core.type.TypeReference<List<Personaje>> typeRef = new com.fasterxml.jackson.core.type.TypeReference<>() {
-        };
-
+        TypeReference<ArrayList<Personaje>> typeRef = new TypeReference<>() {};
         try {
             file = ResourceUtils.getFile("classpath:json/starwars.json");
-
-            try (FileInputStream fileInputStream = new FileInputStream(file);
-                 BufferedInputStream bufferedInputStream = new BufferedInputStream(fileInputStream)) {
-
-                data = (ArrayList<Personaje>) objectMapper.readValue(bufferedInputStream, typeRef);
-            } catch (IOException e) {
-                // Manejo de la excepción o lanza una excepción personalizada si es apropiado para tu aplicación
-                e.printStackTrace();
-            }
-
-        } catch (FileNotFoundException e) {
-            // Manejo de la excepción o lanza una excepción personalizada si es apropiado para tu aplicación
+            data = objectMapper.readValue(file, typeRef);
+        } catch (IOException e) {
             e.printStackTrace();
         }
         return data;
