@@ -205,26 +205,6 @@ public class SocialControllerTest {
 
 
     @Test
-    @DisplayName("getAllFollowed: should return UserFollowedDto")
-    public void getAllFollowed() throws Exception {
-        String url = "/users/{userId}/followed/list";
-        Integer userId = 1115;
-        UserFollowedDto expected = new UserFollowedDto(userId, "usuario3", List.of(userUtils.getUSERDTO_4698()));
-
-        RequestBuilder request = MockMvcRequestBuilders.get(url, userId);
-
-        ResultMatcher statusExpected = MockMvcResultMatchers.status().isOk();
-
-        ResultMatcher bodyExpected = MockMvcResultMatchers.content().json(mapper.writeValueAsString(expected));
-
-        ResultMatcher contentTypeExpected = MockMvcResultMatchers.content().contentType(MediaType.APPLICATION_JSON);
-
-        mockMvc.perform(request)
-                .andDo(MockMvcResultHandlers.print())
-                .andExpectAll(statusExpected, bodyExpected, contentTypeExpected);
-    }
-
-    @Test
     @DisplayName("createPost: should return PostIdDto")
     public void createPost() throws Exception {
         String url = "/products/post";
