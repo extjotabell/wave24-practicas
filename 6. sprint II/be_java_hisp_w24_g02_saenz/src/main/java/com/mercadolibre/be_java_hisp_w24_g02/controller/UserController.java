@@ -26,7 +26,8 @@ public class UserController {
      * @return a message of success
      * */
     @PostMapping("/{userId}/unfollow/{userIdToUnfollow}")
-    public ResponseEntity<String> unFollowUser(@PathVariable Integer userId, @PathVariable Integer userIdToUnfollow) {
+    public ResponseEntity<String> unFollowUser(@PathVariable @Min(value = 1, message = "El usuario debe ser igual o mayor a 1") Integer userId,
+                                               @PathVariable @Min(value = 1, message = "El usuario debe ser igual o mayor a 1") Integer userIdToUnfollow) {
         UpdateToRelationshipsDTO followUserDTO = new UpdateToRelationshipsDTO(userId, userIdToUnfollow);
         this.userService.unfollowUser(followUserDTO);
         return ResponseEntity.ok("Usuario se dejo de seguir exitosamente");

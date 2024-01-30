@@ -101,7 +101,7 @@ public class UserServiceTest {
     }
 
     @Test
-    @DisplayName("Verify exception to user id greater than zero .")
+    @DisplayName("Verify exception to user id greater than zero.")
     public void followUSerTestInvalidUser(){
         //Arrange
         UpdateToRelationshipsDTO updateToRelationshipsDTO = new UpdateToRelationshipsDTO(0, 2);
