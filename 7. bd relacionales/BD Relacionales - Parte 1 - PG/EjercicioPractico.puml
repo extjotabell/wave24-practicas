@@ -1,0 +1,35 @@
+@startuml
+
+entity "Cliente" {
+  + ID_Cliente : int [primary key]
+  Nombre : string
+  Apellido : string
+  Correo : string
+  Telefono : string
+}
+
+entity "Producto" {
+  + ID_Producto : int [primary key]
+  Nombre : string
+  Descripcion : string
+  Precio : double
+  Stock : int
+}
+
+entity "Venta" {
+  + ID_Venta : int [primary key]
+  Fecha : date
+  Total_Venta : double
+}
+
+entity "Detalle_Venta" {
+  + ID_Detalle : int [primary key]
+  Cantidad : int
+  Subtotal : double
+}
+
+Cliente --o{ Venta
+Venta --o{ Detalle_Venta
+Detalle_Venta --o{ Producto
+
+@enduml
