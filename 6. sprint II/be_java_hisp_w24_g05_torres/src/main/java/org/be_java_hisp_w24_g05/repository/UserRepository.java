@@ -62,7 +62,7 @@ public class UserRepository implements IUserRepository{
 
         User user = this.users.stream().filter(u -> u.getUserId() == post.getUserId()).findFirst().orElse(null);
         if(Objects.isNull(user) ) throw new BadRequestException("User does not exist");
-        List<Post> posts = user.getPosts();
+        List<Post> posts = new ArrayList<>(user.getPosts());
         Integer postId = users.size();
         post.setPostId(postId);
         posts.add(post);
