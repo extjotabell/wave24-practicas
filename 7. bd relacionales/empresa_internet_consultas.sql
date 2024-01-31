@@ -1,0 +1,10 @@
+SELECT * FROM cliente;
+SELECT * FROM cliente where plan_idplan = 3;
+SELECT * FROM cliente where YEAR(fechaNacimiento) > 1994;
+SELECT nombre, velocidad from plan where precio >= 3000;
+SELECT nombre, precio from plan where velocidad >= 200;
+SELECT * from plan where nombre LIKE "%Profesional%";
+SELECT * from cliente where apellido = "Perez";
+SELECT * from cliente where dni BETWEEN 30000000 AND 50000000;
+SELECT plan_idplan as plan, COUNT(plan_idplan) as cantidad from cliente group by plan_idplan;
+SELECT nombre, velocidad, precio from plan where descuento between 30 and 40;
