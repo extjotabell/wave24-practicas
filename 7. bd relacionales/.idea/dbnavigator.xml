@@ -127,15 +127,19 @@ JOIN departamento d
     <last-used-providers />
   </component>
   <component name="DBNavigator.Project.DatabaseFileManager">
-    <open-files>
-      <object connection-id="90da5d45-44d0-4746-ae43-89b31a106157" object-ref="consoles/MySQL Conn" />
-    </open-files>
+    <open-files />
   </component>
   <component name="DBNavigator.Project.DatabaseSessionManager">
     <connection id="90da5d45-44d0-4746-ae43-89b31a106157" />
   </component>
+  <component name="DBNavigator.Project.DatasetFilterManager">
+    <filter-actions connection-id="90da5d45-44d0-4746-ae43-89b31a106157" dataset="biblioteca.autor" active-filter-id="" />
+  </component>
   <component name="DBNavigator.Project.ExecutionManager">
     <retain-sticky-names value="false" />
+  </component>
+  <component name="DBNavigator.Project.FileConnectionMappingManager">
+    <mapping file-url="file://$PROJECT_DIR$/biblioteca.sql" connection-id="90da5d45-44d0-4746-ae43-89b31a106157" session-id="MAIN" current-schema="biblioteca" />
   </component>
   <component name="DBNavigator.Project.ObjectQuickFilterManager">
     <last-used-operator value="EQUAL" />
