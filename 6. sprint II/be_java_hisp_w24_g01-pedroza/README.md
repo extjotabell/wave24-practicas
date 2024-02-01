@@ -40,6 +40,7 @@ Por otra parte se puede hacer uso de Swagger y para su acceso : http://localhost
 | T-0007        | Verificar que la cantidad de seguidores de un determinado usuario sea correcta.|    Diego Fernando     	|
 | T-0008        | Verificar que la consulta de publicaciones realizadas en las últimas dos semanas de un determinado vendedor sean efectivamente de las últimas dos semanas.|  Andrés Felipe Robledo Gaviria      	|
 
+
 ## Validaciones ✅
 
 | Dato/Parámetro | ¿Obligatorio? | Validación                                                | Mensaje de Error                                            |
