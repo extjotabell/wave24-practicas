@@ -1,0 +1,68 @@
+// Se solicita crear un índice (BBDD) en Elasticsearch, de zapatillas deportivas, donde se guardará información relacionada a estos productos.
+PUT /zapatillas_deportivas
+{
+  "mappings": {
+    "properties": {
+      "Nombre":{"type": "text"},
+      "Descripcion":{"type": "text"},
+      "Precio":{"type": "double"},
+      "Color":{"type": "text"},
+      "Talla":{"type": "integer"},
+      "Tipo": {"type": "text"},
+      "Marca":{"type": "text"}
+    }
+  }
+}
+
+// Guardar 20 registros en la base de datos creada, considerando los campos que crea necesarios.
+POST /zapatillas_deportivas/_bulk
+{"index":{}}
+{"Nombre":"Zapatilla A","Descripcion":"Zapatilla deportiva A","Precio":1000,"Color":"Negro","Talla":43,"Tipo":"Para correr","Marca":"Adidas"}
+{"index":{}}
+{"Nombre":"Zapatilla B","Descripcion":"Zapatilla deportiva B","Precio":11000,"Color":"Azul","Talla":40,"Tipo":"Para caminar","Marca":"Puma"}
+{"index":{}}
+{"Nombre":"Zapatilla C","Descripcion":"Zapatilla deportiva C","Precio":2400,"Color":"Blanco","Talla":45,"Tipo":"Para aaminar","Marca":"Adidas"}
+{"index":{}}
+{"Nombre":"Zapatilla D","Precio":1000,"Color":"Rojo","Talla":40,"Tipo":"Para correr","Marca":"Adidas"}
+{"index":{}}
+{"Nombre":"Zapatilla E","Precio":1000,"Color":"Blanco","Talla":42,"Tipo":"Para correr","Marca":"Nike"}
+{"index":{}}
+{"Nombre":"Zapatilla F","Descripcion":"Zapatilla deportiva F","Precio":1900,"Color":"Negro","Talla":38,"Tipo":"Para correr","Marca":"Adidas"}
+{"index":{}}
+{"Nombre":"Zapatilla G","Precio":1300,"Color":"Celeste","Talla":39,"Tipo":"Para trotar","Marca":"Adidas"}
+{"index":{}}
+{"Nombre":"Zapatilla H","Descripcion":"Zapatilla deportiva H","Precio":1030,"Color":"Negro","Talla":41,"Tipo":"Para caminar","Marca":"Puma"}
+{"index":{}}
+{"Nombre":"Zapatilla I","Precio":5000,"Color":"Azul","Talla":50,"Tipo":"Para correr","Marca":"Adidas"}
+{"index":{}}
+{"Nombre":"Zapatilla J","Descripcion":"Zapatilla deportiva J","Precio":1000,"Color":"Negro","Talla":49,"Tipo":"Para correr","Marca":"Adidas"}
+{"index":{}}
+{"Nombre":"Zapatilla K","Descripcion":"Zapatilla deportiva K","Precio":3000,"Color":"Dorado","Talla":42,"Tipo":"Para correr","Marca":"Nike"}
+{"index":{}}
+{"Nombre":"Zapatilla L","Precio":1200,"Color":"Gris","Talla":41,"Tipo":"Para correr","Marca":"Adidas"}
+{"index":{}}
+{"Nombre":"Zapatilla M","Descripcion":"Zapatilla deportiva","Precio":1300,"Color":"Azul","Talla":43,"Tipo":"Para deporte","Marca":"Puma"}
+{"index":{}}
+{"Nombre":"Zapatilla N","Descripcion":"Zapatilla deportiva","Precio":2000,"Color":"Cafe","Talla":44,"Tipo":"Para correr","Marca":"Adidas"}
+{"index":{}}
+{"Nombre":"Zapatilla O","Descripcion":"Zapatilla deportiva","Precio":700,"Color":"Rosado","Talla":36,"Tipo":"Para caminar","Marca":"Nike"}
+{"index":{}}
+{"Nombre":"Zapatilla P","Descripcion":"Zapatilla deportiva","Precio":1990,"Color":"Amarillo","Talla":45,"Tipo":"Para correr rapido","Marca":"Adidas"}
+{"index":{}}
+{"Nombre":"Zapatilla Q","Descripcion":"Zapatilla deportiva","Precio":1400,"Color":"Negro","Talla":39,"Tipo":"Para correr","Marca":"Puma"}
+{"index":{}}
+{"Nombre":"Zapatilla R","Descripcion":"Zapatilla deportiva","Precio":1000,"Color":"Verde","Talla":30,"Tipo":"Para deporte","Marca":"Adidas"}
+{"index":{}}
+{"Nombre":"Zapatilla S","Descripcion":"Zapatilla deportiva","Precio":11000,"Color":"Negro","Talla":40,"Tipo":"Para jugar","Marca":"Nike"}
+{"index":{}}
+{"Nombre":"Zapatilla T","Precio":500,"Color":"Rojo","Talla":35,"Tipo":"Para correr","Marca":"Puma"}
+
+
+
+// Comprobar con consultas los registros insertados en la nueva base de datos.
+GET /zapatillas_deportivas/_search
+{
+  "query": {
+    "match_all": {}
+  }
+}
