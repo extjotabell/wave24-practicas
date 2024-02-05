@@ -1,0 +1,30 @@
+GET /zapatillas/_search
+{
+  "query": {
+    "match": {
+      "nombre": "Ultra Boost 21"
+    }
+  }
+}
+
+POST /zapatillas/_doc
+{
+  "nombre": "Air Max 2022",
+  "marca": "Nike",
+  "tipoDeDeporte": "Running",
+  "genero": "Hombre",
+  "tallaDisponible": "39-46",
+  "suelaIntermedia": "Air Max"
+}
+
+PUT /zapatillas/_doc/d6Ppeo0BL4WwJjRo1X7U
+{
+  "nombre": "Ultra Boost 23",
+  "marca": "Adidas",
+  "tipoDeDeporte": "Running",
+  "genero": "Mujer",
+  "tallaDisponible": "35-43",
+  "suelaIntermedia": "Boost"
+}
+
+DELETE /zapatillas/_doc/d6Ppeo0BL4WwJjRo1X7U

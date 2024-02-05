@@ -141,6 +141,24 @@ INSERT INTO `biblioteca`.`autor` (`id_autor`, `nombre`, `nacionalidad`) VALUES (
 INSERT INTO `biblioteca`.`autor` (`id_autor`, `nombre`, `nacionalidad`) VALUES (4, 'Dan Brown', 'Estadounidense');
 INSERT INTO `biblioteca`.`autor` (`id_autor`, `nombre`, `nacionalidad`) VALUES (5, 'J.R.R. Tolkien', 'Sudafricana');
 
+-- -----------------------------------------------------
+-- Insert data into `biblioteca`.`libro_autor`
+-- -----------------------------------------------------
+INSERT INTO `biblioteca`.`libro_autor` (`id_libro`, `id_autor`)
+VALUES (1, 1);
+INSERT INTO `biblioteca`.`libro_autor` (`id_libro`, `id_autor`)
+VALUES (2, 2);
+INSERT INTO `biblioteca`.`libro_autor` (`id_libro`, `id_autor`)
+VALUES (3, 3);
+INSERT INTO `biblioteca`.`libro_autor` (`id_libro`, `id_autor`)
+VALUES (4, 4);
+INSERT INTO `biblioteca`.`libro_autor` (`id_libro`, `id_autor`)
+VALUES (5, 5);
+INSERT INTO `biblioteca`.`libro_autor` (`id_libro`, `id_autor`)
+VALUES (6, 6);
+INSERT INTO `biblioteca`.`libro_autor` (`id_libro`, `id_autor`)
+VALUES (7, 7);
+
 USE `biblioteca`;
 
 -- Listar los datos de los autores.
