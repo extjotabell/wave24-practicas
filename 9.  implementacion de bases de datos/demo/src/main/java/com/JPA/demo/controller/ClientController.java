@@ -2,7 +2,7 @@ package com.JPA.demo.controller;
 
 import com.JPA.demo.dto.ClientDTO;
 import com.JPA.demo.dto.MessageDTO;
-import com.JPA.demo.repository.interfaces.IClientService;
+import com.JPA.demo.service.interfaces.IClientService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -18,21 +18,34 @@ public class ClientController {
 
     @PostMapping("/")
     public ResponseEntity<ClientDTO> create(@RequestBody ClientDTO clientDTO){
-        return null;
+        return ResponseEntity.ok(
+                clientService.saveEntity(clientDTO)
+        );
     }
 
     @GetMapping("/")
     public ResponseEntity<List<ClientDTO>> getAll(){
-        return null;
+        return ResponseEntity.ok(
+                clientService.getAllEntities()
+        );
     }
 
     @GetMapping("/{id}")
     public ResponseEntity<ClientDTO> getById(@PathVariable Integer id){
-        return null;
+        return ResponseEntity.ok(
+                clientService.getEntityById(id)
+        );
     }
 
     @DeleteMapping("/{id}")
     public ResponseEntity<MessageDTO> deleteById(@PathVariable Integer id){
         return null;
+    }
+
+    @GetMapping("findByEmail/{email}")
+    public ResponseEntity<ClientDTO> getByEmail(@PathVariable String email){
+        return ResponseEntity.ok(
+                clientService.findByEmail(email)
+        );
     }
 }

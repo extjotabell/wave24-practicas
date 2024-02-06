@@ -11,9 +11,12 @@ import lombok.Setter;
 @NoArgsConstructor
 @AllArgsConstructor
 
+// INDICAR QUE ESTO ES UNA ENTIDAD Y UNA TABLA
 @Entity
+// INDICA LAS CONFIGURACIONES DE LA TABLA
 @Table(name = "Producto")
 public class Product {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;

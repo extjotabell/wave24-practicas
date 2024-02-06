@@ -1,7 +1,7 @@
-package com.JPA.demo.repository.interfaces;
+package com.JPA.demo.service.interfaces;
 
 import com.JPA.demo.dto.PersonDTO;
-import com.JPA.demo.repository.interfaces.generics.ICrudService;
+import com.JPA.demo.service.interfaces.generics.ICrudService;
 
 public interface IPersonService extends ICrudService<PersonDTO, Integer> {
 

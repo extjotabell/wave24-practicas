@@ -2,7 +2,7 @@ package com.JPA.demo.controller;
 
 import com.JPA.demo.dto.MessageDTO;
 import com.JPA.demo.dto.PersonDTO;
-import com.JPA.demo.repository.interfaces.IPersonService;
+import com.JPA.demo.service.interfaces.IPersonService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -13,8 +13,8 @@ import java.util.List;
 @RequestMapping("person")
 public class PersonController {
 
-    @Autowired
-    IPersonService personService;
+    //@Autowired
+    //IPersonService personService;
 
     @PostMapping("/")
     public ResponseEntity<PersonDTO> create(@RequestBody PersonDTO personDTO){

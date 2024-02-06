@@ -12,10 +12,17 @@ import lombok.Setter;
 @NoArgsConstructor
 @AllArgsConstructor
 
+@Entity
+@Table(name = "Cliente")
 public class Client {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
+    @Column(name = "correo_electronico", length = 200)
     private String email;
 
+    @Column(name = "numero_tarjeta", length = 16, nullable = false)
     private String cardNumber;
 }
