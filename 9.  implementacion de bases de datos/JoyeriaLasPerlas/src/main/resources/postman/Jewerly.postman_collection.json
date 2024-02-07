@@ -1,0 +1,64 @@
+{
+	"info": {
+		"_postman_id": "384c5f29-109a-4f03-a438-d5bea35affb2",
+		"name": "Jewerly",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "32163341"
+	},
+	"item": [
+		{
+			"name": "createJewelry",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{   \n    \"nombre\" : \"Anillo\",\n\t\"material\": \"oro\",\n\t\"peso\": 300,\n\t\"particularidad\" : \"Forma circular con triángulos\",\n\t\"posee_piedra\" : false,\n\t\"ventaONo\" : true\n}\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "localhost:8080/jewerly/new"
+			},
+			"response": []
+		},
+		{
+			"name": "getJewerly",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "localhost:8080/jewerly"
+			},
+			"response": []
+		},
+		{
+			"name": "LogicDeleteJewerly",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": "localhost:8080/jewerly/delete/2"
+			},
+			"response": []
+		},
+		{
+			"name": "updateJewerly",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{          \n    \"nombre\" : \"Anillo\",\n\t\"material\": \"oro\",\n\t\"peso\": 300,\n\t\"particularidad\" : \"Otra particularidad\",\n\t\"posee_piedra\" : false,\n\t\"ventaONo\" : true\n}\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "localhost:8080/jewerly/update/1"
+			},
+			"response": []
+		}
+	]
+}
