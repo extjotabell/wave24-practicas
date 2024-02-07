@@ -1,0 +1,89 @@
+#Snickers
+
+## Get All
+GET snickers/_search
+{
+  "query": {
+    "match_all": {}
+  }
+}
+
+## Get by Id
+GET snickers/_search
+{
+  "query": {
+    "match": {
+      "id": 10
+    }
+  }
+}
+
+## Get with filter
+### 1. Filtering by Brand and Model
+GET snickers/_search
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "match": {
+            "marca": "Brooks"
+          }
+        },
+        {
+          "match": {
+            "modelo": "Ghost"
+          }
+        }
+      ]
+    }
+  }
+}
+
+### 2. Filter by Size between
+GET snickers/_search
+{
+  "query": {
+    "range": {
+      "talla": {
+        "gte": 20,
+        "lte": 40
+      }
+    }
+  }
+}
+
+## Post new snickers
+POST snickers/_doc
+{
+  "id": 21,
+  "marca": "DC",
+  "modelo": "Stag",
+  "color": "Blanco",
+  "talla": 38
+}
+
+## Get posted snicker
+GET snickers/_search
+{
+  "query": {
+    "match": {
+      "modelo": "Stag"
+    }
+  }
+}
+
+## Update
+POST snickers/_update/ZCrMg40Bv5ZISOIJgxbP
+{
+  "script": {
+    "source": "ctx._source.talla += params.adicional",
+    "lang": "painless",
+    "params" : {
+      "adicional" : 2
+    }
+  }
+}
+
+## Delete
+DELETE snickers/_doc/ZCrMg40Bv5ZISOIJgxbP
