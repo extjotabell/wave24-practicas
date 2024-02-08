@@ -40,5 +40,4 @@ public class Person {
 
     @Column(name = "salario", scale = 2)
     private Double salary;
-
 }

@@ -7,6 +7,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.List;
+
 @Getter
 @Setter
 @NoArgsConstructor
@@ -25,4 +27,8 @@ public class Client {
 
     @Column(name = "numero_tarjeta", length = 16, nullable = false)
     private String cardNumber;
+
+    @OneToOne(cascade = CascadeType.PERSIST)
+    private Person person;
+
 }
