@@ -8,9 +8,12 @@ import lombok.NoArgsConstructor;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import java.time.LocalDate;
+import java.util.List;
 
 public record InvoiceDTO(
     Integer id,
-    LocalDate date
-    ){
+    LocalDate date,
+    ClientDTO clientDTO,
+    List<ProductDTO> products
+){
 }

@@ -13,26 +13,34 @@ import java.util.List;
 @RequestMapping("person")
 public class PersonController {
 
-    //@Autowired
-    //IPersonService personService;
+    @Autowired
+    IPersonService personService;
 
     @PostMapping("/")
     public ResponseEntity<PersonDTO> create(@RequestBody PersonDTO personDTO){
-        return null;
+        return ResponseEntity.ok(
+                personService.saveEntity(personDTO)
+        );
     }
 
     @GetMapping("/")
     public ResponseEntity<List<PersonDTO>> getAll(){
-        return null;
+        return ResponseEntity.ok(
+                personService.getAllEntities()
+        );
     }
 
     @GetMapping("/{id}")
     public ResponseEntity<PersonDTO> getById(@PathVariable Integer id){
-        return null;
+        return ResponseEntity.ok(
+                personService.getEntityById(id)
+        );
     }
 
     @DeleteMapping("/{id}")
     public ResponseEntity<MessageDTO> deleteById(@PathVariable Integer id){
-        return null;
+        return ResponseEntity.ok(
+                personService.deleteEntity(id)
+        );
     }
 }

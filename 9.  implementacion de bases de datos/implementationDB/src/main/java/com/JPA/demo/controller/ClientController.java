@@ -4,6 +4,7 @@ import com.JPA.demo.dto.ClientDTO;
 import com.JPA.demo.dto.MessageDTO;
 import com.JPA.demo.service.interfaces.IClientService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -24,9 +25,9 @@ public class ClientController {
     }
 
     @GetMapping("/")
-    public ResponseEntity<List<ClientDTO>> getAll(){
+    public ResponseEntity<Page<ClientDTO>> getAll(@RequestParam int page, @RequestParam int size){
         return ResponseEntity.ok(
-                clientService.getAllEntities()
+                clientService.getAllEntities(page, size)
         );
     }
 

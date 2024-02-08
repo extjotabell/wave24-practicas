@@ -28,4 +28,5 @@ public class Client {
 
     @OneToOne(cascade = CascadeType.PERSIST)
     private Person person;
+
 }
