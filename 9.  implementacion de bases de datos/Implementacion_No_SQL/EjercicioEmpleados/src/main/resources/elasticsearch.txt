@@ -1,0 +1,16 @@
+GET /employees/_search
+{
+  "query": {
+    "match_all": {
+
+    }
+  }
+}
+
+POST /employees/_bulk
+{"index":{}}
+{"id":"1","name":"nombre1","lastName":"apellido1", "age":18, "city":"ciudad1", "state":"estado1"}
+{"index":{}}
+{"id":"2","name":"nombre2","lastName":"apellido2", "age":28, "city":"ciudad2", "state":"estado2"}
+{"index":{}}
+{"id":"3","name":"nombre3","lastName":"apellido3", "age":38, "city":"ciudad3", "state":"estado3"}
