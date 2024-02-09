@@ -1,0 +1,346 @@
+{
+	"info": {
+		"_postman_id": "80fd8a35-43fc-49e9-be9e-b14451cf3daa",
+		"name": "Showroom JPA",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "32598224"
+	},
+	"item": [
+		{
+			"name": "Clothes",
+			"item": [
+				{
+					"name": "Create Cloth",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Pantalón\",\n    \"brand\": \"Polo\",\n    \"color\": \"blanca\",\n    \"size\": \"XL\",\n    \"quantity\": 21,\n    \"salePrice\": 19.99\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/api/clothes",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"clothes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Clothes",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/clothes",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"clothes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Cloth",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/clothes/1",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"clothes",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Cloth",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Pantalón\",\n    \"brand\": \"Levi's\",\n    \"color\": \"Azul\",\n    \"size\": \"L\",\n    \"quantity\": 5,\n    \"salePrice\": 39.99\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/api/clothes/1",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"clothes",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Cloth",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/clothes/1",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"clothes",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Clothes By Size",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/clothes/search/L",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"clothes",
+								"search",
+								"L"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Clothes By Name",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/clothes/contains?name=pantalon",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"clothes",
+								"contains"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "pantalon"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Sales",
+			"item": [
+				{
+					"name": "Create Sale",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"date\": \"2024-02-08\",\n    \"totalAmount\": 169.97,\n    \"paymentMethod\": \"Efectivo\",\n    \"cloth\": [\n        {\n            \"id\": 1\n        },\n        {\n            \"id\": 2\n        },\n        {\n            \"id\": 3\n        }\n    ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/api/sale",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"sale"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Sales",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/sale",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"sale"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Sale",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/sale/1",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"sale",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Sale",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": 1,\n    \"date\": \"08-02-2024\",\n    \"totalAmount\": 39.99,\n    \"paymentMethod\": \"Efectivo\",\n    \"cloth\": [\n        {\n            \"id\": 1\n        }\n    ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/api/sale/1",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"sale",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Sale",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/sale/1",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"sale",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Sale By Date",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/sale/findByDate?date=2024-02-08",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"sale",
+								"findByDate"
+							],
+							"query": [
+								{
+									"key": "date",
+									"value": "2024-02-08"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Clothes By Sale",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/sale/clothes/1",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"sale",
+								"clothes",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
