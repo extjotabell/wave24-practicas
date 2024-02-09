@@ -3,7 +3,7 @@ package org.example.joyeria.dto;
 import org.example.joyeria.model.Jewel;
 
 public record JewelDTO(
-        Integer nro_idenfiicatorio,
+        Integer nro_identificatorio,
         String nombre,
         String material,
         Integer peso,
@@ -11,7 +11,7 @@ public record JewelDTO(
 ) {
 
     public JewelDTO(Jewel jewel) {
-        this(jewel.getNroIdenfiicatorio(), jewel.getNombre(), jewel.getMaterial(), jewel.getPeso(), jewel.getPoseePiedra());
+        this(jewel.getNroIdentificatorio(), jewel.getNombre(), jewel.getMaterial(), jewel.getPeso(), jewel.getPoseePiedra());
     }
 
 }

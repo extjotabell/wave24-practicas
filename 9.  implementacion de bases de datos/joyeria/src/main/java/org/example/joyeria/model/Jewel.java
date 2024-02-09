@@ -11,9 +11,9 @@ import org.example.joyeria.dto.JewelDTO;
 public class Jewel {
 
     @Id
-    @Column(name = "nro_idenfiicatorio")
+    @Column(name = "nro_identificatorio")
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
-    private Integer nroIdenfiicatorio;
+    private Integer nroIdentificatorio;
 
     @Column(length = 15)
     private String nombre;
@@ -30,7 +30,7 @@ public class Jewel {
     private Boolean ventaONo;
 
     public Jewel(JewelDTO jewelDTO) {
-        this.nroIdenfiicatorio = jewelDTO.nro_idenfiicatorio();
+        this.nroIdentificatorio = jewelDTO.nro_identificatorio();
         this.nombre = jewelDTO.nombre();
         this.material = jewelDTO.material();
         this.peso = jewelDTO.peso();
