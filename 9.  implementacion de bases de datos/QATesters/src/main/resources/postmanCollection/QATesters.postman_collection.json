@@ -1,0 +1,89 @@
+{
+	"info": {
+		"_postman_id": "81c64e56-45c9-4ec3-a97f-22f57c0be9a2",
+		"name": "QATesters",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "32163341"
+	},
+	"item": [
+		{
+			"name": "postTest",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"description\": \"Test 3\",\n  \"tested\": true,\n  \"passed\": true,\n  \"number_of_tries\": 2,\n  \"last_update\": \"10-01-2023\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "localhost:8080/api/testcases/new"
+			},
+			"response": []
+		},
+		{
+			"name": "getTests",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/api/testcases?last_update=07/01/2023",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"testcases"
+					],
+					"query": [
+						{
+							"key": "last_update",
+							"value": "07/01/2023"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "updateTest",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n        \"id_case\": 2,\n        \"description\": \"Test 2\",\n        \"tested\": true,\n        \"passed\": false,\n        \"number_of_tries\": 2,\n        \"last_update\": \"10-01-2023\"\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "localhost:8080/api/testcases/2"
+			},
+			"response": []
+		},
+		{
+			"name": "getTestById",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "localhost:8080/api/testcases/1"
+			},
+			"response": []
+		},
+		{
+			"name": "deleteTest",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": "localhost:8080/api/testcases/3"
+			},
+			"response": []
+		}
+	]
+}
