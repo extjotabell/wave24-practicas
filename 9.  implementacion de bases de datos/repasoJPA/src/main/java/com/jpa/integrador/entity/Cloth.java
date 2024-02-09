@@ -13,7 +13,7 @@ import jakarta.persistence.*;
 @Table(name = "prenda")
 public class Cloth {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     @Column(name = "nombre")
     private String name;
