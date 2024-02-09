@@ -28,4 +28,7 @@ public class Sale {
     @Column(name = "metodo_pago")
     private String paymentMethod;
 
+    @OneToMany(fetch = FetchType.LAZY)
+    private List<Cloth> cloth;
+
 }

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="MavenProjectsManager">
+    <option name="originalFiles">
+      <list>
+        <option value="$PROJECT_DIR$/be_java_hisp_w24_g01_knubel_alejandro/pom.xml" />
+        <option value="$PROJECT_DIR$/be_java_hisp_w24_g01_comba/pom.xml" />
+        <option value="$PROJECT_DIR$/be_java_hisp_w24_g01_Robledo/pom.xml" />
+        <option value="$PROJECT_DIR$/be_java_hisp_w24_g01-pedroza/pom.xml" />
+        <option value="$PROJECT_DIR$/be_java_hisp_w24_g01_roso/pom.xml" />
+        <option value="$PROJECT_DIR$/be_java_hisp_w24_g01_Pachon_Diego/pom.xml" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_19" default="true" project-jdk-name="19" project-jdk-type="JavaSDK" />
+</project>
