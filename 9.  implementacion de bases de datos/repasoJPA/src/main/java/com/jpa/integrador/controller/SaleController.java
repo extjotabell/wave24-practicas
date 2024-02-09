@@ -46,7 +46,7 @@ public class SaleController {
             throw new RuntimeException();
     }
 
-    @DeleteMapping("/sale/{number}")
+    @DeleteMapping("/sale/{id}")
     public ResponseEntity<SuccessDTO> deleteSale(@PathVariable Integer id){
         if(saleService.deleteSale(id))
             return ResponseEntity.ok().body(new SuccessDTO("Se elimino la venta", 201));

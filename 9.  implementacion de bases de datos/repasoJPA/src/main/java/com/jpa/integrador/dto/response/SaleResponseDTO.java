@@ -1,8 +1,5 @@
 package com.jpa.integrador.dto.response;
 
-
-import com.jpa.integrador.dto.request.ClothRequestDTO;
-
 import java.time.LocalDate;
 import java.util.List;
 
@@ -11,6 +8,6 @@ public record SaleResponseDTO(
         LocalDate date,
         Double totalAmount,
         String paymentMethod,
-        List<ClothRequestDTO> cloth){
-
+        List<ClothesResponseDTO> cloth
+){
 }

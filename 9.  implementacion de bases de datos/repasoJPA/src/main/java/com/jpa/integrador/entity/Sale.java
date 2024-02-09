@@ -18,7 +18,7 @@ import java.util.List;
 public class Sale {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
     @Column(name = "fecha")
@@ -27,5 +27,11 @@ public class Sale {
     private Double totalAmount;
     @Column(name = "metodo_pago")
     private String paymentMethod;
-
+    @ManyToMany
+    @JoinTable(
+            name = "ventas_prendas",
+            joinColumns = @JoinColumn(name = "ventas_id", nullable = false, referencedColumnName = "id"),
+            inverseJoinColumns = @JoinColumn(name = "prendas_id", nullable = false, referencedColumnName = "id")
+    )
+    private List<Cloth> clothes;
 }
