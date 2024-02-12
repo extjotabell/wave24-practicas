@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/Siniestros")
+@RequestMapping("/api/siniestros")
 public class SiniestroController {
 
     private final SiniestroService siniestroService;
@@ -20,7 +20,7 @@ public class SiniestroController {
     }
 
     @PostMapping
-    public ResponseEntity<SiniestroDto> saveSiniestro(SiniestroDto siniestroDto){
+    public ResponseEntity<SiniestroDto> saveSiniestro(@RequestBody SiniestroDto siniestroDto){
         return new ResponseEntity<>(siniestroService.save(siniestroDto), HttpStatus.OK);
     }
 
