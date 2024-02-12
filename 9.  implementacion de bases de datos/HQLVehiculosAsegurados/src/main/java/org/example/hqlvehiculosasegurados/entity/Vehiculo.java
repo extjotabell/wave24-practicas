@@ -32,7 +32,15 @@ public class Vehiculo {
     @Column(name = "cantidad_de_ruedas")
     private Integer cantidadDeRuedas;
 
-    @OneToMany(mappedBy = "vehiculo")
+    @OneToMany(mappedBy = "vehiculo", cascade = CascadeType.ALL)
     private List<Siniestro> siniestros;
 
+    public Vehiculo(Long id, String patente, String marca, String modelo, Integer anioFabricacion, Integer cantidadDeRuedas) {
+        this.id = id;
+        this.patente = patente;
+        this.marca = marca;
+        this.modelo = modelo;
+        this.anioFabricacion = anioFabricacion;
+        this.cantidadDeRuedas = cantidadDeRuedas;
+    }
 }
