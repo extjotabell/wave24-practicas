@@ -18,8 +18,7 @@ public class Mapper {
                 vehiculoDto.marca(),
                 vehiculoDto.modelo(),
                 vehiculoDto.anioFabricacion(),
-                vehiculoDto.cantidadDeRuedas(),
-                convertListDtoToListSiniestro(vehiculoDto.siniestros())
+                vehiculoDto.cantidadDeRuedas()
         );
     }
 
@@ -30,8 +29,8 @@ public class Mapper {
                 vehiculo.getMarca(),
                 vehiculo.getModelo(),
                 vehiculo.getAnioFabricacion(),
-                vehiculo.getCantidadDeRuedas(),
-                convertListSiniestroToListDto(vehiculo.getSiniestros())
+                vehiculo.getCantidadDeRuedas()
+                //convertListSiniestroToListDto(vehiculo.getSiniestros())
         );
     }
 
@@ -51,7 +50,8 @@ public class Mapper {
         return new SiniestroDto(
                 siniestro.getId(),
                 siniestro.getFechaSiniestro(),
-                siniestro.getPerdidaEconomica()
+                siniestro.getPerdidaEconomica(),
+                siniestro.getId()
         );
     }
 

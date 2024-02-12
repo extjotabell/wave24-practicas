@@ -3,8 +3,10 @@ package org.example.hqlvehiculosasegurados.service;
 import org.example.hqlvehiculosasegurados.dto.ResponseDto;
 import org.example.hqlvehiculosasegurados.dto.SiniestroDto;
 import org.example.hqlvehiculosasegurados.entity.Siniestro;
+import org.example.hqlvehiculosasegurados.entity.Vehiculo;
 import org.example.hqlvehiculosasegurados.mapper.Mapper;
 import org.example.hqlvehiculosasegurados.repository.ISiniestroRepository;
+import org.example.hqlvehiculosasegurados.repository.IVehiculoRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -13,17 +15,22 @@ import java.util.List;
 public class SiniestroService implements ISiniestroService{
 
     private final ISiniestroRepository siniestroRepository;
+    private final IVehiculoRepository vehiculoRepository;
 
     private final Mapper mapper;
 
-    public SiniestroService(ISiniestroRepository siniestroRepository, Mapper mapper) {
+
+    public SiniestroService(ISiniestroRepository siniestroRepository, IVehiculoRepository vehiculoRepository, Mapper mapper) {
         this.siniestroRepository = siniestroRepository;
+        this.vehiculoRepository = vehiculoRepository;
         this.mapper = mapper;
     }
 
     @Override
     public SiniestroDto save(SiniestroDto siniestroDto) {
+        Vehiculo vehiculo = vehiculoRepository.getById(siniestroDto.idVehiculo());
         Siniestro siniestro = mapper.convertDtoToSiniestro(siniestroDto);
+        siniestro.setVehiculo(vehiculo);
         siniestroRepository.save(siniestro);
         return mapper.convertSiniestroToDto(siniestro);
     }

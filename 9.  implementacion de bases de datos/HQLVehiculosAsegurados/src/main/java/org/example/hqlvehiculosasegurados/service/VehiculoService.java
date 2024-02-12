@@ -49,7 +49,7 @@ public class VehiculoService implements IVehiculoService{
         vehiculoToUpdate.setModelo(vehiculoDto.modelo());
         vehiculoToUpdate.setAnioFabricacion(vehiculoDto.anioFabricacion());
         vehiculoToUpdate.setCantidadDeRuedas(vehiculoDto.cantidadDeRuedas());
-        vehiculoToUpdate.setSiniestros(mapper.convertListDtoToListSiniestro(vehiculoDto.siniestros()));
+        vehiculoToUpdate.setSiniestros(null);
         return new ResponseDto("Vehiculo actualizado");
     }
 
