@@ -48,4 +48,9 @@ public class SiniestroController {
     public ResponseEntity<List<Object[]>> getVehiculoSiniestroPerdida(){
         return new ResponseEntity<>(siniestroService.getVehiculoSiniestroPerdida(), HttpStatus.OK);
     }
+
+    @GetMapping("/vehiculo_siniestro_total")
+    public ResponseEntity<List<Object[]>> getVehiculosSiniestroPerdidaTotal(){
+        return new ResponseEntity<>(siniestroService.getVehiculosSiniestroPerdidaTotal(), HttpStatus.OK);
+    }
 }

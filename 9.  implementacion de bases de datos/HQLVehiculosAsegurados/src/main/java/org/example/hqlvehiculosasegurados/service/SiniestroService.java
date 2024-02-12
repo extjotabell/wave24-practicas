@@ -64,4 +64,8 @@ public class SiniestroService implements ISiniestroService{
     public List<Object[]> getVehiculoSiniestroPerdida(){
         return siniestroRepository.getVehiculoSiniestroPerdida();
     }
+
+    public List<Object[]> getVehiculosSiniestroPerdidaTotal(){
+        return siniestroRepository.getVehiculosSiniestroPerdidaTotal();
+    }
 }
