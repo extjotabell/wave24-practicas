@@ -10,7 +10,6 @@ public record SiniestroDto(
         @JsonProperty("fecha_siniestro")
         LocalDate fechaSiniestro,
         @JsonProperty("perdida_economica")
-        Double perdidaEconomica,
-        Vehiculo vehiculo
+        Double perdidaEconomica
 ) {
 }

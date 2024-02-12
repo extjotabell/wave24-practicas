@@ -28,5 +28,11 @@ public class Siniestro {
     @ManyToOne
     @JoinColumn(name = "id_vehiculo", nullable = false)
     private Vehiculo vehiculo;
+
+    public Siniestro(Long id, LocalDate fechaSiniestro, Double perdidaEconomica) {
+        this.id = id;
+        this.fechaSiniestro = fechaSiniestro;
+        this.perdidaEconomica = perdidaEconomica;
+    }
 }
 

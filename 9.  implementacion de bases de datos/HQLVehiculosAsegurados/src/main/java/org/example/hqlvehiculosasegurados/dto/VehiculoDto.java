@@ -15,6 +15,6 @@ public record VehiculoDto(
         Integer anioFabricacion,
         @JsonProperty("cantidad_de_ruedas")
         Integer cantidadDeRuedas,
-        List<Siniestro> siniestros
+        List<SiniestroDto> siniestros
 ) {
 }
