@@ -1,6 +1,5 @@
 package org.example.hqlvehiculosasegurados.controller;
 
-import org.example.hqlvehiculosasegurados.dto.PatenteDto;
 import org.example.hqlvehiculosasegurados.dto.ResponseDto;
 import org.example.hqlvehiculosasegurados.dto.VehiculoDto;
 import org.example.hqlvehiculosasegurados.service.VehiculoService;
@@ -46,9 +45,8 @@ public class VehiculoController {
     }
 
 
-
     @GetMapping("/patentes")
-    public ResponseEntity<PatenteDto> getAllPatentes(){
+    public ResponseEntity<List<String>> getAllPatentes(){
         return new ResponseEntity<>(vehiculoService.getAllPatentes(), HttpStatus.OK);
     }
 }

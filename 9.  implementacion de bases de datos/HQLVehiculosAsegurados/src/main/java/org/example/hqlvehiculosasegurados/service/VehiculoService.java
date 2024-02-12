@@ -1,6 +1,5 @@
 package org.example.hqlvehiculosasegurados.service;
 
-import org.example.hqlvehiculosasegurados.dto.PatenteDto;
 import org.example.hqlvehiculosasegurados.dto.ResponseDto;
 import org.example.hqlvehiculosasegurados.dto.VehiculoDto;
 import org.example.hqlvehiculosasegurados.entity.Vehiculo;
@@ -9,7 +8,6 @@ import org.example.hqlvehiculosasegurados.repository.IVehiculoRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.stream.Collectors;
 
 @Service
 public class VehiculoService implements IVehiculoService{
@@ -60,10 +58,7 @@ public class VehiculoService implements IVehiculoService{
         return new ResponseDto("Vehiculo eliminado.");
     }
 
-    public PatenteDto getAllPatentes(){
-        List<String> patenteDtoList = vehiculoRepository.findAll().stream()
-                .map(vehiculo -> vehiculo.getPatente())
-                .collect(Collectors.toList());
-        return new PatenteDto(patenteDtoList);
+    public List<String> getAllPatentes(){
+        return vehiculoRepository.getAllPatentes();
     }
 }
