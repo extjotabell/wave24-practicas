@@ -54,4 +54,9 @@ public class VehiculoController {
     public ResponseEntity<List<Object[]>> getPatenteMarcaVehiculosOrderByAnioFabricacion(){
         return new ResponseEntity<>(vehiculoService.getPatenteMarcaVehiculosOrderByAnioFabricacion(), HttpStatus.OK);
     }
+
+    @GetMapping("/patentes_ruedas_anio")
+    public ResponseEntity<List<Object[]>> getPatentesWhereRuedas4AnioActual(){
+        return new ResponseEntity<>(vehiculoService.getPatentesWhereRuedas4AnioActual(), HttpStatus.OK);
+    }
 }

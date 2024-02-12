@@ -65,4 +65,8 @@ public class VehiculoService implements IVehiculoService{
     public List<Object[]> getPatenteMarcaVehiculosOrderByAnioFabricacion(){
         return vehiculoRepository.getPatenteMarcaVehiculosOrderByAnioFabricacion();
     }
+
+    public List<Object[]> getPatentesWhereRuedas4AnioActual(){
+        return vehiculoRepository.getPatentesWhereRuedas4AnioActual();
+    }
 }
