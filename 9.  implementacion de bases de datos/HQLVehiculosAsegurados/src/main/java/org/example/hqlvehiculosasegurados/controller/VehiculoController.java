@@ -49,4 +49,9 @@ public class VehiculoController {
     public ResponseEntity<List<String>> getAllPatentes(){
         return new ResponseEntity<>(vehiculoService.getAllPatentes(), HttpStatus.OK);
     }
+
+    @GetMapping("/patentes_marcas_order")
+    public ResponseEntity<List<Object[]>> getPatenteMarcaVehiculosOrderByAnioFabricacion(){
+        return new ResponseEntity<>(vehiculoService.getPatenteMarcaVehiculosOrderByAnioFabricacion(), HttpStatus.OK);
+    }
 }
