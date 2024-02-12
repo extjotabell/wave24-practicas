@@ -1,6 +1,8 @@
 package org.example.hqlvehiculosasegurados.mapper;
 
+import org.example.hqlvehiculosasegurados.dto.SiniestroDto;
 import org.example.hqlvehiculosasegurados.dto.VehiculoDto;
+import org.example.hqlvehiculosasegurados.entity.Siniestro;
 import org.example.hqlvehiculosasegurados.entity.Vehiculo;
 import org.springframework.stereotype.Component;
 
@@ -17,7 +19,7 @@ public class Mapper {
                 vehiculoDto.modelo(),
                 vehiculoDto.anioFabricacion(),
                 vehiculoDto.cantidadDeRuedas(),
-                vehiculoDto.siniestros()
+                convertListDtoToListSiniestro(vehiculoDto.siniestros())
         );
     }
 
@@ -29,11 +31,35 @@ public class Mapper {
                 vehiculo.getModelo(),
                 vehiculo.getAnioFabricacion(),
                 vehiculo.getCantidadDeRuedas(),
-                vehiculo.getSiniestros()
+                convertListSiniestroToListDto(vehiculo.getSiniestros())
         );
     }
 
     public List<VehiculoDto> convertListToListDto(List<Vehiculo> vehiculoList){
         return vehiculoList.stream().map(this::convertVehiculoToDto).collect(Collectors.toList());
+    }
+
+    public Siniestro convertDtoToSiniestro(SiniestroDto siniestroDto){
+        return new Siniestro(
+                siniestroDto.id(),
+                siniestroDto.fechaSiniestro(),
+                siniestroDto.perdidaEconomica()
+        );
+    }
+
+    public SiniestroDto convertSiniestroToDto(Siniestro siniestro){
+        return new SiniestroDto(
+                siniestro.getId(),
+                siniestro.getFechaSiniestro(),
+                siniestro.getPerdidaEconomica()
+        );
+    }
+
+    public List<SiniestroDto> convertListSiniestroToListDto(List<Siniestro> siniestroList){
+        return siniestroList.stream().map(this::convertSiniestroToDto).collect(Collectors.toList());
+    }
+
+    public List<Siniestro> convertListDtoToListSiniestro(List<SiniestroDto> siniestroDtoList){
+        return siniestroDtoList.stream().map(this::convertDtoToSiniestro).collect(Collectors.toList());
     }
 }
