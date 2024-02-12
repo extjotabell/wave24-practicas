@@ -43,4 +43,9 @@ public class SiniestroController {
     public ResponseEntity<ResponseDto> deleteSiniestroById(@PathVariable Long id){
         return new ResponseEntity<>(siniestroService.deleteById(id), HttpStatus.OK);
     }
+
+    @GetMapping("/vehiculo_siniestro")
+    public ResponseEntity<List<Object[]>> getVehiculoSiniestroPerdida(){
+        return new ResponseEntity<>(siniestroService.getVehiculoSiniestroPerdida(), HttpStatus.OK);
+    }
 }

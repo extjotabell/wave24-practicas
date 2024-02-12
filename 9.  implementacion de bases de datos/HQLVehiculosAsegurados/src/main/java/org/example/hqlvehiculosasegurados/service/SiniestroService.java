@@ -60,4 +60,8 @@ public class SiniestroService implements ISiniestroService{
         siniestroRepository.delete(siniestro);
         return new ResponseDto("Siniestro eliminado");
     }
+
+    public List<Object[]> getVehiculoSiniestroPerdida(){
+        return siniestroRepository.getVehiculoSiniestroPerdida();
+    }
 }
