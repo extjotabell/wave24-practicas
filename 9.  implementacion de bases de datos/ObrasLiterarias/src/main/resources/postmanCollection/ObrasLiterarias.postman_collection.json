@@ -1,0 +1,125 @@
+{
+	"info": {
+		"_postman_id": "79e35559-f022-43b6-a0a8-b9545841cd89",
+		"name": "ObrasLiterarias",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Retornar las obras de un autor dado por el usuario",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/obras_autor/autor1",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"obras_autor",
+						"autor1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Retornar las obras que contengan palabras dadas por el usuario en sus títulos.",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/obras_nombre/nombre",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"obras_nombre",
+						"nombre"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Retornar las obras con más cantidad de páginas que las indicadas por el usuario",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/obras_cantidad_paginas/19",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"obras_cantidad_paginas",
+						"19"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Retornar las obras de una misma editorial",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/obras_editorial/editorial1",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"obras_editorial",
+						"editorial1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Retornar las obras que fueron publicadas antes de un año dado por el usuario",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/obras_anio_publicacion/antes/2005",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"obras_anio_publicacion",
+						"antes",
+						"2005"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Retornar las obras que fueron publicadas despues de un año dado por el usuario",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/obras_anio_publicacion/despues/2006",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"obras_anio_publicacion",
+						"despues",
+						"2006"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

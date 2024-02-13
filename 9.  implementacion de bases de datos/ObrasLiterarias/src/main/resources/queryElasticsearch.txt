@@ -1,0 +1,18 @@
+POST /obras_literarias/_bulk
+{"index":{}}
+{"id":"1","nombre":"nombre1","autor":"autor1", "cantidadPaginas":18, "editorial":"editorial1", "anioPublicacion":2020}
+{"index":{}}
+{"id":"2","nombre":"nombre2","autor":"autor2", "cantidadPaginas":20, "editorial":"editorial2", "anioPublicacion":1990}
+{"index":{}}
+{"id":"3","nombre":"nombre3","autor":"autor1", "cantidadPaginas":100, "editorial":"editorial1", "anioPublicacion":2005}
+{"index":{}}
+{"id":"4","nombre":"nombre4","autor":"autor3", "cantidadPaginas":50, "editorial":"editorial2", "anioPublicacion":2003}
+
+GET /obras_literarias/_search
+{
+  "query": {
+    "match_all": {
+
+    }
+  }
+}
