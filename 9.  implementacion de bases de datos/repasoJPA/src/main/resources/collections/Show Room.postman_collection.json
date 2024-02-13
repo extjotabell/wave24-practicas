@@ -1,0 +1,359 @@
+{
+	"info": {
+		"_postman_id": "bcfae9fc-8f73-4a65-bf90-f86aaca2b1aa",
+		"name": "Show Room",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "32253076"
+	},
+	"item": [
+		{
+			"name": "Cloth",
+			"item": [
+				{
+					"name": "Create a new cloth",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Camisa\",\n    \"brand\": \"Pollito\",\n    \"color\": \"Azul\",\n    \"size\": \"30\",\n    \"quantity\": 30,\n    \"salePrice\": 40000\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{$server}}/api/clothes",
+							"host": [
+								"{{$server}}"
+							],
+							"path": [
+								"api",
+								"clothes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get all",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{$server}}/api/clothes",
+							"host": [
+								"{{$server}}"
+							],
+							"path": [
+								"api",
+								"clothes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get one cloth",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{$server}}/api/clothes/1",
+							"host": [
+								"{{$server}}"
+							],
+							"path": [
+								"api",
+								"clothes",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update a cloth",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"size\": 28,\n    \"quantity\": 15,\n    \"salePrice\": 60000.0\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{$server}}/api/clothes/1",
+							"host": [
+								"{{$server}}"
+							],
+							"path": [
+								"api",
+								"clothes",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete a cloth",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{$server}}/api/clothes/2",
+							"host": [
+								"{{$server}}"
+							],
+							"path": [
+								"api",
+								"clothes",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get by size",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{$server}}/api/clothes/search/30",
+							"host": [
+								"{{$server}}"
+							],
+							"path": [
+								"api",
+								"clothes",
+								"search",
+								"30"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get by name",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{$server}}/api/clothes/contains?name=remera",
+							"host": [
+								"{{$server}}"
+							],
+							"path": [
+								"api",
+								"clothes",
+								"contains"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "remera"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Sale",
+			"item": [
+				{
+					"name": "Create new sale",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"date\": \"2024-02-09\",\n    \"totalAmount\": 4,\n    \"paymentMethod\": \"card\",\n    \"clothes\": [\n        {\n            \"id\": 3\n        }\n    ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{$server}}/api/sale",
+							"host": [
+								"{{$server}}"
+							],
+							"path": [
+								"api",
+								"sale"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get all",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{$server}}/api/sale",
+							"host": [
+								"{{$server}}"
+							],
+							"path": [
+								"api",
+								"sale"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get one sale",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{$server}}/api/sale/1",
+							"host": [
+								"{{$server}}"
+							],
+							"path": [
+								"api",
+								"sale",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update a sale",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"totalAmount\": 2,\n    \"clothes\": [\n        {\n            \"id\": 3\n        },\n        {\n            \"id\": 1\n        }\n    ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{$server}}/api/sale/2",
+							"host": [
+								"{{$server}}"
+							],
+							"path": [
+								"api",
+								"sale",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete a sale",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{$server}}/api/sale/1",
+							"host": [
+								"{{$server}}"
+							],
+							"path": [
+								"api",
+								"sale",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get by date",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{$server}}/api/sale/findByDate?date=09/02/2024",
+							"host": [
+								"{{$server}}"
+							],
+							"path": [
+								"api",
+								"sale",
+								"findByDate"
+							],
+							"query": [
+								{
+									"key": "date",
+									"value": "09/02/2024"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get by",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "$server",
+			"value": "http://localhost:8080",
+			"type": "string"
+		}
+	]
+}
