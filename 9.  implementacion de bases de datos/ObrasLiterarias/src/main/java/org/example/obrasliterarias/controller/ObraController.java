@@ -32,4 +32,9 @@ public class ObraController {
     public ResponseEntity<List<Obra>> getObrasCantidadPaginas(@PathVariable Integer cantidad_paginas){
         return new ResponseEntity<>(obraService.getByCantidadPaginas(cantidad_paginas), HttpStatus.OK);
     }
+
+    @GetMapping("/obras_editorial/{editorial}")
+    public ResponseEntity<List<Obra>> getObrasCantidadPaginas(@PathVariable String editorial){
+        return new ResponseEntity<>(obraService.getByEditorial(editorial), HttpStatus.OK);
+    }
 }

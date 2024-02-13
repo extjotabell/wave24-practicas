@@ -15,4 +15,7 @@ public interface IObraRepository extends ElasticsearchRepository<Obra, Long> {
 
     //Retornar las obras con más cantidad de páginas que las indicadas por el usuario
     List<Obra> findByCantidadPaginasGreaterThan(Integer cantidadPaginas);
+
+    //Retornar las obras de una misma editorial
+    List<Obra> findByEditorial(String editorial);
 }

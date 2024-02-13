@@ -23,4 +23,6 @@ public interface IObraService {
     List<Obra> getByNombre(String nombre);
 
     List<Obra> getByCantidadPaginas(Integer cantidadPaginas);
+
+    List<Obra> getByEditorial(String editorial);
 }

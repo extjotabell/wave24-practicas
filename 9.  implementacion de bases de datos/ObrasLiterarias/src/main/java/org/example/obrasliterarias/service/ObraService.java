@@ -60,4 +60,9 @@ public class ObraService implements IObraService{
     public List<Obra> getByCantidadPaginas(Integer cantidadPaginas) {
         return obraRepository.findByCantidadPaginasGreaterThan(cantidadPaginas);
     }
+
+    @Override
+    public List<Obra> getByEditorial(String editorial) {
+        return obraRepository.findByEditorial(editorial);
+    }
 }
