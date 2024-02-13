@@ -18,4 +18,9 @@ public interface IObraRepository extends ElasticsearchRepository<Obra, Long> {
 
     //Retornar las obras de una misma editorial
     List<Obra> findByEditorial(String editorial);
+
+    //Retornar las obras que fueron publicadas antes y después de un año dado por el usuario (crear 2 endpoints).
+    List<Obra> findByAnioPublicacionBefore(Integer anioPublicacion);
+
+    List<Obra> findByAnioPublicacionAfter(Integer anioPublicacion);
 }

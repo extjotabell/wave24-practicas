@@ -37,4 +37,14 @@ public class ObraController {
     public ResponseEntity<List<Obra>> getObrasCantidadPaginas(@PathVariable String editorial){
         return new ResponseEntity<>(obraService.getByEditorial(editorial), HttpStatus.OK);
     }
+
+    @GetMapping("/obras_anio_publicacion/antes/{anio}")
+    public ResponseEntity<List<Obra>> getObrasAnioPublicacionBefore(@PathVariable Integer anio){
+        return new ResponseEntity<>(obraService.getByAnioPublicacionBefore(anio), HttpStatus.OK);
+    }
+
+    @GetMapping("/obras_anio_publicacion/despues/{anio}")
+    public ResponseEntity<List<Obra>> getObrasAnioPublicacionAfter(@PathVariable Integer anio){
+        return new ResponseEntity<>(obraService.getByAnioPublicacionAfter(anio), HttpStatus.OK);
+    }
 }

@@ -65,4 +65,14 @@ public class ObraService implements IObraService{
     public List<Obra> getByEditorial(String editorial) {
         return obraRepository.findByEditorial(editorial);
     }
+
+    @Override
+    public List<Obra> getByAnioPublicacionBefore(Integer anioPublicacion) {
+        return obraRepository.findByAnioPublicacionBefore(anioPublicacion);
+    }
+
+    @Override
+    public List<Obra> getByAnioPublicacionAfter(Integer anioPublicacion) {
+        return obraRepository.findByAnioPublicacionAfter(anioPublicacion);
+    }
 }

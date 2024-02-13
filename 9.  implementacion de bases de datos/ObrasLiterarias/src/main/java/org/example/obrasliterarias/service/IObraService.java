@@ -25,4 +25,8 @@ public interface IObraService {
     List<Obra> getByCantidadPaginas(Integer cantidadPaginas);
 
     List<Obra> getByEditorial(String editorial);
+
+    List<Obra> getByAnioPublicacionBefore(Integer anioPublicacion);
+
+    List<Obra> getByAnioPublicacionAfter(Integer anioPublicacion);
 }
