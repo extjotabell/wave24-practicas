@@ -22,4 +22,9 @@ public class ObraController {
     public ResponseEntity<List<Obra>> getObrasAutor(@PathVariable String autor){
         return new ResponseEntity<>(obraService.getByAutor(autor), HttpStatus.OK);
     }
+
+    @GetMapping("/obras_nombre/{nombre}")
+    public ResponseEntity<List<Obra>> getObrasNombre(@PathVariable String nombre){
+        return new ResponseEntity<>(obraService.getByNombre(nombre), HttpStatus.OK);
+    }
 }

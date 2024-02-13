@@ -19,4 +19,6 @@ public interface IObraService {
     ResponseDto deleteById(Long id);
 
     List<Obra> getByAutor(String autor);
+
+    List<Obra> getByNombre(String nombre);
 }

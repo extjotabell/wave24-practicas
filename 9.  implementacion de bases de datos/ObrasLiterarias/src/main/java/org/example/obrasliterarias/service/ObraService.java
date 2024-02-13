@@ -50,4 +50,9 @@ public class ObraService implements IObraService{
     public List<Obra> getByAutor(String autor) {
         return obraRepository.findByAutor(autor);
     }
+
+    @Override
+    public List<Obra> getByNombre(String nombre) {
+        return obraRepository.findByNombreContaining(nombre);
+    }
 }
