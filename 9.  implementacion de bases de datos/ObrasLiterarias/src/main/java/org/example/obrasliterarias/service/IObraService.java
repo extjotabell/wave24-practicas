@@ -21,4 +21,6 @@ public interface IObraService {
     List<Obra> getByAutor(String autor);
 
     List<Obra> getByNombre(String nombre);
+
+    List<Obra> getByCantidadPaginas(Integer cantidadPaginas);
 }

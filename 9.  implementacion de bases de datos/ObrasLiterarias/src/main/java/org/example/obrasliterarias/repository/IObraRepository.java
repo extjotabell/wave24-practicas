@@ -12,4 +12,7 @@ public interface IObraRepository extends ElasticsearchRepository<Obra, Long> {
 
     //Retornar las obras que contengan palabras dadas por el usuario en sus títulos.
     List<Obra> findByNombreContaining(String nombre);
+
+    //Retornar las obras con más cantidad de páginas que las indicadas por el usuario
+    List<Obra> findByCantidadPaginasGreaterThan(Integer cantidadPaginas);
 }

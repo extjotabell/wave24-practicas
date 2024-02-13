@@ -55,4 +55,9 @@ public class ObraService implements IObraService{
     public List<Obra> getByNombre(String nombre) {
         return obraRepository.findByNombreContaining(nombre);
     }
+
+    @Override
+    public List<Obra> getByCantidadPaginas(Integer cantidadPaginas) {
+        return obraRepository.findByCantidadPaginasGreaterThan(cantidadPaginas);
+    }
 }

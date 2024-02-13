@@ -27,4 +27,9 @@ public class ObraController {
     public ResponseEntity<List<Obra>> getObrasNombre(@PathVariable String nombre){
         return new ResponseEntity<>(obraService.getByNombre(nombre), HttpStatus.OK);
     }
+
+    @GetMapping("/obras_cantidad_paginas/{cantidad_paginas}")
+    public ResponseEntity<List<Obra>> getObrasCantidadPaginas(@PathVariable Integer cantidad_paginas){
+        return new ResponseEntity<>(obraService.getByCantidadPaginas(cantidad_paginas), HttpStatus.OK);
+    }
 }
