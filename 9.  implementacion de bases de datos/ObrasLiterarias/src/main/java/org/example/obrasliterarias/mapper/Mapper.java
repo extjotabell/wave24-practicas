@@ -4,6 +4,9 @@ import org.example.obrasliterarias.dto.ObraDto;
 import org.example.obrasliterarias.entity.Obra;
 import org.springframework.stereotype.Component;
 
+import java.util.List;
+import java.util.stream.Collectors;
+
 @Component
 public class Mapper {
 
@@ -27,5 +30,10 @@ public class Mapper {
                 obra.getEditorial(),
                 obra.getAnioPublicacion()
         );
+    }
+
+    public List<ObraDto> convertEntityListToDtoList(List<Obra> obraList){
+        return obraList.stream().map(this::convertEntityToDto)
+                .collect(Collectors.toList());
     }
 }
