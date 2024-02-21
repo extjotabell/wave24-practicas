@@ -3,6 +3,8 @@ package org.example.deportistas.controller;
 import org.example.deportistas.dto.DeportistaDTO;
 import org.example.deportistas.model.Deporte;
 import org.example.deportistas.model.Persona;
+import org.example.deportistas.service.IDeporteService;
+import org.example.deportistas.service.IPersonaService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -14,58 +16,37 @@ import java.util.Objects;
 
 @RestController
 public class DeportistasRestController {
-    // Deportes
-    private Deporte tenis = new Deporte("Tenis", 5);
-    private Deporte futbol = new Deporte("Futbol", 4);
-    private Deporte natacion = new Deporte("Natacion", 3);
-    private Deporte basquet = new Deporte("Basquet", 2);
 
-    private List<Deporte> deportes = new ArrayList<>() {{
-        add(tenis);
-        add(futbol);
-        add(natacion);
-        add(basquet);
-    }};
+    IDeporteService deporteService;
+    IPersonaService personaService;
 
-    // Personas
-    private Persona persona1 = new Persona("Juan", "Perez", 20, tenis);
-    private Persona persona2 = new Persona("Pedro", "Gomez", 30, futbol);
-    private Persona persona3 = new Persona("Maria", "Lopez", 40, null);
-    private Persona persona4 = new Persona("Jose", "Gonzalez", 50, basquet);
-    private Persona persona5 = new Persona("Ana", "Rodriguez", 60, null);
-
-    private List<Persona> personas = new ArrayList<>() {{
-        add(persona1);
-        add(persona2);
-        add(persona3);
-        add(persona4);
-        add(persona5);
-    }};
+    public DeportistasRestController(IDeporteService deporteService, IPersonaService personaService) {
+        this.deporteService = deporteService;
+        this.personaService = personaService;
+    }
 
 
     @GetMapping("/findSports")
     public ResponseEntity<List<Deporte>> findSports() {
+        List<Deporte> deportes = deporteService.findSports();
         return ResponseEntity.ok(deportes);
     }
 
     @GetMapping("/findSport/{nombre}")
     public ResponseEntity<Deporte> findDeporte(@PathVariable String nombre) {
-        Deporte deporte = deportes.stream()
-                .filter(d -> d.getNombre().equals(nombre))
-                .findFirst()
-                .orElse(null);
-
+        Deporte deporte = deporteService.findSport(nombre);
         return deporte != null ? ResponseEntity.ok(deporte) : ResponseEntity.notFound().build();
     }
 
     @GetMapping("/findSportsPersons")
     public ResponseEntity<List<DeportistaDTO>> findSportsPersons() {
-        List<DeportistaDTO> deportistas = new ArrayList<>();
-        personas.forEach(p -> {
-            if (Objects.nonNull(p.getDeporte())) {
-                deportistas.add(new DeportistaDTO(p.getNombre(), p.getApellido(), p.getDeporte().getNombre()));
+        List<Persona> personas = personaService.findPersons();
+        List<DeportistaDTO> deportistas = personas.stream().map(persona -> {
+            if (persona.getDeporte() != null) {
+                return new DeportistaDTO(persona.getNombre(), persona.getApellido(), persona.getDeporte().getNombre());
             }
-        });
+            return null;
+        }).filter(Objects::nonNull).toList();
 
         return ResponseEntity.ok(deportistas);
     }
