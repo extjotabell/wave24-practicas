@@ -1,0 +1,60 @@
+{
+	"info": {
+		"_postman_id": "a1aba7d8-bce3-45ac-8ece-55469bd1970d",
+		"name": "Elasticsearch-Zapatillas",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "32301042"
+	},
+	"item": [
+		{
+			"name": "put CrearBD",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"mappings\":{\n        \"properties\":{\n            \"modelo\":{\n                \"type\":\"text\"\n            },\n            \"horma\":{\n                \"type\":\"text\"\n            },\n            \"color\":{\n                \"type\":\"text\"\n            }\n        }\n    }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:9200/adidas",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9200",
+					"path": [
+						"adidas"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "post InsercionZapatilla",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "get hormaZapatilla",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		}
+	]
+}
